@@ -98,7 +98,7 @@ const Footer = () => {
           className="mt-16 border-t border-border pt-8"
         >
           <p className="font-body text-xs text-muted-foreground">
-            &copy; 2026 æther. All rights reserved.
+            &copy; 2026 Æther. All rights reserved.
           </p>
         </motion.div>
       </motion.div>
