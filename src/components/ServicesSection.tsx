@@ -1,85 +1,91 @@
 import { motion } from "framer-motion";
+import { CreditCard, Cog, Link2, Workflow } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { EASE, viewport } from "@/lib/motion";
 
-const services = [
+interface Service {
+  name: string;
+  description: string;
+  Icon: LucideIcon;
+  span: string;
+}
+
+const services: Service[] = [
   {
-    number: "01",
-    title: "Strategy",
-    tags: ["Market Research", "Brand Positioning", "Digital Roadmap"],
-    description: "We distill complex challenges into clear, actionable roadmaps that align your brand with its highest potential.",
+    name: "Intelligent Automations",
+    description:
+      "Custom automation pipelines that eliminate repetitive tasks, reduce errors, and free your team for work that actually matters.",
+    Icon: Cog,
+    span: "sm:col-span-2 sm:row-span-1",
   },
   {
-    number: "02",
-    title: "Design",
-    tags: ["UI/UX", "Brand Identity", "Motion Design"],
-    description: "Every detail is deliberate. We craft interfaces that feel intuitive, look stunning, and communicate authority.",
+    name: "Seamless Integrations",
+    description:
+      "Connect your tools into one unified ecosystem. Data flows automatically between systems — no copy-pasting, no delays.",
+    Icon: Link2,
+    span: "sm:col-span-1 sm:row-span-1",
   },
   {
-    number: "03",
-    title: "Development",
-    tags: ["Frontend", "Backend", "Infrastructure"],
-    description: "Robust, scalable code built with modern technologies — engineered for performance and longevity.",
+    name: "Payment Reconciliation",
+    description:
+      "Automated matching and verification of every transaction. Discrepancies caught in seconds, not days.",
+    Icon: CreditCard,
+    span: "sm:col-span-1 sm:row-span-1",
   },
   {
-    number: "04",
-    title: "Growth",
-    tags: ["Analytics", "SEO", "Conversion"],
-    description: "Data-informed strategies that turn beautiful experiences into measurable business outcomes.",
+    name: "Process Optimization",
+    description:
+      "We audit, redesign, and implement workflows that cut bottlenecks and operational costs — measurably.",
+    Icon: Workflow,
+    span: "sm:col-span-2 sm:row-span-1",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-32 px-6 md:px-16 lg:px-24 bg-card">
-      <div className="max-w-6xl">
+    <section id="services" className="px-6 py-20 md:px-10 md:py-32">
+      <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={{ duration: 0.7, ease: EASE }}
+          className="mb-16"
         >
-          <p className="font-body text-[13px] font-medium tracking-wide text-muted-foreground mb-4">
+          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
             What we do
           </p>
-          <h2 className="font-heading text-5xl md:text-7xl text-foreground">
-            Services & <span className="italic text-secondary">expertise</span>
+          <h2 className="max-w-3xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+            Operations,{" "}
+            <span className="text-gradient italic">on autopilot.</span>
           </h2>
         </motion.div>
 
-        <div className="space-y-0">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+            <motion.article
+              key={service.name}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="group grid md:grid-cols-[80px_1fr_2fr] gap-4 md:gap-10 py-10 border-b border-border items-start"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.58,
+                delay: i * 0.07,
+                ease: EASE,
+              }}
+              whileHover={{ y: -5 }}
+              className={`shadow-lift group flex flex-col rounded-2xl border border-border bg-card p-8 lg:p-10 ${service.span}`}
             >
-              <span className="font-body text-[13px] font-medium text-muted-foreground/50 pt-2">
-                {service.number}
+              <span className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/15">
+                <service.Icon className="h-6 w-6" strokeWidth={1.5} />
               </span>
-
-              <h3 className="font-heading text-3xl md:text-4xl text-foreground group-hover:text-primary transition-colors duration-500">
-                {service.title}
+              <h3 className="font-heading text-xl font-semibold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary-bright">
+                {service.name}
               </h3>
-
-              <div className="flex flex-col gap-3">
-                <p className="font-body text-sm font-light text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-1">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-body text-[11px] font-medium tracking-wide text-muted-foreground bg-background px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              <p className="mt-3 font-body text-sm font-light leading-relaxed text-muted-foreground">
+                {service.description}
+              </p>
+            </motion.article>
           ))}
         </div>
       </div>

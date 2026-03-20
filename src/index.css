@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Satoshi:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,47 +6,98 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 210 11% 15%;
+    /* ─────────────────────────────────────────
+       VOID — surfaces (cold blue-violet tint)
+    ───────────────────────────────────────── */
+    --background:       240 14% 4%;    /* #08080A */
+    --background-deep:  240 16% 3%;    /* #050507 */
 
-    --card: 40 20% 95%;
-    --card-foreground: 210 11% 15%;
+    --card:             240 12% 7%;    /* #0F0F12 */
+    --card-raised:      240 10% 10%;   /* #16161A */
 
-    --popover: 0 0% 98%;
-    --popover-foreground: 210 11% 15%;
+    --popover:          240 12% 7%;
+    --popover-foreground: 40 8% 88%;
 
-    --primary: 16 40% 48%;
-    --primary-foreground: 0 0% 98%;
+    --card-foreground:  40 8% 88%;
 
-    --secondary: 155 18% 42%;
-    --secondary-foreground: 0 0% 98%;
+    /* ─────────────────────────────────────────
+       SILVER — type
+    ───────────────────────────────────────── */
+    --foreground:       40 8% 88%;     /* #E2E0DC — warm-neutral off-white */
+    --foreground-dim:   240 5% 64%;    /* #9E9EA8 */
+    --foreground-muted: 240 8% 38%;    /* #5A5A68 */
 
-    --muted: 40 12% 92%;
-    --muted-foreground: 210 6% 50%;
+    /* ─────────────────────────────────────────
+       BORDERS
+    ───────────────────────────────────────── */
+    --border:           240 11% 13%;   /* #1E1E24 */
+    --input:            240 11% 13%;
+    --border-subtle:    240 9% 17%;    /* #26262E */
 
-    --accent: 40 30% 88%;
-    --accent-foreground: 210 11% 15%;
+    /* ─────────────────────────────────────────
+       PERIWINKLE — primary accent
+    ───────────────────────────────────────── */
+    --primary:          240 30% 73%;   /* #B4B4E0 */
+    --primary-foreground: 240 16% 3%;  /* #050507 */
+    --primary-bright:   240 32% 87%;   /* #CECEF0 */
+    --primary-dim:      240 28% 61%;   /* #8080B8 */
+    --primary-deep:     240 34% 47%;   /* #5050A0 */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* ─────────────────────────────────────────
+       SECONDARY / MUTED SURFACES
+    ───────────────────────────────────────── */
+    --secondary:        240 12% 7%;
+    --secondary-foreground: 40 8% 88%;
 
-    --border: 40 10% 90%;
-    --input: 40 10% 90%;
-    --ring: 16 40% 48%;
+    --muted:            240 10% 10%;
+    --muted-foreground: 240 8% 38%;
 
-    --radius: 0.375rem;
+    --accent:           240 9% 17%;
+    --accent-foreground: 40 8% 88%;
 
-    --font-heading: 'Instrument Serif', Georgia, serif;
-    --font-body: 'Satoshi', system-ui, sans-serif;
+    /* ─────────────────────────────────────────
+       SEMANTIC
+    ───────────────────────────────────────── */
+    --success:          150 38% 36%;
+    --success-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 210 11% 15%;
-    --sidebar-primary: 16 40% 48%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 40 12% 92%;
-    --sidebar-accent-foreground: 210 11% 15%;
-    --sidebar-border: 40 10% 90%;
-    --sidebar-ring: 16 40% 48%;
+    --destructive:      0 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning:          38 85% 48%;
+    --warning-foreground: 0 0% 0%;
+
+    /* ─────────────────────────────────────────
+       RING / RADIUS
+    ───────────────────────────────────────── */
+    --ring: 240 30% 73%;
+    --radius: 0.625rem;
+
+    /* ─────────────────────────────────────────
+       TYPOGRAPHY
+    ───────────────────────────────────────── */
+    --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+    --font-body:    "Outfit", system-ui, sans-serif;
+    --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    --footer:             240 16% 3%;
+    --footer-foreground:  40 8% 88%;
+    --footer-muted:       240 8% 38%;
+
+    /* ─────────────────────────────────────────
+       SIDEBAR
+    ───────────────────────────────────────── */
+    --sidebar-background:         240 14% 4%;
+    --sidebar-foreground:         40 8% 88%;
+    --sidebar-primary:            240 30% 73%;
+    --sidebar-primary-foreground: 240 16% 3%;
+    --sidebar-accent:             240 10% 10%;
+    --sidebar-accent-foreground:  40 8% 88%;
+    --sidebar-border:             240 11% 13%;
+    --sidebar-ring:               240 30% 73%;
   }
 }
 
@@ -55,19 +106,233 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    /* Offset fixed navbar when jumping to #section anchors */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--font-mono);
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* ─────────────────────────────────────────
+     HERO ATMOSPHERE
+  ───────────────────────────────────────── */
+  .hero-atmosphere {
+    background:
+      radial-gradient(ellipse 65% 60% at 65% 25%, hsl(240 30% 73% / 0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 50% at 18% 78%, hsl(240 28% 61% / 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 100% at 50% 50%, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
+  }
+
+  /* ─────────────────────────────────────────
+     HERO GRID
+  ───────────────────────────────────────── */
+  .hero-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 70%);
+  }
+
+  /* ─────────────────────────────────────────
+     SECTION ELEVATED
+  ───────────────────────────────────────── */
+  .section-elevated {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--card)) 0%,
+      hsl(var(--background)) 100%
+    );
+  }
+
+  /* ─────────────────────────────────────────
+     GLOW BORDER — periwinkle gradient edge
+  ───────────────────────────────────────── */
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.5),
+      transparent 50%,
+      hsl(var(--primary) / 0.15)
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+
+  /* ─────────────────────────────────────────
+     TEXT GRADIENT — silver → peri-bright → peri-dim
+  ───────────────────────────────────────── */
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--foreground)) 0%,
+      hsl(var(--primary-bright)) 55%,
+      hsl(var(--primary-dim)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ─────────────────────────────────────────
+     PERIWINKLE UTILITIES
+  ───────────────────────────────────────── */
+  .text-peri {
+    color: hsl(var(--primary));
+  }
+
+  .text-peri-bright {
+    color: hsl(var(--primary-bright));
+  }
+
+  .bg-peri {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .border-peri {
+    border-color: hsl(var(--primary) / 0.25);
+  }
+
+  /* ─────────────────────────────────────────
+     BADGE
+  ───────────────────────────────────────── */
+  .badge-peri {
+    background: hsl(240 30% 73% / 0.08);
+    color: hsl(var(--primary-bright));
+    border: 1px solid hsl(240 30% 73% / 0.18);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  /* ─────────────────────────────────────────
+     GRADIENT STRIP — page divider / progress
+  ───────────────────────────────────────── */
+  .gradient-strip {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.4) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Subtle film grain — sits above hero atmosphere */
+  .noise-overlay {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Slow breathing bloom on hero */
+  .hero-bloom {
+    background: radial-gradient(
+      ellipse 55% 45% at 58% 28%,
+      hsl(240 30% 73% / 0.09),
+      transparent 65%
+    );
+    animation: hero-bloom 14s ease-in-out infinite;
+  }
+
+  @keyframes hero-bloom {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.06);
+      opacity: 0.88;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bloom {
+      animation: none;
+    }
+  }
+
+  /* Nav anchor — underline grows on hover */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 0;
+    background: hsl(var(--primary) / 0.85);
+    transition: width 0.35s cubic-bezier(0.25, 0.1, 0, 1);
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Card lift shadow — use with transition-shadow duration-300 */
+  .shadow-lift {
+    box-shadow: 0 0 0 1px hsl(var(--border) / 0.6);
+    transition: box-shadow 0.35s cubic-bezier(0.25, 0.1, 0, 1),
+      transform 0.35s cubic-bezier(0.25, 0.1, 0, 1);
+  }
+  .shadow-lift:hover {
+    box-shadow: 0 20px 48px -24px hsl(240 30% 73% / 0.12),
+      0 0 0 1px hsl(var(--primary) / 0.12);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shadow-lift:hover {
+      transform: none;
+    }
   }
 }

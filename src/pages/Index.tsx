@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ClientsMarquee from "@/components/ClientsMarquee";
-import SelectedWork from "@/components/SelectedWork";
+import WhoWeHelpSection from "@/components/WhoWeHelpSection";
+import ProblemSolutionSection from "@/components/ProblemSolutionSection";
 import ServicesSection from "@/components/ServicesSection";
-import AboutSection from "@/components/AboutSection";
-import Testimonials from "@/components/Testimonials";
-import CTASection from "@/components/CTASection";
+import ProcessSection from "@/components/ProcessSection";
+import ClientShowcase from "@/components/ClientShowcase";
+import MetricsSection from "@/components/MetricsSection";
+import WhyAetherSection from "@/components/WhyAetherSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -13,12 +15,15 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <ClientsMarquee />
-      <SelectedWork />
+      <div className="gradient-strip opacity-80" aria-hidden />
+      <WhoWeHelpSection />
+      <ProblemSolutionSection />
       <ServicesSection />
-      <AboutSection />
-      <Testimonials />
-      <CTASection />
+      <ProcessSection />
+      <ClientShowcase />
+      <MetricsSection />
+      <WhyAetherSection />
+      <ContactSection />
       <Footer />
     </div>
   );
