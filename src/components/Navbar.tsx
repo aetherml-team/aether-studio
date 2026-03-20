@@ -3,24 +3,24 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 py-6 bg-background/80 backdrop-blur-md border-b border-border/50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.2 }}
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 lg:px-24 py-7 bg-background"
     >
-      <a href="/" className="font-heading text-2xl tracking-widest text-foreground">
+      <a href="/" className="font-heading text-2xl font-semibold tracking-wide text-foreground">
         ÆTHER
       </a>
-      <div className="hidden md:flex items-center gap-10 font-body text-sm tracking-wider text-muted-foreground">
-        <a href="#about" className="hover:text-foreground transition-colors duration-300">About</a>
-        <a href="#services" className="hover:text-foreground transition-colors duration-300">Services</a>
-        <a href="#contact" className="hover:text-foreground transition-colors duration-300">Contact</a>
+      <div className="hidden md:flex items-center gap-10 font-body text-[13px] font-light tracking-wider text-muted-foreground uppercase">
+        <a href="#services" className="hover:text-foreground transition-colors duration-500">Services</a>
+        <a href="#about" className="hover:text-foreground transition-colors duration-500">About</a>
+        <a href="#contact" className="hover:text-foreground transition-colors duration-500">Contact</a>
       </div>
       <a
         href="#contact"
-        className="hidden md:inline-block px-6 py-2.5 text-xs tracking-widest uppercase font-body font-medium bg-primary text-primary-foreground hover:opacity-90 transition-opacity duration-300"
+        className="hidden md:inline-block font-body text-[13px] font-light tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-500"
       >
-        Get Started
+        Let's Talk →
       </a>
     </motion.nav>
   );
