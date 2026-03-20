@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { EASE, viewport } from "@/lib/motion";
+import { SectionCTA } from "@/components/SectionCTA";
 
 const tags = ["Zero manual entry", "Real-time sync", "99.8% accuracy"] as const;
 
@@ -18,12 +19,14 @@ const ProblemSolutionSection = () => {
             The problem
           </p>
           <h2 className="font-heading text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Your team is drowning in manual work
+            Your team is drowning in{" "}
+            <span className="text-gradient">manual work</span>
           </h2>
           <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
-            Repetitive tasks, disconnected systems, and endless spreadsheets.
-            Every hour spent on operational toil is an hour not spent growing
-            your business.
+            Chasing payments across three apps. Copy-pasting data between
+            systems that should talk to each other. Reconciling transactions
+            in a spreadsheet at midnight. Every hour spent on operational toil
+            is an hour not spent growing your business.
           </p>
         </motion.div>
 
@@ -38,12 +41,14 @@ const ProblemSolutionSection = () => {
             The solution
           </p>
           <h2 className="font-heading text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            æther makes it disappear
+            We turned 3-day reconciliation into{" "}
+            <span className="text-gradient">12 minutes.</span>
           </h2>
           <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
-            We transform your operational chaos into seamless workflows.
-            Automations that run while you sleep, integrations that connect
-            every tool, and reconciliation that never misses a cent.
+            æther transforms operational chaos into workflows that run while
+            you sleep. Automations that connect every tool in your stack,
+            reconciliation that never misses a cent, and reminders that go out
+            before you even think about them.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {tags.map((tag, i) => (
@@ -61,6 +66,8 @@ const ProblemSolutionSection = () => {
           </div>
         </motion.div>
       </div>
+
+      <SectionCTA label="Stop wasting time — talk to us" className="mx-auto max-w-7xl" />
     </section>
   );
 };

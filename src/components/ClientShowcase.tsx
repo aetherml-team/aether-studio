@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SectionCTA } from "@/components/SectionCTA";
 import { EASE, viewport } from "@/lib/motion";
 
 type ClientTheme = {
@@ -7,9 +8,9 @@ type ClientTheme = {
   avatarInitials: string;
   tagline: string;
   industry: string;
-  /** First-person — what they “said” */
+  /** Real testimonial from the client */
   quote: string;
-  /** Work æther delivered */
+  quotePerson: string;
   servicesDelivered: readonly string[];
   metric: { value: string; label: string };
   void: string;
@@ -28,7 +29,8 @@ const clients: ClientTheme[] = [
     tagline: "BJJ · Black & Gold",
     industry: "Best jiujitsu school in Guadalajara",
     quote:
-      "Finally, our front desk isn’t chasing payments and our schedule runs itself. The mats stay full and we get to coach — not wrestle spreadsheets.",
+      "The number of times I forgot to remind my customers about their due payment date was causing me to lose money. The cash floating around, the terminal, tickets, bank apps — I needed all of that to know my in-out expenses. I don't have any clue how they did all of that automatically.",
+    quotePerson: "Manuel Focil, Owner",
     servicesDelivered: [
       "Class & mat scheduling automation",
       "Membership renewals & billing",
@@ -50,7 +52,8 @@ const clients: ClientTheme[] = [
     tagline: "Strength · Pure Black & Electric Yellow",
     industry: "Best premium gym",
     quote:
-      "Billing, access, and our coaches’ calendars finally talk to each other. We stopped losing money to late renewals and chaos at the front desk.",
+      "The æther team helped me reduce what usually took me weeks in reconciliation for each end of the month. Now I can focus on exactly what I care about — bringing more clients to my business.",
+    quotePerson: "Harilois Fafutis, Owner",
     servicesDelivered: [
       "Membership billing automation",
       "Access control integrations",
@@ -72,7 +75,8 @@ const clients: ClientTheme[] = [
     tagline: "Real Estate · Linen & Warm Olive",
     industry: "Construction & real estate company",
     quote:
-      "Every lead and site visit is tracked — nothing slips between sales and the build team anymore. We respond faster and close with confidence.",
+      "I needed to get online exposure for my investors. I didn't even have a web page! I contacted them and in a couple of hours I was able to send the link to my investors. They saved me.",
+    quotePerson: "Mario, Founder",
     servicesDelivered: [
       "Lead intake & CRM routing",
       "Site visit scheduling & reminders",
@@ -94,7 +98,8 @@ const clients: ClientTheme[] = [
     tagline: "Wedding · Navy & Champagne Gold",
     industry: "Best wedding filmmaker",
     quote:
-      "From the first inquiry to the final film delivery, every contract, deposit, and client message is in one flow. We create — we don’t chase admin.",
+      "They helped me actually have a portfolio for my work. I used to have a meh landing page to showcase my work which wasn't aligned to what I usually do. Now both match!",
+    quotePerson: "Dimitri Fafutis, Filmmaker",
     servicesDelivered: [
       "Inquiry-to-contract pipeline",
       "Deposits & milestone billing",
@@ -112,12 +117,10 @@ const clients: ClientTheme[] = [
   },
 ];
 
-const AUTO_MS = 5000;
+const AUTO_MS = 15000;
 
-/** Softer than default — feels like a cross-dissolve, not a cut */
 const SMOOTH = [0.22, 0.61, 0.36, 1] as const;
 
-/** Only staggers children — outer motion.div already fades the whole block */
 const bubbleVariants = {
   hidden: {},
   show: {
@@ -173,7 +176,6 @@ const ClientShowcase = () => {
       className="relative overflow-hidden px-6 py-20 md:px-10 md:py-32"
       style={{ color: isLight ? "#2C281C" : undefined }}
     >
-      {/* Cross-fade atmosphere — two layers for smooth blend */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         {clients.map((c, i) => (
           <motion.div
@@ -201,7 +203,8 @@ const ClientShowcase = () => {
             Our clients
           </p>
           <h2 className={`max-w-2xl font-heading text-4xl font-bold tracking-tight md:text-5xl ${headingClass}`}>
-            Results that speak for themselves
+            Don&apos;t take our word for it.{" "}
+            <span className="text-gradient">Take theirs.</span>
           </h2>
           {!userPicked && (
             <p className={`mt-3 font-mono text-[11px] ${subMutedClass}`}>
@@ -259,7 +262,6 @@ const ClientShowcase = () => {
                 }}
                 className="flex flex-col gap-6 md:flex-row md:items-start md:gap-6"
               >
-                {/* Avatar */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.92 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -279,7 +281,6 @@ const ClientShowcase = () => {
                   </div>
                 </motion.div>
 
-                {/* Speech column */}
                 <div className="min-w-0 flex-1">
                   <motion.div
                     variants={bubbleVariants}
@@ -290,7 +291,6 @@ const ClientShowcase = () => {
                       boxShadow: `0 24px 60px -28px rgba(0,0,0,0.45), inset 0 1px 0 ${active.primary}18`,
                     }}
                   >
-                    {/* Tail — desktop: points left toward avatar */}
                     <span
                       className="absolute hidden md:block"
                       style={{
@@ -306,12 +306,21 @@ const ClientShowcase = () => {
                       aria-hidden
                     />
                     <motion.p variants={bubbleItem} className={`relative z-10 ${quoteClass}`}>
-                      {active.quote}
+                      &ldquo;{active.quote}&rdquo;
                     </motion.p>
+
+                    <motion.footer
+                      variants={bubbleItem}
+                      className="relative z-10 mt-4 flex items-center gap-2 font-body text-sm"
+                    >
+                      <span className="font-medium" style={{ color: active.primary }}>
+                        — {active.quotePerson}
+                      </span>
+                    </motion.footer>
 
                     <motion.div
                       variants={bubbleItem}
-                      className="relative z-10 mt-6 flex flex-wrap items-baseline gap-2 border-t pt-5"
+                      className="relative z-10 mt-5 flex flex-wrap items-baseline gap-2 border-t pt-5"
                       style={{ borderColor: `${active.primary}22` }}
                     >
                       <span
@@ -324,7 +333,6 @@ const ClientShowcase = () => {
                     </motion.div>
                   </motion.div>
 
-                  {/* Services delivered */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -362,6 +370,8 @@ const ClientShowcase = () => {
             </AnimatePresence>
           </div>
         </div>
+
+        <SectionCTA label="Get results like these" />
       </div>
 
       {!userPicked && (

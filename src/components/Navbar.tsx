@@ -59,7 +59,7 @@ const Navbar = () => {
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 450, damping: 30 }}
         >
-          Get Started
+          Book a Call
         </motion.a>
 
         <button
@@ -95,7 +95,7 @@ const Navbar = () => {
             className="mt-2 inline-flex w-fit rounded-lg bg-primary px-5 py-2 text-[13px] font-medium text-primary-foreground"
             onClick={() => setMenuOpen(false)}
           >
-            Get Started
+            Book a Call
           </a>
         </motion.div>
       )}

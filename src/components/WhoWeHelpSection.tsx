@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { EASE, viewport } from "@/lib/motion";
+import { SectionCTA } from "@/components/SectionCTA";
 
 const logos = ["KrakenBay", "Tavros", "Eternus", "Inmovilia"];
 
@@ -46,14 +47,21 @@ const WhoWeHelpSection = () => {
             className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent md:w-32"
             aria-hidden
           />
-          <div className="animate-marquee flex w-max items-center gap-16 whitespace-nowrap md:gap-24">
-            {[...logos, ...logos].map((name, i) => (
-              <span
-                key={`${name}-${i}`}
-                className="select-none font-heading text-xl font-semibold text-foreground/15 transition-colors duration-500 hover:text-foreground/25 md:text-2xl"
+          <div className="animate-marquee flex w-max whitespace-nowrap">
+            {[0, 1].map((setIndex) => (
+              <div
+                key={setIndex}
+                className="flex shrink-0 items-center gap-16 pr-16 md:gap-24 md:pr-24"
               >
-                {name}
-              </span>
+                {logos.map((name) => (
+                  <span
+                    key={name}
+                    className="select-none font-heading text-xl font-semibold text-foreground/15 transition-colors duration-500 hover:text-foreground/25 md:text-2xl"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
             ))}
           </div>
         </div>
@@ -134,6 +142,8 @@ const WhoWeHelpSection = () => {
               ))}
             </ul>
           </motion.div>
+
+          <SectionCTA label="See if we're a fit" />
         </div>
       </div>
     </section>

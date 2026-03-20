@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SectionCTA } from "@/components/SectionCTA";
 import { Brain, Puzzle, Rocket } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
 
@@ -72,6 +73,8 @@ const WhyAetherSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <SectionCTA label="Partner with æther" />
       </div>
     </section>
   );

@@ -1,12 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import WhoWeHelpSection from "@/components/WhoWeHelpSection";
 import ProblemSolutionSection from "@/components/ProblemSolutionSection";
 import ServicesSection from "@/components/ServicesSection";
-import ProcessSection from "@/components/ProcessSection";
 import ClientShowcase from "@/components/ClientShowcase";
-import MetricsSection from "@/components/MetricsSection";
-import WhyAetherSection from "@/components/WhyAetherSection";
+import ProcessSection from "@/components/ProcessSection";
+import CheckFitSection from "@/components/CheckFitSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -16,13 +14,11 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <div className="gradient-strip opacity-80" aria-hidden />
-      <WhoWeHelpSection />
       <ProblemSolutionSection />
       <ServicesSection />
-      <ProcessSection />
       <ClientShowcase />
-      <MetricsSection />
-      <WhyAetherSection />
+      <ProcessSection />
+      <CheckFitSection />
       <ContactSection />
       <Footer />
     </div>

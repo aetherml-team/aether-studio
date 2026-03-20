@@ -8,15 +8,14 @@ const navSections = [
     links: [
       { text: "Services", href: "#services" },
       { text: "Clients", href: "#clients" },
-      { text: "Why æther", href: "#why-aether" },
+      { text: "Contact", href: "#contact" },
     ],
   },
   {
     title: "Connect",
     links: [
-      { text: "Contact", href: "#contact" },
-      { text: "LinkedIn", href: "#" },
-      { text: "Twitter", href: "#" },
+      { text: "LinkedIn", href: "https://www.linkedin.com/company/aetherml/" },
+      { text: "Twitter / X", href: "https://x.com/AEtherML" },
     ],
   },
 ] as const;
@@ -38,12 +37,15 @@ const Footer = () => {
               Æther
             </p>
             <p className="mt-3 max-w-sm font-body text-sm font-light leading-relaxed text-muted-foreground">
-              Automate the mundane. Amplify your growth. We help businesses
-              eliminate operational toil so they can focus on what matters.
+              Your team&apos;s time is too valuable for manual work. We build
+              the automations that handle the boring so you can focus on
+              what actually grows the business.
             </p>
             <div className="mt-6 flex gap-4">
               <motion.a
-                href="#"
+                href="https://www.linkedin.com/company/aetherml/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="LinkedIn"
                 whileHover={{ scale: 1.08 }}
@@ -52,7 +54,9 @@ const Footer = () => {
                 <Linkedin className="h-4 w-4" />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://x.com/AEtherML"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="Twitter"
                 whileHover={{ scale: 1.08 }}

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { SectionCTA } from "@/components/SectionCTA";
 import { EASE } from "@/lib/motion";
 
 interface Metric {
@@ -16,10 +17,14 @@ const metrics: Metric[] = [
 ];
 
 function useCounter(target: number, active: boolean, duration = 1800) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active || hasAnimated.current) return;
+    hasAnimated.current = true;
+    setCount(0);
+
     const start = performance.now();
     let frame: number;
 
@@ -70,10 +75,13 @@ function MetricCard({ metric, index }: { metric: Metric; index: number }) {
 const MetricsSection = () => {
   return (
     <section className="border-y border-border px-6 py-20 md:px-10 md:py-28">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-12 md:grid-cols-4 md:gap-8">
-        {metrics.map((m, i) => (
-          <MetricCard key={m.label} metric={m} index={i} />
-        ))}
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-2 gap-12 md:grid-cols-4 md:gap-8">
+          {metrics.map((m, i) => (
+            <MetricCard key={m.label} metric={m} index={i} />
+          ))}
+        </div>
+        <SectionCTA label="See what we can save you" />
       </div>
     </section>
   );

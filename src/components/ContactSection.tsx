@@ -1,8 +1,17 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { EASE, viewport } from "@/lib/motion";
+
+const companySizes = ["Just me", "2–10", "11–50", "50+"] as const;
+
+const bottlenecks = [
+  "Manual data entry",
+  "Payment reconciliation",
+  "Disconnected tools",
+  "Scheduling chaos",
+  "Other",
+] as const;
 
 const ContactSection = () => {
   const [sent, setSent] = useState(false);
@@ -11,6 +20,9 @@ const ContactSection = () => {
     e.preventDefault();
     setSent(true);
   }
+
+  const selectClass =
+    "h-12 w-full rounded-xl border border-border bg-card px-4 font-body text-sm text-foreground transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none";
 
   return (
     <section
@@ -41,10 +53,12 @@ const ContactSection = () => {
             Let&apos;s talk
           </p>
           <h2 className="font-heading text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Get your free automation audit
+            Still doing this{" "}
+            <span className="text-gradient">manually?</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md font-body text-[15px] font-light leading-relaxed text-muted-foreground">
-            Tell us about your operations and we&apos;ll show you exactly where automation can save you time and money.
+            Tell us what&apos;s eating your time and we&apos;ll show you exactly
+            where automation saves you hours and money.
           </p>
         </motion.div>
 
@@ -91,20 +105,44 @@ const ContactSection = () => {
               />
             </motion.div>
           </div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewport}
-            transition={{ delay: 0.18, duration: 0.45, ease: EASE }}
-          >
-            <Textarea
-              name="message"
-              placeholder="Tell us about your current workflows..."
-              required
-              rows={4}
-              className="resize-none rounded-xl border-border bg-card font-body transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/50"
-            />
-          </motion.div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ delay: 0.16, duration: 0.45, ease: EASE }}
+            >
+              <select name="company_size" required defaultValue="" className={selectClass}>
+                <option value="" disabled>
+                  Company size
+                </option>
+                {companySizes.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ delay: 0.2, duration: 0.45, ease: EASE }}
+            >
+              <select name="bottleneck" required defaultValue="" className={selectClass}>
+                <option value="" disabled>
+                  Biggest bottleneck
+                </option>
+                {bottlenecks.map((b) => (
+                  <option key={b} value={b}>
+                    {b}
+                  </option>
+                ))}
+              </select>
+            </motion.div>
+          </div>
+
           {sent ? (
             <motion.p
               initial={{ opacity: 0, scale: 0.98 }}
@@ -129,11 +167,14 @@ const ContactSection = () => {
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 28 }}
               >
-                Get Your Free Audit
+                Send it. We reply in 24 hours.
               </motion.button>
-              <span className="font-mono text-[11px] text-muted-foreground">
-                Response within 24 hours
-              </span>
+              <a
+                href="mailto:hello@aether.studio"
+                className="font-body text-[13px] font-medium text-primary underline-offset-4 hover:underline"
+              >
+                Or email hello@aether.studio
+              </a>
             </motion.div>
           )}
         </motion.form>

@@ -1,43 +1,51 @@
 import { motion } from "framer-motion";
-import { CreditCard, Cog, Link2, Workflow } from "lucide-react";
+import { SectionCTA } from "@/components/SectionCTA";
+import { CreditCard, Cog, Link2, Workflow, Globe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
 
 interface Service {
   name: string;
   description: string;
+  proof: string;
   Icon: LucideIcon;
-  span: string;
 }
 
 const services: Service[] = [
   {
-    name: "Intelligent Automations",
+    name: "Custom Automations",
     description:
-      "Custom automation pipelines that eliminate repetitive tasks, reduce errors, and free your team for work that actually matters.",
+      "Workflows that run while you sleep. We eliminate every repetitive task in your ops — scheduling, follow-ups, billing, you name it.",
+    proof: "KrakenBay saves 30+ hours/week on scheduling and billing alone.",
     Icon: Cog,
-    span: "sm:col-span-2 sm:row-span-1",
   },
   {
-    name: "Seamless Integrations",
+    name: "System Integrations",
     description:
-      "Connect your tools into one unified ecosystem. Data flows automatically between systems — no copy-pasting, no delays.",
+      "Your tools should talk to each other. CRM to calendar, payments to accounting, sales to fulfillment — we connect them so data stops falling through the cracks.",
+    proof: "Inmovilia's sales-to-construction handoff went from days to instant.",
     Icon: Link2,
-    span: "sm:col-span-1 sm:row-span-1",
   },
   {
     name: "Payment Reconciliation",
     description:
-      "Automated matching and verification of every transaction. Discrepancies caught in seconds, not days.",
+      "Stop reconciling transactions by hand. We automate the matching and verification of every payment across terminals, banks, and platforms.",
+    proof: "Tavros cut billing cycles by 3x — no more chasing late renewals.",
     Icon: CreditCard,
-    span: "sm:col-span-1 sm:row-span-1",
+  },
+  {
+    name: "Digital Presence",
+    description:
+      "Landing pages, client portals, and portfolio sites built to convert. If your online presence doesn't match the quality of your work, we fix that too.",
+    proof: "Eternus went from a mismatched page to a portfolio that actually closes clients.",
+    Icon: Globe,
   },
   {
     name: "Process Optimization",
     description:
-      "We audit, redesign, and implement workflows that cut bottlenecks and operational costs — measurably.",
+      "We audit, redesign, and implement workflows that cut bottlenecks and operational costs — measurably, not theoretically.",
+    proof: "Most clients recover the engagement cost in the first 60 days.",
     Icon: Workflow,
-    span: "sm:col-span-2 sm:row-span-1",
   },
 ];
 
@@ -56,12 +64,16 @@ const ServicesSection = () => {
             What we do
           </p>
           <h2 className="max-w-3xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Operations,{" "}
-            <span className="text-gradient italic">on autopilot.</span>
+            You didn&apos;t start a business{" "}
+            <span className="text-gradient italic">to babysit spreadsheets.</span>
           </h2>
+          <p className="mt-4 max-w-xl font-body text-[15px] font-light leading-relaxed text-muted-foreground">
+            Every service below comes with receipts — real results from real
+            clients, not numbers from a pitch deck.
+          </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <motion.article
               key={service.name}
@@ -74,7 +86,7 @@ const ServicesSection = () => {
                 ease: EASE,
               }}
               whileHover={{ y: -5 }}
-              className={`shadow-lift group flex flex-col rounded-2xl border border-border bg-card p-8 lg:p-10 ${service.span}`}
+              className="shadow-lift group flex flex-col rounded-2xl border border-border bg-card p-8"
             >
               <span className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/15">
                 <service.Icon className="h-6 w-6" strokeWidth={1.5} />
@@ -85,9 +97,14 @@ const ServicesSection = () => {
               <p className="mt-3 font-body text-sm font-light leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
+              <p className="mt-auto pt-5 font-mono text-[11px] font-medium leading-snug text-primary/80">
+                {service.proof}
+              </p>
             </motion.article>
           ))}
         </div>
+
+        <SectionCTA label="See what we can do for you" />
       </div>
     </section>
   );

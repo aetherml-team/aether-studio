@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
 import { EASE, viewport } from "@/lib/motion";
+import { SectionCTA } from "@/components/SectionCTA";
 
 const steps = [
   {
     number: "01",
     title: "Discover",
     description:
-      "We audit your current workflows, identify bottlenecks, and map every manual process that's costing you time and money.",
+      "We audit your current workflows end-to-end. Every manual step, every bottleneck, every dollar leaking through the cracks — mapped and quantified.",
   },
   {
     number: "02",
     title: "Design",
     description:
-      "We architect automation solutions tailored to your stack — integrations, reconciliation flows, and custom pipelines.",
+      "We architect automations tailored to your stack. Not a template. Not a generic playbook. A system built around how your business actually runs.",
   },
   {
     number: "03",
     title: "Deploy",
     description:
-      "We launch, monitor, and iterate. Your automations run 24/7 while we handle maintenance and optimization.",
+      "We launch, monitor, and iterate. Your automations run 24/7 while we handle maintenance, optimization, and anything that breaks at 3 AM.",
   },
 ] as const;
 
@@ -37,7 +38,8 @@ const ProcessSection = () => {
             How we work
           </p>
           <h2 className="mx-auto max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Three steps to operational freedom
+            Three steps. Then it&apos;s{" "}
+            <span className="text-gradient">our problem, not yours.</span>
           </h2>
         </motion.div>
 
@@ -97,6 +99,8 @@ const ProcessSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <SectionCTA label="Book a discovery call" />
       </div>
     </section>
   );
