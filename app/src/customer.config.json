@@ -1,6 +1,6 @@
 {
   "name": "Aether",
-  "logo": "/logo.png",
+  "logo": "/logo.svg",
   "apiBaseUrl": "",
   "theme": {
     "colors": {
