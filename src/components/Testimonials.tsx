@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    quote: "ÆTHER didn't just build our website — they redefined how our brand shows up in the world. The attention to detail was extraordinary.",
+    quote: "Æther didn't just build our website — they redefined how our brand shows up in the world. The attention to detail was extraordinary.",
     name: "Sarah Chen",
     role: "CEO, Meridian",
   },
   {
-    quote: "Working with ÆTHER felt like having an extension of our own team, but with a design sensibility that constantly pushed us forward.",
+    quote: "Working with Æther felt like having an extension of our own team, but with a design sensibility that constantly pushed us forward.",
     name: "Marcus Rivera",
     role: "Head of Product, Solstice",
   },

@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { EASE, viewport } from "@/lib/motion";
 import { SectionCTA } from "@/components/SectionCTA";
 
-const audiences = [
-  "Startups scaling fast with a team too small for the ops workload",
-  "Small businesses (gyms, clinics, real estate) buried in admin",
-  "Founders who know their time is worth more than data entry",
-  "Companies where reconciliation still lives in a spreadsheet",
-] as const;
-
 const CheckFitSection = () => {
+  const { t } = useTranslation();
+  const audiences = t("checkFit.audiences", { returnObjects: true }) as string[];
+
   return (
     <section id="check-fit" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-7xl">
@@ -21,15 +18,14 @@ const CheckFitSection = () => {
           className="mb-14"
         >
           <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Is this for you?
+            {t("checkFit.label")}
           </p>
           <h2 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            We&apos;re not{" "}
-            <span className="text-gradient">for everyone.</span>
+            {t("checkFit.headline")}{" "}
+            <span className="text-gradient">{t("checkFit.headlineGradient")}</span>
           </h2>
           <p className="mt-5 max-w-xl font-body text-[15px] font-light leading-relaxed text-muted-foreground">
-            We take on 3 new clients per month so we can go deep, not wide.
-            Here&apos;s who gets the most out of working with us.
+            {t("checkFit.description")}
           </p>
         </motion.div>
 
@@ -37,7 +33,7 @@ const CheckFitSection = () => {
           <ul className="grid gap-4 font-body text-[15px] leading-relaxed text-foreground/80 md:grid-cols-2 md:gap-x-12 md:gap-y-4">
             {audiences.map((item, i) => (
               <motion.li
-                key={item}
+                key={i}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={viewport}
@@ -58,10 +54,10 @@ const CheckFitSection = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="mt-8 text-center font-mono text-xs text-muted-foreground"
         >
-          Sound like you? We should talk.
+          {t("checkFit.soundLikeYou")}
         </motion.p>
 
-        <SectionCTA label="Check availability" />
+        <SectionCTA label={t("checkFit.cta")} />
       </div>
     </section>
   );

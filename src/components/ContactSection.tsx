@@ -1,20 +1,15 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { EASE, viewport } from "@/lib/motion";
 
-const companySizes = ["Just me", "2–10", "11–50", "50+"] as const;
-
-const bottlenecks = [
-  "Manual data entry",
-  "Payment reconciliation",
-  "Disconnected tools",
-  "Scheduling chaos",
-  "Other",
-] as const;
-
 const ContactSection = () => {
+  const { t } = useTranslation();
   const [sent, setSent] = useState(false);
+
+  const companySizes = t("contact.companySizes", { returnObjects: true }) as string[];
+  const bottlenecks = t("contact.bottlenecks", { returnObjects: true }) as string[];
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -50,15 +45,14 @@ const ContactSection = () => {
           transition={{ duration: 0.68, ease: EASE }}
         >
           <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Let&apos;s talk
+            {t("contact.label")}
           </p>
           <h2 className="font-heading text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Still doing this{" "}
-            <span className="text-gradient">manually?</span>
+            {t("contact.headline")}{" "}
+            <span className="text-gradient">{t("contact.headlineGradient")}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md font-body text-[15px] font-light leading-relaxed text-muted-foreground">
-            Tell us what&apos;s eating your time and we&apos;ll show you exactly
-            where automation saves you hours and money.
+            {t("contact.description")}
           </p>
         </motion.div>
 
@@ -83,7 +77,7 @@ const ContactSection = () => {
             >
               <Input
                 name="name"
-                placeholder="Name"
+                placeholder={t("contact.namePlaceholder")}
                 required
                 autoComplete="name"
                 className="h-12 rounded-xl border-border bg-card font-body transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/50"
@@ -98,7 +92,7 @@ const ContactSection = () => {
               <Input
                 name="email"
                 type="email"
-                placeholder="Email"
+                placeholder={t("contact.emailPlaceholder")}
                 required
                 autoComplete="email"
                 className="h-12 rounded-xl border-border bg-card font-body transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/50"
@@ -115,7 +109,7 @@ const ContactSection = () => {
             >
               <select name="company_size" required defaultValue="" className={selectClass}>
                 <option value="" disabled>
-                  Company size
+                  {t("contact.companySizePlaceholder")}
                 </option>
                 {companySizes.map((s) => (
                   <option key={s} value={s}>
@@ -132,7 +126,7 @@ const ContactSection = () => {
             >
               <select name="bottleneck" required defaultValue="" className={selectClass}>
                 <option value="" disabled>
-                  Biggest bottleneck
+                  {t("contact.bottleneckPlaceholder")}
                 </option>
                 {bottlenecks.map((b) => (
                   <option key={b} value={b}>
@@ -150,7 +144,7 @@ const ContactSection = () => {
               className="pt-2 text-center font-body text-sm text-success"
               role="status"
             >
-              Thanks — we&apos;ll be in touch within 24 hours.
+              {t("contact.success")}
             </motion.p>
           ) : (
             <motion.div
@@ -167,13 +161,13 @@ const ContactSection = () => {
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 28 }}
               >
-                Send it. We reply in 24 hours.
+                {t("contact.submit")}
               </motion.button>
               <a
                 href="mailto:hello@aether.studio"
                 className="font-body text-[13px] font-medium text-primary underline-offset-4 hover:underline"
               >
-                Or email hello@aether.studio
+                {t("contact.emailLink")}
               </a>
             </motion.div>
           )}

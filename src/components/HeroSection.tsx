@@ -1,14 +1,8 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { EASE } from "@/lib/motion";
 
-const HERO_CHIPS = ["Automations", "Integrations", "Reconciliation", "Digital Presence"] as const;
-
-const HERO_STATS = [
-  { value: "500+", label: "Hours saved monthly" },
-  { value: "99.8%", label: "Reconciliation accuracy" },
-  { value: "20+", label: "Businesses automated" },
-] as const;
-
+const HERO_STAT_VALUES = ["500+", "99.8%", "20+"] as const;
 const logos = ["KrakenBay", "Tavros", "Eternus", "Inmovilia"];
 
 /** Position on a circle: angle in degrees clockwise from top */
@@ -18,8 +12,7 @@ function radial(cx: number, cy: number, r: number, deg: number) {
 }
 
 /**
- * Orbital logo mark — concentric rings, nodes, extending arm arcs,
- * and dashed trails. Closely mirrors the spiral/constellation mark.
+ * Orbital mark — colors use theme CSS variables so light/dark mode stays coherent.
  */
 function HeroOrbitalMark() {
   const reduced = useReducedMotion();
@@ -50,40 +43,40 @@ function HeroOrbitalMark() {
     >
       <defs>
         <linearGradient id="hero-orbit-g" x1="15%" y1="0%" x2="85%" y2="100%">
-          <stop offset="0%" stopColor="hsl(240 32% 87%)" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="hsl(240 30% 73%)" stopOpacity="0.18" />
+          <stop offset="0%" stopColor="hsl(var(--primary-bright))" stopOpacity={0.55} />
+          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity={0.22} />
         </linearGradient>
       </defs>
 
-      <circle cx={cx} cy={cy} r={R1 + 24} fill="hsl(240 30% 73% / 0.04)" />
+      <circle cx={cx} cy={cy} r={R1 + 24} fill="hsl(var(--primary) / 0.06)" />
 
-      <circle cx={cx} cy={cy} r={8} fill="hsl(240 32% 87% / 0.7)" />
-      <motion.circle cx={cx} cy={cy} r={17} stroke="hsl(240 32% 87% / 0.52)" strokeWidth="1.3" fill="none" {...draw(0)} />
-      <motion.circle cx={cx} cy={cy} r={27} stroke="hsl(240 30% 73% / 0.35)" strokeWidth="1" fill="none" {...draw(0.06)} />
+      <circle cx={cx} cy={cy} r={8} fill="hsl(var(--primary-bright) / 0.75)" />
+      <motion.circle cx={cx} cy={cy} r={17} stroke="hsl(var(--primary-bright) / 0.55)" strokeWidth="1.3" fill="none" {...draw(0)} />
+      <motion.circle cx={cx} cy={cy} r={27} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" {...draw(0.06)} />
       {hubDots.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={1.8} fill="hsl(240 32% 87% / 0.65)" className="hero-flow-node" />
+        <circle key={i} cx={p.x} cy={p.y} r={1.8} fill="hsl(var(--primary-bright) / 0.65)" className="hero-flow-node" />
       ))}
 
       <motion.circle cx={cx} cy={cy} r={R1} stroke="url(#hero-orbit-g)" strokeWidth="1.1" fill="none" {...draw(0.12)} />
       {r1Nodes.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={4} fill="hsl(240 32% 87% / 0.58)" className="hero-flow-node" />
+        <circle key={i} cx={p.x} cy={p.y} r={4} fill="hsl(var(--primary-bright) / 0.58)" className="hero-flow-node" />
       ))}
 
       <motion.circle cx={cx} cy={cy} r={R2} stroke="url(#hero-orbit-g)" strokeWidth="1.05" fill="none" {...draw(0.22)} />
       {r2Nodes.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={5.5} fill="hsl(240 30% 73% / 0.5)" className="hero-flow-node" />
+        <circle key={i} cx={p.x} cy={p.y} r={5.5} fill="hsl(var(--primary) / 0.5)" className="hero-flow-node" />
       ))}
 
       <motion.circle cx={cx} cy={cy} r={R3} stroke="url(#hero-orbit-g)" strokeWidth="1.1" fill="none" {...draw(0.34)} />
       {r3Nodes.map((p, i) =>
         i === 2 ? (
           <g key={`r3-${i}`}>
-            <circle cx={p.x} cy={p.y} r={9} stroke="hsl(240 30% 73% / 0.42)" strokeWidth="1" fill="none" className="hero-flow-node" />
-            <circle cx={p.x} cy={p.y} r={4.5} stroke="hsl(240 32% 87% / 0.52)" strokeWidth="1" fill="none" className="hero-flow-node" />
-            <circle cx={p.x} cy={p.y} r={2} fill="hsl(240 32% 87% / 0.65)" />
+            <circle cx={p.x} cy={p.y} r={9} stroke="hsl(var(--primary) / 0.45)" strokeWidth="1" fill="none" className="hero-flow-node" />
+            <circle cx={p.x} cy={p.y} r={4.5} stroke="hsl(var(--primary-bright) / 0.52)" strokeWidth="1" fill="none" className="hero-flow-node" />
+            <circle cx={p.x} cy={p.y} r={2} fill="hsl(var(--primary-bright) / 0.7)" />
           </g>
         ) : (
-          <circle key={`r3-${i}`} cx={p.x} cy={p.y} r={5.5} fill="hsl(240 30% 73% / 0.45)" className="hero-flow-node" />
+          <circle key={`r3-${i}`} cx={p.x} cy={p.y} r={5.5} fill="hsl(var(--primary) / 0.45)" className="hero-flow-node" />
         )
       )}
 
@@ -92,43 +85,49 @@ function HeroOrbitalMark() {
         stroke="url(#hero-orbit-g)" strokeWidth="1.1" strokeLinecap="round"
         {...draw(0.5)}
       />
-      <circle cx={42} cy={66} r={15} stroke="hsl(240 30% 73% / 0.42)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={42} cy={66} r={8} stroke="hsl(240 32% 87% / 0.52)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={42} cy={66} r={3.5} fill="hsl(240 32% 87% / 0.7)" />
+      <circle cx={42} cy={66} r={15} stroke="hsl(var(--primary) / 0.42)" strokeWidth="1" fill="none" className="hero-flow-node" />
+      <circle cx={42} cy={66} r={8} stroke="hsl(var(--primary-bright) / 0.52)" strokeWidth="1" fill="none" className="hero-flow-node" />
+      <circle cx={42} cy={66} r={3.5} fill="hsl(var(--primary-bright) / 0.75)" />
 
       <motion.path
         d={`M ${lrNode.x.toFixed(1)} ${lrNode.y.toFixed(1)} Q 363 393 406 432`}
         stroke="url(#hero-orbit-g)" strokeWidth="1.1" strokeLinecap="round"
         {...draw(0.5)}
       />
-      <circle cx={406} cy={432} r={9.5} stroke="hsl(240 30% 73% / 0.4)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={406} cy={432} r={5} stroke="hsl(240 32% 87% / 0.5)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={406} cy={432} r={2} fill="hsl(240 32% 87% / 0.65)" />
+      <circle cx={406} cy={432} r={9.5} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" className="hero-flow-node" />
+      <circle cx={406} cy={432} r={5} stroke="hsl(var(--primary-bright) / 0.5)" strokeWidth="1" fill="none" className="hero-flow-node" />
+      <circle cx={406} cy={432} r={2} fill="hsl(var(--primary-bright) / 0.65)" />
 
       <motion.path
         d={`M ${urNode.x.toFixed(1)} ${urNode.y.toFixed(1)} Q 452 98 520 46`}
-        stroke="hsl(240 30% 73% / 0.32)" strokeWidth="1"
+        stroke="hsl(var(--primary) / 0.35)" strokeWidth="1"
         strokeDasharray="3 10" strokeLinecap="round"
         {...draw(0.58)}
       />
-      <circle cx={520} cy={46} r={8} stroke="hsl(240 30% 73% / 0.36)" strokeWidth="1" fill="none" />
-      <circle cx={520} cy={46} r={3.5} stroke="hsl(240 32% 87% / 0.44)" strokeWidth="1" fill="none" />
+      <circle cx={520} cy={46} r={8} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" />
+      <circle cx={520} cy={46} r={3.5} stroke="hsl(var(--primary-bright) / 0.48)" strokeWidth="1" fill="none" />
 
       <motion.path
         d="M 258 387 Q 256 428 254 470"
-        stroke="hsl(240 30% 73% / 0.25)" strokeWidth="1"
+        stroke="hsl(var(--primary) / 0.28)" strokeWidth="1"
         strokeDasharray="3 10" strokeLinecap="round"
         {...draw(0.64)}
       />
 
-      <circle cx={254} cy={472} r={7.5} stroke="hsl(240 30% 73% / 0.36)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={254} cy={472} r={3.5} stroke="hsl(240 32% 87% / 0.44)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={254} cy={472} r={1.5} fill="hsl(240 32% 87% / 0.62)" />
+      <circle cx={254} cy={472} r={7.5} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" className="hero-flow-node" />
+      <circle cx={254} cy={472} r={3.5} stroke="hsl(var(--primary-bright) / 0.48)" strokeWidth="1" fill="none" className="hero-flow-node" />
+      <circle cx={254} cy={472} r={1.5} fill="hsl(var(--primary-bright) / 0.65)" />
     </svg>
   );
 }
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
+  const chips = t("hero.chips", { returnObjects: true }) as string[];
+  const statLabels = t("hero.statLabels", { returnObjects: true }) as string[];
+  const stats = HERO_STAT_VALUES.map((value, i) => ({ value, label: statLabels[i] }));
+
   return (
     <section
       id="hero"
@@ -149,7 +148,7 @@ const HeroSection = () => {
             className="mb-8 flex flex-wrap gap-2"
             aria-label="Focus areas"
           >
-            {HERO_CHIPS.map((label) => (
+            {chips.map((label) => (
               <span
                 key={label}
                 className="rounded-full border border-border/70 bg-background/35 px-3 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground backdrop-blur-sm"
@@ -165,14 +164,14 @@ const HeroSection = () => {
             transition={{ duration: 0.75, delay: 0.22, ease: EASE }}
             className="font-heading text-balance text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Your team is <em>still</em> doing work{" "}
+            {t("hero.headlinePre")} <em>{t("hero.headlineEm")}</em> {t("hero.headlineMid")}{" "}
             <motion.span
               className="text-gradient inline"
               initial={{ opacity: 0, filter: "blur(8px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.9, delay: 0.45, ease: EASE }}
             >
-              a machine should be handling.
+              {t("hero.headlineGradient")}
             </motion.span>
           </motion.h1>
 
@@ -182,9 +181,7 @@ const HeroSection = () => {
             transition={{ duration: 0.55, delay: 0.48, ease: EASE }}
             className="mt-8 max-w-xl font-body text-lg font-light leading-relaxed text-muted-foreground"
           >
-            We build custom automations, integrations, and digital presence
-            that give your team back 30+ hours a week — so you can stop
-            firefighting and focus on what actually grows the business.
+            {t("hero.description")}
           </motion.p>
 
           <motion.div
@@ -195,12 +192,15 @@ const HeroSection = () => {
           >
             <motion.a
               href="#contact"
-              className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground"
-              whileHover={{ scale: 1.02, boxShadow: "0 0 32px hsl(240 30% 73% / 0.35)" }}
+              className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2)]"
+              whileHover={{
+                scale: 1.02,
+                boxShadow: "0 0 32px hsl(var(--primary) / 0.35)",
+              }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 28 }}
             >
-              Get Your Free Automation Audit
+              {t("hero.cta")}
             </motion.a>
           </motion.div>
 
@@ -210,8 +210,8 @@ const HeroSection = () => {
             transition={{ duration: 0.55, delay: 0.72, ease: EASE }}
             className="mt-12 grid grid-cols-3 gap-3 border-t border-border/50 pt-8 sm:gap-6"
           >
-            {HERO_STATS.map(({ value, label }) => (
-              <div key={label} className="min-w-0">
+            {stats.map(({ value, label }) => (
+              <div key={value} className="min-w-0">
                 <dt className="font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
                   {value}
                 </dt>
@@ -222,21 +222,20 @@ const HeroSection = () => {
             ))}
           </motion.dl>
 
-          {/* Compact trust marquee */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.6 }}
             className="mt-8"
           >
-            <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground/60">
-              Trusted by teams at
+            <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              {t("hero.trustedBy")}
             </p>
             <div className="flex flex-wrap items-center gap-6 md:gap-10">
               {logos.map((name) => (
                 <span
                   key={name}
-                  className="select-none font-heading text-base font-semibold text-foreground/15 md:text-lg"
+                  className="select-none font-heading text-base font-semibold text-foreground/45 transition-colors duration-300 hover:text-foreground/65 dark:text-foreground/20 dark:hover:text-foreground/32 md:text-lg"
                 >
                   {name}
                 </span>

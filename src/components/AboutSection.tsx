@@ -27,7 +27,7 @@ const AboutSection = () => {
               <span className="italic text-secondary">driven by taste</span>
             </h2>
             <p className="font-body text-base font-light text-muted-foreground leading-relaxed mb-5">
-              ÆTHER was founded on a belief that digital experiences should feel as considered
+              Æther was founded on a belief that digital experiences should feel as considered
               as the brands they represent. We partner with ambitious companies to create work
               that stands apart — work that people remember.
             </p>

@@ -1,0 +1,186 @@
+{
+  "navbar": {
+    "problem": "El problema",
+    "services": "Servicios",
+    "results": "Resultados",
+    "howWeWork": "Cómo trabajamos",
+    "theFit": "¿Es para ti?",
+    "skipToContent": "Ir al contenido",
+    "bookACall": "Agendar llamada"
+  },
+  "hero": {
+    "chips": ["Automatizaciones", "Integraciones", "Conciliación", "Presencia Digital"],
+    "headlinePre": "Tu equipo",
+    "headlineEm": "todavía",
+    "headlineMid": "hace trabajo",
+    "headlineGradient": "que una máquina debería estar haciendo.",
+    "description": "Construimos automatizaciones, integraciones y presencia digital a medida que le devuelven a tu equipo más de 30 horas semanales — para que dejes de apagar incendios y te enfoques en lo que realmente hace crecer el negocio.",
+    "cta": "Obtén tu auditoría de automatización gratis",
+    "statLabels": ["Horas ahorradas al mes", "Precisión en conciliación", "Negocios automatizados"],
+    "trustedBy": "Confiado por equipos en"
+  },
+  "problemSolution": {
+    "problemLabel": "El problema",
+    "problemHeadline": "Tu equipo está ahogado en",
+    "problemHeadlineGradient": "trabajo manual",
+    "problemBody": "Persiguiendo pagos en tres apps. Copiando datos entre sistemas que deberían comunicarse. Conciliando transacciones en una hoja de cálculo a medianoche. Cada hora gastada en tareas operativas es una hora que no se invierte en hacer crecer tu negocio.",
+    "solutionLabel": "La solución",
+    "solutionHeadline": "Convertimos la conciliación de 3 días en",
+    "solutionHeadlineGradient": "12 minutos.",
+    "solutionBody": "Æther transforma el caos operativo en flujos de trabajo que funcionan mientras duermes. Automatizaciones que conectan cada herramienta en tu stack, conciliación que nunca pierde un centavo, y recordatorios que salen antes de que los pienses.",
+    "tags": ["Sin entrada manual", "Sincronización en tiempo real", "99.8% de precisión"],
+    "cta": "Deja de perder tiempo — habla con nosotros"
+  },
+  "services": {
+    "label": "Lo que hacemos",
+    "headline": "No empezaste un negocio",
+    "headlineGradient": "para cuidar hojas de cálculo.",
+    "description": "Cada servicio tiene respaldo real — resultados reales de clientes reales, no números de una presentación.",
+    "cta": "Ve lo que podemos hacer por ti",
+    "items": [
+      {
+        "name": "Automatizaciones a medida",
+        "description": "Flujos de trabajo que funcionan mientras duermes. Eliminamos cada tarea repetitiva en tus operaciones — programación, seguimientos, facturación, lo que sea.",
+        "proof": "KrakenBay ahorra 30+ horas/semana solo en programación y facturación."
+      },
+      {
+        "name": "Integraciones de sistemas",
+        "description": "Tus herramientas deberían comunicarse entre sí. CRM con calendario, pagos con contabilidad, ventas con logística — los conectamos para que los datos dejen de perderse.",
+        "proof": "El traspaso de ventas a construcción en Inmovilia pasó de días a instantáneo."
+      },
+      {
+        "name": "Conciliación de pagos",
+        "description": "Deja de conciliar transacciones manualmente. Automatizamos la verificación de cada pago en terminales, bancos y plataformas.",
+        "proof": "Tavros redujo sus ciclos de facturación 3x — sin más retrasos en renovaciones."
+      },
+      {
+        "name": "Presencia digital",
+        "description": "Landing pages, portales de clientes y portafolios construidos para convertir. Si tu presencia online no refleja la calidad de tu trabajo, lo arreglamos.",
+        "proof": "Eternus pasó de una página genérica a un portafolio que realmente cierra clientes."
+      },
+      {
+        "name": "Optimización de procesos",
+        "description": "Auditamos, rediseñamos e implementamos flujos que eliminan cuellos de botella y costos operativos — de forma medible, no teórica.",
+        "proof": "La mayoría de clientes recupera el costo del engagement en los primeros 60 días."
+      }
+    ]
+  },
+  "clients": {
+    "label": "Nuestros clientes",
+    "headline": "No te fíes de nuestra palabra.",
+    "headlineGradient": "Fíate de la suya.",
+    "rotating": "Rota cada 15s — haz clic en un nombre para pausar",
+    "whatDelivered": "Lo que Æther entregó",
+    "cta": "Obtén resultados como estos",
+    "items": [
+      {
+        "tagline": "Academia BJJ · Guadalajara, MX",
+        "industry": "Academia de artes marciales",
+        "quote": "Las veces que me olvidaba de recordarle a mis clientes su fecha de pago me estaban haciendo perder dinero. El efectivo circulando, la terminal, los tickets, las apps del banco — necesitaba todo eso para saber mis gastos. No tengo ni idea de cómo lo hicieron de forma automática.",
+        "quotePerson": "Manuel Focil, Dueño",
+        "servicesDelivered": [
+          "Automatización de horarios y clases",
+          "Renovaciones y facturación de membresías",
+          "Recordatorios de pago y seguimientos"
+        ],
+        "metricLabel": "horas ahorradas semanalmente"
+      },
+      {
+        "tagline": "Premium Fitness · Guadalajara, MX",
+        "industry": "Gimnasio de alto rendimiento",
+        "quote": "El equipo de Æther me ayudó a reducir lo que normalmente me tomaba semanas en conciliación al cierre de cada mes. Ahora puedo enfocarme en lo que realmente me importa — traer más clientes a mi negocio.",
+        "quotePerson": "Harilois Fafutis, Dueño",
+        "servicesDelivered": [
+          "Automatización de facturación de membresías",
+          "Integraciones de control de acceso",
+          "Hooks de nómina y horarios de entrenadores"
+        ],
+        "metricLabel": "ciclos de facturación más rápidos"
+      },
+      {
+        "tagline": "Inmobiliaria · Guadalajara, MX",
+        "industry": "Construcción e inmobiliaria",
+        "quote": "Necesitaba exposición online para mis inversionistas. ¡Ni siquiera tenía página web! Los contacté y en par de horas ya podía enviarle el link a mis inversionistas. Me salvaron.",
+        "quotePerson": "Mario, Fundador",
+        "servicesDelivered": [
+          "Captación de leads y enrutamiento CRM",
+          "Programación de visitas y recordatorios",
+          "Flujos de traspaso ventas ↔ construcción"
+        ],
+        "metricLabel": "respuesta a leads más rápida"
+      },
+      {
+        "tagline": "Films de Boda · Guadalajara, MX",
+        "industry": "Cineasta de bodas",
+        "quote": "Me ayudaron a tener un portafolio real para mi trabajo. Antes tenía una landing page mediocre que no reflejaba lo que hago. ¡Ahora coinciden!",
+        "quotePerson": "Dimitri Fafutis, Cineasta",
+        "servicesDelivered": [
+          "Pipeline de consulta a contrato",
+          "Depósitos y facturación por hitos",
+          "Flujo de comunicación y entrega al cliente"
+        ],
+        "metricLabel": "bodas coordinadas"
+      }
+    ]
+  },
+  "process": {
+    "label": "Cómo trabajamos",
+    "headline": "Tres pasos. Después es",
+    "headlineGradient": "nuestro problema, no el tuyo.",
+    "cta": "Agenda una llamada de descubrimiento",
+    "steps": [
+      {
+        "title": "Descubrir",
+        "description": "Auditamos tus flujos de trabajo de principio a fin. Cada paso manual, cada cuello de botella, cada dólar que se escapa — mapeado y cuantificado."
+      },
+      {
+        "title": "Diseñar",
+        "description": "Diseñamos automatizaciones adaptadas a tu stack. No una plantilla. No un playbook genérico. Un sistema construido alrededor de cómo funciona realmente tu negocio."
+      },
+      {
+        "title": "Desplegar",
+        "description": "Lanzamos, monitoreamos e iteramos. Tus automatizaciones funcionan 24/7 mientras nosotros nos encargamos del mantenimiento, la optimización y lo que falle a las 3 AM."
+      }
+    ]
+  },
+  "checkFit": {
+    "label": "¿Es para ti?",
+    "headline": "No somos",
+    "headlineGradient": "para todos.",
+    "description": "Tomamos 3 clientes nuevos por mes para poder ir a fondo, no a lo ancho. Aquí están quienes más aprovechan trabajar con nosotros.",
+    "soundLikeYou": "¿Te suena? Deberíamos hablar.",
+    "cta": "Verificar disponibilidad",
+    "audiences": [
+      "Startups escalando rápido con un equipo demasiado pequeño para la carga operativa",
+      "Pequeños negocios (gimnasios, clínicas, inmobiliarias) enterrados en administración",
+      "Founders que saben que su tiempo vale más que la entrada de datos",
+      "Empresas donde la conciliación todavía vive en una hoja de cálculo"
+    ]
+  },
+  "contact": {
+    "label": "Hablemos",
+    "headline": "¿Todavía haciendo esto",
+    "headlineGradient": "manualmente?",
+    "description": "Dinos qué está consumiendo tu tiempo y te mostraremos exactamente dónde la automatización te ahorra horas y dinero.",
+    "namePlaceholder": "Nombre",
+    "emailPlaceholder": "Correo",
+    "companySizePlaceholder": "Tamaño de empresa",
+    "bottleneckPlaceholder": "Principal cuello de botella",
+    "submit": "Envíalo. Respondemos en 24 horas.",
+    "emailLink": "O escríbenos a hello@aether.studio",
+    "success": "Gracias — nos pondremos en contacto en 24 horas.",
+    "companySizes": ["Solo yo", "2–10", "11–50", "50+"],
+    "bottlenecks": ["Entrada de datos manual", "Conciliación de pagos", "Herramientas desconectadas", "Caos de agendamiento", "Otro"]
+  },
+  "footer": {
+    "tagline": "El tiempo de tu equipo es demasiado valioso para el trabajo manual. Construimos las automatizaciones que manejan lo aburrido para que puedas enfocarte en lo que realmente hace crecer el negocio.",
+    "company": "Empresa",
+    "connect": "Conectar",
+    "services": "Servicios",
+    "clients": "Clientes",
+    "contact": "Contacto",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter / X",
+    "copyright": "© 2026 Æther. Todos los derechos reservados."
+  }
+}

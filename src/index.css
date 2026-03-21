@@ -5,47 +5,99 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light default. Dark when <html class="dark"> (next-themes). */
   :root {
-    /* ─────────────────────────────────────────
-       VOID — surfaces (cold blue-violet tint)
-    ───────────────────────────────────────── */
-    --background:       240 14% 4%;    /* #08080A */
-    --background-deep:  240 16% 3%;    /* #050507 */
+    color-scheme: light;
 
-    --card:             240 12% 7%;    /* #0F0F12 */
-    --card-raised:      240 10% 10%;   /* #16161A */
+    --background:       40 10% 98%;
+    --background-deep:  240 8% 96%;
+    --card:             0 0% 100%;
+    --card-raised:      240 6% 97%;
+    --popover:          0 0% 100%;
+    --popover-foreground: 240 18% 11%;
+    --card-foreground:  240 18% 11%;
+
+    --foreground:       240 16% 9%;
+    --foreground-dim:   240 6% 38%;
+    --foreground-muted: 240 5% 42%;
+
+    --border:           240 10% 88%;
+    --input:            240 10% 88%;
+    --border-subtle:    240 8% 92%;
+
+    --primary:          240 38% 46%;
+    --primary-foreground: 0 0% 100%;
+    --primary-bright:   240 36% 40%;
+    --primary-dim:      240 32% 34%;
+    --primary-deep:     240 42% 30%;
+
+    --secondary:        240 8% 96%;
+    --secondary-foreground: 240 16% 11%;
+
+    --muted:            240 8% 95%;
+    --muted-foreground: 240 5% 40%;
+
+    --accent:           240 10% 94%;
+    --accent-foreground: 240 16% 11%;
+
+    --success:          150 38% 32%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive:      0 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning:          38 85% 48%;
+    --warning-foreground: 0 0% 0%;
+
+    --ring: 240 38% 46%;
+    --radius: 0.625rem;
+
+    --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+    --font-body:    "Outfit", system-ui, sans-serif;
+    --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+    --footer:             240 8% 96%;
+    --footer-foreground:  240 16% 11%;
+    --footer-muted:       240 5% 42%;
+
+    --sidebar-background:         0 0% 100%;
+    --sidebar-foreground:         240 16% 11%;
+    --sidebar-primary:            240 38% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent:             240 8% 95%;
+    --sidebar-accent-foreground:  240 16% 11%;
+    --sidebar-border:             240 10% 88%;
+    --sidebar-ring:               240 38% 46%;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --background:       240 14% 4%;
+    --background-deep:  240 16% 3%;
+
+    --card:             240 12% 7%;
+    --card-raised:      240 10% 10%;
 
     --popover:          240 12% 7%;
     --popover-foreground: 40 8% 88%;
 
     --card-foreground:  40 8% 88%;
 
-    /* ─────────────────────────────────────────
-       SILVER — type
-    ───────────────────────────────────────── */
-    --foreground:       40 8% 88%;     /* #E2E0DC — warm-neutral off-white */
-    --foreground-dim:   240 5% 64%;    /* #9E9EA8 */
-    --foreground-muted: 240 8% 38%;    /* #5A5A68 */
+    --foreground:       40 8% 88%;
+    --foreground-dim:   240 5% 64%;
+    --foreground-muted: 240 8% 38%;
 
-    /* ─────────────────────────────────────────
-       BORDERS
-    ───────────────────────────────────────── */
-    --border:           240 11% 13%;   /* #1E1E24 */
+    --border:           240 11% 13%;
     --input:            240 11% 13%;
-    --border-subtle:    240 9% 17%;    /* #26262E */
+    --border-subtle:    240 9% 17%;
 
-    /* ─────────────────────────────────────────
-       PERIWINKLE — primary accent
-    ───────────────────────────────────────── */
-    --primary:          240 30% 73%;   /* #B4B4E0 */
-    --primary-foreground: 240 16% 3%;  /* #050507 */
-    --primary-bright:   240 32% 87%;   /* #CECEF0 */
-    --primary-dim:      240 28% 61%;   /* #8080B8 */
-    --primary-deep:     240 34% 47%;   /* #5050A0 */
+    --primary:          240 30% 73%;
+    --primary-foreground: 240 16% 3%;
+    --primary-bright:   240 32% 87%;
+    --primary-dim:      240 28% 61%;
+    --primary-deep:     240 34% 47%;
 
-    /* ─────────────────────────────────────────
-       SECONDARY / MUTED SURFACES
-    ───────────────────────────────────────── */
     --secondary:        240 12% 7%;
     --secondary-foreground: 40 8% 88%;
 
@@ -55,9 +107,6 @@
     --accent:           240 9% 17%;
     --accent-foreground: 40 8% 88%;
 
-    /* ─────────────────────────────────────────
-       SEMANTIC
-    ───────────────────────────────────────── */
     --success:          150 38% 36%;
     --success-foreground: 0 0% 100%;
 
@@ -67,29 +116,12 @@
     --warning:          38 85% 48%;
     --warning-foreground: 0 0% 0%;
 
-    /* ─────────────────────────────────────────
-       RING / RADIUS
-    ───────────────────────────────────────── */
     --ring: 240 30% 73%;
-    --radius: 0.625rem;
 
-    /* ─────────────────────────────────────────
-       TYPOGRAPHY
-    ───────────────────────────────────────── */
-    --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
-    --font-body:    "Outfit", system-ui, sans-serif;
-    --font-mono:    "JetBrains Mono", ui-monospace, monospace;
-
-    /* ─────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────── */
     --footer:             240 16% 3%;
     --footer-foreground:  40 8% 88%;
     --footer-muted:       240 8% 38%;
 
-    /* ─────────────────────────────────────────
-       SIDEBAR
-    ───────────────────────────────────────── */
     --sidebar-background:         240 14% 4%;
     --sidebar-foreground:         40 8% 88%;
     --sidebar-primary:            240 30% 73%;
@@ -215,18 +247,25 @@
 
 
 
-  /* Orbital logo graphic */
+  /* Orbital graphic — stroke colors come from CSS vars inside SVG; opacity by page theme */
   .hero-flow-svg {
-    opacity: 0.52;
+    opacity: 0.42;
+  }
+  .dark .hero-flow-svg {
+    opacity: 0.55;
   }
   @media (min-width: 1024px) {
     .hero-flow-svg {
-      opacity: 0.65;
+      opacity: 0.5;
+    }
+    .dark .hero-flow-svg {
+      opacity: 0.68;
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero-flow-svg {
-      opacity: 0.5;
+    .hero-flow-svg,
+    .dark .hero-flow-svg {
+      opacity: 0.48;
     }
   }
 
@@ -360,9 +399,9 @@
      BADGE
   ───────────────────────────────────────── */
   .badge-peri {
-    background: hsl(240 30% 73% / 0.08);
+    background: hsl(var(--primary) / 0.12);
     color: hsl(var(--primary-bright));
-    border: 1px solid hsl(240 30% 73% / 0.18);
+    border: 1px solid hsl(var(--primary) / 0.22);
     font-family: var(--font-mono);
     font-size: 0.625rem;
     letter-spacing: 0.08em;
@@ -389,16 +428,20 @@
     pointer-events: none;
     position: absolute;
     inset: 0;
-    opacity: 0.045;
+    opacity: 0.028;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .dark .noise-overlay {
+    opacity: 0.045;
   }
 
   /* Slow breathing bloom on hero */
   .hero-bloom {
     background: radial-gradient(
       ellipse 55% 45% at 58% 28%,
-      hsl(240 30% 73% / 0.09),
+      hsl(var(--primary) / 0.09),
       transparent 65%
     );
     animation: hero-bloom 14s ease-in-out infinite;
@@ -447,7 +490,7 @@
       transform 0.35s cubic-bezier(0.25, 0.1, 0, 1);
   }
   .shadow-lift:hover {
-    box-shadow: 0 20px 48px -24px hsl(240 30% 73% / 0.12),
+    box-shadow: 0 20px 48px -24px hsl(var(--primary) / 0.14),
       0 0 0 1px hsl(var(--primary) / 0.12);
   }
 

@@ -1,0 +1,186 @@
+{
+  "navbar": {
+    "problem": "The problem",
+    "services": "Services",
+    "results": "Results",
+    "howWeWork": "How we work",
+    "theFit": "The fit",
+    "skipToContent": "Skip to content",
+    "bookACall": "Book a Call"
+  },
+  "hero": {
+    "chips": ["Automations", "Integrations", "Reconciliation", "Digital Presence"],
+    "headlinePre": "Your team is",
+    "headlineEm": "still",
+    "headlineMid": "doing work",
+    "headlineGradient": "a machine should be handling.",
+    "description": "We build custom automations, integrations, and digital presence that give your team back 30+ hours a week — so you can stop firefighting and focus on what actually grows the business.",
+    "cta": "Get Your Free Automation Audit",
+    "statLabels": ["Hours saved monthly", "Reconciliation accuracy", "Businesses automated"],
+    "trustedBy": "Trusted by teams at"
+  },
+  "problemSolution": {
+    "problemLabel": "The problem",
+    "problemHeadline": "Your team is drowning in",
+    "problemHeadlineGradient": "manual work",
+    "problemBody": "Chasing payments across three apps. Copy-pasting data between systems that should talk to each other. Reconciling transactions in a spreadsheet at midnight. Every hour spent on operational toil is an hour not spent growing your business.",
+    "solutionLabel": "The solution",
+    "solutionHeadline": "We turned 3-day reconciliation into",
+    "solutionHeadlineGradient": "12 minutes.",
+    "solutionBody": "Æther transforms operational chaos into workflows that run while you sleep. Automations that connect every tool in your stack, reconciliation that never misses a cent, and reminders that go out before you even think about them.",
+    "tags": ["Zero manual entry", "Real-time sync", "99.8% accuracy"],
+    "cta": "Stop wasting time — talk to us"
+  },
+  "services": {
+    "label": "What we do",
+    "headline": "You didn't start a business",
+    "headlineGradient": "to babysit spreadsheets.",
+    "description": "Every service below comes with receipts — real results from real clients, not numbers from a pitch deck.",
+    "cta": "See what we can do for you",
+    "items": [
+      {
+        "name": "Custom Automations",
+        "description": "Workflows that run while you sleep. We eliminate every repetitive task in your ops — scheduling, follow-ups, billing, you name it.",
+        "proof": "KrakenBay saves 30+ hours/week on scheduling and billing alone."
+      },
+      {
+        "name": "System Integrations",
+        "description": "Your tools should talk to each other. CRM to calendar, payments to accounting, sales to fulfillment — we connect them so data stops falling through the cracks.",
+        "proof": "Inmovilia's sales-to-construction handoff went from days to instant."
+      },
+      {
+        "name": "Payment Reconciliation",
+        "description": "Stop reconciling transactions by hand. We automate the matching and verification of every payment across terminals, banks, and platforms.",
+        "proof": "Tavros cut billing cycles by 3x — no more chasing late renewals."
+      },
+      {
+        "name": "Digital Presence",
+        "description": "Landing pages, client portals, and portfolio sites built to convert. If your online presence doesn't match the quality of your work, we fix that too.",
+        "proof": "Eternus went from a mismatched page to a portfolio that actually closes clients."
+      },
+      {
+        "name": "Process Optimization",
+        "description": "We audit, redesign, and implement workflows that cut bottlenecks and operational costs — measurably, not theoretically.",
+        "proof": "Most clients recover the engagement cost in the first 60 days."
+      }
+    ]
+  },
+  "clients": {
+    "label": "Our clients",
+    "headline": "Don't take our word for it.",
+    "headlineGradient": "Take theirs.",
+    "rotating": "Rotating every 15s — click a name to hold",
+    "whatDelivered": "What Æther delivered",
+    "cta": "Get results like these",
+    "items": [
+      {
+        "tagline": "BJJ Academy · Guadalajara, MX",
+        "industry": "Martial arts school",
+        "quote": "The number of times I forgot to remind my customers about their due payment date was causing me to lose money. The cash floating around, the terminal, tickets, bank apps — I needed all of that to know my in-out expenses. I don't have any clue how they did all of that automatically.",
+        "quotePerson": "Manuel Focil, Owner",
+        "servicesDelivered": [
+          "Class & mat scheduling automation",
+          "Membership renewals & billing",
+          "Payment reminders & follow-ups"
+        ],
+        "metricLabel": "hours saved weekly"
+      },
+      {
+        "tagline": "Premium Fitness · Guadalajara, MX",
+        "industry": "High-performance gym",
+        "quote": "The Æther team helped me reduce what usually took me weeks in reconciliation for each end of the month. Now I can focus on exactly what I care about — bringing more clients to my business.",
+        "quotePerson": "Harilois Fafutis, Owner",
+        "servicesDelivered": [
+          "Membership billing automation",
+          "Access control integrations",
+          "Trainer scheduling & payroll hooks"
+        ],
+        "metricLabel": "faster billing cycles"
+      },
+      {
+        "tagline": "Real Estate · Guadalajara, MX",
+        "industry": "Construction & real estate",
+        "quote": "I needed to get online exposure for my investors. I didn't even have a web page! I contacted them and in a couple of hours I was able to send the link to my investors. They saved me.",
+        "quotePerson": "Mario, Founder",
+        "servicesDelivered": [
+          "Lead intake & CRM routing",
+          "Site visit scheduling & reminders",
+          "Sales ↔ construction handoff workflows"
+        ],
+        "metricLabel": "faster lead response"
+      },
+      {
+        "tagline": "Wedding Films · Guadalajara, MX",
+        "industry": "Cinematic wedding filmmaker",
+        "quote": "They helped me actually have a portfolio for my work. I used to have a meh landing page to showcase my work which wasn't aligned to what I usually do. Now both match!",
+        "quotePerson": "Dimitri Fafutis, Filmmaker",
+        "servicesDelivered": [
+          "Inquiry-to-contract pipeline",
+          "Deposits & milestone billing",
+          "Client comms & delivery workflow"
+        ],
+        "metricLabel": "weddings coordinated"
+      }
+    ]
+  },
+  "process": {
+    "label": "How we work",
+    "headline": "Three steps. Then it's",
+    "headlineGradient": "our problem, not yours.",
+    "cta": "Book a discovery call",
+    "steps": [
+      {
+        "title": "Discover",
+        "description": "We audit your current workflows end-to-end. Every manual step, every bottleneck, every dollar leaking through the cracks — mapped and quantified."
+      },
+      {
+        "title": "Design",
+        "description": "We architect automations tailored to your stack. Not a template. Not a generic playbook. A system built around how your business actually runs."
+      },
+      {
+        "title": "Deploy",
+        "description": "We launch, monitor, and iterate. Your automations run 24/7 while we handle maintenance, optimization, and anything that breaks at 3 AM."
+      }
+    ]
+  },
+  "checkFit": {
+    "label": "Is this for you?",
+    "headline": "We're not",
+    "headlineGradient": "for everyone.",
+    "description": "We take on 3 new clients per month so we can go deep, not wide. Here's who gets the most out of working with us.",
+    "soundLikeYou": "Sound like you? We should talk.",
+    "cta": "Check availability",
+    "audiences": [
+      "Startups scaling fast with a team too small for the ops workload",
+      "Small businesses (gyms, clinics, real estate) buried in admin",
+      "Founders who know their time is worth more than data entry",
+      "Companies where reconciliation still lives in a spreadsheet"
+    ]
+  },
+  "contact": {
+    "label": "Let's talk",
+    "headline": "Still doing this",
+    "headlineGradient": "manually?",
+    "description": "Tell us what's eating your time and we'll show you exactly where automation saves you hours and money.",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "companySizePlaceholder": "Company size",
+    "bottleneckPlaceholder": "Biggest bottleneck",
+    "submit": "Send it. We reply in 24 hours.",
+    "emailLink": "Or email hello@aether.studio",
+    "success": "Thanks — we'll be in touch within 24 hours.",
+    "companySizes": ["Just me", "2–10", "11–50", "50+"],
+    "bottlenecks": ["Manual data entry", "Payment reconciliation", "Disconnected tools", "Scheduling chaos", "Other"]
+  },
+  "footer": {
+    "tagline": "Your team's time is too valuable for manual work. We build the automations that handle the boring so you can focus on what actually grows the business.",
+    "company": "Company",
+    "connect": "Connect",
+    "services": "Services",
+    "clients": "Clients",
+    "contact": "Contact",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter / X",
+    "copyright": "© 2026 Æther. All rights reserved."
+  }
+}

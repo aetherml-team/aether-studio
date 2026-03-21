@@ -36,10 +36,10 @@ const WhyAetherSection = () => {
           className="mb-16"
         >
           <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Why æther
+            Why Æther
           </p>
           <h2 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            The æther edge
+            The Æther edge
           </h2>
         </motion.div>
 
@@ -74,7 +74,7 @@ const WhyAetherSection = () => {
           ))}
         </div>
 
-        <SectionCTA label="Partner with æther" />
+        <SectionCTA label="Partner with Æther" />
       </div>
     </section>
   );

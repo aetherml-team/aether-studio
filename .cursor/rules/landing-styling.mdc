@@ -3,15 +3,15 @@ alwaysApply: true
 ---
 
 {
-  "agencyName": "æther",
-  "tagline": "Automate the Mundane. Amplify Your Growth.",
-  "description": "æther helps businesses of all sizes streamline operations, eliminate toil, and focus on what truly matters: making more money. We specialize in intelligent automations, seamless integrations, and precise payment reconciliation, allowing you to care less about \"boring\" processes and more about building your success.",
+  "agencyName": "Æther",
+  "tagline": "Automations That Save You Time",
+  "description": "Æther helps businesses of all sizes streamline operations, eliminate toil, and focus on what truly matters: making more money. We specialize in intelligent automations, seamless integrations, and precise payment reconciliation, allowing you to care less about \"boring\" processes and more about building your success.",
   "brandIdentity": {
     "personality": [
       "Sophisticated & Intelligent: Reflecting expertise in AI and complex automation.",
       "Efficient & Streamlined: Emphasizing problem-solving and operational excellence.",
       "Reliable & Trustworthy: Building confidence through consistent delivery and clear communication.",
-      "Forward-Thinking & Innovative: Positioning æther at the forefront of AI solutions."
+      "Forward-Thinking & Innovative: Positioning Æther at the forefront of AI solutions."
     ],
     "toneOfVoice": [
       "Professional & Authoritative: Instilling trust and demonstrating expertise.",
@@ -51,8 +51,8 @@ alwaysApply: true
       "title": "Hero Section",
       "layout": "Full-width with central content and call-to-action",
       "content": {
-        "headline": "Automate the Mundane. Amplify Your Growth.",
-        "subheadline": "æther empowers startups, small businesses, and professionals to reclaim their time by handling the 'boring' processes, so you can focus on building your empire.",
+        "headline": "Æther — Automations That Save You Time",
+        "subheadline": "Æther empowers startups, small businesses, and professionals to reclaim their time by handling the 'boring' processes, so you can focus on building your empire.",
         "callToAction": {
           "text": "Get Started",
           "link": "#contact"
@@ -72,8 +72,8 @@ alwaysApply: true
           "text": "Many businesses get bogged down by repetitive tasks, complex payment reconciliations, and disjointed systems. This 'toil' drains valuable time and resources, preventing you from focusing on innovation and growth."
         },
         "solution": {
-          "headline": "æther: Your Partner in Efficiency",
-          "text": "We transform your operational challenges into seamless workflows. From automating tedious tasks to integrating critical systems, æther handles the complexities so you can dedicate your energy to what truly generates revenue."
+          "headline": "Æther: Your Partner in Efficiency",
+          "text": "We transform your operational challenges into seamless workflows. From automating tedious tasks to integrating critical systems, Æther handles the complexities so you can dedicate your energy to what truly generates revenue."
         }
       }
     },
@@ -112,11 +112,11 @@ alwaysApply: true
         "headline": "Empowering Businesses Like Yours",
         "testimonials": [
           {
-            "quote": "æther transformed our back-office operations. We've saved countless hours and can now focus on our clients.",
+            "quote": "Æther transformed our back-office operations. We've saved countless hours and can now focus on our clients.",
             "author": "Dr. Emily White, Clinic Owner"
           },
           {
-            "quote": "The automation solutions provided by æther were a game-changer for our startup. Highly recommend!",
+            "quote": "The automation solutions provided by Æther were a game-changer for our startup. Highly recommend!",
             "author": "John Doe, Tech Startup Founder"
           }
         ],
@@ -130,7 +130,7 @@ alwaysApply: true
     },
     {
       "id": "why-aether",
-      "title": "Why Choose æther?",
+      "title": "Why Choose Æther?",
       "layout": "Feature list with concise explanations",
       "content": [
         {
@@ -156,7 +156,7 @@ alwaysApply: true
       "layout": "Simple form with call-to-action",
       "content": {
         "headline": "Let's Discuss Your Automation Needs",
-        "subheadline": "Get in touch today for a free consultation and discover how æther can transform your business.",
+        "subheadline": "Get in touch today for a free consultation and discover how Æther can transform your business.",
         "formFields": [
           {"label": "Name", "type": "text"},
           {"label": "Email", "type": "email"},
@@ -174,7 +174,7 @@ alwaysApply: true
       "title": "Footer",
       "layout": "Standard footer with navigation, contact info, and social links",
       "content": {
-        "copyright": "© 2026 æther. All rights reserved.",
+        "copyright": "© 2026 Æther. All rights reserved.",
         "navigation": [
           {"text": "Home", "link": "#hero"},
           {"text": "Services", "link": "#services"},

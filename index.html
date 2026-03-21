@@ -1,33 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" suppresshydrationwarning>
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("aether-theme");
+          var dark =
+            t === "dark" ||
+            (t !== "light" && (t === "system" || !t) && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", dark);
+          var m = document.getElementById("theme-color-meta");
+          if (m) m.setAttribute("content", dark ? "#08080A" : "#f6f5f3");
+        } catch (e) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>æther — Custom Automations That Save Your Team 30+ Hours a Week</title>
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta id="theme-color-meta" name="theme-color" content="#08080A" />
+
+    <title>Æther — Automations That Save You Time</title>
     <meta
       name="description"
-      content="æther builds custom automations, integrations, and payment reconciliation for operations teams drowning in manual work. 500+ hours saved monthly across 20+ businesses."
+      content="Æther — Automations That Save You Time. Custom automations, integrations, digital presence, and payment reconciliation for teams drowning in manual work. 500+ hours saved monthly across 20+ businesses."
     />
-    <meta name="author" content="æther" />
-    <link rel="canonical" href="https://ther-landing-studio.vercel.app/" />
+    <meta name="author" content="Æther" />
 
-    <meta property="og:title" content="æther — Custom Automations That Save Your Team 30+ Hours a Week" />
-    <meta
-      property="og:description"
-      content="We build automations, integrations, and reconciliation flows so you stop drowning in spreadsheets and start scaling."
-    />
+    <link rel="canonical" href="https://ther-landing-studio.vercel.app/" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Æther" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ther-landing-studio.vercel.app/" />
-    <meta property="og:image" content="https://ther-landing-studio.vercel.app/og-image.png" />
+    <meta property="og:title" content="Æther — Automations That Save You Time" />
+    <meta
+      property="og:description"
+      content="Æther — Automations That Save You Time. Custom automations, integrations, digital presence, and payment reconciliation for teams drowning in manual work. 500+ hours saved monthly across 20+ businesses."
+    />
+    <meta
+      property="og:image"
+      content="https://ther-landing-studio.vercel.app/web-app-manifest-512x512.png"
+    />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Æther — Automations That Save You Time" />
 
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@AEtherML" />
-    <meta name="twitter:title" content="æther — Custom Automations That Save Your Team 30+ Hours a Week" />
+    <meta name="twitter:creator" content="@AEtherML" />
+    <meta name="twitter:title" content="Æther — Automations That Save You Time" />
     <meta
       name="twitter:description"
-      content="We build automations, integrations, and reconciliation flows so you stop drowning in spreadsheets and start scaling."
+      content="Æther — Automations That Save You Time. Custom automations, integrations, digital presence, and payment reconciliation for teams drowning in manual work. 500+ hours saved monthly across 20+ businesses."
     />
-    <meta name="twitter:image" content="https://ther-landing-studio.vercel.app/og-image.png" />
+    <meta
+      name="twitter:image"
+      content="https://ther-landing-studio.vercel.app/web-app-manifest-512x512.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Æther — Automations That Save You Time"
+    />
   </head>
 
   <body>

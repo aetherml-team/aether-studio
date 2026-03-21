@@ -1,31 +1,21 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { EASE, viewport } from "@/lib/motion";
 import { SectionCTA } from "@/components/SectionCTA";
 
-const steps = [
-  {
-    number: "01",
-    title: "Discover",
-    description:
-      "We audit your current workflows end-to-end. Every manual step, every bottleneck, every dollar leaking through the cracks — mapped and quantified.",
-  },
-  {
-    number: "02",
-    title: "Design",
-    description:
-      "We architect automations tailored to your stack. Not a template. Not a generic playbook. A system built around how your business actually runs.",
-  },
-  {
-    number: "03",
-    title: "Deploy",
-    description:
-      "We launch, monitor, and iterate. Your automations run 24/7 while we handle maintenance, optimization, and anything that breaks at 3 AM.",
-  },
-] as const;
+interface Step {
+  title: string;
+  description: string;
+}
+
+const STEP_NUMBERS = ["01", "02", "03"] as const;
 
 const ProcessSection = () => {
+  const { t } = useTranslation();
+  const steps = t("process.steps", { returnObjects: true }) as Step[];
+
   return (
-    <section className="px-6 py-20 md:px-10 md:py-28">
+    <section id="process" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -35,11 +25,11 @@ const ProcessSection = () => {
           className="mb-16 text-center"
         >
           <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            How we work
+            {t("process.label")}
           </p>
           <h2 className="mx-auto max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Three steps. Then it&apos;s{" "}
-            <span className="text-gradient">our problem, not yours.</span>
+            {t("process.headline")}{" "}
+            <span className="text-gradient">{t("process.headlineGradient")}</span>
           </h2>
         </motion.div>
 
@@ -59,7 +49,7 @@ const ProcessSection = () => {
 
           {steps.map((step, i) => (
             <motion.div
-              key={step.number}
+              key={STEP_NUMBERS[i]}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -87,7 +77,7 @@ const ProcessSection = () => {
                 }}
               >
                 <span className="font-mono text-2xl font-medium text-primary">
-                  {step.number}
+                  {STEP_NUMBERS[i]}
                 </span>
               </motion.div>
               <h3 className="font-heading text-xl font-semibold tracking-tight text-foreground">
@@ -100,7 +90,7 @@ const ProcessSection = () => {
           ))}
         </div>
 
-        <SectionCTA label="Book a discovery call" />
+        <SectionCTA label={t("process.cta")} />
       </div>
     </section>
   );

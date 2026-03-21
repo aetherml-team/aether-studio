@@ -12,14 +12,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <HeroSection />
-      <div className="gradient-strip opacity-80" aria-hidden />
-      <ProblemSolutionSection />
-      <ServicesSection />
-      <ClientShowcase />
-      <ProcessSection />
-      <CheckFitSection />
-      <ContactSection />
+      <main id="main">
+        <HeroSection />
+        <div className="gradient-strip opacity-80" aria-hidden />
+        <ProblemSolutionSection />
+        <ServicesSection />
+        <ClientShowcase />
+        <ProcessSection />
+        <CheckFitSection />
+        <ContactSection />
+      </main>
       <Footer />
     </div>
   );

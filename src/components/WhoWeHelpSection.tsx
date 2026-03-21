@@ -7,7 +7,7 @@ const logos = ["KrakenBay", "Tavros", "Eternus", "Inmovilia"];
 const testimonials = [
   {
     quote:
-      "æther transformed our back-office operations. We've reclaimed over 30 hours a week that we now spend on clients.",
+      "Æther transformed our back-office operations. We've reclaimed over 30 hours a week that we now spend on clients.",
     author: "Operations Director",
     company: "Healthcare Startup",
   },

@@ -1,55 +1,27 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { SectionCTA } from "@/components/SectionCTA";
 import { CreditCard, Cog, Link2, Workflow, Globe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
 
-interface Service {
+interface ServiceTranslation {
   name: string;
   description: string;
   proof: string;
-  Icon: LucideIcon;
 }
 
-const services: Service[] = [
-  {
-    name: "Custom Automations",
-    description:
-      "Workflows that run while you sleep. We eliminate every repetitive task in your ops — scheduling, follow-ups, billing, you name it.",
-    proof: "KrakenBay saves 30+ hours/week on scheduling and billing alone.",
-    Icon: Cog,
-  },
-  {
-    name: "System Integrations",
-    description:
-      "Your tools should talk to each other. CRM to calendar, payments to accounting, sales to fulfillment — we connect them so data stops falling through the cracks.",
-    proof: "Inmovilia's sales-to-construction handoff went from days to instant.",
-    Icon: Link2,
-  },
-  {
-    name: "Payment Reconciliation",
-    description:
-      "Stop reconciling transactions by hand. We automate the matching and verification of every payment across terminals, banks, and platforms.",
-    proof: "Tavros cut billing cycles by 3x — no more chasing late renewals.",
-    Icon: CreditCard,
-  },
-  {
-    name: "Digital Presence",
-    description:
-      "Landing pages, client portals, and portfolio sites built to convert. If your online presence doesn't match the quality of your work, we fix that too.",
-    proof: "Eternus went from a mismatched page to a portfolio that actually closes clients.",
-    Icon: Globe,
-  },
-  {
-    name: "Process Optimization",
-    description:
-      "We audit, redesign, and implement workflows that cut bottlenecks and operational costs — measurably, not theoretically.",
-    proof: "Most clients recover the engagement cost in the first 60 days.",
-    Icon: Workflow,
-  },
-];
+const SERVICE_ICONS: LucideIcon[] = [Cog, Link2, CreditCard, Globe, Workflow];
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
+  const items = t("services.items", { returnObjects: true }) as ServiceTranslation[];
+
+  const services = items.map((item, i) => ({
+    ...item,
+    Icon: SERVICE_ICONS[i],
+  }));
+
   return (
     <section id="services" className="px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-7xl">
@@ -61,15 +33,14 @@ const ServicesSection = () => {
           className="mb-16"
         >
           <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            What we do
+            {t("services.label")}
           </p>
           <h2 className="max-w-3xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            You didn&apos;t start a business{" "}
-            <span className="text-gradient italic">to babysit spreadsheets.</span>
+            {t("services.headline")}{" "}
+            <span className="text-gradient italic">{t("services.headlineGradient")}</span>
           </h2>
           <p className="mt-4 max-w-xl font-body text-[15px] font-light leading-relaxed text-muted-foreground">
-            Every service below comes with receipts — real results from real
-            clients, not numbers from a pitch deck.
+            {t("services.description")}
           </p>
         </motion.div>
 
@@ -104,7 +75,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <SectionCTA label="See what we can do for you" />
+        <SectionCTA label={t("services.cta")} />
       </div>
     </section>
   );

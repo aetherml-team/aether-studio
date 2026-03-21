@@ -1,195 +1,266 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { SectionCTA } from "@/components/SectionCTA";
 import { EASE, viewport } from "@/lib/motion";
 
-type ClientTheme = {
+type Motif = "octagon" | "speedlines" | "grid" | "film";
+
+interface ClientVisual {
   name: string;
   avatarInitials: string;
+  primary: string;
+  primaryBright: string;
+  motif: Motif;
+}
+
+interface ClientTranslation {
   tagline: string;
   industry: string;
-  /** Real testimonial from the client */
   quote: string;
   quotePerson: string;
-  servicesDelivered: readonly string[];
-  metric: { value: string; label: string };
-  void: string;
-  surface: string;
-  primary: string;
-  primaryDim: string;
-  primaryBright: string;
-  theme: "dark" | "light";
-  atmosphere: string;
-};
+  servicesDelivered: string[];
+  metricLabel: string;
+}
 
-const clients: ClientTheme[] = [
+interface ClientMetric {
+  value: string;
+  label: string;
+}
+
+interface Client extends ClientVisual, ClientTranslation {
+  metric: ClientMetric;
+}
+
+/** Per-client SVG watermark — subtle industry identity inside the card */
+function ClientMotif({ type, color }: { type: Motif; color: string }) {
+  const base =
+    "pointer-events-none select-none absolute right-0 top-0 opacity-[0.18] mix-blend-multiply dark:mix-blend-screen";
+
+  if (type === "octagon")
+    return (
+      <svg
+        className={`${base} h-48 w-48`}
+        viewBox="0 0 200 200"
+        fill="none"
+        style={{ color }}
+        aria-hidden
+      >
+        <polygon
+          points="70,8 130,8 192,70 192,130 130,192 70,192 8,130 8,70"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <polygon
+          points="84,28 116,28 172,84 172,116 116,172 84,172 28,116 28,84"
+          stroke="currentColor"
+          strokeWidth="0.8"
+        />
+        <circle cx="100" cy="100" r="40" stroke="currentColor" strokeWidth="0.5" />
+        <circle cx="100" cy="100" r="18" stroke="currentColor" strokeWidth="0.4" />
+      </svg>
+    );
+
+  if (type === "speedlines")
+    return (
+      <svg
+        className={`${base} h-48 w-48`}
+        viewBox="0 0 200 200"
+        fill="none"
+        style={{ color }}
+        aria-hidden
+      >
+        {[0, 28, 56, 84, 112, 140, 168].map((o, i) => (
+          <line
+            key={i}
+            x1={o}
+            y1="200"
+            x2="200"
+            y2={o}
+            stroke="currentColor"
+            strokeWidth={i % 3 === 0 ? 1.5 : 0.5}
+          />
+        ))}
+      </svg>
+    );
+
+  if (type === "grid")
+    return (
+      <svg
+        className={`${base} h-48 w-48`}
+        viewBox="0 0 200 200"
+        fill="none"
+        style={{ color }}
+        aria-hidden
+      >
+        {Array.from({ length: 5 }, (_, col) =>
+          Array.from({ length: 6 }, (_, row) => (
+            <rect
+              key={`${col}-${row}`}
+              x={20 + col * 34}
+              y={10 + row * 30}
+              width="20"
+              height="20"
+              rx="2"
+              stroke="currentColor"
+              strokeWidth="0.8"
+            />
+          ))
+        )}
+      </svg>
+    );
+
+  // film
+  return (
+    <svg
+      className={`${base} h-48 w-48`}
+      viewBox="0 0 200 200"
+      fill="none"
+      style={{ color }}
+      aria-hidden
+    >
+      <path
+        d="M155 12 L188 12 L188 45"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M188 155 L188 188 L155 188"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M45 188 L12 188 L12 155"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 45 L12 12 L45 12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {[38, 80, 122, 162].map((y) => (
+        <g key={y}>
+          <rect
+            x="4"
+            y={y - 10}
+            width="14"
+            height="20"
+            rx="3"
+            stroke="currentColor"
+            strokeWidth="0.8"
+          />
+          <rect
+            x="182"
+            y={y - 10}
+            width="14"
+            height="20"
+            rx="3"
+            stroke="currentColor"
+            strokeWidth="0.8"
+          />
+        </g>
+      ))}
+      <rect x="38" y="38" width="124" height="124" rx="6" stroke="currentColor" strokeWidth="0.6" />
+    </svg>
+  );
+}
+
+const CLIENT_VISUALS: ClientVisual[] = [
   {
     name: "KrakenBay Studio",
     avatarInitials: "KB",
-    tagline: "BJJ · Black & Gold",
-    industry: "Best jiujitsu school in Guadalajara",
-    quote:
-      "The number of times I forgot to remind my customers about their due payment date was causing me to lose money. The cash floating around, the terminal, tickets, bank apps — I needed all of that to know my in-out expenses. I don't have any clue how they did all of that automatically.",
-    quotePerson: "Manuel Focil, Owner",
-    servicesDelivered: [
-      "Class & mat scheduling automation",
-      "Membership renewals & billing",
-      "Payment reminders & follow-ups",
-    ],
-    metric: { value: "30+", label: "hours saved weekly" },
-    void: "#111108",
-    surface: "#1A1800",
     primary: "#E8C84A",
-    primaryDim: "#C8A820",
     primaryBright: "#F5DF80",
-    theme: "dark",
-    atmosphere:
-      "radial-gradient(ellipse 85% 65% at 72% 45%, rgba(232,200,74,0.14), transparent 58%), linear-gradient(180deg, #111108 0%, #1A1800 100%)",
+    motif: "octagon",
   },
   {
     name: "Tavros",
     avatarInitials: "TV",
-    tagline: "Strength · Pure Black & Electric Yellow",
-    industry: "Best premium gym",
-    quote:
-      "The æther team helped me reduce what usually took me weeks in reconciliation for each end of the month. Now I can focus on exactly what I care about — bringing more clients to my business.",
-    quotePerson: "Harilois Fafutis, Owner",
-    servicesDelivered: [
-      "Membership billing automation",
-      "Access control integrations",
-      "Trainer scheduling & payroll hooks",
-    ],
-    metric: { value: "3x", label: "faster billing cycles" },
-    void: "#0A0A0A",
-    surface: "#1A1A1A",
     primary: "#F5D800",
-    primaryDim: "#D4B800",
     primaryBright: "#FFF176",
-    theme: "dark",
-    atmosphere:
-      "radial-gradient(ellipse 85% 65% at 72% 45%, rgba(245,216,0,0.12), transparent 58%), linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)",
+    motif: "speedlines",
   },
   {
     name: "Inmovilia",
     avatarInitials: "IN",
-    tagline: "Real Estate · Linen & Warm Olive",
-    industry: "Construction & real estate company",
-    quote:
-      "I needed to get online exposure for my investors. I didn't even have a web page! I contacted them and in a couple of hours I was able to send the link to my investors. They saved me.",
-    quotePerson: "Mario, Founder",
-    servicesDelivered: [
-      "Lead intake & CRM routing",
-      "Site visit scheduling & reminders",
-      "Sales ↔ construction handoff workflows",
-    ],
-    metric: { value: "2x", label: "faster lead response" },
-    void: "#F2EFE8",
-    surface: "#E8E4DA",
     primary: "#7A6A40",
-    primaryDim: "#5A4E2C",
     primaryBright: "#9A8A58",
-    theme: "light",
-    atmosphere:
-      "radial-gradient(ellipse 85% 65% at 72% 45%, rgba(122,106,64,0.12), transparent 58%), linear-gradient(180deg, #F2EFE8 0%, #E8E4DA 100%)",
+    motif: "grid",
   },
   {
     name: "Eternus",
     avatarInitials: "ET",
-    tagline: "Wedding · Navy & Champagne Gold",
-    industry: "Best wedding filmmaker",
-    quote:
-      "They helped me actually have a portfolio for my work. I used to have a meh landing page to showcase my work which wasn't aligned to what I usually do. Now both match!",
-    quotePerson: "Dimitri Fafutis, Filmmaker",
-    servicesDelivered: [
-      "Inquiry-to-contract pipeline",
-      "Deposits & milestone billing",
-      "Client comms & delivery workflow",
-    ],
-    metric: { value: "50+", label: "weddings coordinated" },
-    void: "#0A0C14",
-    surface: "#12141E",
     primary: "#C8B882",
-    primaryDim: "#A89858",
     primaryBright: "#E8D8A8",
-    theme: "dark",
-    atmosphere:
-      "radial-gradient(ellipse 85% 65% at 72% 45%, rgba(200,184,130,0.12), transparent 58%), linear-gradient(180deg, #0A0C14 0%, #12141E 100%)",
+    motif: "film",
   },
 ];
 
-const AUTO_MS = 15000;
+const CLIENT_METRIC_VALUES = ["30+", "3x", "2x", "50+"] as const;
 
+const AUTO_MS = 15000;
 const SMOOTH = [0.22, 0.61, 0.36, 1] as const;
 
-const bubbleVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.11,
-      delayChildren: 0.04,
-    },
-  },
-};
-
-const bubbleItem = {
-  hidden: { opacity: 0, y: 12 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.58, ease: SMOOTH },
-  },
-};
-
 const ClientShowcase = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [userPicked, setUserPicked] = useState(false);
+
+  const translations = t("clients.items", { returnObjects: true }) as ClientTranslation[];
+
+  const clients: Client[] = CLIENT_VISUALS.map((visual, i) => ({
+    ...visual,
+    ...translations[i],
+    metric: {
+      value: CLIENT_METRIC_VALUES[i],
+      label: translations[i]?.metricLabel ?? "",
+    },
+  }));
+
   const active = clients[activeIndex];
-  const isLight = active.theme === "light";
 
   useEffect(() => {
     if (userPicked) return;
-    const id = window.setInterval(() => {
-      setActiveIndex((i) => (i + 1) % clients.length);
-    }, AUTO_MS);
+    const id = window.setInterval(
+      () => setActiveIndex((i) => (i + 1) % clients.length),
+      AUTO_MS
+    );
     return () => window.clearInterval(id);
-  }, [userPicked]);
+  }, [userPicked, clients.length]);
 
   const selectClient = useCallback((i: number) => {
     setUserPicked(true);
     setActiveIndex(i);
   }, []);
 
-  const labelClass = isLight ? "text-[#6B6250]" : "text-foreground-dim";
-  const headingClass = isLight ? "text-[#2C281C]" : "text-foreground";
-  const subMutedClass = isLight ? "text-[#5A5244]" : "text-muted-foreground";
-  const nameInactiveOpacity = isLight ? "opacity-45" : "opacity-40";
-
-  const bubbleBg = isLight ? "bg-[#F0EBE2]/95" : "bg-[#0c0c10]/85";
-  const bubbleBorder = isLight ? "border-[#7A6A40]/22" : "border-white/[0.09]";
-  const quoteClass = isLight
-    ? "text-[#2A261C] font-body text-[17px] md:text-lg leading-[1.75] italic font-light"
-    : "text-foreground/92 font-body text-[17px] md:text-lg leading-[1.75] italic font-light";
-
   return (
     <section
       id="clients"
-      className="relative overflow-hidden px-6 py-20 md:px-10 md:py-32"
-      style={{ color: isLight ? "#2C281C" : undefined }}
+      className="relative overflow-hidden border-y border-border bg-background px-6 py-20 md:px-10 md:py-32"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        {clients.map((c, i) => (
-          <motion.div
-            key={c.name}
-            className="absolute inset-0"
-            initial={false}
-            animate={{
-              opacity: i === activeIndex ? 1 : 0,
-            }}
-            transition={{ duration: 1.15, ease: SMOOTH }}
-            style={{ background: c.atmosphere }}
-          />
-        ))}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active.name}
+          className="pointer-events-none absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.6, ease: "easeInOut" }}
+          style={{
+            background: `radial-gradient(ellipse 55% 45% at 90% 90%, ${active.primary}12, transparent 68%)`,
+          }}
+          aria-hidden
+        />
+      </AnimatePresence>
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
@@ -199,16 +270,23 @@ const ClientShowcase = () => {
           transition={{ duration: 0.7, ease: EASE }}
           className="mb-16"
         >
-          <p className={`mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] ${labelClass}`}>
-            Our clients
+          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            {t("clients.label")}
           </p>
-          <h2 className={`max-w-2xl font-heading text-4xl font-bold tracking-tight md:text-5xl ${headingClass}`}>
-            Don&apos;t take our word for it.{" "}
-            <span className="text-gradient">Take theirs.</span>
+          <h2 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            {t("clients.headline")}{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage: `linear-gradient(135deg, hsl(var(--foreground)) 0%, ${active.primaryBright} 100%)`,
+              }}
+            >
+              {t("clients.headlineGradient")}
+            </span>
           </h2>
           {!userPicked && (
-            <p className={`mt-3 font-mono text-[11px] ${subMutedClass}`}>
-              Rotating every {AUTO_MS / 1000}s — click a name to hold
+            <p className="mt-3 font-mono text-[11px] text-muted-foreground">
+              {t("clients.rotating")}
             </p>
           )}
         </motion.div>
@@ -223,162 +301,162 @@ const ClientShowcase = () => {
                   type="button"
                   onClick={() => selectClient(i)}
                   className={`relative flex-shrink-0 rounded-xl px-4 py-4 text-left transition-all duration-500 ease-out lg:rounded-none lg:border-l-2 lg:px-6 lg:py-5 ${
-                    isActive
-                      ? isLight
-                        ? "bg-[#E8E4DA]/80 lg:bg-transparent"
-                        : "bg-black/20 lg:bg-transparent"
-                      : `${nameInactiveOpacity} hover:opacity-70`
+                    isActive ? "bg-muted/50 lg:bg-transparent" : "hover:bg-muted/35"
                   }`}
                   style={{
                     borderLeftColor: isActive ? client.primary : "transparent",
                   }}
                 >
                   <span
-                    className="block font-heading text-lg font-bold tracking-tight transition-colors duration-500 md:text-2xl lg:text-3xl"
+                    className={`mb-1 block font-mono text-[9px] font-medium uppercase tracking-[0.2em] transition-all duration-500 ${
+                      isActive ? "opacity-100" : "opacity-25"
+                    }`}
+                    style={{ color: isActive ? client.primary : undefined }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className={`block font-heading text-lg font-bold tracking-tight transition-colors duration-500 md:text-2xl lg:text-3xl ${
+                      isActive ? "" : "text-muted-foreground"
+                    }`}
                     style={{ color: isActive ? client.primary : undefined }}
                   >
                     {client.name}
                   </span>
-                  <span className={`mt-1 block font-mono text-[10px] uppercase tracking-wider ${subMutedClass}`}>
+                  <span className="mt-1 block font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                     {client.tagline}
                   </span>
-                  <span className={`mt-0.5 block font-mono text-[11px] ${subMutedClass}`}>{client.industry}</span>
+                  <span className="mt-0.5 block font-mono text-[11px] text-muted-foreground">
+                    {client.industry}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          <div className="relative min-h-[320px] lg:col-span-8">
+          <div className="relative lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.name}
-                initial={{ opacity: 0, y: 20, scale: 0.988 }}
+                initial={{ opacity: 0, y: 22, scale: 0.987 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -14, scale: 0.992 }}
                 transition={{
-                  opacity: { duration: 0.7, ease: SMOOTH },
-                  y: { duration: 0.78, ease: SMOOTH },
+                  opacity: { duration: 0.65, ease: SMOOTH },
+                  y: { duration: 0.75, ease: SMOOTH },
                   scale: { duration: 0.9, ease: SMOOTH },
                 }}
-                className="flex flex-col gap-6 md:flex-row md:items-start md:gap-6"
               >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.65, delay: 0.05, ease: SMOOTH }}
-                  className="flex shrink-0 justify-center md:block md:w-[88px]"
+                <div
+                  className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 md:p-10"
+                  style={{
+                    boxShadow: `0 0 0 1px ${active.primary}14, 0 28px 64px -28px ${active.primary}1e`,
+                  }}
                 >
+                  <div className="noise-overlay rounded-2xl" aria-hidden />
+                  <ClientMotif type={active.motif} color={active.primary} />
+
                   <div
-                    className="flex h-[72px] w-[72px] items-center justify-center rounded-full border-2 font-mono text-lg font-medium tracking-tight shadow-lg md:h-[88px] md:w-[88px] md:text-xl"
-                    style={{
-                      borderColor: active.primary,
-                      color: active.primary,
-                      backgroundColor: isLight ? `${active.surface}cc` : "rgba(0,0,0,0.35)",
-                      boxShadow: `0 12px 40px -16px ${active.primary}44`,
-                    }}
+                    className="pointer-events-none absolute -top-4 left-4 select-none font-heading text-[11rem] leading-none opacity-[0.15] mix-blend-multiply dark:mix-blend-screen md:text-[14rem]"
+                    style={{ color: active.primary }}
+                    aria-hidden
                   >
-                    {active.avatarInitials}
+                    &ldquo;
                   </div>
-                </motion.div>
 
-                <div className="min-w-0 flex-1">
-                  <motion.div
-                    variants={bubbleVariants}
-                    initial="hidden"
-                    animate="show"
-                    className={`relative rounded-[1.35rem] border px-6 py-7 shadow-xl backdrop-blur-md md:px-8 md:py-8 ${bubbleBg} ${bubbleBorder}`}
-                    style={{
-                      boxShadow: `0 24px 60px -28px rgba(0,0,0,0.45), inset 0 1px 0 ${active.primary}18`,
-                    }}
+                  <div className="relative z-10">
+                    <p className="font-body text-xl font-light leading-[1.72] text-foreground md:text-[1.35rem]">
+                      {active.quote}
+                    </p>
+                  </div>
+
+                  <div
+                    className="relative z-10 mt-8 flex flex-col gap-5 border-t pt-6 sm:flex-row sm:items-center sm:justify-between"
+                    style={{ borderColor: `${active.primary}20` }}
                   >
-                    <span
-                      className="absolute hidden md:block"
-                      style={{
-                        left: -10,
-                        top: 28,
-                        width: 0,
-                        height: 0,
-                        borderTop: "10px solid transparent",
-                        borderBottom: "10px solid transparent",
-                        borderRight: `10px solid ${isLight ? "#F0EBE2" : "rgba(12,12,16,0.92)"}`,
-                        filter: "drop-shadow(-2px 0 1px rgba(0,0,0,0.12))",
-                      }}
-                      aria-hidden
-                    />
-                    <motion.p variants={bubbleItem} className={`relative z-10 ${quoteClass}`}>
-                      &ldquo;{active.quote}&rdquo;
-                    </motion.p>
+                    <div className="flex items-center gap-3.5">
+                      <div
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 font-mono text-[13px] font-semibold tracking-tight"
+                        style={{
+                          borderColor: active.primary,
+                          color: active.primary,
+                          boxShadow: `0 0 18px -4px ${active.primary}50`,
+                        }}
+                      >
+                        {active.avatarInitials}
+                      </div>
+                      <div>
+                        <p
+                          className="font-body text-sm font-semibold leading-tight"
+                          style={{ color: active.primary }}
+                        >
+                          {active.quotePerson}
+                        </p>
+                        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                          {active.tagline}
+                        </p>
+                      </div>
+                    </div>
 
-                    <motion.footer
-                      variants={bubbleItem}
-                      className="relative z-10 mt-4 flex items-center gap-2 font-body text-sm"
-                    >
-                      <span className="font-medium" style={{ color: active.primary }}>
-                        — {active.quotePerson}
-                      </span>
-                    </motion.footer>
-
-                    <motion.div
-                      variants={bubbleItem}
-                      className="relative z-10 mt-5 flex flex-wrap items-baseline gap-2 border-t pt-5"
-                      style={{ borderColor: `${active.primary}22` }}
-                    >
+                    <div className="flex flex-col items-start sm:items-end">
                       <span
-                        className="font-heading text-3xl font-bold tracking-tight md:text-4xl"
+                        className="font-heading text-4xl font-bold tracking-tight md:text-5xl"
                         style={{ color: active.primary }}
                       >
                         {active.metric.value}
                       </span>
-                      <span className={`font-body text-sm font-normal ${subMutedClass}`}>{active.metric.label}</span>
-                    </motion.div>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45, duration: 0.6, ease: SMOOTH }}
-                    className="mt-6 md:mt-7"
-                  >
-                    <p
-                      className={`mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.18em] ${subMutedClass}`}
-                    >
-                      What æther delivered
-                    </p>
-                    <ul className="flex flex-col gap-2.5">
-                      {active.servicesDelivered.map((s, idx) => (
-                        <motion.li
-                          key={s}
-                          initial={{ opacity: 0, x: -8 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.35 + idx * 0.07, duration: 0.5, ease: SMOOTH }}
-                          className={`flex items-start gap-3 font-body text-[14px] leading-snug md:text-[15px] ${
-                            isLight ? "text-[#3D3828]" : "text-foreground/85"
-                          }`}
-                        >
-                          <span
-                            className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                            style={{ backgroundColor: active.primary }}
-                            aria-hidden
-                          />
-                          {s}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                      <span className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                        {active.metric.label}
+                      </span>
+                    </div>
+                  </div>
                 </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.42, duration: 0.55, ease: SMOOTH }}
+                  className="mt-5 md:mt-6"
+                >
+                  <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    {t("clients.whatDelivered")}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {active.servicesDelivered.map((s, idx) => (
+                      <motion.span
+                        key={s}
+                        initial={{ opacity: 0, scale: 0.88 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.52 + idx * 0.07, duration: 0.38, ease: SMOOTH }}
+                        className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 font-body text-[13px] text-foreground"
+                        style={{ boxShadow: `inset 0 0 0 1px ${active.primary}14` }}
+                      >
+                        <span
+                          className="h-1.5 w-1.5 shrink-0 rounded-full"
+                          style={{ backgroundColor: active.primary }}
+                          aria-hidden
+                        />
+                        {s}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
 
-        <SectionCTA label="Get results like these" />
+        <SectionCTA label={t("clients.cta")} />
       </div>
 
       {!userPicked && (
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[3px] bg-black/15" aria-hidden>
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[2px] bg-border"
+          aria-hidden
+        >
           <motion.div
             key={activeIndex}
-            className="h-full rounded-full opacity-90"
+            className="h-full"
             style={{ backgroundColor: active.primary }}
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
