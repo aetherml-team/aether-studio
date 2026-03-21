@@ -1,0 +1,32 @@
+{
+  "name": "aether-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "aether-core-ui": "^0.2.0",
+    "@tanstack/react-query": "^5.90.0",
+    "@tanstack/react-table": "^8.21.0",
+    "lucide-react": "^0.468.0",
+    "nuqs": "^2.8.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.71.0",
+    "react-router-dom": "^7.2.0",
+    "recharts": "^3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.7.0",
+    "vite": "^7.3.0"
+  }
+}
