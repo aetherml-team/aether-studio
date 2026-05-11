@@ -16,7 +16,6 @@
     "headlineGradient": "a machine should be handling.",
     "description": "We build custom automations, integrations, and digital presence that give your team back 30+ hours a week — so you can stop firefighting and focus on what actually grows the business.",
     "cta": "Get Your Free Automation Audit",
-    "statLabels": ["Hours saved monthly", "Reconciliation accuracy", "Businesses automated"],
     "trustedBy": "Trusted by teams at"
   },
   "problemSolution": {
@@ -171,6 +170,45 @@
     "success": "Thanks — we'll be in touch within 24 hours.",
     "companySizes": ["Just me", "2–10", "11–50", "50+"],
     "bottlenecks": ["Manual data entry", "Payment reconciliation", "Disconnected tools", "Scheduling chaos", "Other"]
+  },
+  "stickyCta": {
+    "label": "Free 20-min automation audit"
+  },
+  "integrations": {
+    "label": "Plays well with",
+    "headline": "We connect the tools",
+    "headlineGradient": "you already pay for."
+  },
+  "faq": {
+    "label": "FAQ",
+    "headline": "Questions, answered",
+    "headlineGradient": "before you ask.",
+    "items": [
+      {
+        "q": "How fast do you ship?",
+        "a": "First automation live within 2–3 weeks of kickoff. Most engagements deliver measurable hours saved inside 30 days — not the 6-month rollouts you'd get from a traditional agency."
+      },
+      {
+        "q": "Will this work with our current tools?",
+        "a": "Almost certainly. We connect Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make, and 100+ others. If your stack has an API or a webhook, we can automate it."
+      },
+      {
+        "q": "What does it cost?",
+        "a": "Engagements start around $4,500 and scale with scope. Most clients recover the cost in the first 60 days through reclaimed hours and reduced billing leakage. We share a fixed quote after the free audit — no hourly games."
+      },
+      {
+        "q": "What happens when something breaks?",
+        "a": "We monitor every workflow we ship. If something fails at 3 AM, we get paged — not you. Maintenance and small iterations are included in the first 90 days; after that, ongoing support is a flat monthly retainer."
+      },
+      {
+        "q": "Do you replace our team?",
+        "a": "No. We replace the work nobody on your team should be doing. Your people get to focus on customers, growth, and judgment calls — the things software can't do."
+      },
+      {
+        "q": "Is our data safe?",
+        "a": "Yes. We work inside your accounts (or deploy to your infrastructure), never store credentials in plaintext, and sign an NDA on day one. We can also work under your existing security and compliance requirements."
+      }
+    ]
   },
   "footer": {
     "tagline": "Your team's time is too valuable for manual work. We build the automations that handle the boring so you can focus on what actually grows the business.",

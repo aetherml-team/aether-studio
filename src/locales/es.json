@@ -16,7 +16,6 @@
     "headlineGradient": "que una máquina debería estar haciendo.",
     "description": "Construimos automatizaciones, integraciones y presencia digital a medida que le devuelven a tu equipo más de 30 horas semanales — para que dejes de apagar incendios y te enfoques en lo que realmente hace crecer el negocio.",
     "cta": "Obtén tu auditoría de automatización gratis",
-    "statLabels": ["Horas ahorradas al mes", "Precisión en conciliación", "Negocios automatizados"],
     "trustedBy": "Confiado por equipos en"
   },
   "problemSolution": {
@@ -171,6 +170,45 @@
     "success": "Gracias — nos pondremos en contacto en 24 horas.",
     "companySizes": ["Solo yo", "2–10", "11–50", "50+"],
     "bottlenecks": ["Entrada de datos manual", "Conciliación de pagos", "Herramientas desconectadas", "Caos de agendamiento", "Otro"]
+  },
+  "stickyCta": {
+    "label": "Auditoría gratuita de 20 min"
+  },
+  "integrations": {
+    "label": "Compatible con",
+    "headline": "Conectamos las herramientas",
+    "headlineGradient": "que ya estás pagando."
+  },
+  "faq": {
+    "label": "Preguntas frecuentes",
+    "headline": "Respuestas,",
+    "headlineGradient": "antes de que preguntes.",
+    "items": [
+      {
+        "q": "¿Qué tan rápido entregan?",
+        "a": "Primera automatización en producción 2–3 semanas después del arranque. La mayoría de los proyectos muestran horas ahorradas medibles dentro de 30 días — no los rollouts de 6 meses de una agencia tradicional."
+      },
+      {
+        "q": "¿Funciona con nuestras herramientas actuales?",
+        "a": "Casi seguro que sí. Conectamos Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make y más de 100 otras. Si tu stack tiene API o webhook, lo podemos automatizar."
+      },
+      {
+        "q": "¿Cuánto cuesta?",
+        "a": "Los proyectos arrancan alrededor de $4,500 USD y escalan con el alcance. La mayoría de clientes recupera la inversión en los primeros 60 días por horas reclamadas y menos fugas de cobro. Cotización fija después de la auditoría — sin juegos de horas."
+      },
+      {
+        "q": "¿Qué pasa si algo falla?",
+        "a": "Monitoreamos cada flujo que entregamos. Si algo se cae a las 3 AM, nos llega la alerta a nosotros — no a ti. Mantenimiento e iteraciones pequeñas incluidas los primeros 90 días; después, un retainer mensual fijo."
+      },
+      {
+        "q": "¿Reemplazan a nuestro equipo?",
+        "a": "No. Reemplazamos el trabajo que nadie en tu equipo debería estar haciendo. Tu gente se enfoca en clientes, crecimiento y decisiones — lo que el software no puede hacer."
+      },
+      {
+        "q": "¿Nuestros datos están seguros?",
+        "a": "Sí. Trabajamos dentro de tus cuentas (o desplegamos en tu infraestructura), nunca almacenamos credenciales en texto plano y firmamos NDA desde el día uno. También trabajamos bajo tus requisitos de seguridad y cumplimiento."
+      }
+    ]
   },
   "footer": {
     "tagline": "El tiempo de tu equipo es demasiado valioso para el trabajo manual. Construimos las automatizaciones que manejan lo aburrido para que puedas enfocarte en lo que realmente hace crecer el negocio.",

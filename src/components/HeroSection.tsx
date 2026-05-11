@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { EASE } from "@/lib/motion";
 
-const HERO_STAT_VALUES = ["500+", "99.8%", "20+"] as const;
 const logos = ["KrakenBay", "Tavros", "Eternus", "Inmovilia"];
 
 /** Position on a circle: angle in degrees clockwise from top */
@@ -125,8 +124,6 @@ const HeroSection = () => {
   const { t } = useTranslation();
 
   const chips = t("hero.chips", { returnObjects: true }) as string[];
-  const statLabels = t("hero.statLabels", { returnObjects: true }) as string[];
-  const stats = HERO_STAT_VALUES.map((value, i) => ({ value, label: statLabels[i] }));
 
   return (
     <section
@@ -204,29 +201,11 @@ const HeroSection = () => {
             </motion.a>
           </motion.div>
 
-          <motion.dl
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.72, ease: EASE }}
-            className="mt-12 grid grid-cols-3 gap-3 border-t border-border/50 pt-8 sm:gap-6"
-          >
-            {stats.map(({ value, label }) => (
-              <div key={value} className="min-w-0">
-                <dt className="font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-                  {value}
-                </dt>
-                <dd className="mt-1 font-mono text-[10px] font-medium uppercase leading-snug tracking-wide text-muted-foreground sm:text-[11px]">
-                  {label}
-                </dd>
-              </div>
-            ))}
-          </motion.dl>
-
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="mt-8"
+            className="mt-12 border-t border-border/50 pt-8"
           >
             <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               {t("hero.trustedBy")}
