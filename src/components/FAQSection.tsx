@@ -31,12 +31,8 @@ const FAQSection = () => {
           transition={{ duration: 0.6, ease: EASE }}
           className="text-center"
         >
-          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            {t("faq.label")}
-          </p>
           <h2 id="faq-heading" className="font-heading text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            {t("faq.headline")}{" "}
-            <span className="text-gradient">{t("faq.headlineGradient")}</span>
+            {t("faq.headline")}
           </h2>
         </motion.div>
 
@@ -52,7 +48,7 @@ const FAQSection = () => {
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="overflow-hidden rounded-xl border border-border/60 bg-card/40 px-5 backdrop-blur-sm data-[state=open]:border-primary/30"
+                className="overflow-hidden rounded-xl border border-border/60 bg-card px-5 data-[state=open]:border-primary/30"
               >
                 <AccordionTrigger className="py-5 text-left font-body text-base font-medium text-foreground hover:no-underline">
                   {item.q}

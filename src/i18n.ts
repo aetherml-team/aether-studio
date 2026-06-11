@@ -23,4 +23,15 @@ i18n
     },
   });
 
+// Keep <html lang> in sync so search engines and screen readers
+// see the language actually rendered.
+function syncDocumentLang(lng: string) {
+  if (typeof document !== "undefined") {
+    document.documentElement.lang = lng;
+  }
+}
+
+syncDocumentLang(i18n.resolvedLanguage ?? i18n.language);
+i18n.on("languageChanged", syncDocumentLang);
+
 export default i18n;

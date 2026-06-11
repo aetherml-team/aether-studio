@@ -62,7 +62,7 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-10">
         <motion.a
           href="#hero"
-          className="shrink-0 font-mono text-sm font-medium tracking-tight text-foreground"
+          className="shrink-0 font-heading text-base font-semibold tracking-tight text-foreground"
           aria-label="Æther home"
           whileHover={{ opacity: 0.85 }}
         >

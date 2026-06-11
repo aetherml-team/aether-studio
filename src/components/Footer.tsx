@@ -36,7 +36,7 @@ const Footer = () => {
       >
         <div className="grid gap-12 md:grid-cols-4 md:gap-8">
           <div className="md:col-span-2">
-            <p className="font-mono text-sm font-medium tracking-tight text-foreground">
+            <p className="font-heading text-base font-semibold tracking-tight text-foreground">
               Æther
             </p>
             <p className="mt-3 max-w-sm font-body text-sm font-light leading-relaxed text-muted-foreground">
@@ -76,7 +76,7 @@ const Footer = () => {
               viewport={viewport}
               transition={{ duration: 0.5, delay: 0.05 + si * 0.06, ease: EASE }}
             >
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              <p className="font-body text-sm font-medium text-foreground-dim">
                 {t(section.titleKey)}
               </p>
               <ul className="mt-4 space-y-3">

@@ -17,12 +17,8 @@ const CheckFitSection = () => {
           transition={{ duration: 0.68, ease: EASE }}
           className="mb-14"
         >
-          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            {t("checkFit.label")}
-          </p>
           <h2 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            {t("checkFit.headline")}{" "}
-            <span className="text-gradient">{t("checkFit.headlineGradient")}</span>
+            {t("checkFit.headline")}
           </h2>
           <p className="mt-5 max-w-xl font-body text-[15px] font-light leading-relaxed text-muted-foreground">
             {t("checkFit.description")}
@@ -52,12 +48,12 @@ const CheckFitSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={viewport}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="mt-8 text-center font-mono text-xs text-muted-foreground"
+          className="mt-8 text-center font-body text-sm text-muted-foreground"
         >
           {t("checkFit.soundLikeYou")}
         </motion.p>
 
-        <SectionCTA label={t("checkFit.cta")} />
+        <SectionCTA label={t("common.cta")} />
       </div>
     </section>
   );

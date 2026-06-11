@@ -1,81 +1,69 @@
 {
+  "common": {
+    "cta": "Request a free audit"
+  },
   "navbar": {
     "problem": "The problem",
     "services": "Services",
     "results": "Results",
     "howWeWork": "How we work",
-    "theFit": "The fit",
+    "theFit": "Who it's for",
     "skipToContent": "Skip to content",
-    "bookACall": "Book a Call"
+    "bookACall": "Request a free audit"
   },
   "hero": {
-    "chips": ["Automations", "Integrations", "Reconciliation", "Digital Presence"],
-    "headlinePre": "Your team is",
-    "headlineEm": "still",
-    "headlineMid": "doing work",
-    "headlineGradient": "a machine should be handling.",
-    "description": "We build custom automations, integrations, and digital presence that give your team back 30+ hours a week — so you can stop firefighting and focus on what actually grows the business.",
-    "cta": "Get Your Free Automation Audit",
-    "trustedBy": "Trusted by teams at"
+    "headline": "Manual work,",
+    "headlineEmphasis": "engineered away.",
+    "description": "Custom automations, integrations, and payment reconciliation for businesses that have outgrown spreadsheets. Most clients get back 30 hours a week."
   },
   "problemSolution": {
     "problemLabel": "The problem",
-    "problemHeadline": "Your team is drowning in",
-    "problemHeadlineGradient": "manual work",
+    "problemHeadline": "Where the hours actually go",
     "problemBody": "Chasing payments across three apps. Copy-pasting data between systems that should talk to each other. Reconciling transactions in a spreadsheet at midnight. Every hour spent on operational toil is an hour not spent growing your business.",
     "solutionLabel": "The solution",
-    "solutionHeadline": "We turned 3-day reconciliation into",
-    "solutionHeadlineGradient": "12 minutes.",
-    "solutionBody": "Æther transforms operational chaos into workflows that run while you sleep. Automations that connect every tool in your stack, reconciliation that never misses a cent, and reminders that go out before you even think about them.",
-    "tags": ["Zero manual entry", "Real-time sync", "99.8% accuracy"],
-    "cta": "Stop wasting time — talk to us"
+    "solutionHeadline": "Three days of reconciliation, down to twelve minutes.",
+    "solutionBody": "That is what we built for Premium Fitness. Workflows that connect every tool you use, match every payment to the cent, and send reminders before anyone thinks of them.",
+    "tags": ["Zero manual entry", "Real-time sync", "Audit-ready records"]
   },
   "services": {
-    "label": "What we do",
-    "headline": "You didn't start a business",
-    "headlineGradient": "to babysit spreadsheets.",
-    "description": "Every service below comes with receipts — real results from real clients, not numbers from a pitch deck.",
-    "cta": "See what we can do for you",
+    "headline": "What we take off your plate.",
+    "description": "Every service comes with receipts: real results from real clients, not numbers from a pitch deck.",
     "items": [
       {
         "name": "Custom Automations",
-        "description": "Workflows that run while you sleep. We eliminate every repetitive task in your ops — scheduling, follow-ups, billing, you name it.",
+        "description": "Workflows that run while you sleep. We remove the repetitive work from your operations: scheduling, follow-ups, billing, and the rest.",
         "proof": "KrakenBay saves 30+ hours/week on scheduling and billing alone."
       },
       {
         "name": "System Integrations",
-        "description": "Your tools should talk to each other. CRM to calendar, payments to accounting, sales to fulfillment — we connect them so data stops falling through the cracks.",
+        "description": "Your tools should talk to each other. We connect CRM to calendar, payments to accounting, and sales to fulfillment, so data stops falling through the cracks.",
         "proof": "Inmovilia's sales-to-construction handoff went from days to instant."
       },
       {
         "name": "Payment Reconciliation",
         "description": "Stop reconciling transactions by hand. We automate the matching and verification of every payment across terminals, banks, and platforms.",
-        "proof": "Tavros cut billing cycles by 3x — no more chasing late renewals."
+        "proof": "Tavros cut billing cycles by 3x, with no more chasing late renewals."
       },
       {
         "name": "Digital Presence",
         "description": "Landing pages, client portals, and portfolio sites built to convert. If your online presence doesn't match the quality of your work, we fix that too.",
-        "proof": "Eternus went from a mismatched page to a portfolio that actually closes clients."
+        "proof": "Eternus went from a mismatched page to a portfolio that closes clients."
       },
       {
         "name": "Process Optimization",
-        "description": "We audit, redesign, and implement workflows that cut bottlenecks and operational costs — measurably, not theoretically.",
+        "description": "We audit, redesign, and implement workflows that cut bottlenecks and operational costs, in ways you can measure.",
         "proof": "Most clients recover the engagement cost in the first 60 days."
       }
     ]
   },
   "clients": {
-    "label": "Our clients",
-    "headline": "Don't take our word for it.",
-    "headlineGradient": "Take theirs.",
-    "rotating": "Rotating every 15s — click a name to hold",
+    "headline": "In their words.",
     "whatDelivered": "What Æther delivered",
-    "cta": "Get results like these",
     "items": [
       {
         "tagline": "BJJ Academy · Guadalajara, MX",
         "industry": "Martial arts school",
-        "quote": "The number of times I forgot to remind my customers about their due payment date was causing me to lose money. The cash floating around, the terminal, tickets, bank apps — I needed all of that to know my in-out expenses. I don't have any clue how they did all of that automatically.",
+        "quote": "The cash floating around, the terminal, tickets, bank apps. I needed all of that to know my in-out expenses. I don't have any clue how they did all of that automatically.",
         "quotePerson": "Manuel Focil, Owner",
         "servicesDelivered": [
           "Class & mat scheduling automation",
@@ -87,19 +75,19 @@
       {
         "tagline": "Premium Fitness · Guadalajara, MX",
         "industry": "High-performance gym",
-        "quote": "The Æther team helped me reduce what usually took me weeks in reconciliation for each end of the month. Now I can focus on exactly what I care about — bringing more clients to my business.",
+        "quote": "The Æther team helped me reduce what usually took me weeks in reconciliation each month. Now I focus on what I care about: bringing more clients to my business.",
         "quotePerson": "Harilois Fafutis, Owner",
         "servicesDelivered": [
           "Membership billing automation",
           "Access control integrations",
-          "Trainer scheduling & payroll hooks"
+          "Trainer scheduling & payroll sync"
         ],
         "metricLabel": "faster billing cycles"
       },
       {
         "tagline": "Real Estate · Guadalajara, MX",
         "industry": "Construction & real estate",
-        "quote": "I needed to get online exposure for my investors. I didn't even have a web page! I contacted them and in a couple of hours I was able to send the link to my investors. They saved me.",
+        "quote": "I didn't even have a web page! I contacted them and in a couple of hours I was able to send the link to my investors. They saved me.",
         "quotePerson": "Mario, Founder",
         "servicesDelivered": [
           "Lead intake & CRM routing",
@@ -111,7 +99,7 @@
       {
         "tagline": "Wedding Films · Guadalajara, MX",
         "industry": "Cinematic wedding filmmaker",
-        "quote": "They helped me actually have a portfolio for my work. I used to have a meh landing page to showcase my work which wasn't aligned to what I usually do. Now both match!",
+        "quote": "They helped me actually have a portfolio for my work. My old landing page wasn't aligned to what I do. Now both match!",
         "quotePerson": "Dimitri Fafutis, Filmmaker",
         "servicesDelivered": [
           "Inquiry-to-contract pipeline",
@@ -123,32 +111,26 @@
     ]
   },
   "process": {
-    "label": "How we work",
-    "headline": "Three steps. Then it's",
-    "headlineGradient": "our problem, not yours.",
-    "cta": "Book a discovery call",
+    "headline": "From audit to running system.",
     "steps": [
       {
         "title": "Discover",
-        "description": "We audit your current workflows end-to-end. Every manual step, every bottleneck, every dollar leaking through the cracks — mapped and quantified."
+        "description": "We audit your current workflows end-to-end. Every manual step, every bottleneck, every dollar leaking through the cracks, mapped and quantified."
       },
       {
         "title": "Design",
-        "description": "We architect automations tailored to your stack. Not a template. Not a generic playbook. A system built around how your business actually runs."
+        "description": "We architect automations tailored to your stack, built around how your business actually runs."
       },
       {
         "title": "Deploy",
-        "description": "We launch, monitor, and iterate. Your automations run 24/7 while we handle maintenance, optimization, and anything that breaks at 3 AM."
+        "description": "We launch, monitor, and iterate. Your automations run 24/7 while we handle maintenance, optimization, and whatever breaks at 3 AM."
       }
     ]
   },
   "checkFit": {
-    "label": "Is this for you?",
-    "headline": "We're not",
-    "headlineGradient": "for everyone.",
-    "description": "We take on 3 new clients per month so we can go deep, not wide. Here's who gets the most out of working with us.",
-    "soundLikeYou": "Sound like you? We should talk.",
-    "cta": "Check availability",
+    "headline": "Who we work with.",
+    "description": "We take on three new clients a month so we can go deep. This is who gets the most out of working with us.",
+    "soundLikeYou": "If that sounds familiar, we should talk.",
     "audiences": [
       "Startups scaling fast with a team too small for the ops workload",
       "Small businesses (gyms, clinics, real estate) buried in admin",
@@ -157,36 +139,37 @@
     ]
   },
   "contact": {
-    "label": "Let's talk",
-    "headline": "Still doing this",
-    "headlineGradient": "manually?",
-    "description": "Tell us what's eating your time and we'll show you exactly where automation saves you hours and money.",
-    "namePlaceholder": "Name",
-    "emailPlaceholder": "Email",
-    "companySizePlaceholder": "Company size",
-    "bottleneckPlaceholder": "Biggest bottleneck",
-    "submit": "Send it. We reply in 24 hours.",
+    "headline": "Tell us where the hours go.",
+    "description": "The audit is free, takes 20 minutes, and ends with a fixed quote. Walk us through your week and we'll map where automation gives you the hours back.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "companySizeLabel": "Company size",
+    "bottleneckLabel": "Biggest bottleneck",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@company.com",
+    "selectPlaceholder": "Select one",
+    "submit": "Request a free audit",
+    "sending": "Sending…",
+    "responseNote": "We reply within one business day.",
+    "success": "Thank you. We'll reply within one business day.",
+    "error": "Something went wrong and your message didn't send. Email us instead and we'll take it from there.",
+    "mailtoNote": "Your email app should open with the details prefilled. If it doesn't, write to hello@aether.studio.",
     "emailLink": "Or email hello@aether.studio",
-    "success": "Thanks — we'll be in touch within 24 hours.",
-    "companySizes": ["Just me", "2–10", "11–50", "50+"],
+    "companySizes": ["Just me", "2-10", "11-50", "50+"],
     "bottlenecks": ["Manual data entry", "Payment reconciliation", "Disconnected tools", "Scheduling chaos", "Other"]
   },
   "stickyCta": {
-    "label": "Free 20-min automation audit"
+    "label": "Request a free audit"
   },
   "integrations": {
-    "label": "Plays well with",
-    "headline": "We connect the tools",
-    "headlineGradient": "you already pay for."
+    "headline": "We connect the tools you already pay for."
   },
   "faq": {
-    "label": "FAQ",
-    "headline": "Questions, answered",
-    "headlineGradient": "before you ask.",
+    "headline": "Questions, answered.",
     "items": [
       {
         "q": "How fast do you ship?",
-        "a": "First automation live within 2–3 weeks of kickoff. Most engagements deliver measurable hours saved inside 30 days — not the 6-month rollouts you'd get from a traditional agency."
+        "a": "First automation live within 2-3 weeks of kickoff. Most engagements deliver measurable hours saved inside 30 days, not the 6-month rollouts you'd get from a traditional agency."
       },
       {
         "q": "Will this work with our current tools?",
@@ -194,15 +177,15 @@
       },
       {
         "q": "What does it cost?",
-        "a": "Engagements start around $4,500 and scale with scope. Most clients recover the cost in the first 60 days through reclaimed hours and reduced billing leakage. We share a fixed quote after the free audit — no hourly games."
+        "a": "Engagements start around $4,500 and scale with scope. Most clients recover the cost in the first 60 days through reclaimed hours and reduced billing leakage. We share a fixed quote after the free audit, with no hourly games."
       },
       {
         "q": "What happens when something breaks?",
-        "a": "We monitor every workflow we ship. If something fails at 3 AM, we get paged — not you. Maintenance and small iterations are included in the first 90 days; after that, ongoing support is a flat monthly retainer."
+        "a": "We monitor every workflow we ship. If something fails at 3 AM, we get paged, not you. Maintenance and small iterations are included in the first 90 days; after that, ongoing support is a flat monthly retainer."
       },
       {
         "q": "Do you replace our team?",
-        "a": "No. We replace the work nobody on your team should be doing. Your people get to focus on customers, growth, and judgment calls — the things software can't do."
+        "a": "No. We replace the work nobody on your team should be doing. Your people get to focus on customers, growth, and judgment calls, the things software can't do."
       },
       {
         "q": "Is our data safe?",
@@ -211,7 +194,7 @@
     ]
   },
   "footer": {
-    "tagline": "Your team's time is too valuable for manual work. We build the automations that handle the boring so you can focus on what actually grows the business.",
+    "tagline": "An automation studio for businesses that have outgrown manual work. Based in Guadalajara, working with teams everywhere.",
     "company": "Company",
     "connect": "Connect",
     "services": "Services",

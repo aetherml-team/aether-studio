@@ -2,8 +2,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { EASE } from "@/lib/motion";
 
-const logos = ["KrakenBay", "Tavros", "Eternus", "Inmovilia"];
-
 /** Position on a circle: angle in degrees clockwise from top */
 function radial(cx: number, cy: number, r: number, deg: number) {
   const a = (deg * Math.PI) / 180;
@@ -123,59 +121,30 @@ function HeroOrbitalMark() {
 const HeroSection = () => {
   const { t } = useTranslation();
 
-  const chips = t("hero.chips", { returnObjects: true }) as string[];
-
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pb-24 pt-28 md:px-10"
+      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden px-6 pb-24 pt-28 md:px-10"
     >
       <div className="hero-atmosphere pointer-events-none absolute inset-0" aria-hidden />
       <div className="hero-orbs" aria-hidden />
-      <div className="hero-bloom pointer-events-none absolute inset-0" aria-hidden />
-      <div className="hero-grid pointer-events-none absolute inset-0 opacity-[0.5]" aria-hidden />
-      <div className="noise-overlay" aria-hidden />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-12 xl:gap-16">
         <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.18, ease: EASE }}
-            className="mb-8 flex flex-wrap gap-2"
-            aria-label="Focus areas"
-          >
-            {chips.map((label) => (
-              <span
-                key={label}
-                className="rounded-full border border-border/70 bg-background/35 px-3 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground backdrop-blur-sm"
-              >
-                {label}
-              </span>
-            ))}
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.22, ease: EASE }}
+            transition={{ duration: 0.75, delay: 0.18, ease: EASE }}
             className="font-heading text-balance text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            {t("hero.headlinePre")} <em>{t("hero.headlineEm")}</em> {t("hero.headlineMid")}{" "}
-            <motion.span
-              className="text-gradient inline"
-              initial={{ opacity: 0, filter: "blur(8px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.9, delay: 0.45, ease: EASE }}
-            >
-              {t("hero.headlineGradient")}
-            </motion.span>
+            {t("hero.headline")}{" "}
+            <em className="not-italic text-primary">{t("hero.headlineEmphasis")}</em>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.48, ease: EASE }}
+            transition={{ duration: 0.55, delay: 0.42, ease: EASE }}
             className="mt-8 max-w-xl font-body text-lg font-light leading-relaxed text-muted-foreground"
           >
             {t("hero.description")}
@@ -184,43 +153,20 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.62, ease: EASE }}
+            transition={{ duration: 0.5, delay: 0.56, ease: EASE }}
             className="mt-10 flex flex-wrap items-center gap-6"
           >
             <motion.a
               href="#contact"
               className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2)]"
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 32px hsl(var(--primary) / 0.35)",
-              }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 28 }}
             >
-              {t("hero.cta")}
+              {t("common.cta")}
             </motion.a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="mt-12 border-t border-border/50 pt-8"
-          >
-            <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              {t("hero.trustedBy")}
-            </p>
-            <div className="flex flex-wrap items-center gap-6 md:gap-10">
-              {logos.map((name) => (
-                <span
-                  key={name}
-                  className="select-none font-heading text-base font-semibold text-foreground/45 transition-colors duration-300 hover:text-foreground/65 dark:text-foreground/20 dark:hover:text-foreground/32 md:text-lg"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </motion.div>
         </div>
 
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-20 lg:relative lg:min-h-[min(62vh,600px)] lg:opacity-100 lg:py-8">

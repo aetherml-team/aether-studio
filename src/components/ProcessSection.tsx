@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { EASE, viewport } from "@/lib/motion";
-import { SectionCTA } from "@/components/SectionCTA";
 
 interface Step {
   title: string;
   description: string;
 }
-
-const STEP_NUMBERS = ["01", "02", "03"] as const;
 
 const ProcessSection = () => {
   const { t } = useTranslation();
@@ -22,75 +19,52 @@ const ProcessSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
           transition={{ duration: 0.7, ease: EASE }}
-          className="mb-16 text-center"
+          className="mb-14 md:mb-20"
         >
-          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            {t("process.label")}
-          </p>
-          <h2 className="mx-auto max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            {t("process.headline")}{" "}
-            <span className="text-gradient">{t("process.headlineGradient")}</span>
+          <h2 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            {t("process.headline")}
           </h2>
         </motion.div>
 
-        <div className="relative grid gap-8 md:grid-cols-3 md:gap-0">
+        <div className="relative">
+          {/* Connecting path — same drawn-line vocabulary as the hero orbital mark */}
           <motion.div
-            className="pointer-events-none absolute left-[8%] right-[8%] top-[44px] hidden h-px origin-center md:block"
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
+            className="pointer-events-none absolute left-[5px] top-2 bottom-2 w-px origin-top md:bottom-auto md:left-0 md:right-0 md:top-[5px] md:h-px md:w-auto md:origin-left"
+            initial={{ scaleY: 0, scaleX: 1, opacity: 0 }}
+            whileInView={{ scaleY: 1, scaleX: 1, opacity: 1 }}
             viewport={viewport}
             transition={{ duration: 1.1, ease: EASE }}
             style={{
               background:
-                "linear-gradient(90deg, transparent, hsl(var(--border)), hsl(var(--primary) / 0.35), hsl(var(--border)), transparent)",
+                "linear-gradient(to bottom, hsl(var(--primary) / 0.45), hsl(var(--border)))",
             }}
             aria-hidden
           />
 
-          {steps.map((step, i) => (
-            <motion.div
-              key={STEP_NUMBERS[i]}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.58,
-                delay: 0.12 + i * 0.1,
-                ease: EASE,
-              }}
-              className="relative text-center md:px-8"
-            >
+          <div className="grid gap-12 md:grid-cols-3 md:gap-10">
+            {steps.map((step, i) => (
               <motion.div
-                className="relative z-10 mx-auto mb-6 flex h-[88px] w-[88px] items-center justify-center rounded-2xl border border-border bg-card"
-                initial={{ scale: 0.92, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 22,
-                  delay: 0.2 + i * 0.08,
-                }}
-                whileHover={{
-                  borderColor: "hsl(var(--primary) / 0.45)",
-                  boxShadow: "0 0 0 1px hsl(var(--primary) / 0.2)",
-                }}
+                transition={{ duration: 0.55, delay: 0.15 + i * 0.12, ease: EASE }}
+                className="relative pl-8 md:pl-0"
               >
-                <span className="font-mono text-2xl font-medium text-primary">
-                  {STEP_NUMBERS[i]}
-                </span>
+                <span
+                  className="absolute left-0 top-1.5 z-10 block h-[11px] w-[11px] rounded-full bg-primary ring-4 ring-background md:relative md:left-auto md:top-auto md:mb-6"
+                  aria-hidden
+                />
+                <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground">
+                  {step.title}
+                </h3>
+                <p className="mt-3 max-w-xs font-body text-[15px] font-light leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
               </motion.div>
-              <h3 className="font-heading text-xl font-semibold tracking-tight text-foreground">
-                {step.title}
-              </h3>
-              <p className="mx-auto mt-3 max-w-xs font-body text-sm font-light leading-relaxed text-muted-foreground">
-                {step.description}
-              </p>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
-
-        <SectionCTA label={t("process.cta")} />
       </div>
     </section>
   );

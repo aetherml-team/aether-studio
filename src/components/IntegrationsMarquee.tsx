@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { EASE, viewport } from "@/lib/motion";
 
 const TOOLS = [
-  "Stripe", "HubSpot", "Notion", "Slack", "Airtable", "Google Workspace",
-  "QuickBooks", "Zapier", "Make", "Twilio", "Calendly", "Shopify",
-  "Salesforce", "Xero", "Mercado Pago", "Clerk", "Supabase", "n8n",
+  "Stripe", "Mercado Pago", "Google Workspace", "QuickBooks", "Slack",
+  "HubSpot", "Notion", "Airtable", "Calendly", "Shopify",
+  "Salesforce", "Xero", "Zapier", "Make", "Twilio", "n8n",
 ];
 
 const IntegrationsMarquee = () => {
@@ -25,12 +25,8 @@ const IntegrationsMarquee = () => {
         transition={{ duration: 0.55, ease: EASE }}
         className="relative mx-auto mb-6 max-w-3xl px-6 text-center"
       >
-        <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          {t("integrations.label")}
-        </p>
         <h2 id="integrations-heading" className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-          {t("integrations.headline")}{" "}
-          <span className="text-gradient">{t("integrations.headlineGradient")}</span>
+          {t("integrations.headline")}
         </h2>
       </motion.div>
 
@@ -45,7 +41,7 @@ const IntegrationsMarquee = () => {
           {row.map((name, i) => (
             <span
               key={`${name}-${i}`}
-              className="select-none whitespace-nowrap rounded-lg border border-border/60 bg-background/40 px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-foreground/55 backdrop-blur-sm"
+              className="select-none whitespace-nowrap rounded-lg border border-border/60 bg-background/40 px-5 py-2.5 font-body text-[13px] font-medium text-foreground/60"
             >
               {name}
             </span>

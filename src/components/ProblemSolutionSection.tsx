@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { EASE, viewport } from "@/lib/motion";
-import { SectionCTA } from "@/components/SectionCTA";
 
 const ProblemSolutionSection = () => {
   const { t } = useTranslation();
@@ -17,12 +16,11 @@ const ProblemSolutionSection = () => {
           transition={{ duration: 0.72, ease: EASE }}
           className="flex flex-col justify-center lg:col-span-2"
         >
-          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-red-400/70">
+          <p className="mb-4 font-body text-sm font-medium text-muted-foreground">
             {t("problemSolution.problemLabel")}
           </p>
           <h2 className="font-heading text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            {t("problemSolution.problemHeadline")}{" "}
-            <span className="text-gradient">{t("problemSolution.problemHeadlineGradient")}</span>
+            {t("problemSolution.problemHeadline")}
           </h2>
           <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
             {t("problemSolution.problemBody")}
@@ -36,12 +34,11 @@ const ProblemSolutionSection = () => {
           transition={{ duration: 0.72, delay: 0.08, ease: EASE }}
           className="glow-border rounded-2xl border border-border bg-card p-8 lg:col-span-3 lg:p-12"
         >
-          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary">
+          <p className="mb-4 font-body text-sm font-medium text-primary">
             {t("problemSolution.solutionLabel")}
           </p>
           <h2 className="font-heading text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            {t("problemSolution.solutionHeadline")}{" "}
-            <span className="text-gradient">{t("problemSolution.solutionHeadlineGradient")}</span>
+            {t("problemSolution.solutionHeadline")}
           </h2>
           <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
             {t("problemSolution.solutionBody")}
@@ -62,8 +59,6 @@ const ProblemSolutionSection = () => {
           </div>
         </motion.div>
       </div>
-
-      <SectionCTA label={t("problemSolution.cta")} className="mx-auto max-w-7xl" />
     </section>
   );
 };

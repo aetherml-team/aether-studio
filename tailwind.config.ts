@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Bricolage Grotesque", "system-ui", "sans-serif"],
-        body: ["Outfit", "system-ui", "sans-serif"],
+        heading: ["Bricolage Grotesque Variable", "system-ui", "sans-serif"],
+        body: ["Hanken Grotesk Variable", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
       colors: {

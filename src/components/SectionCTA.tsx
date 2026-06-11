@@ -34,7 +34,7 @@ export function SectionCTA({
       <motion.a
         href={href}
         className={styleClass}
-        whileHover={{ scale: 1.02, boxShadow: "0 0 28px hsl(240 30% 73% / 0.35)" }}
+        whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 28 }}
       >

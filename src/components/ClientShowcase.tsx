@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { SectionCTA } from "@/components/SectionCTA";
@@ -9,8 +9,10 @@ type Motif = "octagon" | "speedlines" | "grid" | "film";
 interface ClientVisual {
   name: string;
   avatarInitials: string;
-  primary: string;
-  primaryBright: string;
+  /** Accent legible on the light theme background */
+  accentLight: string;
+  /** Accent legible on the dark theme background */
+  accentDark: string;
   motif: Motif;
 }
 
@@ -178,29 +180,29 @@ const CLIENT_VISUALS: ClientVisual[] = [
   {
     name: "KrakenBay Studio",
     avatarInitials: "KB",
-    primary: "#E8C84A",
-    primaryBright: "#F5DF80",
+    accentLight: "#7D621A",
+    accentDark: "#E8C84A",
     motif: "octagon",
   },
   {
     name: "Tavros",
     avatarInitials: "TV",
-    primary: "#F5D800",
-    primaryBright: "#FFF176",
+    accentLight: "#736600",
+    accentDark: "#F5D800",
     motif: "speedlines",
   },
   {
     name: "Inmovilia",
     avatarInitials: "IN",
-    primary: "#7A6A40",
-    primaryBright: "#9A8A58",
+    accentLight: "#6B5C36",
+    accentDark: "#B3A26B",
     motif: "grid",
   },
   {
     name: "Eternus",
     avatarInitials: "ET",
-    primary: "#C8B882",
-    primaryBright: "#E8D8A8",
+    accentLight: "#6E6134",
+    accentDark: "#D8C892",
     motif: "film",
   },
 ];
@@ -245,7 +247,13 @@ const ClientShowcase = () => {
   return (
     <section
       id="clients"
-      className="relative overflow-hidden border-y border-border bg-background px-6 py-20 md:px-10 md:py-32"
+      className="client-scope relative overflow-hidden border-y border-border bg-background px-6 py-20 md:px-10 md:py-32"
+      style={
+        {
+          "--ca-light": active.accentLight,
+          "--ca-dark": active.accentDark,
+        } as CSSProperties
+      }
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -256,7 +264,8 @@ const ClientShowcase = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.6, ease: "easeInOut" }}
           style={{
-            background: `radial-gradient(ellipse 55% 45% at 90% 90%, ${active.primary}12, transparent 68%)`,
+            background:
+              "radial-gradient(ellipse 55% 45% at 90% 90%, color-mix(in srgb, var(--client-accent) 7%, transparent), transparent 68%)",
           }}
           aria-hidden
         />
@@ -270,25 +279,9 @@ const ClientShowcase = () => {
           transition={{ duration: 0.7, ease: EASE }}
           className="mb-16"
         >
-          <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            {t("clients.label")}
-          </p>
           <h2 className="max-w-2xl font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            {t("clients.headline")}{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: `linear-gradient(135deg, hsl(var(--foreground)) 0%, ${active.primaryBright} 100%)`,
-              }}
-            >
-              {t("clients.headlineGradient")}
-            </span>
+            {t("clients.headline")}
           </h2>
-          {!userPicked && (
-            <p className="mt-3 font-mono text-[11px] text-muted-foreground">
-              {t("clients.rotating")}
-            </p>
-          )}
         </motion.div>
 
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
@@ -300,34 +293,21 @@ const ClientShowcase = () => {
                   key={client.name}
                   type="button"
                   onClick={() => selectClient(i)}
-                  className={`relative flex-shrink-0 rounded-xl px-4 py-4 text-left transition-all duration-500 ease-out lg:rounded-none lg:border-l-2 lg:px-6 lg:py-5 ${
-                    isActive ? "bg-muted/50 lg:bg-transparent" : "hover:bg-muted/35"
+                  aria-pressed={isActive}
+                  className={`relative flex-shrink-0 rounded-xl px-4 py-4 text-left transition-all duration-500 ease-out lg:px-6 lg:py-5 ${
+                    isActive ? "bg-muted/50" : "hover:bg-muted/35"
                   }`}
-                  style={{
-                    borderLeftColor: isActive ? client.primary : "transparent",
-                  }}
                 >
-                  <span
-                    className={`mb-1 block font-mono text-[9px] font-medium uppercase tracking-[0.2em] transition-all duration-500 ${
-                      isActive ? "opacity-100" : "opacity-25"
-                    }`}
-                    style={{ color: isActive ? client.primary : undefined }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <span
                     className={`block font-heading text-lg font-bold tracking-tight transition-colors duration-500 md:text-2xl lg:text-3xl ${
                       isActive ? "" : "text-muted-foreground"
                     }`}
-                    style={{ color: isActive ? client.primary : undefined }}
+                    style={{ color: isActive ? "var(--client-accent)" : undefined }}
                   >
                     {client.name}
                   </span>
-                  <span className="mt-1 block font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  <span className="mt-1 block font-body text-xs text-muted-foreground">
                     {client.tagline}
-                  </span>
-                  <span className="mt-0.5 block font-mono text-[11px] text-muted-foreground">
-                    {client.industry}
                   </span>
                 </button>
               );
@@ -350,37 +330,38 @@ const ClientShowcase = () => {
                 <div
                   className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 md:p-10"
                   style={{
-                    boxShadow: `0 0 0 1px ${active.primary}14, 0 28px 64px -28px ${active.primary}1e`,
+                    boxShadow:
+                      "0 0 0 1px color-mix(in srgb, var(--client-accent) 8%, transparent), 0 28px 64px -28px color-mix(in srgb, var(--client-accent) 12%, transparent)",
                   }}
                 >
-                  <div className="noise-overlay rounded-2xl" aria-hidden />
-                  <ClientMotif type={active.motif} color={active.primary} />
+                  <ClientMotif type={active.motif} color="var(--client-accent)" />
 
                   <div
                     className="pointer-events-none absolute -top-4 left-4 select-none font-heading text-[11rem] leading-none opacity-[0.15] mix-blend-multiply dark:mix-blend-screen md:text-[14rem]"
-                    style={{ color: active.primary }}
+                    style={{ color: "var(--client-accent)" }}
                     aria-hidden
                   >
                     &ldquo;
                   </div>
 
                   <div className="relative z-10">
-                    <p className="font-body text-xl font-light leading-[1.72] text-foreground md:text-[1.35rem]">
+                    <p className="font-heading text-2xl font-normal leading-[1.45] tracking-tight text-foreground md:text-[1.9rem]">
                       {active.quote}
                     </p>
                   </div>
 
                   <div
                     className="relative z-10 mt-8 flex flex-col gap-5 border-t pt-6 sm:flex-row sm:items-center sm:justify-between"
-                    style={{ borderColor: `${active.primary}20` }}
+                    style={{
+                      borderColor: "color-mix(in srgb, var(--client-accent) 13%, transparent)",
+                    }}
                   >
                     <div className="flex items-center gap-3.5">
                       <div
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 font-mono text-[13px] font-semibold tracking-tight"
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 font-body text-[13px] font-semibold tracking-tight"
                         style={{
-                          borderColor: active.primary,
-                          color: active.primary,
-                          boxShadow: `0 0 18px -4px ${active.primary}50`,
+                          borderColor: "var(--client-accent)",
+                          color: "var(--client-accent)",
                         }}
                       >
                         {active.avatarInitials}
@@ -388,11 +369,11 @@ const ClientShowcase = () => {
                       <div>
                         <p
                           className="font-body text-sm font-semibold leading-tight"
-                          style={{ color: active.primary }}
+                          style={{ color: "var(--client-accent)" }}
                         >
                           {active.quotePerson}
                         </p>
-                        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                        <p className="mt-0.5 font-body text-xs text-muted-foreground">
                           {active.tagline}
                         </p>
                       </div>
@@ -401,11 +382,11 @@ const ClientShowcase = () => {
                     <div className="flex flex-col items-start sm:items-end">
                       <span
                         className="font-heading text-4xl font-bold tracking-tight md:text-5xl"
-                        style={{ color: active.primary }}
+                        style={{ color: "var(--client-accent)" }}
                       >
                         {active.metric.value}
                       </span>
-                      <span className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      <span className="mt-0.5 font-body text-xs text-muted-foreground">
                         {active.metric.label}
                       </span>
                     </div>
@@ -418,7 +399,7 @@ const ClientShowcase = () => {
                   transition={{ delay: 0.42, duration: 0.55, ease: SMOOTH }}
                   className="mt-5 md:mt-6"
                 >
-                  <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  <p className="mb-3 font-body text-sm font-medium text-foreground-dim">
                     {t("clients.whatDelivered")}
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -429,11 +410,10 @@ const ClientShowcase = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.52 + idx * 0.07, duration: 0.38, ease: SMOOTH }}
                         className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 font-body text-[13px] text-foreground"
-                        style={{ boxShadow: `inset 0 0 0 1px ${active.primary}14` }}
                       >
                         <span
                           className="h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ backgroundColor: active.primary }}
+                          style={{ backgroundColor: "var(--client-accent)" }}
                           aria-hidden
                         />
                         {s}
@@ -446,24 +426,8 @@ const ClientShowcase = () => {
           </div>
         </div>
 
-        <SectionCTA label={t("clients.cta")} />
+        <SectionCTA label={t("common.cta")} />
       </div>
-
-      {!userPicked && (
-        <div
-          className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[2px] bg-border"
-          aria-hidden
-        >
-          <motion.div
-            key={activeIndex}
-            className="h-full"
-            style={{ backgroundColor: active.primary }}
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: AUTO_MS / 1000, ease: "linear" }}
-          />
-        </div>
-      )}
     </section>
   );
 };
