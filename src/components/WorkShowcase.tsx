@@ -170,7 +170,7 @@ const WorkShowcase = () => {
   return (
     <section
       id="clients"
-      className="seam-top relative overflow-hidden px-6 py-16 md:px-10 md:py-24"
+      className="seam-top relative overflow-hidden px-6 py-12 md:px-10 md:py-16"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}

@@ -68,14 +68,14 @@ const CheckFitSection = () => {
   };
 
   return (
-    <section id="check-fit" className="seam-top px-6 py-16 md:px-10 md:py-24">
+    <section id="check-fit" className="seam-top px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
           transition={{ duration: 0.68, ease: EASE }}
-          className="mb-12 max-w-2xl md:mb-16"
+          className="mb-8 max-w-2xl md:mb-12"
         >
           <h2 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             {t("checkFit.headline")}

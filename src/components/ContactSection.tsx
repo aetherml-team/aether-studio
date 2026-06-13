@@ -101,7 +101,7 @@ const ContactSection = () => {
   const errorTextClass = "mt-1.5 font-body text-[12.5px] text-destructive";
 
   return (
-    <section id="contact" className="seam-top relative overflow-hidden px-6 py-16 md:px-10 md:py-24">
+    <section id="contact" className="seam-top relative overflow-hidden px-6 py-12 md:px-10 md:py-16">
       <div
         className="pointer-events-none absolute inset-0"
         style={{

@@ -46,7 +46,7 @@ const IntegrationsMarquee = () => {
   return (
     <section
       aria-labelledby="integrations-heading"
-      className="seam-top relative overflow-hidden bg-background-deep/40 py-16 md:py-20"
+      className="seam-top relative overflow-hidden bg-background-deep/40 py-10 md:py-14"
     >
       <motion.div
         initial={{ opacity: 0, y: 14 }}

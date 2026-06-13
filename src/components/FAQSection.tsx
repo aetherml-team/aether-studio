@@ -22,7 +22,7 @@ const FAQSection = () => {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="seam-top relative px-6 py-16 md:px-10 md:py-24"
+      className="seam-top relative px-6 py-12 md:px-10 md:py-16"
     >
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-16">
         {/* heading rail (left) */}

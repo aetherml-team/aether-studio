@@ -16,7 +16,7 @@ const ProcessSection = () => {
   const deliverables = t("process.deliverables", { returnObjects: true }) as string[];
 
   return (
-    <section id="process" className="seam-top bg-background-deep/40 px-6 py-16 md:px-10 md:py-24">
+    <section id="process" className="seam-top bg-background-deep/40 px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

@@ -266,7 +266,7 @@ const WorkDisappearsSection = () => {
   /* Reduced motion / no-scroll: a calm static before→after, never pinned. */
   if (reduced) {
     return (
-      <section id="problem-solution" className="seam-top py-20 md:py-28">
+      <section id="problem-solution" className="seam-top py-14 md:py-20">
         {Heading}
         <div className="mx-auto mt-14 max-w-3xl px-6 md:px-10">
           <div className="flex flex-col items-center gap-6 rounded-3xl border border-border/70 bg-background-deep/60 p-8">
@@ -302,10 +302,10 @@ const WorkDisappearsSection = () => {
 
   return (
     <section id="problem-solution" className="seam-top">
-      <div className="pt-20 md:pt-28">{Heading}</div>
+      <div className="pt-14 md:pt-20">{Heading}</div>
 
       {/* pinned, scrubbed scene */}
-      <div ref={pinRef} className="relative mt-10 h-[150vh] md:mt-14">
+      <div ref={pinRef} className="relative mt-10 h-[125vh] md:mt-14">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
             <div className="relative h-[min(62vh,520px)] overflow-hidden rounded-3xl border border-border/70 bg-background-deep/70">
