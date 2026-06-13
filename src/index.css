@@ -388,7 +388,8 @@
     transform-origin: left;
     transition: transform 0.35s cubic-bezier(0.25, 0.1, 0, 1);
   }
-  .nav-link:hover::after {
+  .nav-link:hover::after,
+  .nav-link[data-active="true"]::after {
     transform: scaleX(1);
   }
 
@@ -407,5 +408,146 @@
     .shadow-lift:hover {
       transform: none;
     }
+  }
+
+  /* ─────────────────────────────────────────
+     DEPTH & TEXTURE — keeps the near-black field
+     from reading as one flat plane
+  ───────────────────────────────────────── */
+
+  /* Blueprint dot grid — engineering-paper texture, theme-aware */
+  .texture-grid {
+    background-image: radial-gradient(
+      hsl(var(--primary) / 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 26px 26px;
+    background-position: -13px -13px;
+  }
+  .dark .texture-grid {
+    background-image: radial-gradient(
+      hsl(var(--primary) / 0.08) 1px,
+      transparent 1px
+    );
+  }
+  /* Fade the grid out toward the edges so it never reads as a hard tile */
+  .texture-grid-fade {
+    -webkit-mask-image: radial-gradient(
+      ellipse 75% 65% at 50% 45%,
+      #000 30%,
+      transparent 80%
+    );
+    mask-image: radial-gradient(
+      ellipse 75% 65% at 50% 45%,
+      #000 30%,
+      transparent 80%
+    );
+  }
+
+  /* Hairline ruled top edge — premium section seam, replaces flat 1px */
+  .seam-top {
+    position: relative;
+  }
+  .seam-top::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--border)) 18%,
+      hsl(var(--border)) 82%,
+      transparent
+    );
+  }
+
+  /* Soft periwinkle light source, positionable via --gx/--gy */
+  .ambient-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 60% 50% at var(--gx, 50%) var(--gy, 0%),
+      hsl(var(--primary) / 0.1) 0%,
+      transparent 60%
+    );
+  }
+
+  /* ─────────────────────────────────────────
+     AUTOMATION GRAPH — living system centerpiece
+  ───────────────────────────────────────── */
+
+  /* Core breathing halo */
+  @keyframes aether-core-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    50% {
+      transform: scale(1.14);
+      opacity: 0.9;
+    }
+  }
+  .aether-core-halo {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: aether-core-pulse 4.5s ease-in-out infinite;
+  }
+
+  /* Outward ring that expands and fades — a "signal sent" ripple */
+  @keyframes aether-core-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(2.1);
+      opacity: 0;
+    }
+  }
+  .aether-core-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: aether-core-ring 4.5s ease-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aether-core-halo,
+    .aether-core-ring {
+      animation: none;
+    }
+    .aether-core-ring {
+      opacity: 0;
+    }
+  }
+
+  /* Typewriter caret — hard terminal blink once typing settles */
+  @keyframes caret-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  .animate-caret-blink {
+    animation: caret-blink 1s steps(1) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-caret-blink {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
+  /* ─────────────────────────────────────────
+     SCROLL PROGRESS — thin top rail
+  ───────────────────────────────────────── */
+  .scroll-progress {
+    transform-origin: 0 50%;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary-deep)),
+      hsl(var(--primary)) 55%,
+      hsl(var(--primary-bright))
+    );
   }
 }

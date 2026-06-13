@@ -1,177 +1,133 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { ArrowDown } from "lucide-react";
 import { EASE } from "@/lib/motion";
-
-/** Position on a circle: angle in degrees clockwise from top */
-function radial(cx: number, cy: number, r: number, deg: number) {
-  const a = (deg * Math.PI) / 180;
-  return { x: cx + r * Math.sin(a), y: cy - r * Math.cos(a) };
-}
-
-/**
- * Orbital mark — colors use theme CSS variables so light/dark mode stays coherent.
- */
-function HeroOrbitalMark() {
-  const reduced = useReducedMotion();
-
-  const draw = (delay: number) =>
-    reduced
-      ? { initial: { pathLength: 1 }, animate: { pathLength: 1 }, transition: { duration: 0 } }
-      : { initial: { pathLength: 0 }, animate: { pathLength: 1 }, transition: { duration: 1.8, delay: delay * 1.4, ease: EASE } };
-
-  const cx = 256, cy = 242;
-  const R1 = 46, R2 = 92, R3 = 144;
-
-  const hubDots = Array.from({ length: 8 }, (_, i) => radial(cx, cy, 27, i * 45));
-  const r1Nodes = Array.from({ length: 6 }, (_, i) => radial(cx, cy, R1, i * 60));
-  const r2Nodes = Array.from({ length: 6 }, (_, i) => radial(cx, cy, R2, i * 60 + 30));
-  const r3Nodes = [0, 55, 95, 145, 200, 260, 310].map((d) => radial(cx, cy, R3, d));
-
-  const ulNode = radial(cx, cy, R3, 310);
-  const lrNode = radial(cx, cy, R3, 145);
-  const urNode = radial(cx, cy, R3, 55);
-
-  return (
-    <svg
-      className="hero-flow-svg pointer-events-none relative z-[1] mx-auto h-[min(40vh,300px)] w-full max-w-[480px] sm:h-[min(44vh,360px)] sm:max-w-[520px] lg:h-[min(58vh,560px)] lg:max-w-[min(100%,620px)]"
-      viewBox="0 0 540 490"
-      fill="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="hero-orbit-g" x1="15%" y1="0%" x2="85%" y2="100%">
-          <stop offset="0%" stopColor="hsl(var(--primary-bright))" stopOpacity={0.55} />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity={0.22} />
-        </linearGradient>
-      </defs>
-
-      <circle cx={cx} cy={cy} r={R1 + 24} fill="hsl(var(--primary) / 0.06)" />
-
-      <circle cx={cx} cy={cy} r={8} fill="hsl(var(--primary-bright) / 0.75)" />
-      <motion.circle cx={cx} cy={cy} r={17} stroke="hsl(var(--primary-bright) / 0.55)" strokeWidth="1.3" fill="none" {...draw(0)} />
-      <motion.circle cx={cx} cy={cy} r={27} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" {...draw(0.06)} />
-      {hubDots.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={1.8} fill="hsl(var(--primary-bright) / 0.65)" className="hero-flow-node" />
-      ))}
-
-      <motion.circle cx={cx} cy={cy} r={R1} stroke="url(#hero-orbit-g)" strokeWidth="1.1" fill="none" {...draw(0.12)} />
-      {r1Nodes.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={4} fill="hsl(var(--primary-bright) / 0.58)" className="hero-flow-node" />
-      ))}
-
-      <motion.circle cx={cx} cy={cy} r={R2} stroke="url(#hero-orbit-g)" strokeWidth="1.05" fill="none" {...draw(0.22)} />
-      {r2Nodes.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={5.5} fill="hsl(var(--primary) / 0.5)" className="hero-flow-node" />
-      ))}
-
-      <motion.circle cx={cx} cy={cy} r={R3} stroke="url(#hero-orbit-g)" strokeWidth="1.1" fill="none" {...draw(0.34)} />
-      {r3Nodes.map((p, i) =>
-        i === 2 ? (
-          <g key={`r3-${i}`}>
-            <circle cx={p.x} cy={p.y} r={9} stroke="hsl(var(--primary) / 0.45)" strokeWidth="1" fill="none" className="hero-flow-node" />
-            <circle cx={p.x} cy={p.y} r={4.5} stroke="hsl(var(--primary-bright) / 0.52)" strokeWidth="1" fill="none" className="hero-flow-node" />
-            <circle cx={p.x} cy={p.y} r={2} fill="hsl(var(--primary-bright) / 0.7)" />
-          </g>
-        ) : (
-          <circle key={`r3-${i}`} cx={p.x} cy={p.y} r={5.5} fill="hsl(var(--primary) / 0.45)" className="hero-flow-node" />
-        )
-      )}
-
-      <motion.path
-        d={`M ${ulNode.x.toFixed(1)} ${ulNode.y.toFixed(1)} Q 112 121 42 66`}
-        stroke="url(#hero-orbit-g)" strokeWidth="1.1" strokeLinecap="round"
-        {...draw(0.5)}
-      />
-      <circle cx={42} cy={66} r={15} stroke="hsl(var(--primary) / 0.42)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={42} cy={66} r={8} stroke="hsl(var(--primary-bright) / 0.52)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={42} cy={66} r={3.5} fill="hsl(var(--primary-bright) / 0.75)" />
-
-      <motion.path
-        d={`M ${lrNode.x.toFixed(1)} ${lrNode.y.toFixed(1)} Q 363 393 406 432`}
-        stroke="url(#hero-orbit-g)" strokeWidth="1.1" strokeLinecap="round"
-        {...draw(0.5)}
-      />
-      <circle cx={406} cy={432} r={9.5} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={406} cy={432} r={5} stroke="hsl(var(--primary-bright) / 0.5)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={406} cy={432} r={2} fill="hsl(var(--primary-bright) / 0.65)" />
-
-      <motion.path
-        d={`M ${urNode.x.toFixed(1)} ${urNode.y.toFixed(1)} Q 452 98 520 46`}
-        stroke="hsl(var(--primary) / 0.35)" strokeWidth="1"
-        strokeDasharray="3 10" strokeLinecap="round"
-        {...draw(0.58)}
-      />
-      <circle cx={520} cy={46} r={8} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" />
-      <circle cx={520} cy={46} r={3.5} stroke="hsl(var(--primary-bright) / 0.48)" strokeWidth="1" fill="none" />
-
-      <motion.path
-        d="M 258 387 Q 256 428 254 470"
-        stroke="hsl(var(--primary) / 0.28)" strokeWidth="1"
-        strokeDasharray="3 10" strokeLinecap="round"
-        {...draw(0.64)}
-      />
-
-      <circle cx={254} cy={472} r={7.5} stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={254} cy={472} r={3.5} stroke="hsl(var(--primary-bright) / 0.48)" strokeWidth="1" fill="none" className="hero-flow-node" />
-      <circle cx={254} cy={472} r={1.5} fill="hsl(var(--primary-bright) / 0.65)" />
-    </svg>
-  );
-}
+import AutomationPanel from "@/components/AutomationPanel";
+import Typewriter from "@/components/Typewriter";
 
 const HeroSection = () => {
   const { t } = useTranslation();
+  const reduced = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Cursor parallax — the panel drifts a few pixels toward the pointer.
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const sx = useSpring(px, { stiffness: 50, damping: 18 });
+  const sy = useSpring(py, { stiffness: 50, damping: 18 });
+  const tx = useTransform(sx, [-0.5, 0.5], [-14, 14]);
+  const ty = useTransform(sy, [-0.5, 0.5], [-10, 10]);
+
+  function onMove(e: React.MouseEvent) {
+    if (reduced) return;
+    const r = sectionRef.current?.getBoundingClientRect();
+    if (!r) return;
+    px.set((e.clientX - r.left) / r.width - 0.5);
+    py.set((e.clientY - r.top) / r.height - 0.5);
+  }
+
+  // Supporting content fades in after the headline finishes writing/correcting.
+  const fade = (delay: number, y = 14) =>
+    reduced
+      ? { initial: false as const, animate: { opacity: 1, y: 0 } }
+      : {
+          initial: { opacity: 0, y },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.6, delay, ease: EASE },
+        };
 
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden px-6 pb-24 pt-28 md:px-10"
+      ref={sectionRef}
+      onMouseMove={onMove}
+      className="relative flex min-h-[100dvh] items-center overflow-hidden px-6 pb-16 pt-28 md:px-10"
     >
       <div className="hero-atmosphere pointer-events-none absolute inset-0" aria-hidden />
+      <div className="texture-grid texture-grid-fade pointer-events-none absolute inset-0 opacity-70" aria-hidden />
       <div className="hero-orbs" aria-hidden />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-12 xl:gap-16">
-        <div className="relative">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
+        {/* left — the statement, written then corrected */}
+        <div className="min-w-0">
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.18, ease: EASE }}
-            className="font-heading text-balance text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+            {...fade(0.05, 10)}
+            aria-label={`${t("hero.headline")} ${t("hero.headlineEmphasis")}`}
+            className="font-heading text-[clamp(2.3rem,4.6vw,3.9rem)] font-bold leading-[1.06] tracking-[-0.025em] text-foreground"
           >
-            {t("hero.headline")}{" "}
-            <em className="not-italic text-primary">{t("hero.headlineEmphasis")}</em>
+            <span aria-hidden className="block">
+              {t("hero.headline")}
+            </span>
+            <span aria-hidden className="block text-primary">
+              <Typewriter
+                wrong={t("hero.headlineWrong")}
+                right={t("hero.headlineEmphasis")}
+                startDelay={420}
+              />
+            </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.42, ease: EASE }}
-            className="mt-8 max-w-xl font-body text-lg font-light leading-relaxed text-muted-foreground"
+            {...fade(0.28, 12)}
+            className="mt-6 max-w-md font-body text-lg font-light leading-relaxed text-muted-foreground"
           >
             {t("hero.description")}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.56, ease: EASE }}
-            className="mt-10 flex flex-wrap items-center gap-6"
+            {...fade(0.4, 12)}
+            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4"
           >
             <motion.a
               href="#contact"
-              className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2)]"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2),0_14px_36px_-18px_hsl(var(--primary)/0.7)]"
+              whileHover={reduced ? undefined : { scale: 1.02, filter: "brightness(1.06)" }}
+              whileTap={reduced ? undefined : { scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 28 }}
             >
               {t("common.cta")}
             </motion.a>
+
+            <a
+              href="#problem-solution"
+              className="group inline-flex items-center gap-2 font-body text-[14px] font-medium text-foreground/70 transition-colors hover:text-foreground"
+            >
+              <span className="flex h-7 w-7 items-center justify-center rounded-full border border-border/80 transition-colors group-hover:border-primary/50">
+                <ArrowDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-y-0.5" strokeWidth={1.75} />
+              </span>
+              {t("hero.secondary")}
+            </a>
           </motion.div>
 
+          <motion.p
+            {...fade(0.5, 0)}
+            className="mt-6 font-body text-[13px] text-foreground-muted"
+          >
+            {t("hero.offerNote")}
+          </motion.p>
         </div>
 
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-20 lg:relative lg:min-h-[min(62vh,600px)] lg:opacity-100 lg:py-8">
-          <HeroOrbitalMark />
-        </div>
+        {/* right — the work, running itself */}
+        <motion.div
+          style={reduced ? undefined : { x: tx, y: ty }}
+          className="mt-2 flex min-w-0 justify-center lg:mt-0 lg:min-h-[min(60vh,540px)] lg:items-center"
+        >
+          <motion.div
+            initial={reduced ? false : { opacity: 0, y: 20, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+            className="w-full max-w-[480px]"
+          >
+            <AutomationPanel className="mx-auto" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

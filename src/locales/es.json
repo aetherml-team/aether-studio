@@ -1,38 +1,87 @@
 {
   "common": {
-    "cta": "Solicita tu auditoría gratis"
+    "cta": "Quiero mi auditoría gratis"
   },
   "navbar": {
+    "tagline": "Estudio de automatización",
     "problem": "El problema",
-    "services": "Servicios",
+    "services": "Qué hacemos",
     "results": "Resultados",
-    "howWeWork": "Cómo trabajamos",
+    "howWeWork": "Cómo funciona",
     "theFit": "Para quién",
+    "faq": "Preguntas",
     "skipToContent": "Ir al contenido",
-    "bookACall": "Solicita tu auditoría gratis"
+    "bookACall": "Quiero mi auditoría gratis"
   },
   "hero": {
+    "kicker": "Estudio de automatización · Guadalajara",
     "headline": "El trabajo manual,",
+    "headlineWrong": "hecho a mano.",
     "headlineEmphasis": "resuelto con ingeniería.",
-    "description": "Automatizaciones, integraciones y conciliación de pagos para negocios que superaron la hoja de cálculo. Nuestros clientes recuperan 30 horas a la semana."
+    "description": "Automatizaciones, IA, integraciones de sistemas y conciliación de pagos — para equipos que ya superaron la hoja de cálculo.",
+    "availability": "Tomamos 3 clientes nuevos este mes",
+    "secondary": "Mira cómo funciona",
+    "proof": "KrakenBay recuperó 30+ horas a la semana — facturación y agenda, automatizadas.",
+    "offerNote": "Auditoría gratis de 20 min — te quedas con los hallazgos, nos contrates o no.",
+    "trust": "Gimnasios · Clínicas · Inmobiliarias · Estudios — Guadalajara y más allá",
+    "outcomes": ["Conciliado", "Automatizado", "Integrado", "Respondido", "Agendado", "Publicado"],
+    "panel": {
+      "title": "Operaciones",
+      "live": "En vivo",
+      "done": "Todo al día",
+      "running": "Automatizando",
+      "hoursUnit": "h",
+      "tasks": [
+        { "label": "Pago de Stripe cuadrado con la factura", "tag": "Conciliado" },
+        { "label": "Clase agendada, calendario sincronizado", "tag": "Agendado" },
+        { "label": "Renovación de membresía cobrada", "tag": "Facturado" },
+        { "label": "Respuesta a lead redactada y enviada", "tag": "Respondido" },
+        { "label": "CRM y contabilidad sincronizados", "tag": "Integrado" },
+        { "label": "Recordatorio de factura vencida enviado", "tag": "Seguimiento" }
+      ],
+      "metricLabel": "tareas resueltas hoy, sin tocar nada a mano",
+      "savedLabel": "ahorradas esta semana"
+    }
   },
   "problemSolution": {
     "problemLabel": "El problema",
     "problemHeadline": "A dónde se van las horas",
-    "problemBody": "Persiguiendo pagos en tres apps. Copiando datos entre sistemas que deberían comunicarse. Conciliando transacciones en una hoja de cálculo a medianoche. Cada hora gastada en tareas operativas es una hora que no se invierte en hacer crecer tu negocio.",
+    "problemBody": "Persiguiendo pagos en tres apps. Recapturando los mismos datos en sistemas que deberían comunicarse. Dando seguimiento a mano. Leyendo documentos uno por uno. Conciliando a medianoche en una hoja de cálculo. Cada hora en tareas operativas es una hora que no inviertes en hacer crecer tu negocio.",
     "solutionLabel": "La solución",
-    "solutionHeadline": "Tres días de conciliación, reducidos a doce minutos.",
-    "solutionBody": "Eso fue lo que construimos para Premium Fitness. Flujos que conectan cada herramienta que usas, cuadran cada pago al centavo y envían recordatorios antes de que alguien los piense.",
-    "tags": ["Sin entrada manual", "Sincronización en tiempo real", "Registros listos para auditoría"]
+    "solutionHeadline": "Días de trabajo manual, reducidos a minutos.",
+    "solutionBody": "Programación, seguimientos, facturación, lectura de documentos, captura de datos, conciliación — conectamos tus herramientas y automatizamos el trabajo repetitivo para que corra sin ti. Tavros pasó de conciliaciones de tres días a doce minutos; el mismo motor se encarga del resto.",
+    "sceneBefore": "A mano",
+    "sceneAfter": "Con Æther",
+    "sceneMatched": "Resuelto automáticamente",
+    "sceneAfterMetric": "Ahora toma",
+    "sceneTimeLabel": "horas ahorradas al año",
+    "sceneTimeSub": "≈ 9 meses de un empleado de tiempo completo",
+    "sceneScrub": "Desliza para ejecutar",
+    "sceneProcessing": ["Acumulándose", "Enrutando", "Automatizando", "Resuelto"],
+    "sceneTasks": [
+      { "label": "Pago por conciliar", "tag": "Cobros" },
+      { "label": "Seguimiento por enviar", "tag": "CRM" },
+      { "label": "Documento por leer", "tag": "IA" },
+      { "label": "Herramientas sin sincronizar", "tag": "Sync" },
+      { "label": "Datos por recapturar", "tag": "Ops" }
+    ],
+    "sceneResolvedSub": "Cada tarea, sin tocar a mano",
+    "tags": ["Funciona mientras duermes", "En todas tus herramientas", "Nada se escapa"]
   },
   "services": {
     "headline": "Lo que te quitamos de encima.",
     "description": "Cada servicio viene con recibos: resultados reales de clientes reales, no números de una presentación.",
+    "receiptLabel": "El recibo",
     "items": [
       {
         "name": "Automatizaciones a medida",
         "description": "Flujos de trabajo que funcionan mientras duermes. Quitamos el trabajo repetitivo de tus operaciones: programación, seguimientos, facturación y lo demás.",
         "proof": "KrakenBay ahorra 30+ horas/semana solo en programación y facturación."
+      },
+      {
+        "name": "IA y sistemas inteligentes",
+        "description": "Ponemos la IA donde realmente vale la pena: leer documentos, redactar respuestas, clasificar y enrutar solicitudes, y responder preguntas desde tus propios datos — con agentes a medida que resuelven los casos de criterio.",
+        "proof": "La recepción de documentos que tomaba una tarde ahora se resuelve sola en minutos."
       },
       {
         "name": "Integraciones de sistemas",
@@ -58,7 +107,11 @@
   },
   "clients": {
     "headline": "En sus palabras.",
+    "sectionHeadline": "Trabajo real, resultados reales.",
+    "sectionSub": "Cuatro negocios, cuatro stacks distintos, un mismo resultado: horas recuperadas y nada que se escape.",
     "whatDelivered": "Lo que Æther entregó",
+    "prev": "Cliente anterior",
+    "next": "Cliente siguiente",
     "items": [
       {
         "tagline": "Academia BJJ · Guadalajara, MX",
@@ -73,7 +126,7 @@
         "metricLabel": "horas ahorradas semanalmente"
       },
       {
-        "tagline": "Premium Fitness · Guadalajara, MX",
+        "tagline": "Gym · Guadalajara, MX",
         "industry": "Gimnasio de alto rendimiento",
         "quote": "Me ayudaron a reducir lo que me tomaba semanas en conciliación cada mes. Ahora me enfoco en lo que me importa: traer más clientes a mi negocio.",
         "quotePerson": "Harilois Fafutis, Dueño",
@@ -112,6 +165,12 @@
   },
   "process": {
     "headline": "De la auditoría al sistema en marcha.",
+    "description": "Tres semanas a la primera automatización, no un despliegue de seis meses. Cada proyecto corre los mismos tres pasos.",
+    "deliverables": [
+      "Recibes: una auditoría cuantificada",
+      "Recibes: un plan de construcción y cotización fija",
+      "Recibes: automatizaciones en producción, monitoreadas"
+    ],
     "steps": [
       {
         "title": "Descubrir",
@@ -129,55 +188,83 @@
   },
   "checkFit": {
     "headline": "Con quién trabajamos.",
-    "description": "Tomamos tres clientes nuevos al mes para poder ir a fondo. Estos son los perfiles que más aprovechan trabajar con nosotros.",
-    "soundLikeYou": "Si te suena familiar, deberíamos hablar.",
+    "description": "Trabajamos a fondo con pocos clientes a la vez — por eso somos honestos sobre si encajamos, en ambos sentidos.",
+    "soundLikeYou": "Si la columna de la izquierda eres tú, deberíamos hablar.",
+    "fitLabel": "Encajamos cuando",
+    "notFitLabel": "Probablemente no cuando",
     "audiences": [
-      "Startups escalando rápido con un equipo demasiado pequeño para la carga operativa",
-      "Pequeños negocios (gimnasios, clínicas, inmobiliarias) enterrados en administración",
-      "Founders que saben que su tiempo vale más que la entrada de datos",
-      "Empresas donde la conciliación todavía vive en una hoja de cálculo"
+      "Estás escalando rápido con un equipo muy pequeño para la carga operativa",
+      "Tienes un negocio (gimnasio, clínica, inmobiliaria) enterrado en administración",
+      "Tu tiempo vale más que otra hora de entrada de datos",
+      "La conciliación todavía vive en una hoja de cálculo a medianoche"
+    ],
+    "notAudiences": [
+      "Buscas la cotización más barata, no el mejor sistema",
+      "Quieres una herramienta para operar tú, no un socio que la opere",
+      "No estás listo para cambiar cómo se hace el trabajo",
+      "Necesitas un favor puntual, no una relación a largo plazo"
     ]
   },
   "contact": {
     "headline": "Cuéntanos a dónde se van las horas.",
-    "description": "La auditoría es gratuita, toma 20 minutos y termina con una cotización fija. Cuéntanos cómo es tu semana y te mostramos dónde la automatización te devuelve las horas.",
+    "description": "Agenda la auditoría gratis de 20 minutos: mapeamos a dónde se van las horas de tu semana — y cuánto te cuesta. Te quedas con ese mapa, nos contrates o no. Si no hay nada que valga la pena automatizar, te lo decimos claro. Sin discurso de venta.",
     "nameLabel": "Nombre",
     "emailLabel": "Correo",
-    "companySizeLabel": "Tamaño de empresa",
-    "bottleneckLabel": "Principal cuello de botella",
     "namePlaceholder": "Tu nombre",
     "emailPlaceholder": "tu@empresa.com",
-    "selectPlaceholder": "Elige una opción",
-    "submit": "Solicita tu auditoría gratis",
+    "messageLabel": "¿Qué te está frenando?",
+    "messagePlaceholder": "Cuéntanos en pocas líneas qué es manual, qué se rompe o a dónde se va tu semana.",
+    "submit": "Quiero mi auditoría gratis",
     "sending": "Enviando…",
     "responseNote": "Respondemos en menos de un día hábil.",
+    "nextLabel": "Qué sigue",
+    "steps": [
+      "Llena el formulario — unos 30 segundos.",
+      "Auditoría gratis de 20 minutos: mapeamos a dónde se van tus horas y tu dinero.",
+      "Te quedas con los hallazgos y recibes una cotización fija. Sin discurso de venta si no vale la pena."
+    ],
+    "assurances": [
+      "NDA desde el día uno — trabajamos dentro de tus propias cuentas.",
+      "Primera automatización en 2 a 3 semanas.",
+      "Te quedas con los hallazgos, nos contrates o no."
+    ],
     "success": "Gracias. Te respondemos en menos de un día hábil.",
     "error": "Algo falló y tu mensaje no se envió. Escríbenos por correo y lo resolvemos.",
-    "mailtoNote": "Tu app de correo debería abrirse con los datos prellenados. Si no, escríbenos a hello@aether.studio.",
-    "emailLink": "O escríbenos a hello@aether.studio",
-    "companySizes": ["Solo yo", "2-10", "11-50", "50+"],
-    "bottlenecks": ["Entrada de datos manual", "Conciliación de pagos", "Herramientas desconectadas", "Caos de agendamiento", "Otro"]
+    "emailLink": "O escríbenos a help@aetherml.com",
+    "validation": {
+      "nameRequired": "Por favor ingresa tu nombre.",
+      "nameShort": "Ingresa al menos 2 caracteres.",
+      "emailRequired": "Por favor ingresa tu correo.",
+      "emailInvalid": "Por favor ingresa un correo válido.",
+      "messageRequired": "Cuéntanos qué te está frenando.",
+      "messageShort": "Un poco más de detalle ayuda — al menos 10 caracteres."
+    }
   },
   "stickyCta": {
-    "label": "Solicita tu auditoría gratis"
+    "label": "Quiero mi auditoría gratis"
   },
   "integrations": {
-    "headline": "Conectamos las herramientas que ya pagas."
+    "kicker": "Más de 100 integraciones",
+    "headline": "Conectamos las herramientas que ya pagas.",
+    "subcopy": "De Stripe a tu banco, de tu calendario a tu CRM, de tu terminal a tu contabilidad. Si tiene API o webhook, lo automatizamos.",
+    "more": "+100 más"
   },
   "faq": {
     "headline": "Preguntas, respondidas.",
+    "subhead": "Lo que los founders nos preguntan antes de agendar la auditoría.",
+    "askLink": "¿Te queda una duda? Pregúntanos →",
     "items": [
       {
         "q": "¿Qué tan rápido entregan?",
         "a": "Primera automatización en producción 2-3 semanas después del arranque. La mayoría de los proyectos muestran horas ahorradas medibles dentro de 30 días, no los despliegues de 6 meses de una agencia tradicional."
       },
       {
-        "q": "¿Funciona con nuestras herramientas actuales?",
-        "a": "Casi seguro que sí. Conectamos Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make y más de 100 otras. Si tu stack tiene API o webhook, lo podemos automatizar."
-      },
-      {
         "q": "¿Cuánto cuesta?",
         "a": "Los proyectos arrancan alrededor de $4,500 USD y escalan con el alcance. La mayoría de clientes recupera la inversión en los primeros 60 días por horas recuperadas y menos fugas de cobro. Compartimos una cotización fija después de la auditoría gratuita, sin juegos de horas."
+      },
+      {
+        "q": "¿Funciona con nuestras herramientas actuales?",
+        "a": "Casi seguro que sí. Conectamos Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make y más de 100 otras. Si tu stack tiene API o webhook, lo podemos automatizar."
       },
       {
         "q": "¿Qué pasa si algo falla?",
@@ -202,6 +289,19 @@
     "contact": "Contacto",
     "linkedin": "LinkedIn",
     "twitter": "Twitter / X",
+    "legal": "Legal",
+    "privacy": "Aviso de Privacidad",
+    "terms": "Términos y Condiciones",
     "copyright": "© 2026 Æther. Todos los derechos reservados."
+  },
+  "legal": {
+    "backHome": "Volver al inicio"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Esta página se escapó entre las grietas.",
+    "description": "El enlace está roto o la página se movió. Te regresamos a algo útil.",
+    "homeCta": "Volver al inicio",
+    "contactCta": "Quiero mi auditoría gratis"
   }
 }

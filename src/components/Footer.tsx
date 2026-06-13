@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Linkedin, Twitter } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
@@ -100,11 +101,25 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={viewport}
           transition={{ delay: 0.15, duration: 0.5 }}
-          className="mt-16 border-t border-border pt-8"
+          className="mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between"
         >
           <p className="font-body text-xs text-muted-foreground">
             {t("footer.copyright")}
           </p>
+          <nav className="flex gap-5" aria-label={t("footer.legal")}>
+            <Link
+              to="/privacy"
+              className="nav-link font-body text-xs text-foreground/60 transition-colors hover:text-foreground"
+            >
+              {t("footer.privacy")}
+            </Link>
+            <Link
+              to="/terms"
+              className="nav-link font-body text-xs text-foreground/60 transition-colors hover:text-foreground"
+            >
+              {t("footer.terms")}
+            </Link>
+          </nav>
         </motion.div>
       </motion.div>
     </footer>

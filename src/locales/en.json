@@ -1,38 +1,87 @@
 {
   "common": {
-    "cta": "Request a free audit"
+    "cta": "Get my free audit"
   },
   "navbar": {
+    "tagline": "Automation Studio",
     "problem": "The problem",
-    "services": "Services",
+    "services": "What we do",
     "results": "Results",
-    "howWeWork": "How we work",
+    "howWeWork": "How it works",
     "theFit": "Who it's for",
+    "faq": "FAQ",
     "skipToContent": "Skip to content",
-    "bookACall": "Request a free audit"
+    "bookACall": "Get my free audit"
   },
   "hero": {
+    "kicker": "Automation studio · Guadalajara",
     "headline": "Manual work,",
+    "headlineWrong": "done by hand.",
     "headlineEmphasis": "engineered away.",
-    "description": "Custom automations, integrations, and payment reconciliation for businesses that have outgrown spreadsheets. Most clients get back 30 hours a week."
+    "description": "Automations, AI, system integrations, and payment reconciliation — for teams that have outgrown the spreadsheet.",
+    "availability": "Taking 3 new clients this month",
+    "secondary": "See how it works",
+    "proof": "KrakenBay reclaimed 30+ hours a week — billing and scheduling, automated.",
+    "offerNote": "Free 20-min audit — keep the findings whether you hire us or not.",
+    "trust": "Gyms · Clinics · Real estate · Studios — Guadalajara & beyond",
+    "outcomes": ["Reconciled", "Automated", "Integrated", "Answered", "Scheduled", "Shipped"],
+    "panel": {
+      "title": "Operations",
+      "live": "Live",
+      "done": "All clear",
+      "running": "Automating",
+      "hoursUnit": "hrs",
+      "tasks": [
+        { "label": "Stripe payout matched to invoice", "tag": "Reconciled" },
+        { "label": "Class booked, calendar synced", "tag": "Scheduled" },
+        { "label": "Membership renewal charged", "tag": "Billed" },
+        { "label": "Lead reply drafted & sent", "tag": "Answered" },
+        { "label": "CRM and books kept in sync", "tag": "Integrated" },
+        { "label": "Overdue invoice reminder sent", "tag": "Followed up" }
+      ],
+      "metricLabel": "tasks handled today, untouched by hand",
+      "savedLabel": "saved this week"
+    }
   },
   "problemSolution": {
     "problemLabel": "The problem",
     "problemHeadline": "Where the hours actually go",
-    "problemBody": "Chasing payments across three apps. Copy-pasting data between systems that should talk to each other. Reconciling transactions in a spreadsheet at midnight. Every hour spent on operational toil is an hour not spent growing your business.",
+    "problemBody": "Chasing payments across three apps. Re-keying the same data into systems that should talk to each other. Following up by hand. Reading documents one by one. Reconciling at midnight in a spreadsheet. Every hour on operational busywork is an hour not spent growing the business.",
     "solutionLabel": "The solution",
-    "solutionHeadline": "Three days of reconciliation, down to twelve minutes.",
-    "solutionBody": "That is what we built for Premium Fitness. Workflows that connect every tool you use, match every payment to the cent, and send reminders before anyone thinks of them.",
-    "tags": ["Zero manual entry", "Real-time sync", "Audit-ready records"]
+    "solutionHeadline": "Days of manual work, down to minutes.",
+    "solutionBody": "Scheduling, follow-ups, billing, document intake, data entry, reconciliation — we connect your tools and automate the repetitive work so it runs without you. Tavros went from three-day reconciliations to twelve minutes; the same engine handles the rest.",
+    "sceneBefore": "By hand",
+    "sceneAfter": "With Æther",
+    "sceneMatched": "Handled automatically",
+    "sceneAfterMetric": "Now it takes",
+    "sceneTimeLabel": "hours saved a year",
+    "sceneTimeSub": "≈ 9 months of a full-time hire",
+    "sceneScrub": "Scroll to run",
+    "sceneProcessing": ["Piling up", "Routing", "Automating", "Handled"],
+    "sceneTasks": [
+      { "label": "Payment to reconcile", "tag": "Billing" },
+      { "label": "Follow-up to send", "tag": "CRM" },
+      { "label": "Document to read", "tag": "AI" },
+      { "label": "Tools out of sync", "tag": "Sync" },
+      { "label": "Data to re-key", "tag": "Ops" }
+    ],
+    "sceneResolvedSub": "Every task, untouched by hand",
+    "tags": ["Runs while you sleep", "Across every tool", "Nothing slips"]
   },
   "services": {
     "headline": "What we take off your plate.",
     "description": "Every service comes with receipts: real results from real clients, not numbers from a pitch deck.",
+    "receiptLabel": "The receipt",
     "items": [
       {
         "name": "Custom Automations",
         "description": "Workflows that run while you sleep. We remove the repetitive work from your operations: scheduling, follow-ups, billing, and the rest.",
         "proof": "KrakenBay saves 30+ hours/week on scheduling and billing alone."
+      },
+      {
+        "name": "AI & Intelligent Systems",
+        "description": "We put AI where it actually pays off: reading documents, drafting replies, classifying and routing requests, and answering questions from your own data — with custom agents that handle the judgment calls.",
+        "proof": "Document intake that took an afternoon now clears itself in minutes."
       },
       {
         "name": "System Integrations",
@@ -52,13 +101,17 @@
       {
         "name": "Process Optimization",
         "description": "We audit, redesign, and implement workflows that cut bottlenecks and operational costs, in ways you can measure.",
-        "proof": "Most clients recover the engagement cost in the first 60 days."
+        "proof": "Most clients recover the project's cost within the first 60 days."
       }
     ]
   },
   "clients": {
     "headline": "In their words.",
+    "sectionHeadline": "Selected work, real results.",
+    "sectionSub": "Four businesses, four different stacks, one outcome: hours back and nothing slipping through the cracks.",
     "whatDelivered": "What Æther delivered",
+    "prev": "Previous client",
+    "next": "Next client",
     "items": [
       {
         "tagline": "BJJ Academy · Guadalajara, MX",
@@ -73,7 +126,7 @@
         "metricLabel": "hours saved weekly"
       },
       {
-        "tagline": "Premium Fitness · Guadalajara, MX",
+        "tagline": "Gym · Guadalajara, MX",
         "industry": "High-performance gym",
         "quote": "The Æther team helped me reduce what usually took me weeks in reconciliation each month. Now I focus on what I care about: bringing more clients to my business.",
         "quotePerson": "Harilois Fafutis, Owner",
@@ -112,6 +165,12 @@
   },
   "process": {
     "headline": "From audit to running system.",
+    "description": "Three weeks to first automation, not a six-month rollout. Every engagement runs the same three steps.",
+    "deliverables": [
+      "You get: a quantified audit",
+      "You get: a build plan + fixed quote",
+      "You get: live automations, monitored"
+    ],
     "steps": [
       {
         "title": "Discover",
@@ -129,55 +188,83 @@
   },
   "checkFit": {
     "headline": "Who we work with.",
-    "description": "We take on three new clients a month so we can go deep. This is who gets the most out of working with us.",
-    "soundLikeYou": "If that sounds familiar, we should talk.",
+    "description": "We go deep with a handful of clients at a time — so we're honest about the fit, both ways.",
+    "soundLikeYou": "If the left column is you, we should talk.",
+    "fitLabel": "A fit when",
+    "notFitLabel": "Probably not when",
     "audiences": [
-      "Startups scaling fast with a team too small for the ops workload",
-      "Small businesses (gyms, clinics, real estate) buried in admin",
-      "Founders who know their time is worth more than data entry",
-      "Companies where reconciliation still lives in a spreadsheet"
+      "You're scaling fast with a team too small for the ops load",
+      "You run a business (gym, clinic, real estate) buried in admin",
+      "Your time is worth more than another hour of data entry",
+      "Reconciliation still lives in a spreadsheet at midnight"
+    ],
+    "notAudiences": [
+      "You're shopping for the cheapest quote, not the best system",
+      "You want a tool to run yourself, not a partner who owns it",
+      "You're not ready to change how the work actually gets done",
+      "You need a one-off favor, not an ongoing relationship"
     ]
   },
   "contact": {
     "headline": "Tell us where the hours go.",
-    "description": "The audit is free, takes 20 minutes, and ends with a fixed quote. Walk us through your week and we'll map where automation gives you the hours back.",
+    "description": "Book the free 20-minute audit: we map where your week leaks hours — and what it's costing you. You keep that map whether you hire us or not. If there's nothing worth automating, we'll tell you straight. No pitch.",
     "nameLabel": "Name",
     "emailLabel": "Email",
-    "companySizeLabel": "Company size",
-    "bottleneckLabel": "Biggest bottleneck",
     "namePlaceholder": "Your name",
     "emailPlaceholder": "you@company.com",
-    "selectPlaceholder": "Select one",
-    "submit": "Request a free audit",
+    "messageLabel": "What's slowing you down?",
+    "messagePlaceholder": "A few lines on what's manual, what's breaking, or where your week disappears.",
+    "submit": "Get my free audit",
     "sending": "Sending…",
     "responseNote": "We reply within one business day.",
+    "nextLabel": "What happens next",
+    "steps": [
+      "Send the form — about 30 seconds.",
+      "Free 20-minute audit: we map where your hours and money leak.",
+      "You keep the findings and get a fixed quote. No pitch if it's not worth it."
+    ],
+    "assurances": [
+      "NDA on day one — we work inside your own accounts.",
+      "First automation live in 2 to 3 weeks.",
+      "Keep the audit findings whether you hire us or not."
+    ],
     "success": "Thank you. We'll reply within one business day.",
     "error": "Something went wrong and your message didn't send. Email us instead and we'll take it from there.",
-    "mailtoNote": "Your email app should open with the details prefilled. If it doesn't, write to hello@aether.studio.",
-    "emailLink": "Or email hello@aether.studio",
-    "companySizes": ["Just me", "2-10", "11-50", "50+"],
-    "bottlenecks": ["Manual data entry", "Payment reconciliation", "Disconnected tools", "Scheduling chaos", "Other"]
+    "emailLink": "Or email help@aetherml.com",
+    "validation": {
+      "nameRequired": "Please enter your name.",
+      "nameShort": "Please enter at least 2 characters.",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Please tell us what's slowing you down.",
+      "messageShort": "A little more detail helps — at least 10 characters."
+    }
   },
   "stickyCta": {
-    "label": "Request a free audit"
+    "label": "Get my free audit"
   },
   "integrations": {
-    "headline": "We connect the tools you already pay for."
+    "kicker": "100+ integrations",
+    "headline": "We connect the tools you already pay for.",
+    "subcopy": "Stripe to your bank, your calendar to your CRM, your POS to your books. If it has an API or a webhook, we automate it.",
+    "more": "+100 more"
   },
   "faq": {
     "headline": "Questions, answered.",
+    "subhead": "The things founders ask us before booking the audit.",
+    "askLink": "Still wondering something? Ask us →",
     "items": [
       {
         "q": "How fast do you ship?",
         "a": "First automation live within 2-3 weeks of kickoff. Most engagements deliver measurable hours saved inside 30 days, not the 6-month rollouts you'd get from a traditional agency."
       },
       {
-        "q": "Will this work with our current tools?",
-        "a": "Almost certainly. We connect Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make, and 100+ others. If your stack has an API or a webhook, we can automate it."
-      },
-      {
         "q": "What does it cost?",
         "a": "Engagements start around $4,500 and scale with scope. Most clients recover the cost in the first 60 days through reclaimed hours and reduced billing leakage. We share a fixed quote after the free audit, with no hourly games."
+      },
+      {
+        "q": "Will this work with our current tools?",
+        "a": "Almost certainly. We connect Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make, and 100+ others. If your stack has an API or a webhook, we can automate it."
       },
       {
         "q": "What happens when something breaks?",
@@ -202,6 +289,19 @@
     "contact": "Contact",
     "linkedin": "LinkedIn",
     "twitter": "Twitter / X",
+    "legal": "Legal",
+    "privacy": "Privacy Notice",
+    "terms": "Terms of Service",
     "copyright": "© 2026 Æther. All rights reserved."
+  },
+  "legal": {
+    "backHome": "Back to home"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "This page slipped through the cracks.",
+    "description": "The link is broken or the page has moved. Let's get you back to something useful.",
+    "homeCta": "Back to home",
+    "contactCta": "Get my free audit"
   }
 }

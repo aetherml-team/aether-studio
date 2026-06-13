@@ -1,9 +1,11 @@
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
 import HeroSection from "@/components/HeroSection";
 import IntegrationsMarquee from "@/components/IntegrationsMarquee";
-import ProblemSolutionSection from "@/components/ProblemSolutionSection";
+import WorkDisappearsSection from "@/components/WorkDisappearsSection";
 import ServicesSection from "@/components/ServicesSection";
-import ClientShowcase from "@/components/ClientShowcase";
+import WorkShowcase from "@/components/WorkShowcase";
 import ProcessSection from "@/components/ProcessSection";
 import CheckFitSection from "@/components/CheckFitSection";
 import FAQSection from "@/components/FAQSection";
@@ -14,14 +16,21 @@ import StickyMobileCTA from "@/components/StickyMobileCTA";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Restores the homepage tab title after SPA navigation back from a
+          sub-route. The full social/meta set stays static in index.html so
+          non-JS crawlers and link unfurlers always see it. */}
+      <Helmet>
+        <title>Æther · Automation Studio</title>
+        <link rel="canonical" href="https://aetherml.com/" />
+      </Helmet>
+      <ScrollProgress />
       <Navbar />
       <main id="main">
         <HeroSection />
         <IntegrationsMarquee />
-        <div className="gradient-strip opacity-80" aria-hidden />
-        <ProblemSolutionSection />
+        <WorkDisappearsSection />
         <ServicesSection />
-        <ClientShowcase />
+        <WorkShowcase />
         <ProcessSection />
         <CheckFitSection />
         <FAQSection />

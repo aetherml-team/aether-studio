@@ -1,5 +1,5 @@
-# https://ther-landing-studio.vercel.app
-Sitemap: https://ther-landing-studio.vercel.app/sitemap.xml
+# https://aetherml.com
+Sitemap: https://aetherml.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

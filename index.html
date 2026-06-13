@@ -20,6 +20,16 @@
     <meta id="theme-color-meta" name="theme-color" content="#08080A" />
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- Privacy-friendly analytics (Plausible): no cookies, no consent banner
+         needed, GDPR/LFPDPPP-friendly. Add the site at https://plausible.io and
+         it starts reporting; until then it's a harmless no-op. Localhost is
+         ignored automatically. The queue stub lets us fire events (see
+         src/lib/analytics.ts) before the script finishes loading. -->
+    <script defer data-domain="aetherml.com" src="https://plausible.io/js/script.js"></script>
+    <script>
+      window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+    </script>
+
     <title>Æther · Automation Studio</title>
     <meta
       name="description"
@@ -27,7 +37,9 @@
     />
     <meta name="author" content="Æther" />
 
-    <link rel="canonical" href="https://aether.studio/" />
+    <!-- Canonical is asserted per-route via react-helmet-async so each route
+         (/, /privacy, /terms, future posts) emits a single, correct canonical
+         rather than the homepage URL leaking onto every SPA route. -->
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -36,8 +48,9 @@
     <!-- Open Graph -->
     <meta property="og:site_name" content="Æther" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_MX" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://aether.studio/" />
+    <meta property="og:url" content="https://aetherml.com/" />
     <meta property="og:title" content="Æther · Automation Studio" />
     <meta
       property="og:description"
@@ -45,14 +58,14 @@
     />
     <meta
       property="og:image"
-      content="https://aether.studio/web-app-manifest-512x512.png"
+      content="https://aetherml.com/og-image.png"
     />
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
-    <meta property="og:image:alt" content="Æther logo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Æther — Manual work, engineered away. Automation studio in Guadalajara." />
 
     <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@AEtherML" />
     <meta name="twitter:creator" content="@AEtherML" />
     <meta name="twitter:title" content="Æther · Automation Studio" />
@@ -62,9 +75,9 @@
     />
     <meta
       name="twitter:image"
-      content="https://aether.studio/web-app-manifest-512x512.png"
+      content="https://aetherml.com/og-image.png"
     />
-    <meta name="twitter:image:alt" content="Æther logo" />
+    <meta name="twitter:image:alt" content="Æther — Manual work, engineered away." />
 
     <script type="application/ld+json">
       {
@@ -72,26 +85,26 @@
         "@graph": [
           {
             "@type": "Organization",
-            "@id": "https://aether.studio/#org",
+            "@id": "https://aetherml.com/#org",
             "name": "Æther",
-            "url": "https://aether.studio/",
-            "logo": "https://aether.studio/web-app-manifest-512x512.png",
+            "url": "https://aetherml.com/",
+            "logo": "https://aetherml.com/web-app-manifest-512x512.png",
             "sameAs": ["https://twitter.com/AEtherML"],
-            "email": "hello@aether.studio",
+            "email": "help@aetherml.com",
             "description": "Custom automations, integrations, and payment reconciliation for businesses that have outgrown manual work."
           },
           {
             "@type": "WebSite",
-            "@id": "https://aether.studio/#site",
-            "url": "https://aether.studio/",
+            "@id": "https://aetherml.com/#site",
+            "url": "https://aetherml.com/",
             "name": "Æther",
-            "publisher": { "@id": "https://aether.studio/#org" },
+            "publisher": { "@id": "https://aetherml.com/#org" },
             "inLanguage": ["en", "es"]
           },
           {
             "@type": "ProfessionalService",
             "name": "Æther · Business Automation Studio",
-            "provider": { "@id": "https://aether.studio/#org" },
+            "provider": { "@id": "https://aetherml.com/#org" },
             "areaServed": ["MX", "US", "LATAM"],
             "priceRange": "$$$",
             "serviceType": [

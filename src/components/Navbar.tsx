@@ -10,17 +10,40 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState("");
   const { scrollY } = useScroll();
 
+  // Nav leads with what Æther does (the capabilities), then proof, process,
+  // fit, and the questions people ask before booking.
   const links = [
-    { href: "#problem-solution", label: t("navbar.problem") },
     { href: "#services", label: t("navbar.services") },
     { href: "#clients", label: t("navbar.results") },
     { href: "#process", label: t("navbar.howWeWork") },
     { href: "#check-fit", label: t("navbar.theFit") },
+    { href: "#faq", label: t("navbar.faq") },
   ];
 
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 40));
+
+  // Scroll-spy — highlight the link for whichever section sits across the
+  // viewport's midline, so the nav always shows where you are.
+  useEffect(() => {
+    const ids = ["services", "clients", "process", "check-fit", "faq"];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -60,25 +83,38 @@ const Navbar = () => {
       </a>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-10">
-        <motion.a
+        <a
           href="#hero"
-          className="shrink-0 font-heading text-base font-semibold tracking-tight text-foreground"
-          aria-label="Æther home"
-          whileHover={{ opacity: 0.85 }}
+          className="group flex shrink-0 items-center gap-2.5"
+          aria-label={`Æther — ${t("navbar.tagline")}, home`}
         >
-          Æther
-        </motion.a>
+          <span className="font-heading text-base font-semibold tracking-tight text-foreground transition-opacity duration-200 group-hover:opacity-80">
+            Æther
+          </span>
+          <span aria-hidden className="hidden h-3.5 w-px bg-border sm:block" />
+          <span
+            aria-hidden
+            className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-foreground-muted sm:block"
+          >
+            {t("navbar.tagline")}
+          </span>
+        </a>
 
         <div className="hidden flex-wrap items-center justify-end gap-x-5 gap-y-2 font-body text-[12px] font-normal text-muted-foreground md:flex md:text-[13px]">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="nav-link shrink-0 text-foreground/75 transition-colors duration-200 hover:text-foreground"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) => {
+            const active = activeId === l.href.slice(1);
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "true" : undefined}
+                data-active={active ? "true" : undefined}
+                className="nav-link shrink-0 text-foreground/75 transition-colors duration-200 hover:text-foreground aria-[current]:text-foreground"
+              >
+                {l.label}
+              </a>
+            );
+          })}
         </div>
 
         <div className="hidden shrink-0 items-center gap-2 md:flex">
@@ -115,16 +151,20 @@ const Navbar = () => {
           transition={{ duration: 0.28, ease: EASE }}
           className="flex max-h-[min(70vh,calc(100dvh-5rem))] flex-col gap-1 overflow-y-auto border-t border-border bg-background/95 px-6 py-4 font-body text-sm backdrop-blur-xl md:hidden"
         >
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="rounded-lg px-3 py-3 text-foreground/85 transition-colors hover:bg-card hover:text-foreground"
-              onClick={() => setMenuOpen(false)}
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) => {
+            const active = activeId === l.href.slice(1);
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "true" : undefined}
+                className="rounded-lg px-3 py-3 text-foreground/85 transition-colors hover:bg-card hover:text-foreground aria-[current]:bg-card aria-[current]:text-foreground"
+                onClick={() => setMenuOpen(false)}
+              >
+                {l.label}
+              </a>
+            );
+          })}
           <div className="flex items-center justify-center gap-2 border-t border-border/60 py-3">
             <LanguageToggle />
             <ThemeToggle />
