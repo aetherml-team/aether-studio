@@ -13,8 +13,10 @@ import { Resend } from "resend";
  *   LEAD_FROM  — verified Resend sender (default: Æther <leads@aetherml.com>)
  */
 
-const TO = process.env.LEAD_TO ?? "help@aetherml.com";
-const FROM = process.env.LEAD_FROM ?? "Æther Studio <leads@aetherml.com>";
+// Use || (not ??) so a blank env var ("") falls back to the default instead of
+// sending Resend an empty address, which fails the send with a 502.
+const TO = process.env.LEAD_TO || "help@aetherml.com";
+const FROM = process.env.LEAD_FROM || "Æther Studio <leads@aetherml.com>";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -182,6 +184,137 @@ export function renderLeadEmail(d: {
 </html>`;
 }
 
+/** Copy for the customer-facing confirmation, keyed by language. */
+const CONFIRM_COPY = {
+  en: {
+    subject: "We've got your request — Æther Studio",
+    preheader: "We've got your request — expect a reply within one business day.",
+    eyebrow: "Request received",
+    heading: (first: string) => `Thanks, ${first}. We're on it.`,
+    lead: "Your automation audit request just landed with us. We read every one personally — expect a reply within one business day.",
+    nextLabel: "What happens next",
+    next: "We'll look at where your hours are going and come back with where automation can win them back.",
+    echoLabel: "What you told us",
+    signoff: "Talk soon,",
+    team: "— The Æther team",
+    footerLine: "You're receiving this because you contacted us at aetherml.com.",
+  },
+  es: {
+    subject: "Recibimos tu solicitud — Æther Studio",
+    preheader: "Recibimos tu solicitud — te respondemos en un día hábil.",
+    eyebrow: "Solicitud recibida",
+    heading: (first: string) => `Gracias, ${first}. Estamos en ello.`,
+    lead: "Tu solicitud de auditoría de automatización ya llegó con nosotros. Leemos cada una en persona — espera respuesta en un día hábil.",
+    nextLabel: "Qué sigue",
+    next: "Revisaremos a dónde se van tus horas y volveremos con dónde la automatización puede recuperarlas.",
+    echoLabel: "Lo que nos contaste",
+    signoff: "Hablamos pronto,",
+    team: "— El equipo de Æther",
+    footerLine: "Recibes este correo porque nos contactaste en aetherml.com.",
+  },
+} as const;
+
+/** Renders the customer confirmation as bulletproof, dark-themed HTML. */
+export function renderConfirmationEmail(d: {
+  name: string;
+  message: string;
+  language: string;
+  receivedAt: string;
+}): string {
+  const firstName = d.name.split(/\s+/)[0] || d.name;
+  const t = d.language.toLowerCase().startsWith("es") ? CONFIRM_COPY.es : CONFIRM_COPY.en;
+
+  return `<!DOCTYPE html>
+<html lang="${d.language.toLowerCase().startsWith("es") ? "es" : "en"}" style="margin:0;padding:0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="supported-color-schemes" content="dark">
+<title>${escapeHtml(t.subject)}</title>
+</head>
+<body style="margin:0;padding:0;background-color:${C.page};color-scheme:dark">
+<span style="display:none!important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;mso-hide:all">${escapeHtml(
+    t.preheader
+  )}</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${C.page}">
+  <tr>
+    <td align="center" style="padding:40px 16px">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px">
+
+        <!-- wordmark -->
+        <tr>
+          <td style="padding:4px 4px 22px">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-family:${HEADING};font-size:20px;font-weight:700;letter-spacing:0.02em;color:${C.text}">&AElig;ther</td>
+                <td style="padding-left:12px"><div style="width:34px;height:1px;background-color:${C.accent};opacity:0.55"></div></td>
+                <td style="padding-left:12px;font-family:${MONO};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${C.muted}">Studio</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- card -->
+        <tr>
+          <td style="background-color:${C.card};border:1px solid ${C.border};border-radius:16px;padding:36px">
+
+            <div style="margin-bottom:14px">${label(t.eyebrow)}</div>
+            <h1 style="margin:0 0 10px;font-family:${HEADING};font-size:25px;line-height:1.25;font-weight:700;color:${C.text}">
+              ${escapeHtml(t.heading(firstName))}
+            </h1>
+            <p style="margin:0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.dim}">
+              ${escapeHtml(t.lead)}
+            </p>
+
+            <!-- accent hairline -->
+            <div style="height:1px;margin:26px 0 4px;background:linear-gradient(90deg,${C.accent},rgba(166,166,207,0));"></div>
+
+            <!-- what happens next -->
+            <div style="margin:22px 0 6px">${label(t.nextLabel)}</div>
+            <p style="margin:0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.text}">
+              ${escapeHtml(t.next)}
+            </p>
+
+            <!-- echo of their message -->
+            <div style="margin:24px 0 6px">${label(t.echoLabel)}</div>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background-color:${C.panel};border:1px solid ${C.borderSoft};border-left:2px solid ${C.accent};border-radius:10px;padding:18px 20px">
+                  <div style="font-family:${SANS};font-size:15px;line-height:1.65;color:${C.text};white-space:pre-wrap">${escapeHtml(
+    d.message
+  )}</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- sign-off -->
+            <p style="margin:28px 0 0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.dim}">
+              ${escapeHtml(t.signoff)}<br>
+              <span style="color:${C.text}">${escapeHtml(t.team)}</span>
+            </p>
+
+          </td>
+        </tr>
+
+        <!-- footer -->
+        <tr>
+          <td style="padding:22px 6px 4px">
+            <p style="margin:0;font-family:${MONO};font-size:11px;letter-spacing:0.04em;line-height:1.6;color:${C.muted}">
+              ${escapeHtml(t.footerLine)}<br>
+              ${escapeHtml(d.receivedAt)}
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -241,7 +374,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (error) {
       console.error("Resend error:", error);
-      return res.status(502).json({ error: "Failed to send message" });
+      return res
+        .status(502)
+        .json({ error: "Failed to send message", detail: error.name ?? error.message });
+    }
+
+    // Confirm to the customer. Best-effort: the lead is already captured, so a
+    // failure here is logged but never fails the request.
+    const t = language.toLowerCase().startsWith("es") ? CONFIRM_COPY.es : CONFIRM_COPY.en;
+    try {
+      const { error: confirmError } = await resend.emails.send({
+        from: FROM,
+        to: email,
+        replyTo: TO,
+        subject: t.subject,
+        text: `${t.heading(name.split(/\s+/)[0] || name)}\n\n${t.lead}\n\n${t.nextLabel}: ${t.next}\n\n${t.echoLabel}:\n${message}\n\n${t.signoff}\n${t.team}`,
+        html: renderConfirmationEmail({ name, message, language, receivedAt }),
+      });
+      if (confirmError) console.error("Confirmation email error:", confirmError);
+    } catch (confirmErr) {
+      console.error("Confirmation email threw:", confirmErr);
     }
 
     return res.status(200).json({ ok: true });
