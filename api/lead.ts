@@ -155,7 +155,7 @@ export function renderLeadEmail(d: {
               <tr>
                 <td style="border-radius:10px;background-color:${C.accent}">
                   <a href="mailto:${escapeHtml(d.email)}?subject=${encodeURIComponent(
-    "Re: your automation audit"
+    "Re: your audit"
   )}" style="display:inline-block;padding:13px 26px;font-family:${SANS};font-size:14px;font-weight:600;color:${C.onAccent};text-decoration:none">
                     Reply to ${escapeHtml(firstName)} &rarr;
                   </a>
@@ -188,12 +188,13 @@ export function renderLeadEmail(d: {
 const CONFIRM_COPY = {
   en: {
     subject: "We've got your request — Æther Studio",
+    tagline: "You run the business. We run the rest.",
     preheader: "We've got your request — expect a reply within one business day.",
     eyebrow: "Request received",
     heading: (first: string) => `Thanks, ${first}. We're on it.`,
-    lead: "Your automation audit request just landed with us. We read every one personally — expect a reply within one business day.",
+    lead: "Your audit request just landed with us. We read every one personally — expect a reply within one business day.",
     nextLabel: "What happens next",
-    next: "We'll look at where your hours are going and come back with where automation can win them back.",
+    next: "We'll look at where your hours are going and come back with what we'd build to win them back.",
     echoLabel: "What you told us",
     signoff: "Talk soon,",
     team: "— The Æther team",
@@ -201,12 +202,13 @@ const CONFIRM_COPY = {
   },
   es: {
     subject: "Recibimos tu solicitud — Æther Studio",
+    tagline: "Tú llevas el negocio. Nosotros, lo demás.",
     preheader: "Recibimos tu solicitud — te respondemos en un día hábil.",
     eyebrow: "Solicitud recibida",
     heading: (first: string) => `Gracias, ${first}. Estamos en ello.`,
-    lead: "Tu solicitud de auditoría de automatización ya llegó con nosotros. Leemos cada una en persona — espera respuesta en un día hábil.",
+    lead: "Tu solicitud de auditoría ya llegó con nosotros. Leemos cada una en persona — espera respuesta en un día hábil.",
     nextLabel: "Qué sigue",
-    next: "Revisaremos a dónde se van tus horas y volveremos con dónde la automatización puede recuperarlas.",
+    next: "Revisaremos a dónde se van tus horas y volveremos con qué construiríamos para recuperarlas.",
     echoLabel: "Lo que nos contaste",
     signoff: "Hablamos pronto,",
     team: "— El equipo de Æther",
@@ -252,6 +254,9 @@ export function renderConfirmationEmail(d: {
                 <td style="padding-left:12px;font-family:${MONO};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${C.muted}">Studio</td>
               </tr>
             </table>
+            <div style="margin-top:11px;font-family:${SANS};font-size:13px;line-height:1.5;color:${C.dim}">${escapeHtml(
+    t.tagline
+  )}</div>
           </td>
         </tr>
 

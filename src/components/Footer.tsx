@@ -96,21 +96,6 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Google API Services disclosure. Required for OAuth verification:
-            the home page must state what the integration app does and how it
-            uses Google user data, in plain language and linked to the privacy
-            policy below. Kept as footer fine print so it doesn't disturb the
-            page above while staying crawlable and visible to reviewers. */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={viewport}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="mt-16 max-w-3xl border-t border-border pt-8 font-body text-xs font-light leading-relaxed text-muted-foreground"
-        >
-          {t("footer.dataUse")}
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

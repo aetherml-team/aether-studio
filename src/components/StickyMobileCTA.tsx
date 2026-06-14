@@ -19,7 +19,7 @@ const StickyMobileCTA = () => {
     <AnimatePresence>
       {show && (
         <motion.a
-          href="#contact"
+          href="#contact-form"
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}

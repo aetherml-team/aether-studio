@@ -86,7 +86,7 @@ const HeroSection = () => {
             className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4"
           >
             <motion.a
-              href="#contact"
+              href="#contact-form"
               className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2),0_14px_36px_-18px_hsl(var(--primary)/0.7)]"
               whileHover={reduced ? undefined : { scale: 1.02, filter: "brightness(1.06)" }}
               whileTap={reduced ? undefined : { scale: 0.98 }}

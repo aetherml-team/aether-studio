@@ -169,11 +169,12 @@ const ContactSection = () => {
 
         {/* right — form */}
         <motion.div
+          id="contact-form"
           initial={reduced ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-          className="glow-border rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm md:p-8"
+          className="glow-border scroll-mt-24 rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm md:p-8"
         >
           <form onSubmit={onSubmit} noValidate className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -279,7 +280,7 @@ const ContactSection = () => {
                 >
                   {status === "sending" ? t("contact.sending") : t("contact.submit")}
                 </motion.button>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between">
                   <span className="font-body text-[13px] text-muted-foreground">{t("contact.responseNote")}</span>
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}

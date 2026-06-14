@@ -43,7 +43,7 @@ const FAQSection = () => {
             {t("faq.subhead")}
           </p>
           <a
-            href="#contact"
+            href="#contact-form"
             className="mt-6 inline-flex items-center gap-2 font-body text-[14px] font-medium text-primary underline-offset-4 hover:underline"
           >
             {t("faq.askLink")}

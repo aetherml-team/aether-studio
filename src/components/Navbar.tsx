@@ -121,7 +121,7 @@ const Navbar = () => {
           <LanguageToggle />
           <ThemeToggle />
           <motion.a
-            href="#contact"
+            href="#contact-form"
             className="inline-flex items-center rounded-lg bg-primary px-5 py-2 font-body text-[13px] font-medium text-primary-foreground"
             whileHover={{ scale: 1.03, filter: "brightness(1.08)" }}
             whileTap={{ scale: 0.97 }}
@@ -170,7 +170,7 @@ const Navbar = () => {
             <ThemeToggle />
           </div>
           <a
-            href="#contact"
+            href="#contact-form"
             className="mt-0 inline-flex w-full items-center justify-center rounded-lg bg-primary px-5 py-3 text-[13px] font-medium text-primary-foreground"
             onClick={() => setMenuOpen(false)}
           >

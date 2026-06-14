@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Owners and founders of small-to-mid businesses (gyms, BJJ academies, clinics, real estate developers, wedding filmmakers) plus founders of fast-scaling startups, mostly Guadalajara / LatAm with bilingual (EN/ES) reach. They are drowning in manual ops (reconciliation, billing, scheduling, data entry) and are evaluating whether to trust an outside studio with their operations. Job to be done: decide Æther is credible and book the free automation audit.
+Owners and founders of small-to-mid businesses (gyms, BJJ academies, clinics, real estate developers, wedding filmmakers) plus founders of fast-scaling startups, mostly Guadalajara / LatAm with bilingual (EN/ES) reach. They are drowning in manual ops (reconciliation, billing, scheduling, data entry) and are evaluating whether to trust an outside studio with their operations. Job to be done: decide Æther is credible and book the free audit.
 
 ## Product Purpose
 
-Æther is an automation studio: custom automations, system integrations, payment reconciliation, and digital presence. This site is its single landing page; success = a qualified visitor books a call / submits the contact form. The page must carry proof (real client results) and signal craft, since the site itself is the portfolio for the "digital presence" service.
+Æther is a boutique studio built on one promise — **you run the business, we run the rest**. We build *and run* the technology a company depends on: AI agents, custom software, automation, system integrations, security, and digital presence. Ongoing, not one-and-done — the whole technical function off the owner's plate. This site is its single landing page; success = a qualified visitor books a call / submits the contact form. The page must carry proof (real client results) and signal craft, since the site itself is the portfolio for the "digital presence" service.
 
 ## Brand Personality
 

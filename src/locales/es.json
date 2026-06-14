@@ -21,7 +21,7 @@
     "description": "IA, automatización, software, seguridad y la capacitación para operarlo — construimos y operamos los sistemas de los que depende tu negocio, para que recuperes las horas.",
     "availability": "Tomamos 3 clientes nuevos este mes",
     "secondary": "Mira cómo funciona",
-    "proof": "KrakenBay recuperó 30+ horas a la semana — facturación y agenda, automatizadas.",
+    "proof": "Kraken's Bay Studio recuperó 30+ horas a la semana — facturación y agenda, automatizadas.",
     "offerNote": "Auditoría gratis de 20 min — te quedas con los hallazgos, nos contrates o no.",
     "trust": "Gimnasios · Clínicas · Inmobiliarias · Estudios — Guadalajara y más allá",
     "outcomes": ["Conciliado", "Automatizado", "Integrado", "Respondido", "Agendado", "Publicado"],
@@ -77,7 +77,7 @@
       {
         "name": "Automatiza lo repetitivo",
         "description": "El trabajo repetitivo que se come tu semana — agendado, seguimientos, facturación y lo demás — corriendo solo mientras duermes.",
-        "proof": "KrakenBay ahorra 30+ horas/semana solo en programación y facturación."
+        "proof": "Kraken's Bay Studio ahorra 30+ horas/semana solo en programación y facturación."
       },
       {
         "name": "Pon la IA a trabajar",
@@ -128,7 +128,7 @@
         "tagline": "Academia BJJ · Guadalajara, MX",
         "industry": "Academia de artes marciales",
         "quote": "El efectivo circulando, la terminal, los tickets, las apps del banco. Necesitaba todo eso para saber mis gastos. No tengo ni idea de cómo lo hicieron de forma automática.",
-        "quotePerson": "Manuel Focil, Dueño",
+        "quotePerson": "Manuel, Dueño",
         "servicesDelivered": [
           "Automatización de horarios y clases",
           "Renovaciones y facturación de membresías",
@@ -140,7 +140,7 @@
         "tagline": "Gym · Guadalajara, MX",
         "industry": "Gimnasio de alto rendimiento",
         "quote": "Me ayudaron a reducir lo que me tomaba semanas en conciliación cada mes. Ahora me enfoco en lo que me importa: traer más clientes a mi negocio.",
-        "quotePerson": "Harilois Fafutis, Dueño",
+        "quotePerson": "Hari, Dueño",
         "servicesDelivered": [
           "Automatización de facturación de membresías",
           "Integraciones de control de acceso",
@@ -164,7 +164,7 @@
         "tagline": "Cine de Bodas · Guadalajara, MX",
         "industry": "Cineasta de bodas",
         "quote": "Me ayudaron a tener un portafolio real para mi trabajo. Mi landing page anterior no reflejaba lo que hago. ¡Ahora coinciden!",
-        "quotePerson": "Dimitri Fafutis, Cineasta",
+        "quotePerson": "Dimitri, Cineasta",
         "servicesDelivered": [
           "Pipeline de consulta a contrato",
           "Depósitos y facturación por hitos",
@@ -297,7 +297,6 @@
   },
   "footer": {
     "tagline": "Construimos y operamos la tecnología de la que depende tu negocio — IA, automatización, software y seguridad. Con base en Guadalajara, trabajando con equipos en todas partes.",
-    "dataUse": "Æther opera software de integración interno que conecta Google Workspace — Gmail, Google Calendar y Google Drive — con los flujos de trabajo automatizados que construimos y operamos para nuestros clientes. Accedemos a los datos de usuario de Google únicamente para ejecutar las automatizaciones que cada cliente autoriza, y su uso cumple con la Política de Datos de Usuario de los Servicios de la API de Google, incluidos los requisitos de Uso Limitado.",
     "company": "Empresa",
     "connect": "Conectar",
     "services": "Servicios",

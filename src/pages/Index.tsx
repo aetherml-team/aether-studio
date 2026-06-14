@@ -20,7 +20,7 @@ const Index = () => {
           sub-route. The full social/meta set stays static in index.html so
           non-JS crawlers and link unfurlers always see it. */}
       <Helmet>
-        <title>Æther · Automation Studio</title>
+        <title>Æther · You run the business. We run the rest.</title>
         <link rel="canonical" href="https://www.aetherml.com/" />
       </Helmet>
       <ScrollProgress />
