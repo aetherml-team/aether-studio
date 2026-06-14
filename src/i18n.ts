@@ -14,7 +14,13 @@ i18n
     },
     fallbackLng: "en",
     supportedLngs: ["en", "es"],
+    // Normalize regional codes so a browser set to e.g. "es-MX" or "es-419"
+    // resolves cleanly to "es" everywhere — rendering, <html lang>, the language
+    // sent to /api/lead, and analytics — instead of leaking the raw region code.
+    load: "languageOnly",
     detection: {
+      // localStorage first so a visitor's explicit toggle wins over their
+      // browser default; navigator is the auto-detect for first-time visitors.
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
     },

@@ -2,6 +2,10 @@
   "common": {
     "cta": "Get my free audit"
   },
+  "seo": {
+    "title": "Æther · You run the business. We run the rest.",
+    "description": "You run the business. We run the rest. Æther builds and runs the technology your company depends on — AI, software, automation, and security. Based in Guadalajara, working with teams everywhere."
+  },
   "navbar": {
     "tagline": "Busywork, gone",
     "problem": "The problem",

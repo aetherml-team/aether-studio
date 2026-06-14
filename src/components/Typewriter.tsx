@@ -31,9 +31,16 @@ const Typewriter = ({
 
   useEffect(() => {
     if (reduced) {
+      // Stay in sync with the active language even without animation.
+      setText(right);
+      setPhase("done");
       onDone?.();
       return;
     }
+    // Restart cleanly whenever the language (wrong/right) changes, so the
+    // headline can never show one line in EN and the other in ES.
+    setText("");
+    setPhase("type0");
     const timers: number[] = [];
     let acc = startDelay;
 
@@ -69,7 +76,7 @@ const Typewriter = ({
 
     return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reduced]);
+  }, [reduced, wrong, right]);
 
   return (
     <span className={className}>

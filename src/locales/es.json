@@ -2,6 +2,10 @@
   "common": {
     "cta": "Quiero mi auditoría gratis"
   },
+  "seo": {
+    "title": "Æther · Tú llevas el negocio. Nosotros, lo demás.",
+    "description": "Tú llevas el negocio; nosotros, lo demás. Æther construye y opera la tecnología de la que depende tu empresa — IA, software, automatización y seguridad. Desde Guadalajara, trabajando con equipos en todas partes."
+  },
   "navbar": {
     "tagline": "Adiós al trabajo manual",
     "problem": "El problema",
