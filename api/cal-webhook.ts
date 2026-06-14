@@ -64,6 +64,63 @@ function responseValue(responses: unknown, key: string): string {
   return "";
 }
 
+/** ISO timestamp → ICS UTC basic format (YYYYMMDDTHHMMSSZ). */
+function toICSDate(iso: string): string {
+  const d = new Date(iso);
+  const p = (n: number) => String(n).padStart(2, "0");
+  return (
+    `${d.getUTCFullYear()}${p(d.getUTCMonth() + 1)}${p(d.getUTCDate())}` +
+    `T${p(d.getUTCHours())}${p(d.getUTCMinutes())}${p(d.getUTCSeconds())}Z`
+  );
+}
+
+/** Escape ICS text per RFC 5545 (backslash, semicolon, comma, newlines). */
+function icsEscape(s: string): string {
+  return s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+}
+
+/**
+ * Build a minimal RFC 5545 calendar invite so our branded confirmation carries
+ * the "add to calendar" file Cal.com's default email would have. Using Cal's
+ * booking uid as the event UID means calendar apps dedupe it against Cal's own
+ * invite if both happen to arrive.
+ */
+function buildICS(d: {
+  uid: string;
+  start: string;
+  end: string;
+  title: string;
+  description: string;
+  organizerName: string;
+  organizerEmail: string;
+  attendeeName: string;
+  attendeeEmail: string;
+  location: string;
+}): string {
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Æther Studio//Booking//EN",
+    "CALSCALE:GREGORIAN",
+    "METHOD:REQUEST",
+    "BEGIN:VEVENT",
+    `UID:${d.uid}`,
+    `DTSTAMP:${toICSDate(new Date().toISOString())}`,
+    `DTSTART:${toICSDate(d.start)}`,
+    `DTEND:${toICSDate(d.end)}`,
+    `SUMMARY:${icsEscape(d.title)}`,
+    `DESCRIPTION:${icsEscape(d.description)}`,
+    `ORGANIZER;CN=${icsEscape(d.organizerName)}:mailto:${d.organizerEmail}`,
+    `ATTENDEE;CN=${icsEscape(d.attendeeName)};RSVP=TRUE:mailto:${d.attendeeEmail}`,
+    d.location ? `LOCATION:${icsEscape(d.location)}` : "",
+    "STATUS:CONFIRMED",
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ]
+    .filter(Boolean)
+    .join("\r\n");
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -185,6 +242,47 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       language === "es"
         ? "Tu llamada está confirmada — Æther Studio"
         : "Your call is booked — Æther Studio";
+
+    // Calendar invite so our branded email fully replaces Cal's default one
+    // (the booker keeps their "add to calendar" once Cal's email is disabled).
+    let icsAttachment: { filename: string; content: string; contentType: string } | undefined;
+    const startTime = typeof payload.startTime === "string" ? payload.startTime : "";
+    if (startTime) {
+      const endTime =
+        typeof payload.endTime === "string"
+          ? payload.endTime
+          : new Date(new Date(startTime).getTime() + 30 * 60_000).toISOString();
+      const meta = (payload.metadata ?? {}) as Record<string, unknown>;
+      const organizer = (payload.organizer ?? {}) as Record<string, unknown>;
+      try {
+        const ics = buildICS({
+          uid:
+            typeof payload.uid === "string" && payload.uid
+              ? `${payload.uid}@aetherml.com`
+              : `${Date.now()}@aetherml.com`,
+          start: startTime,
+          end: endTime,
+          title:
+            typeof payload.title === "string" && payload.title ? payload.title : "Call with Æther",
+          description: message || "Your call with Æther.",
+          organizerName: typeof organizer.name === "string" ? organizer.name : "Æther",
+          organizerEmail: typeof organizer.email === "string" ? organizer.email : TO,
+          attendeeName: name,
+          attendeeEmail: email,
+          location:
+            (typeof meta.videoCallUrl === "string" && meta.videoCallUrl) ||
+            (typeof payload.location === "string" ? payload.location : ""),
+        });
+        icsAttachment = {
+          filename: "aether-call.ics",
+          content: Buffer.from(ics, "utf8").toString("base64"),
+          contentType: "text/calendar; method=REQUEST",
+        };
+      } catch (icsErr) {
+        console.error("ICS build failed (non-fatal):", icsErr);
+      }
+    }
+
     try {
       const { error: confirmError } = await resend.emails.send({
         from: FROM,
@@ -204,6 +302,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           source: "booking",
           scheduledFor,
         }),
+        attachments: icsAttachment ? [icsAttachment] : undefined,
       });
       if (confirmError) console.error("Confirmation email error (booking):", confirmError);
     } catch (confirmErr) {

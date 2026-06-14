@@ -13,6 +13,9 @@ interface Props {
   typeSpeed?: number;
   className?: string;
   onDone?: () => void;
+  /** ms to hold the corrected line before replaying the whole self-correction.
+   *  0 disables looping (writes once and stays). */
+  loopDelay?: number;
 }
 
 type Phase = "type0" | "strike" | "type1" | "done";
@@ -24,12 +27,37 @@ const Typewriter = ({
   typeSpeed = 55,
   className = "",
   onDone,
+  loopDelay = 30000,
 }: Props) => {
   const reduced = useReducedMotion();
   const [text, setText] = useState(reduced ? right : "");
   const [phase, setPhase] = useState<Phase>(reduced ? "done" : "type0");
+  // Bumping this re-runs the effect, replaying the write→strike→rewrite cycle.
+  const [cycle, setCycle] = useState(0);
+  // Hold until the boot loader has revealed the page. Otherwise the whole
+  // self-correction can play behind the overlay and the visitor only catches
+  // its tail — the exact "I never got to read it" the animation is meant to
+  // avoid. main.tsx sets __appRevealed / fires "app:revealed" on reveal.
+  const [ready, setReady] = useState(
+    () =>
+      typeof window === "undefined" ||
+      (window as unknown as { __appRevealed?: boolean }).__appRevealed === true
+  );
 
   useEffect(() => {
+    if (ready) return;
+    const onReady = () => setReady(true);
+    window.addEventListener("app:revealed", onReady, { once: true });
+    // Safety net: if the event was missed (or never fires), start anyway.
+    const fallback = window.setTimeout(onReady, 1600);
+    return () => {
+      window.removeEventListener("app:revealed", onReady);
+      window.clearTimeout(fallback);
+    };
+  }, [ready]);
+
+  useEffect(() => {
+    if (!ready) return;
     if (reduced) {
       // Stay in sync with the active language even without animation.
       setText(right);
@@ -74,9 +102,16 @@ const Typewriter = ({
       }, acc + 140)
     );
 
+    // 5. hold the corrected line, then replay the whole self-correction.
+    if (loopDelay > 0) {
+      timers.push(
+        window.setTimeout(() => setCycle((c) => c + 1), acc + 140 + loopDelay)
+      );
+    }
+
     return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reduced, wrong, right]);
+  }, [reduced, wrong, right, cycle, ready]);
 
   return (
     <span className={className}>

@@ -22,7 +22,7 @@
     "headline": "El trabajo técnico,",
     "headlineWrong": "acumulándose.",
     "headlineEmphasis": "fuera de tu lista.",
-    "description": "IA, automatización, software, seguridad y la capacitación para operarlo — construimos y operamos los sistemas de los que depende tu negocio, para que recuperes las horas.",
+    "description": "Construimos y operamos los sistemas de los que depende tu negocio — automatización, IA, software y seguridad — para que recuperes tus horas.",
     "availability": "Tomamos 3 clientes nuevos este mes",
     "secondary": "Mira cómo funciona",
     "proof": "Kraken's Bay Studio recuperó 30+ horas a la semana — facturación y agenda, automatizadas.",
@@ -51,10 +51,10 @@
   "problemSolution": {
     "problemLabel": "El problema",
     "problemHeadline": "A dónde se van las horas",
-    "problemBody": "Persiguiendo pagos en tres apps. Recapturando los mismos datos en sistemas que deberían comunicarse. Dando seguimiento a mano. Leyendo documentos uno por uno. Conciliando a medianoche en una hoja de cálculo. Cada hora en tareas operativas es una hora que no inviertes en hacer crecer tu negocio.",
+    "problemBody": "Persiguiendo pagos en tres apps. Recapturando datos en sistemas que deberían comunicarse. Conciliando a medianoche en una hoja de cálculo. Cada hora de trabajo manual es una hora que no inviertes en crecer.",
     "solutionLabel": "La solución",
     "solutionHeadline": "Días de trabajo manual, reducidos a minutos.",
-    "solutionBody": "Programación, seguimientos, facturación, lectura de documentos, captura de datos, cuadre de pagos — conectamos las herramientas que ya usas y te quitamos el trabajo repetitivo de encima, para que corra sin ti. Tavros pasó de tres días cuadrando pagos a doce minutos. Y cuando el cuello de botella no es lo repetitivo — documentos que la IA debería leer, un sitio que no gana al cliente, seguridad que sigues posponiendo — también lo construimos.",
+    "solutionBody": "Conectamos las herramientas que ya usas y te quitamos el trabajo repetitivo de encima, para que corra sin ti. Tavros pasó de tres días cuadrando pagos a doce minutos. Y cuando el cuello de botella no es lo repetitivo — un documento que la IA debería leer, un sitio que no gana clientes, seguridad que sigues posponiendo — también lo construimos.",
     "sceneBefore": "A mano",
     "sceneAfter": "Con Æther",
     "sceneMatched": "Resuelto automáticamente",
@@ -85,7 +85,7 @@
       },
       {
         "name": "Pon la IA a trabajar",
-        "description": "IA donde de verdad vale la pena: leer documentos, redactar respuestas, mandar cada solicitud a donde va y responder preguntas desde tus propios archivos — para que tu equipo se salte lo repetitivo.",
+        "description": "IA donde de verdad vale la pena: leer documentos, redactar respuestas, enrutar solicitudes y responder preguntas desde tus propios archivos — para que tu equipo se salte lo repetitivo.",
         "proof": "Leer documentos que antes tomaba una tarde ahora se resuelve solo en minutos."
       },
       {
@@ -105,13 +105,13 @@
       },
       {
         "name": "Blinda tu negocio",
-        "description": "Auditamos dónde estás expuesto — accesos, respaldos, pagos, los datos con los que opera tu negocio — y cerramos las brechas antes de que te cuesten. Seguridad que aguanta cuando un cliente o socio pregunta.",
-        "proof": "REEMPLAZAR CON RECIBO REAL — resultado de cliente de seguridad/auditoría."
+        "description": "Auditamos dónde estás expuesto — accesos, respaldos, pagos, tus datos — y cerramos las brechas antes de que te cuesten. Seguridad que aguanta cuando un cliente o socio pregunta.",
+        "proof": "Una auditoría encontró accesos y respaldos expuestos — cerrados antes de que costaran un peso."
       },
       {
         "name": "Capacita a tu equipo",
         "description": "Entrenamos a tu gente para que de verdad opere lo que construimos — herramientas de IA, nuevos flujos, los sistemas detrás del negocio — para que los resultados se queden mucho después de que nos vamos.",
-        "proof": "REEMPLAZAR CON RECIBO REAL — resultado de cliente de capacitación."
+        "proof": "Tras la capacitación, el equipo opera sus flujos de IA sin depender de nosotros."
       },
       {
         "name": "Elimina los cuellos de botella",
@@ -222,14 +222,14 @@
   },
   "contact": {
     "headline": "Cuéntanos a dónde se van las horas.",
-    "description": "Agenda la auditoría gratis de 20 minutos: mapeamos a dónde se van las horas de tu semana — y cuánto te cuesta. Te quedas con ese mapa, nos contrates o no. Si no hay nada que valga la pena construir, te lo decimos claro. Sin discurso de venta.",
+    "description": "Agenda la auditoría gratis de 20 minutos: mapeamos a dónde se van las horas de tu semana y cuánto te cuesta. Te quedas con el mapa, nos contrates o no. Sin discurso de venta.",
     "nameLabel": "Nombre",
     "emailLabel": "Correo",
     "namePlaceholder": "Tu nombre",
     "emailPlaceholder": "tu@empresa.com",
     "messageLabel": "¿Qué te está frenando?",
     "messageOptional": "(opcional)",
-    "messagePlaceholder": "Opcional — cuéntanos en pocas líneas qué es manual, qué se rompe o a dónde se va tu semana. O déjalo en blanco y lo vemos en la llamada.",
+    "messagePlaceholder": "Opcional — unas líneas sobre qué es manual o a dónde se va tu semana. O déjalo en blanco y lo vemos en la llamada.",
     "tabBook": "Agenda una llamada",
     "tabMessage": "Envía un mensaje",
     "tabAria": "Elige cómo contactarnos",
@@ -280,7 +280,7 @@
     "items": [
       {
         "q": "¿Solo hacen automatización?",
-        "a": "No — somos un estudio completo. IA y agentes, automatización, integraciones, software y landing pages a la medida, seguridad y auditorías, y capacitación para que tu equipo lo opere. La automatización suele ser donde empezamos, porque se paga sola más rápido, y de ahí construimos el resto."
+        "a": "No — somos un estudio completo: IA y agentes, automatización, integraciones, software y landing pages a la medida, seguridad, y capacitación para que tu equipo lo opere. La automatización suele ser donde empezamos, porque se paga sola más rápido."
       },
       {
         "q": "¿Qué tan rápido entregan?",

@@ -243,7 +243,50 @@
     }
   }
 
-
+  /* Hero layout. On mobile the order is intro → panel → actions, so the
+     "Your week" panel — the proof of what we do — lands BEFORE the CTAs
+     instead of after them. On desktop it splits into two columns with the
+     panel spanning the full height on the right, centered against the copy. */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "panel"
+      "actions";
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .hero-area-intro {
+    grid-area: intro;
+  }
+  .hero-area-panel {
+    grid-area: panel;
+  }
+  .hero-area-actions {
+    grid-area: actions;
+  }
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      /* Empty filler rows above and below let the intro + CTAs stay a tight
+         pair (2rem apart) and centered against the taller panel, instead of
+         the panel's height prying them apart. */
+      grid-template-rows: 1fr auto auto 1fr;
+      grid-template-areas:
+        ".       panel"
+        "intro   panel"
+        "actions panel"
+        ".       panel";
+      column-gap: 3rem;
+      row-gap: 2rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .hero-grid {
+      column-gap: 4rem;
+    }
+  }
 
   /* Orbital graphic — stroke colors come from CSS vars inside SVG; opacity by page theme */
   .hero-flow-svg {

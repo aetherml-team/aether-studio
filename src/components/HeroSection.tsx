@@ -54,9 +54,9 @@ const HeroSection = () => {
       <div className="texture-grid texture-grid-fade pointer-events-none absolute inset-0 opacity-70" aria-hidden />
       <div className="hero-orbs" aria-hidden />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
-        {/* left — the statement, written then corrected */}
-        <div className="min-w-0">
+      <div className="hero-grid relative z-10 mx-auto w-full max-w-7xl">
+        {/* the statement, written then corrected */}
+        <div className="hero-area-intro min-w-0">
           <motion.h1
             {...fade(0.05, 10)}
             aria-label={`${t("hero.headline")} ${t("hero.headlineEmphasis")}`}
@@ -80,10 +80,29 @@ const HeroSection = () => {
           >
             {t("hero.description")}
           </motion.p>
+        </div>
 
+        {/* the work, running itself — shown before the CTAs on mobile so the
+            proof lands before the ask */}
+        <motion.div
+          style={reduced ? undefined : { x: tx, y: ty }}
+          className="hero-area-panel flex min-w-0 justify-center lg:min-h-[min(60vh,540px)] lg:items-center"
+        >
+          <motion.div
+            initial={reduced ? false : { opacity: 0, y: 20, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+            className="w-full max-w-[480px]"
+          >
+            <AutomationPanel className="mx-auto" />
+          </motion.div>
+        </motion.div>
+
+        {/* the ask */}
+        <div className="hero-area-actions min-w-0">
           <motion.div
             {...fade(0.4, 12)}
-            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4"
+            className="flex flex-wrap items-center gap-x-6 gap-y-4"
           >
             <motion.a
               href="#contact-form"
@@ -113,21 +132,6 @@ const HeroSection = () => {
             {t("hero.offerNote")}
           </motion.p>
         </div>
-
-        {/* right — the work, running itself */}
-        <motion.div
-          style={reduced ? undefined : { x: tx, y: ty }}
-          className="mt-2 flex min-w-0 justify-center lg:mt-0 lg:min-h-[min(60vh,540px)] lg:items-center"
-        >
-          <motion.div
-            initial={reduced ? false : { opacity: 0, y: 20, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
-            className="w-full max-w-[480px]"
-          >
-            <AutomationPanel className="mx-auto" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

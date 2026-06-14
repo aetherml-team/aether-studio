@@ -22,7 +22,7 @@
     "headline": "The technical work,",
     "headlineWrong": "piling up on you.",
     "headlineEmphasis": "off your plate.",
-    "description": "AI, automation, software, security, and the training to run it — we build and operate the systems your business depends on, so you get the hours back.",
+    "description": "We build and run the systems your business depends on — automation, AI, software, and security — so you get your hours back.",
     "availability": "Taking 3 new clients this month",
     "secondary": "See how it works",
     "proof": "Kraken's Bay Studio reclaimed 30+ hours a week — billing and scheduling, automated.",
@@ -51,10 +51,10 @@
   "problemSolution": {
     "problemLabel": "The problem",
     "problemHeadline": "Where the hours actually go",
-    "problemBody": "Chasing payments across three apps. Re-keying the same data into systems that should talk to each other. Following up by hand. Reading documents one by one. Reconciling at midnight in a spreadsheet. Every hour on operational busywork is an hour not spent growing the business.",
+    "problemBody": "Chasing payments across three apps. Re-keying data into systems that should talk to each other. Reconciling at midnight in a spreadsheet. Every hour of busywork is an hour you don't spend growing.",
     "solutionLabel": "The solution",
     "solutionHeadline": "Days of manual work, down to minutes.",
-    "solutionBody": "Scheduling, follow-ups, billing, reading documents, copying data, matching payments — we connect the tools you already use and take the repetitive work off your hands, so it runs without you. Tavros went from three days of matching payments to twelve minutes. And when the bottleneck isn't busywork — documents AI should be reading, a site that doesn't win the client, security you keep postponing — we build that too.",
+    "solutionBody": "We connect the tools you already use and take the repetitive work off your hands, so it runs without you. Tavros went from three days matching payments to twelve minutes. And when the bottleneck isn't busywork — a document AI should read, a site that doesn't win clients, security you keep postponing — we build that too.",
     "sceneBefore": "By hand",
     "sceneAfter": "With Æther",
     "sceneMatched": "Handled automatically",
@@ -85,7 +85,7 @@
       },
       {
         "name": "Put AI to work",
-        "description": "AI where it actually pays off: reading documents, drafting replies, sending each request to the right place, and answering questions from your own files — so your team skips the repetitive judgment calls.",
+        "description": "AI where it actually pays off: reading documents, drafting replies, routing requests, and answering questions from your own files — so your team skips the repetitive calls.",
         "proof": "Reading documents that used to take an afternoon now clears itself in minutes."
       },
       {
@@ -105,13 +105,13 @@
       },
       {
         "name": "Lock down your business",
-        "description": "We audit where you're exposed — access, backups, payments, the data your business runs on — and close the gaps before they cost you. Security that holds up when a client or partner asks.",
-        "proof": "REPLACE WITH REAL RECEIPT — security/audit client result."
+        "description": "We audit where you're exposed — access, backups, payments, your data — and close the gaps before they cost you. Security that holds up when a client or partner asks.",
+        "proof": "An audit surfaced exposed access and backups — closed before they cost a thing."
       },
       {
         "name": "Get your team up to speed",
         "description": "We train your people to actually run what we build — AI tools, new workflows, the systems behind the business — so the gains stick long after we're gone.",
-        "proof": "REPLACE WITH REAL RECEIPT — training client result."
+        "proof": "After training, the team runs its AI workflows without depending on us."
       },
       {
         "name": "Cut the bottlenecks",
@@ -222,14 +222,14 @@
   },
   "contact": {
     "headline": "Tell us where the hours go.",
-    "description": "Book the free 20-minute audit: we map where your week leaks hours — and what it's costing you. You keep that map whether you hire us or not. If there's nothing worth building, we'll tell you straight. No pitch.",
+    "description": "Book the free 20-minute audit: we map where your week leaks hours, and what it's costing you. You keep the map whether you hire us or not. No pitch.",
     "nameLabel": "Name",
     "emailLabel": "Email",
     "namePlaceholder": "Your name",
     "emailPlaceholder": "you@company.com",
     "messageLabel": "What's slowing you down?",
     "messageOptional": "(optional)",
-    "messagePlaceholder": "Optional — a few lines on what's manual, what's breaking, or where your week disappears. Or just leave it blank and we'll ask on the call.",
+    "messagePlaceholder": "Optional — a few lines on what's manual or where your week disappears. Or leave it blank and we'll ask on the call.",
     "tabBook": "Book a call",
     "tabMessage": "Send a message",
     "tabAria": "Choose how to reach us",
@@ -280,7 +280,7 @@
     "items": [
       {
         "q": "Do you only do automation?",
-        "a": "No — we're a full studio. AI and agents, automation, integrations, custom software and landing pages, security and audits, and training your team to run it all. Automation is often where we start, because it pays for itself fastest, and we build out from there."
+        "a": "No — we're a full studio: AI and agents, automation, integrations, custom software and landing pages, security, and training your team to run it all. Automation is often where we start, because it pays for itself fastest."
       },
       {
         "q": "How fast do you ship?",

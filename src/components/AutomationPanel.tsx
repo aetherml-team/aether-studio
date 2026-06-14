@@ -46,6 +46,7 @@ const ICONS: LucideIcon[] = [
 const TICK = 1400;
 const TOTAL_HOURS = 32; // the payoff the count climbs toward
 const BASE_TASKS = 124; // the day's running tally before this batch
+const LOOP_DELAY = 30000; // hold the finished "all clear" state, then replay
 
 const AutomationPanel = ({ className = "" }: { className?: string }) => {
   const { t } = useTranslation();
@@ -53,21 +54,32 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
   const tasks = t("hero.panel.tasks", { returnObjects: true }) as Task[];
   const len = tasks.length;
 
-  // Cursor walks the list once: rows above are done, the row at it is
-  // running, rows below are queued. It stops when every row is handled.
+  // Cursor walks the list: rows above are done, the row at it is running,
+  // rows below are queued. Once every row is handled it holds the finished
+  // state for LOOP_DELAY, then replays from the top.
   const [step, setStep] = useState(reduced ? len : 0);
+  // Bumping this re-runs the effect, restarting the run from the first row.
+  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     if (reduced) return;
+    setStep(0);
+    let restart: number | undefined;
     const id = window.setInterval(() => {
       setStep((s) => {
         const n = s + 1;
-        if (n >= len) window.clearInterval(id);
+        if (n >= len) {
+          window.clearInterval(id);
+          restart = window.setTimeout(() => setCycle((c) => c + 1), LOOP_DELAY);
+        }
         return Math.min(n, len);
       });
     }, TICK);
-    return () => window.clearInterval(id);
-  }, [reduced, len]);
+    return () => {
+      window.clearInterval(id);
+      if (restart) window.clearTimeout(restart);
+    };
+  }, [reduced, len, cycle]);
 
   const done = Math.min(step, len);
   const finished = step >= len;
@@ -170,7 +182,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
               </span>
 
               <span
-                className="min-w-0 flex-1 truncate font-body text-[12.5px] transition-colors duration-300"
+                className="min-w-0 flex-1 font-body text-[12.5px] leading-snug transition-colors duration-300"
                 style={{ color: isDone ? "hsl(var(--foreground) / 0.9)" : isRunning ? "hsl(var(--foreground))" : "hsl(var(--foreground) / 0.4)" }}
               >
                 {task.label}
