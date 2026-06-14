@@ -297,6 +297,7 @@
   },
   "footer": {
     "tagline": "Construimos y operamos la tecnología de la que depende tu negocio — IA, automatización, software y seguridad. Con base en Guadalajara, trabajando con equipos en todas partes.",
+    "dataUse": "Æther opera software de integración interno que conecta Google Workspace — Gmail, Google Calendar y Google Drive — con los flujos de trabajo automatizados que construimos y operamos para nuestros clientes. Accedemos a los datos de usuario de Google únicamente para ejecutar las automatizaciones que cada cliente autoriza, y su uso cumple con la Política de Datos de Usuario de los Servicios de la API de Google, incluidos los requisitos de Uso Limitado.",
     "company": "Empresa",
     "connect": "Conectar",
     "services": "Servicios",

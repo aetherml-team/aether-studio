@@ -127,7 +127,14 @@ export const privacyDoc: Record<"en" | "es", LegalDoc> = {
         ],
       },
       {
-        heading: "10. Changes to this notice",
+        heading: "10. Google user data and Limited Use",
+        paragraphs: [
+          `Some of the automations we build and operate for clients connect to Google Workspace services — such as Gmail, Google Calendar, and Google Drive — through Google APIs. Where we access your Google account data for this purpose, we do so only to provide and run the specific automation you have authorized.`,
+          `Æther's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements. We do not use Google user data for advertising, we do not sell it, and we do not allow humans to read it except where you give explicit consent, where it is necessary for security purposes or to comply with applicable law, or where the data has been aggregated and anonymized. You can revoke our access at any time from your Google Account's security settings or by writing to us at ${CONTACT}.`,
+        ],
+      },
+      {
+        heading: "11. Changes to this notice",
         paragraphs: [
           `We may update this Privacy Notice to reflect changes in our practices or the law. The current version is always published on this page, with the “Last updated” date above. Material changes will be highlighted here.`,
         ],
@@ -217,7 +224,14 @@ export const privacyDoc: Record<"en" | "es", LegalDoc> = {
         ],
       },
       {
-        heading: "10. Cambios a este aviso",
+        heading: "10. Datos de usuario de Google y Uso Limitado",
+        paragraphs: [
+          `Algunas de las automatizaciones que construimos y operamos para nuestros clientes se conectan a servicios de Google Workspace — como Gmail, Google Calendar y Google Drive — a través de las API de Google. Cuando accedemos a los datos de tu cuenta de Google con este fin, lo hacemos únicamente para proporcionar y ejecutar la automatización específica que has autorizado.`,
+          `El uso y la transferencia por parte de Æther de la información recibida de las API de Google se apega a la Política de Datos de Usuario de los Servicios de la API de Google, incluidos los requisitos de Uso Limitado (Limited Use). No usamos los datos de usuario de Google con fines publicitarios, no los vendemos y no permitimos que personas los lean, salvo que otorgues tu consentimiento explícito, cuando sea necesario por motivos de seguridad o para cumplir con la ley aplicable, o cuando los datos hayan sido agregados y anonimizados. Puedes revocar nuestro acceso en cualquier momento desde la configuración de seguridad de tu Cuenta de Google o escribiéndonos a ${CONTACT}.`,
+        ],
+      },
+      {
+        heading: "11. Cambios a este aviso",
         paragraphs: [
           `Podemos actualizar este Aviso de Privacidad para reflejar cambios en nuestras prácticas o en la ley. La versión vigente se publica siempre en esta página, con la fecha de “Última actualización” indicada arriba. Los cambios relevantes se destacarán aquí.`,
         ],

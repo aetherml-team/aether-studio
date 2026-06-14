@@ -297,6 +297,7 @@
   },
   "footer": {
     "tagline": "We build and run the technology your business depends on — AI, automation, software, and security. Based in Guadalajara, working with teams everywhere.",
+    "dataUse": "Æther operates internal integration software that connects Google Workspace — Gmail, Google Calendar, and Google Drive — to the automated workflows we build and run for our clients. We access Google user data only to perform the automations each client authorizes, and our use of it follows the Google API Services User Data Policy, including the Limited Use requirements.",
     "company": "Company",
     "connect": "Connect",
     "services": "Services",
