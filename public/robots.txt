@@ -1,5 +1,5 @@
-# https://aetherml.com
-Sitemap: https://aetherml.com/sitemap.xml
+# https://www.aetherml.com
+Sitemap: https://www.aetherml.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

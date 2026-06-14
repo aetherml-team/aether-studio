@@ -7,6 +7,8 @@ import {
   Network,
   ReceiptText,
   MonitorSmartphone,
+  ShieldCheck,
+  GraduationCap,
   Gauge,
   BadgeCheck,
   ArrowRight,
@@ -23,7 +25,7 @@ interface ServiceTranslation {
 /* Friendlier than the old table: an explorer. Pick a service on the left, its
    detail and — the persuasive part — its real client "receipt" reveal on the
    right. Icons key by index, with a safe fallback if the copy grows. */
-const ICONS: LucideIcon[] = [Workflow, Sparkles, Network, ReceiptText, MonitorSmartphone, Gauge];
+const ICONS: LucideIcon[] = [Workflow, Sparkles, Network, ReceiptText, MonitorSmartphone, ShieldCheck, GraduationCap, Gauge];
 
 const ServicesSection = () => {
   const { t } = useTranslation();

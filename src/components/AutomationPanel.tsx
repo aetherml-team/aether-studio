@@ -6,10 +6,10 @@ import {
 } from "framer-motion";
 import {
   CreditCard,
-  CalendarCheck,
-  Receipt,
-  MessageSquareText,
+  Sparkles,
   RefreshCw,
+  Rocket,
+  ShieldCheck,
   BellRing,
   Check,
   Loader2,
@@ -35,12 +35,12 @@ interface Task {
 }
 
 const ICONS: LucideIcon[] = [
-  CreditCard,
-  CalendarCheck,
-  Receipt,
-  MessageSquareText,
-  RefreshCw,
-  BellRing,
+  CreditCard,    // payment matched
+  Sparkles,      // AI-drafted reply
+  RefreshCw,     // booking synced across tools
+  Rocket,        // landing page shipped
+  ShieldCheck,   // access & backups checked
+  BellRing,      // payment reminder sent
 ];
 
 const TICK = 1400;
@@ -94,7 +94,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
             {t("hero.panel.title")}
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-muted">
-            aether.run
+            {t("hero.panel.subtitle")}
           </p>
         </div>
 

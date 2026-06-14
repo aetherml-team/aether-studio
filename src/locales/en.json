@@ -3,7 +3,7 @@
     "cta": "Get my free audit"
   },
   "navbar": {
-    "tagline": "Automation Studio",
+    "tagline": "Busywork, gone",
     "problem": "The problem",
     "services": "What we do",
     "results": "Results",
@@ -14,11 +14,11 @@
     "bookACall": "Get my free audit"
   },
   "hero": {
-    "kicker": "Automation studio · Guadalajara",
-    "headline": "Manual work,",
-    "headlineWrong": "done by hand.",
+    "kicker": "Your in-house tech team · Guadalajara",
+    "headline": "The technical work,",
+    "headlineWrong": "piling up on you.",
     "headlineEmphasis": "off your plate.",
-    "description": "Automations, AI, system integrations, and payment reconciliation — for teams that have outgrown the spreadsheet.",
+    "description": "AI, automation, software, security, and the training to run it — we build and operate the systems your business depends on, so you get the hours back.",
     "availability": "Taking 3 new clients this month",
     "secondary": "See how it works",
     "proof": "KrakenBay reclaimed 30+ hours a week — billing and scheduling, automated.",
@@ -26,18 +26,19 @@
     "trust": "Gyms · Clinics · Real estate · Studios — Guadalajara & beyond",
     "outcomes": ["Reconciled", "Automated", "Integrated", "Answered", "Scheduled", "Shipped"],
     "panel": {
-      "title": "Operations",
+      "title": "Your week",
+      "subtitle": "Today",
       "live": "Live",
       "done": "All clear",
-      "running": "Automating",
+      "running": "Handling",
       "hoursUnit": "hrs",
       "tasks": [
-        { "label": "Stripe payout matched to invoice", "tag": "Reconciled" },
-        { "label": "Class booked, calendar synced", "tag": "Scheduled" },
-        { "label": "Membership renewal charged", "tag": "Billed" },
-        { "label": "Lead reply drafted & sent", "tag": "Answered" },
-        { "label": "CRM and books kept in sync", "tag": "Integrated" },
-        { "label": "Overdue invoice reminder sent", "tag": "Followed up" }
+        { "label": "Payment matched to its invoice", "tag": "Matched" },
+        { "label": "Lead reply drafted by AI", "tag": "Drafted" },
+        { "label": "New booking synced across your tools", "tag": "Synced" },
+        { "label": "Landing page shipped and live", "tag": "Shipped" },
+        { "label": "Access and backups checked", "tag": "Secured" },
+        { "label": "Overdue payment reminder sent", "tag": "Reminded" }
       ],
       "metricLabel": "tasks handled today, untouched by hand",
       "savedLabel": "saved this week"
@@ -49,7 +50,7 @@
     "problemBody": "Chasing payments across three apps. Re-keying the same data into systems that should talk to each other. Following up by hand. Reading documents one by one. Reconciling at midnight in a spreadsheet. Every hour on operational busywork is an hour not spent growing the business.",
     "solutionLabel": "The solution",
     "solutionHeadline": "Days of manual work, down to minutes.",
-    "solutionBody": "Scheduling, follow-ups, billing, document intake, data entry, reconciliation — we connect your tools and automate the repetitive work so it runs without you. Tavros went from three-day reconciliations to twelve minutes; the same engine handles the rest.",
+    "solutionBody": "Scheduling, follow-ups, billing, reading documents, copying data, matching payments — we connect the tools you already use and take the repetitive work off your hands, so it runs without you. Tavros went from three days of matching payments to twelve minutes. And when the bottleneck isn't busywork — documents AI should be reading, a site that doesn't win the client, security you keep postponing — we build that too.",
     "sceneBefore": "By hand",
     "sceneAfter": "With Æther",
     "sceneMatched": "Handled automatically",
@@ -57,13 +58,13 @@
     "sceneTimeLabel": "hours saved a year",
     "sceneTimeSub": "≈ 9 months of a full-time hire",
     "sceneScrub": "Scroll to run",
-    "sceneProcessing": ["Piling up", "Routing", "Automating", "Handled"],
+    "sceneProcessing": ["Piling up", "Sorting", "Handling", "Done"],
     "sceneTasks": [
-      { "label": "Payment to reconcile", "tag": "Billing" },
-      { "label": "Follow-up to send", "tag": "CRM" },
-      { "label": "Document to read", "tag": "AI" },
-      { "label": "Tools out of sync", "tag": "Sync" },
-      { "label": "Data to re-key", "tag": "Ops" }
+      { "label": "Payment to match", "tag": "Billing" },
+      { "label": "Follow-up to send", "tag": "Clients" },
+      { "label": "Document to read", "tag": "Paperwork" },
+      { "label": "Tools out of sync", "tag": "Tools" },
+      { "label": "Data to re-key", "tag": "Admin" }
     ],
     "sceneResolvedSub": "Every task, untouched by hand",
     "tags": ["Runs while you sleep", "Across every tool", "Nothing slips"]
@@ -74,33 +75,43 @@
     "receiptLabel": "The receipt",
     "items": [
       {
-        "name": "Custom Automations",
-        "description": "Workflows that run while you sleep. We remove the repetitive work from your operations: scheduling, follow-ups, billing, and the rest.",
+        "name": "Automate the busywork",
+        "description": "The repetitive work that eats your week — scheduling, follow-ups, billing, and the rest — running on its own while you sleep.",
         "proof": "KrakenBay saves 30+ hours/week on scheduling and billing alone."
       },
       {
-        "name": "AI & Intelligent Systems",
-        "description": "We put AI where it actually pays off: reading documents, drafting replies, classifying and routing requests, and answering questions from your own data — with custom agents that handle the judgment calls.",
-        "proof": "Document intake that took an afternoon now clears itself in minutes."
+        "name": "Put AI to work",
+        "description": "AI where it actually pays off: reading documents, drafting replies, sending each request to the right place, and answering questions from your own files — so your team skips the repetitive judgment calls.",
+        "proof": "Reading documents that used to take an afternoon now clears itself in minutes."
       },
       {
-        "name": "System Integrations",
-        "description": "Your tools should talk to each other. We connect CRM to calendar, payments to accounting, and sales to fulfillment, so data stops falling through the cracks.",
+        "name": "Get your tools talking",
+        "description": "Your tools should work together. We connect your bookings to your calendar, payments to your books, and sales to delivery — so nothing falls through the cracks.",
         "proof": "Inmovilia's sales-to-construction handoff went from days to instant."
       },
       {
-        "name": "Payment Reconciliation",
-        "description": "Stop reconciling transactions by hand. We automate the matching and verification of every payment across terminals, banks, and platforms.",
+        "name": "Payments, matched for you",
+        "description": "Stop matching payments by hand. Every payment across your terminal, your bank, and every app — matched and checked automatically.",
         "proof": "Tavros cut billing cycles by 3x, with no more chasing late renewals."
       },
       {
-        "name": "Digital Presence",
-        "description": "Landing pages, client portals, and portfolio sites built to convert. If your online presence doesn't match the quality of your work, we fix that too.",
+        "name": "A presence that wins clients",
+        "description": "Landing pages, client portals, and portfolio sites built to win work. If your online presence doesn't match the quality of what you do, we fix that too.",
         "proof": "Eternus went from a mismatched page to a portfolio that closes clients."
       },
       {
-        "name": "Process Optimization",
-        "description": "We audit, redesign, and implement workflows that cut bottlenecks and operational costs, in ways you can measure.",
+        "name": "Lock down your business",
+        "description": "We audit where you're exposed — access, backups, payments, the data your business runs on — and close the gaps before they cost you. Security that holds up when a client or partner asks.",
+        "proof": "REPLACE WITH REAL RECEIPT — security/audit client result."
+      },
+      {
+        "name": "Get your team up to speed",
+        "description": "We train your people to actually run what we build — AI tools, new workflows, the systems behind the business — so the gains stick long after we're gone.",
+        "proof": "REPLACE WITH REAL RECEIPT — training client result."
+      },
+      {
+        "name": "Cut the bottlenecks",
+        "description": "We find where the work gets stuck, redesign how it flows, and cut the wasted time and cost — in ways you can measure.",
         "proof": "Most clients recover the project's cost within the first 60 days."
       }
     ]
@@ -165,11 +176,11 @@
   },
   "process": {
     "headline": "From audit to running system.",
-    "description": "Three weeks to first automation, not a six-month rollout. Every engagement runs the same three steps.",
+    "description": "Three weeks to first results, not a six-month rollout. Every engagement runs the same three steps.",
     "deliverables": [
       "You get: a quantified audit",
       "You get: a build plan + fixed quote",
-      "You get: live automations, monitored"
+      "You get: a live system, monitored"
     ],
     "steps": [
       {
@@ -178,11 +189,11 @@
       },
       {
         "title": "Design",
-        "description": "We architect automations tailored to your stack, built around how your business actually runs."
+        "description": "We architect the right solution — automation, AI, software, or web — tailored to your stack and how your business actually runs."
       },
       {
         "title": "Deploy",
-        "description": "We launch, monitor, and iterate. Your automations run 24/7 while we handle maintenance, optimization, and whatever breaks at 3 AM."
+        "description": "We launch, monitor, and iterate. Your systems run 24/7 while we handle maintenance, optimization, and whatever breaks at 3 AM."
       }
     ]
   },
@@ -193,10 +204,10 @@
     "fitLabel": "A fit when",
     "notFitLabel": "Probably not when",
     "audiences": [
-      "You're scaling fast with a team too small for the ops load",
-      "You run a business (gym, clinic, real estate) buried in admin",
-      "Your time is worth more than another hour of data entry",
-      "Reconciliation still lives in a spreadsheet at midnight"
+      "You're scaling faster than your systems, team, or tools can keep up",
+      "You run a real business (gym, clinic, real estate) buried in manual work",
+      "Your site, your data, or your security doesn't match the quality of what you do",
+      "Your time is worth more than another hour of admin — or another postponed fix"
     ],
     "notAudiences": [
       "You're shopping for the cheapest quote, not the best system",
@@ -207,7 +218,7 @@
   },
   "contact": {
     "headline": "Tell us where the hours go.",
-    "description": "Book the free 20-minute audit: we map where your week leaks hours — and what it's costing you. You keep that map whether you hire us or not. If there's nothing worth automating, we'll tell you straight. No pitch.",
+    "description": "Book the free 20-minute audit: we map where your week leaks hours — and what it's costing you. You keep that map whether you hire us or not. If there's nothing worth building, we'll tell you straight. No pitch.",
     "nameLabel": "Name",
     "emailLabel": "Email",
     "namePlaceholder": "Your name",
@@ -224,9 +235,9 @@
       "You keep the findings and get a fixed quote. No pitch if it's not worth it."
     ],
     "assurances": [
-      "NDA on day one — we work inside your own accounts.",
-      "First automation live in 2 to 3 weeks.",
-      "Keep the audit findings whether you hire us or not."
+      "NDA on day one",
+      "Live in 2–3 weeks",
+      "Keep the findings"
     ],
     "success": "Thank you. We'll reply within one business day.",
     "error": "Something went wrong and your message didn't send. Email us instead and we'll take it from there.",
@@ -244,9 +255,9 @@
     "label": "Get my free audit"
   },
   "integrations": {
-    "kicker": "100+ integrations",
+    "kicker": "100+ tools, connected",
     "headline": "We connect the tools you already pay for.",
-    "subcopy": "Stripe to your bank, your calendar to your CRM, your POS to your books. If it has an API or a webhook, we automate it.",
+    "subcopy": "Stripe to your bank, your calendar to your CRM, your sales to your books — talking to each other automatically, so nothing slips through the cracks.",
     "more": "+100 more"
   },
   "faq": {
@@ -255,8 +266,12 @@
     "askLink": "Still wondering something? Ask us →",
     "items": [
       {
+        "q": "Do you only do automation?",
+        "a": "No — we're a full studio. AI and agents, automation, integrations, custom software and landing pages, security and audits, and training your team to run it all. Automation is often where we start, because it pays for itself fastest, and we build out from there."
+      },
+      {
         "q": "How fast do you ship?",
-        "a": "First automation live within 2-3 weeks of kickoff. Most engagements deliver measurable hours saved inside 30 days, not the 6-month rollouts you'd get from a traditional agency."
+        "a": "First results live within 2-3 weeks of kickoff. Most engagements deliver measurable hours saved inside 30 days, not the 6-month rollouts you'd get from a traditional agency."
       },
       {
         "q": "What does it cost?",
@@ -264,7 +279,7 @@
       },
       {
         "q": "Will this work with our current tools?",
-        "a": "Almost certainly. We connect Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make, and 100+ others. If your stack has an API or a webhook, we can automate it."
+        "a": "Almost certainly. We connect Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make, and 100+ others. If your stack has an API or a webhook, we can automate, connect, or build on it."
       },
       {
         "q": "What happens when something breaks?",
@@ -281,7 +296,7 @@
     ]
   },
   "footer": {
-    "tagline": "An automation studio for businesses that have outgrown manual work. Based in Guadalajara, working with teams everywhere.",
+    "tagline": "We build and run the technology your business depends on — AI, automation, software, and security. Based in Guadalajara, working with teams everywhere.",
     "company": "Company",
     "connect": "Connect",
     "services": "Services",

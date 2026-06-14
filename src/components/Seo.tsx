@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://aetherml.com";
+const SITE_URL = "https://www.aetherml.com";
 
 type Props = {
   /** Full document title, e.g. "Privacy Notice · Æther". */

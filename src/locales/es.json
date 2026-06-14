@@ -3,7 +3,7 @@
     "cta": "Quiero mi auditoría gratis"
   },
   "navbar": {
-    "tagline": "Estudio de automatización",
+    "tagline": "Adiós al trabajo manual",
     "problem": "El problema",
     "services": "Qué hacemos",
     "results": "Resultados",
@@ -14,11 +14,11 @@
     "bookACall": "Quiero mi auditoría gratis"
   },
   "hero": {
-    "kicker": "Estudio de automatización · Guadalajara",
-    "headline": "El trabajo manual,",
-    "headlineWrong": "hecho a mano.",
+    "kicker": "Tu equipo técnico interno · Guadalajara",
+    "headline": "El trabajo técnico,",
+    "headlineWrong": "acumulándose.",
     "headlineEmphasis": "fuera de tu lista.",
-    "description": "Automatizaciones, IA, integraciones de sistemas y conciliación de pagos — para equipos que ya superaron la hoja de cálculo.",
+    "description": "IA, automatización, software, seguridad y la capacitación para operarlo — construimos y operamos los sistemas de los que depende tu negocio, para que recuperes las horas.",
     "availability": "Tomamos 3 clientes nuevos este mes",
     "secondary": "Mira cómo funciona",
     "proof": "KrakenBay recuperó 30+ horas a la semana — facturación y agenda, automatizadas.",
@@ -26,18 +26,19 @@
     "trust": "Gimnasios · Clínicas · Inmobiliarias · Estudios — Guadalajara y más allá",
     "outcomes": ["Conciliado", "Automatizado", "Integrado", "Respondido", "Agendado", "Publicado"],
     "panel": {
-      "title": "Operaciones",
+      "title": "Tu semana",
+      "subtitle": "Hoy",
       "live": "En vivo",
       "done": "Todo al día",
-      "running": "Automatizando",
+      "running": "Resolviendo",
       "hoursUnit": "h",
       "tasks": [
-        { "label": "Pago de Stripe cuadrado con la factura", "tag": "Conciliado" },
-        { "label": "Clase agendada, calendario sincronizado", "tag": "Agendado" },
-        { "label": "Renovación de membresía cobrada", "tag": "Facturado" },
-        { "label": "Respuesta a lead redactada y enviada", "tag": "Respondido" },
-        { "label": "CRM y contabilidad sincronizados", "tag": "Integrado" },
-        { "label": "Recordatorio de factura vencida enviado", "tag": "Seguimiento" }
+        { "label": "Pago cuadrado con su factura", "tag": "Cuadrado" },
+        { "label": "Respuesta a prospecto redactada por IA", "tag": "Redactado" },
+        { "label": "Nueva reserva sincronizada en tus herramientas", "tag": "Sincronizado" },
+        { "label": "Landing page publicada y en vivo", "tag": "Publicado" },
+        { "label": "Accesos y respaldos revisados", "tag": "Asegurado" },
+        { "label": "Recordatorio de pago vencido enviado", "tag": "Recordado" }
       ],
       "metricLabel": "tareas resueltas hoy, sin tocar nada a mano",
       "savedLabel": "ahorradas esta semana"
@@ -49,7 +50,7 @@
     "problemBody": "Persiguiendo pagos en tres apps. Recapturando los mismos datos en sistemas que deberían comunicarse. Dando seguimiento a mano. Leyendo documentos uno por uno. Conciliando a medianoche en una hoja de cálculo. Cada hora en tareas operativas es una hora que no inviertes en hacer crecer tu negocio.",
     "solutionLabel": "La solución",
     "solutionHeadline": "Días de trabajo manual, reducidos a minutos.",
-    "solutionBody": "Programación, seguimientos, facturación, lectura de documentos, captura de datos, conciliación — conectamos tus herramientas y automatizamos el trabajo repetitivo para que corra sin ti. Tavros pasó de conciliaciones de tres días a doce minutos; el mismo motor se encarga del resto.",
+    "solutionBody": "Programación, seguimientos, facturación, lectura de documentos, captura de datos, cuadre de pagos — conectamos las herramientas que ya usas y te quitamos el trabajo repetitivo de encima, para que corra sin ti. Tavros pasó de tres días cuadrando pagos a doce minutos. Y cuando el cuello de botella no es lo repetitivo — documentos que la IA debería leer, un sitio que no gana al cliente, seguridad que sigues posponiendo — también lo construimos.",
     "sceneBefore": "A mano",
     "sceneAfter": "Con Æther",
     "sceneMatched": "Resuelto automáticamente",
@@ -57,13 +58,13 @@
     "sceneTimeLabel": "horas ahorradas al año",
     "sceneTimeSub": "≈ 9 meses de un empleado de tiempo completo",
     "sceneScrub": "Desliza para ejecutar",
-    "sceneProcessing": ["Acumulándose", "Enrutando", "Automatizando", "Resuelto"],
+    "sceneProcessing": ["Acumulándose", "Ordenando", "Resolviendo", "Listo"],
     "sceneTasks": [
-      { "label": "Pago por conciliar", "tag": "Cobros" },
-      { "label": "Seguimiento por enviar", "tag": "CRM" },
-      { "label": "Documento por leer", "tag": "IA" },
-      { "label": "Herramientas sin sincronizar", "tag": "Sync" },
-      { "label": "Datos por recapturar", "tag": "Ops" }
+      { "label": "Pago por cuadrar", "tag": "Cobros" },
+      { "label": "Seguimiento por enviar", "tag": "Clientes" },
+      { "label": "Documento por leer", "tag": "Papeleo" },
+      { "label": "Herramientas sin sincronizar", "tag": "Herramientas" },
+      { "label": "Datos por recapturar", "tag": "Admin" }
     ],
     "sceneResolvedSub": "Cada tarea, sin tocar a mano",
     "tags": ["Funciona mientras duermes", "En todas tus herramientas", "Nada se escapa"]
@@ -74,33 +75,43 @@
     "receiptLabel": "El recibo",
     "items": [
       {
-        "name": "Automatizaciones a medida",
-        "description": "Flujos de trabajo que funcionan mientras duermes. Quitamos el trabajo repetitivo de tus operaciones: programación, seguimientos, facturación y lo demás.",
+        "name": "Automatiza lo repetitivo",
+        "description": "El trabajo repetitivo que se come tu semana — agendado, seguimientos, facturación y lo demás — corriendo solo mientras duermes.",
         "proof": "KrakenBay ahorra 30+ horas/semana solo en programación y facturación."
       },
       {
-        "name": "IA y sistemas inteligentes",
-        "description": "Ponemos la IA donde realmente vale la pena: leer documentos, redactar respuestas, clasificar y enrutar solicitudes, y responder preguntas desde tus propios datos — con agentes a medida que resuelven los casos de criterio.",
-        "proof": "La recepción de documentos que tomaba una tarde ahora se resuelve sola en minutos."
+        "name": "Pon la IA a trabajar",
+        "description": "IA donde de verdad vale la pena: leer documentos, redactar respuestas, mandar cada solicitud a donde va y responder preguntas desde tus propios archivos — para que tu equipo se salte lo repetitivo.",
+        "proof": "Leer documentos que antes tomaba una tarde ahora se resuelve solo en minutos."
       },
       {
-        "name": "Integraciones de sistemas",
-        "description": "Tus herramientas deberían comunicarse entre sí. Conectamos CRM con calendario, pagos con contabilidad y ventas con logística, para que los datos dejen de perderse.",
+        "name": "Haz que tus herramientas se hablen",
+        "description": "Tus herramientas deberían trabajar juntas. Conectamos tus reservas con tu calendario, los pagos con tu contabilidad y las ventas con la entrega — para que nada se escape.",
         "proof": "El traspaso de ventas a construcción en Inmovilia pasó de días a instantáneo."
       },
       {
-        "name": "Conciliación de pagos",
-        "description": "Deja de conciliar transacciones manualmente. Automatizamos la verificación de cada pago en terminales, bancos y plataformas.",
+        "name": "Pagos cuadrados por ti",
+        "description": "Deja de cuadrar pagos a mano. Cada pago en tu terminal, tu banco y cada app — cuadrado y verificado automáticamente.",
         "proof": "Tavros redujo sus ciclos de facturación 3x, sin más retrasos en renovaciones."
       },
       {
-        "name": "Presencia digital",
-        "description": "Landing pages, portales de clientes y portafolios construidos para convertir. Si tu presencia online no refleja la calidad de tu trabajo, también lo arreglamos.",
+        "name": "Una presencia que gana clientes",
+        "description": "Landing pages, portales de clientes y portafolios hechos para ganar trabajo. Si tu presencia online no refleja la calidad de lo que haces, también lo arreglamos.",
         "proof": "Eternus pasó de una página genérica a un portafolio que cierra clientes."
       },
       {
-        "name": "Optimización de procesos",
-        "description": "Auditamos, rediseñamos e implementamos flujos que eliminan cuellos de botella y costos operativos, de forma medible.",
+        "name": "Blinda tu negocio",
+        "description": "Auditamos dónde estás expuesto — accesos, respaldos, pagos, los datos con los que opera tu negocio — y cerramos las brechas antes de que te cuesten. Seguridad que aguanta cuando un cliente o socio pregunta.",
+        "proof": "REEMPLAZAR CON RECIBO REAL — resultado de cliente de seguridad/auditoría."
+      },
+      {
+        "name": "Capacita a tu equipo",
+        "description": "Entrenamos a tu gente para que de verdad opere lo que construimos — herramientas de IA, nuevos flujos, los sistemas detrás del negocio — para que los resultados se queden mucho después de que nos vamos.",
+        "proof": "REEMPLAZAR CON RECIBO REAL — resultado de cliente de capacitación."
+      },
+      {
+        "name": "Elimina los cuellos de botella",
+        "description": "Encontramos dónde se atora el trabajo, rediseñamos cómo fluye y recortamos el tiempo y el costo desperdiciado — de forma medible.",
         "proof": "La mayoría de clientes recupera el costo del proyecto en los primeros 60 días."
       }
     ]
@@ -165,11 +176,11 @@
   },
   "process": {
     "headline": "De la auditoría al sistema en marcha.",
-    "description": "Tres semanas a la primera automatización, no un despliegue de seis meses. Cada proyecto corre los mismos tres pasos.",
+    "description": "Tres semanas a los primeros resultados, no un despliegue de seis meses. Cada proyecto corre los mismos tres pasos.",
     "deliverables": [
       "Recibes: una auditoría cuantificada",
       "Recibes: un plan de construcción y cotización fija",
-      "Recibes: automatizaciones en producción, monitoreadas"
+      "Recibes: un sistema en producción, monitoreado"
     ],
     "steps": [
       {
@@ -178,11 +189,11 @@
       },
       {
         "title": "Diseñar",
-        "description": "Diseñamos automatizaciones adaptadas a tu stack, construidas alrededor de cómo funciona realmente tu negocio."
+        "description": "Diseñamos la solución correcta — automatización, IA, software o web — adaptada a tu stack y a cómo funciona realmente tu negocio."
       },
       {
         "title": "Desplegar",
-        "description": "Lanzamos, monitoreamos e iteramos. Tus automatizaciones funcionan 24/7 mientras nosotros nos encargamos del mantenimiento, la optimización y lo que falle a las 3 AM."
+        "description": "Lanzamos, monitoreamos e iteramos. Tus sistemas funcionan 24/7 mientras nosotros nos encargamos del mantenimiento, la optimización y lo que falle a las 3 AM."
       }
     ]
   },
@@ -193,10 +204,10 @@
     "fitLabel": "Encajamos cuando",
     "notFitLabel": "Probablemente no cuando",
     "audiences": [
-      "Estás escalando rápido con un equipo muy pequeño para la carga operativa",
-      "Tienes un negocio (gimnasio, clínica, inmobiliaria) enterrado en administración",
-      "Tu tiempo vale más que otra hora de entrada de datos",
-      "La conciliación todavía vive en una hoja de cálculo a medianoche"
+      "Estás escalando más rápido de lo que tus sistemas, equipo o herramientas aguantan",
+      "Tienes un negocio real (gimnasio, clínica, inmobiliaria) enterrado en trabajo manual",
+      "Tu sitio, tus datos o tu seguridad no reflejan la calidad de lo que haces",
+      "Tu tiempo vale más que otra hora de administración — u otro arreglo pospuesto"
     ],
     "notAudiences": [
       "Buscas la cotización más barata, no el mejor sistema",
@@ -207,7 +218,7 @@
   },
   "contact": {
     "headline": "Cuéntanos a dónde se van las horas.",
-    "description": "Agenda la auditoría gratis de 20 minutos: mapeamos a dónde se van las horas de tu semana — y cuánto te cuesta. Te quedas con ese mapa, nos contrates o no. Si no hay nada que valga la pena automatizar, te lo decimos claro. Sin discurso de venta.",
+    "description": "Agenda la auditoría gratis de 20 minutos: mapeamos a dónde se van las horas de tu semana — y cuánto te cuesta. Te quedas con ese mapa, nos contrates o no. Si no hay nada que valga la pena construir, te lo decimos claro. Sin discurso de venta.",
     "nameLabel": "Nombre",
     "emailLabel": "Correo",
     "namePlaceholder": "Tu nombre",
@@ -224,9 +235,9 @@
       "Te quedas con los hallazgos y recibes una cotización fija. Sin discurso de venta si no vale la pena."
     ],
     "assurances": [
-      "NDA desde el día uno — trabajamos dentro de tus propias cuentas.",
-      "Primera automatización en 2 a 3 semanas.",
-      "Te quedas con los hallazgos, nos contrates o no."
+      "NDA desde el día uno",
+      "Listo en 2–3 semanas",
+      "Te quedas con los hallazgos"
     ],
     "success": "Gracias. Te respondemos en menos de un día hábil.",
     "error": "Algo falló y tu mensaje no se envió. Escríbenos por correo y lo resolvemos.",
@@ -244,9 +255,9 @@
     "label": "Quiero mi auditoría gratis"
   },
   "integrations": {
-    "kicker": "Más de 100 integraciones",
+    "kicker": "Más de 100 herramientas, conectadas",
     "headline": "Conectamos las herramientas que ya pagas.",
-    "subcopy": "De Stripe a tu banco, de tu calendario a tu CRM, de tu terminal a tu contabilidad. Si tiene API o webhook, lo automatizamos.",
+    "subcopy": "De Stripe a tu banco, de tu calendario a tu CRM, de tus ventas a tu contabilidad — comunicándose solas, para que nada se te escape.",
     "more": "+100 más"
   },
   "faq": {
@@ -255,8 +266,12 @@
     "askLink": "¿Te queda una duda? Pregúntanos →",
     "items": [
       {
+        "q": "¿Solo hacen automatización?",
+        "a": "No — somos un estudio completo. IA y agentes, automatización, integraciones, software y landing pages a la medida, seguridad y auditorías, y capacitación para que tu equipo lo opere. La automatización suele ser donde empezamos, porque se paga sola más rápido, y de ahí construimos el resto."
+      },
+      {
         "q": "¿Qué tan rápido entregan?",
-        "a": "Primera automatización en producción 2-3 semanas después del arranque. La mayoría de los proyectos muestran horas ahorradas medibles dentro de 30 días, no los despliegues de 6 meses de una agencia tradicional."
+        "a": "Primeros resultados en producción 2-3 semanas después del arranque. La mayoría de los proyectos muestran horas ahorradas medibles dentro de 30 días, no los despliegues de 6 meses de una agencia tradicional."
       },
       {
         "q": "¿Cuánto cuesta?",
@@ -264,7 +279,7 @@
       },
       {
         "q": "¿Funciona con nuestras herramientas actuales?",
-        "a": "Casi seguro que sí. Conectamos Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make y más de 100 otras. Si tu stack tiene API o webhook, lo podemos automatizar."
+        "a": "Casi seguro que sí. Conectamos Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make y más de 100 otras. Si tu stack tiene API o webhook, lo podemos automatizar, conectar o construir encima."
       },
       {
         "q": "¿Qué pasa si algo falla?",
@@ -281,7 +296,7 @@
     ]
   },
   "footer": {
-    "tagline": "Un estudio de automatización para negocios que ya superaron el trabajo manual. Con base en Guadalajara, trabajando con equipos en todas partes.",
+    "tagline": "Construimos y operamos la tecnología de la que depende tu negocio — IA, automatización, software y seguridad. Con base en Guadalajara, trabajando con equipos en todas partes.",
     "company": "Empresa",
     "connect": "Conectar",
     "services": "Servicios",

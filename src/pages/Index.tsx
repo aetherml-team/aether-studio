@@ -21,7 +21,7 @@ const Index = () => {
           non-JS crawlers and link unfurlers always see it. */}
       <Helmet>
         <title>Æther · Automation Studio</title>
-        <link rel="canonical" href="https://aetherml.com/" />
+        <link rel="canonical" href="https://www.aetherml.com/" />
       </Helmet>
       <ScrollProgress />
       <Navbar />

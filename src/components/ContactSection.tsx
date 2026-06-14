@@ -153,14 +153,14 @@ const ContactSection = () => {
             </ol>
           </div>
 
-          {/* assurances */}
-          <div className="mt-8 flex flex-col gap-3">
+          {/* assurances — single wrapping row */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2.5">
             {assurances.map((a, i) => {
               const Icon = ASSURANCE_ICONS[i] ?? ShieldCheck;
               return (
-                <div key={i} className="flex items-center gap-2.5">
+                <div key={i} className="flex items-center gap-2">
                   <Icon className="h-4 w-4 shrink-0 text-primary/80" strokeWidth={1.6} aria-hidden />
-                  <span className="font-body text-[13.5px] text-muted-foreground">{a}</span>
+                  <span className="font-body text-[13px] text-muted-foreground">{a}</span>
                 </div>
               );
             })}
