@@ -176,7 +176,7 @@
   },
   "process": {
     "headline": "From audit to running system.",
-    "description": "Three weeks to first results, not a six-month rollout. Every engagement runs the same three steps.",
+    "description": "First results in one to two months, not a six-month rollout. Every engagement runs the same three steps.",
     "deliverables": [
       "You get: a quantified audit",
       "You get: a build plan + fixed quote",
@@ -236,7 +236,7 @@
     ],
     "assurances": [
       "NDA on day one",
-      "Live in 2–3 weeks",
+      "Live in 1–2 months",
       "Keep the findings"
     ],
     "success": "Thank you. We'll reply within one business day.",
@@ -271,11 +271,11 @@
       },
       {
         "q": "How fast do you ship?",
-        "a": "First results live within 2-3 weeks of kickoff. Most engagements deliver measurable hours saved inside 30 days, not the 6-month rollouts you'd get from a traditional agency."
+        "a": "First results live within 1–2 months of kickoff. Most engagements deliver measurable hours saved inside the first 60 days, not the 6-month rollouts you'd get from a traditional agency."
       },
       {
         "q": "What does it cost?",
-        "a": "Engagements start around $4,500 and scale with scope. Most clients recover the cost in the first 60 days through reclaimed hours and reduced billing leakage. We share a fixed quote after the free audit, with no hourly games."
+        "a": "Every project is scoped to fit — from a single landing page to a full automation system. We share a fixed quote after the free audit, with no hourly games, and most clients recover the cost within the first 60 days."
       },
       {
         "q": "Will this work with our current tools?",

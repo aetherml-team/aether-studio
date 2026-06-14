@@ -176,7 +176,7 @@
   },
   "process": {
     "headline": "De la auditoría al sistema en marcha.",
-    "description": "Tres semanas a los primeros resultados, no un despliegue de seis meses. Cada proyecto corre los mismos tres pasos.",
+    "description": "Primeros resultados en uno o dos meses, no un despliegue de seis meses. Cada proyecto corre los mismos tres pasos.",
     "deliverables": [
       "Recibes: una auditoría cuantificada",
       "Recibes: un plan de construcción y cotización fija",
@@ -236,7 +236,7 @@
     ],
     "assurances": [
       "NDA desde el día uno",
-      "Listo en 2–3 semanas",
+      "Listo en 1–2 meses",
       "Te quedas con los hallazgos"
     ],
     "success": "Gracias. Te respondemos en menos de un día hábil.",
@@ -271,11 +271,11 @@
       },
       {
         "q": "¿Qué tan rápido entregan?",
-        "a": "Primeros resultados en producción 2-3 semanas después del arranque. La mayoría de los proyectos muestran horas ahorradas medibles dentro de 30 días, no los despliegues de 6 meses de una agencia tradicional."
+        "a": "Primeros resultados en producción uno o dos meses después del arranque. La mayoría de los proyectos muestran horas ahorradas medibles dentro de los primeros 60 días, no los despliegues de 6 meses de una agencia tradicional."
       },
       {
         "q": "¿Cuánto cuesta?",
-        "a": "Los proyectos arrancan alrededor de $4,500 USD y escalan con el alcance. La mayoría de clientes recupera la inversión en los primeros 60 días por horas recuperadas y menos fugas de cobro. Compartimos una cotización fija después de la auditoría gratuita, sin juegos de horas."
+        "a": "Cada proyecto se adapta a tu necesidad — desde una sola landing page hasta un sistema de automatización completo. Compartimos una cotización fija después de la auditoría gratuita, sin juegos de horas, y la mayoría de clientes recupera la inversión en los primeros 60 días."
       },
       {
         "q": "¿Funciona con nuestras herramientas actuales?",
