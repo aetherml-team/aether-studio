@@ -186,45 +186,44 @@
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- Static fallback for non-JavaScript user agents (crawlers, app-store /
-         OAuth verifiers, link previewers). The app is a client-rendered SPA, so
-         without this the body is an empty #root and automated reviewers report
-         "the home page does not explain the purpose of your app." This block is
-         never shown to real visitors (JS replaces #root), but it gives bots a
-         plain-HTML statement of purpose and a working privacy-policy link. -->
-    <noscript>
-      <main style="max-width:42rem;margin:0 auto;padding:3rem 1.5rem;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#111;background:#fff">
-        <h1 style="font-size:1.75rem;margin:0 0 .5rem">Æther — AI, Automation &amp; Software Studio</h1>
-        <p style="font-size:1.05rem;margin:0 0 1rem">
-          Æther builds and runs the technology businesses depend on. We design and
-          deliver custom AI and agents, workflow automation, system integrations,
-          payment reconciliation, custom software, and security audits — taking the
-          repetitive technical work off your team's plate so they can focus on
-          customers and growth.
-        </p>
-        <p style="margin:0 0 1rem">
-          We are based in Guadalajara, Mexico, and work with teams everywhere.
-          This website explains our services and lets prospective clients get in
-          touch.
-        </p>
-        <p style="margin:0 0 1rem">
-          Æther also operates internal integration software that connects Google
-          Workspace services — Gmail, Google Calendar, and Google Drive — to the
-          automated workflows we build and run for our clients. We access Google
-          user data only to perform the automations each client authorizes, in
-          line with our <a href="/privacy">Privacy Notice</a> and the Google API
-          Services User Data Policy, including the Limited Use requirements.
-        </p>
-        <p style="margin:0 0 1rem">
-          Contact: <a href="mailto:help@aetherml.com">help@aetherml.com</a>
-        </p>
-        <p style="margin:0">
-          <a href="/privacy">Privacy Notice</a> ·
-          <a href="/terms">Terms of Service</a>
-        </p>
+    <!-- The app is a client-rendered SPA. This static markup INSIDE #root is the
+         server-served home page: it states what Æther is, what the integration
+         app does, and how it uses Google user data, with links to the privacy
+         policy and terms. React (createRoot) replaces it on mount, so real
+         visitors get the full site, while crawlers and OAuth / branding
+         reviewers that do not execute JavaScript — and Google's automated
+         branding check, which does not credit JS-rendered or <noscript> text —
+         still receive a complete, visible, human-readable statement of purpose.
+         Styled with the app's own theme tokens (loaded render-blocking in <head>)
+         so there is no flash of unstyled or mis-themed content. -->
+    <div id="root">
+      <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:hsl(var(--background));color:hsl(var(--foreground));font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;padding:3rem 1.5rem">
+        <div style="max-width:42rem">
+          <p style="font-weight:600;letter-spacing:-0.01em;font-size:1.1rem;margin:0 0 1.25rem">Æther</p>
+          <h1 style="font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.15;font-weight:700;letter-spacing:-0.02em;margin:0 0 1rem">AI, Automation &amp; Software Studio</h1>
+          <p style="font-size:1.05rem;line-height:1.6;color:hsl(var(--muted-foreground));margin:0 0 1rem">
+            Æther builds and runs the technology businesses depend on — custom AI and
+            agents, workflow automation, system integrations, payment reconciliation,
+            custom software, and security audits — so teams get the repetitive
+            technical work off their plate. Based in Guadalajara, working with teams
+            everywhere.
+          </p>
+          <p style="font-size:1rem;line-height:1.6;color:hsl(var(--muted-foreground));margin:0 0 1.5rem">
+            Æther also operates internal integration software that connects Google
+            Workspace — Gmail, Google Calendar, and Google Drive — to the automated
+            workflows we build and run for our clients. We access Google user data
+            only to perform the automations each client authorizes, and our use of it
+            complies with the Google API Services User Data Policy, including the
+            Limited Use requirements.
+          </p>
+          <p style="font-size:0.95rem;margin:0">
+            <a href="/privacy" style="color:hsl(var(--primary));text-decoration:underline">Privacy Notice</a> ·
+            <a href="/terms" style="color:hsl(var(--primary));text-decoration:underline">Terms of Service</a> ·
+            <a href="mailto:help@aetherml.com" style="color:hsl(var(--primary));text-decoration:underline">help@aetherml.com</a>
+          </p>
+        </div>
       </main>
-    </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
