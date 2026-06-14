@@ -1,14 +1,19 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, lazy, Suspense } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ShieldCheck, Zap, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { EASE, viewport } from "@/lib/motion";
 import { track } from "@/lib/analytics";
+import { schedulingEnabled } from "@/lib/scheduling";
+
+// Heavy Cal.com embed — only loaded when a visitor opens the "Book a call" tab.
+const BookCall = lazy(() => import("@/components/BookCall"));
 
 type Status = "idle" | "sending" | "sent" | "error";
-type FieldName = "name" | "email" | "message";
+type FieldName = "name" | "email";
 type FieldErrors = Partial<Record<FieldName, string>>;
+type Tab = "book" | "message";
 
 /** Serverless endpoint that forwards the lead to Resend (see api/lead.ts). */
 const LEAD_ENDPOINT = "/api/lead";
@@ -16,7 +21,6 @@ const CONTACT_EMAIL = "help@aetherml.com";
 /** Pragmatic email check — one @, a dot in the domain, no spaces. */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_MIN = 2;
-const MESSAGE_MIN = 10;
 
 const ASSURANCE_ICONS = [ShieldCheck, Zap, Users];
 
@@ -25,15 +29,17 @@ const ContactSection = () => {
   const reduced = useReducedMotion();
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
+  // Book a call is the primary path when scheduling is configured; the message
+  // form is the low-pressure fallback for leads not ready to commit to a slot.
+  const [tab, setTab] = useState<Tab>(schedulingEnabled ? "book" : "message");
 
   const steps = t("contact.steps", { returnObjects: true }) as string[];
   const assurances = t("contact.assurances", { returnObjects: true }) as string[];
 
-  function validate(values: { name: string; email: string; message: string }): FieldErrors {
+  function validate(values: { name: string; email: string }): FieldErrors {
     const next: FieldErrors = {};
     const name = values.name.trim();
     const email = values.email.trim();
-    const message = values.message.trim();
 
     if (!name) next.name = t("contact.validation.nameRequired");
     else if (name.length < NAME_MIN) next.name = t("contact.validation.nameShort");
@@ -41,9 +47,7 @@ const ContactSection = () => {
     if (!email) next.email = t("contact.validation.emailRequired");
     else if (!EMAIL_RE.test(email)) next.email = t("contact.validation.emailInvalid");
 
-    if (!message) next.message = t("contact.validation.messageRequired");
-    else if (message.length < MESSAGE_MIN) next.message = t("contact.validation.messageShort");
-
+    // Message is intentionally optional — leaving it blank is fine.
     return next;
   }
 
@@ -69,7 +73,7 @@ const ContactSection = () => {
     const fieldErrors = validate(payload);
     if (Object.keys(fieldErrors).length > 0) {
       setErrors(fieldErrors);
-      const firstInvalid = (["name", "email", "message"] as const).find((k) => fieldErrors[k]);
+      const firstInvalid = (["name", "email"] as const).find((k) => fieldErrors[k]);
       if (firstInvalid) document.getElementById(`contact-${firstInvalid}`)?.focus();
       return;
     }
@@ -176,6 +180,57 @@ const ContactSection = () => {
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
           className="glow-border scroll-mt-24 rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm md:p-8"
         >
+          {schedulingEnabled && (
+            <div
+              role="tablist"
+              aria-label={t("contact.tabAria")}
+              className="mb-6 grid grid-cols-2 gap-1 rounded-xl border border-border bg-background/50 p-1"
+            >
+              {(["book", "message"] as const).map((key) => {
+                const active = tab === key;
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setTab(key)}
+                    className={`relative h-10 rounded-lg font-body text-[13.5px] font-medium transition-colors ${
+                      active ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="contact-tab-pill"
+                        className="absolute inset-0 rounded-lg bg-primary shadow-[0_10px_28px_-16px_hsl(var(--primary)/0.8)]"
+                        transition={
+                          reduced ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 34 }
+                        }
+                      />
+                    )}
+                    <span className="relative z-10">
+                      {t(key === "book" ? "contact.tabBook" : "contact.tabMessage")}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {tab === "book" && schedulingEnabled ? (
+            <div>
+              <Suspense fallback={<div className="min-h-[280px]" aria-hidden />}>
+                <BookCall />
+              </Suspense>
+              <button
+                type="button"
+                onClick={() => setTab("message")}
+                className="mt-5 block w-full text-center font-body text-[13px] font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+              >
+                {t("contact.preferWrite")}
+              </button>
+            </div>
+          ) : (
           <form onSubmit={onSubmit} noValidate className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
@@ -227,25 +282,16 @@ const ContactSection = () => {
 
             <div>
               <label htmlFor="contact-message" className={labelClass}>
-                {t("contact.messageLabel")}
+                {t("contact.messageLabel")}{" "}
+                <span className="font-normal text-muted-foreground/70">{t("contact.messageOptional")}</span>
               </label>
               <textarea
                 id="contact-message"
                 name="message"
-                required
-                minLength={MESSAGE_MIN}
                 rows={5}
                 placeholder={t("contact.messagePlaceholder")}
-                aria-invalid={!!errors.message}
-                aria-describedby={errors.message ? "contact-message-error" : undefined}
-                onChange={() => clearError("message")}
-                className={`${textareaClass} ${errors.message ? errorRing : ""}`}
+                className={textareaClass}
               />
-              {errors.message && (
-                <p id="contact-message-error" role="alert" className={errorTextClass}>
-                  {errors.message}
-                </p>
-              )}
             </div>
 
             {/* Honeypot — hidden from users, catches naive bots. */}
@@ -292,6 +338,7 @@ const ContactSection = () => {
               </div>
             )}
           </form>
+          )}
         </motion.div>
       </div>
     </section>

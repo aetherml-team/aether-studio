@@ -67,10 +67,23 @@ export function renderLeadEmail(d: {
   message: string;
   language: string;
   receivedAt: string;
+  // "booking" when the lead came in via the Cal.com calendar (see
+  // api/cal-webhook.ts); defaults to the contact-form copy.
+  source?: "form" | "booking";
+  // Human-readable slot, only present for bookings.
+  scheduledFor?: string;
 }): string {
   const firstName = d.name.split(/\s+/)[0] || d.name;
   const lang = d.language.toLowerCase().startsWith("es") ? "Español" : "English";
-  const preheader = `New audit request from ${d.name}`;
+  const isBooking = d.source === "booking";
+  const eyebrow = isBooking ? "New call booked" : "New audit request";
+  const subline = isBooking
+    ? "Someone just booked a call straight from the site."
+    : "A new lead came in through the contact form.";
+  const footerNote = isBooking
+    ? "Sent from the booking calendar at aetherml.com"
+    : "Sent from the contact form at aetherml.com";
+  const preheader = isBooking ? `New call booked with ${d.name}` : `New audit request from ${d.name}`;
 
   const row = (k: string, valueHtml: string) => `
         <tr>
@@ -115,12 +128,12 @@ export function renderLeadEmail(d: {
         <tr>
           <td style="background-color:${C.card};border:1px solid ${C.border};border-radius:16px;padding:36px">
 
-            <div style="margin-bottom:14px">${label("New audit request")}</div>
+            <div style="margin-bottom:14px">${label(eyebrow)}</div>
             <h1 style="margin:0 0 4px;font-family:${HEADING};font-size:25px;line-height:1.25;font-weight:700;color:${C.text}">
               ${escapeHtml(firstName)} wants the hours back.
             </h1>
             <p style="margin:0;font-family:${SANS};font-size:14px;line-height:1.5;color:${C.dim}">
-              A new lead came in through the contact form.
+              ${subline}
             </p>
 
             <!-- accent hairline -->
@@ -136,16 +149,21 @@ export function renderLeadEmail(d: {
                 )}</a>`
               )}
               ${row("Language", escapeHtml(lang))}
+              ${isBooking && d.scheduledFor ? row("Scheduled for", escapeHtml(d.scheduledFor)) : ""}
             </table>
 
             <!-- message -->
-            <div style="margin:24px 0 6px">${label("In their words")}</div>
+            <div style="margin:24px 0 6px">${label(d.message ? "In their words" : "No message")}</div>
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td style="background-color:${C.panel};border:1px solid ${C.borderSoft};border-left:2px solid ${C.accent};border-radius:10px;padding:18px 20px">
-                  <div style="font-family:${SANS};font-size:15px;line-height:1.65;color:${C.text};white-space:pre-wrap">${escapeHtml(
+                  <div style="font-family:${SANS};font-size:15px;line-height:1.65;color:${d.message ? C.text : C.dim};white-space:pre-wrap">${
     d.message
-  )}</div>
+      ? escapeHtml(d.message)
+      : isBooking
+        ? "They booked straight from the calendar — no notes. The time's locked in above."
+        : "They left just their name and email — no details yet. Reply to open the conversation."
+  }</div>
                 </td>
               </tr>
             </table>
@@ -170,7 +188,7 @@ export function renderLeadEmail(d: {
         <tr>
           <td style="padding:22px 6px 4px">
             <p style="margin:0;font-family:${MONO};font-size:11px;letter-spacing:0.04em;line-height:1.6;color:${C.muted}">
-              Sent from the contact form at aetherml.com<br>
+              ${footerNote}<br>
               ${escapeHtml(d.receivedAt)}
             </p>
           </td>
@@ -216,15 +234,50 @@ const CONFIRM_COPY = {
   },
 } as const;
 
+/**
+ * Booking confirmations reuse CONFIRM_COPY but override the strings that would
+ * otherwise read like a form reply ("expect a reply") — a booked call needs
+ * "see you then" copy. Only the differing keys are listed; the rest (signoff,
+ * team, footerLine, echoLabel) fall through to CONFIRM_COPY.
+ */
+const BOOKING_CONFIRM_OVERRIDE = {
+  en: {
+    subject: "Your call is booked — Æther Studio",
+    preheader: "Your call is booked — the time and invite are in your calendar.",
+    eyebrow: "Call booked",
+    heading: (first: string) => `You're booked, ${first}.`,
+    lead: "Your call with Æther is locked in. The time and a calendar invite are on their way in a separate email — this note is just us saying we're looking forward to it.",
+    nextLabel: "What happens next",
+    next: "We'll come to the call having looked at where your hours are going, ready to walk through what we'd build to win them back.",
+    whenLabel: "Your slot",
+  },
+  es: {
+    subject: "Tu llamada está confirmada — Æther Studio",
+    preheader: "Tu llamada está confirmada — la hora y la invitación están en tu calendario.",
+    eyebrow: "Llamada confirmada",
+    heading: (first: string) => `Estás agendado, ${first}.`,
+    lead: "Tu llamada con Æther está confirmada. La hora y una invitación de calendario van en un correo aparte — este mensaje es solo para decirte que lo esperamos con ganas.",
+    nextLabel: "Qué sigue",
+    next: "Llegaremos a la llamada habiendo revisado a dónde se van tus horas, listos para repasar qué construiríamos para recuperarlas.",
+    whenLabel: "Tu horario",
+  },
+} as const;
+
 /** Renders the customer confirmation as bulletproof, dark-themed HTML. */
 export function renderConfirmationEmail(d: {
   name: string;
   message: string;
   language: string;
   receivedAt: string;
+  source?: "form" | "booking";
+  scheduledFor?: string;
 }): string {
   const firstName = d.name.split(/\s+/)[0] || d.name;
-  const t = d.language.toLowerCase().startsWith("es") ? CONFIRM_COPY.es : CONFIRM_COPY.en;
+  const isEs = d.language.toLowerCase().startsWith("es");
+  const isBooking = d.source === "booking";
+  const base = isEs ? CONFIRM_COPY.es : CONFIRM_COPY.en;
+  const override = isEs ? BOOKING_CONFIRM_OVERRIDE.es : BOOKING_CONFIRM_OVERRIDE.en;
+  const t = isBooking ? { ...base, ...override } : base;
 
   return `<!DOCTYPE html>
 <html lang="${d.language.toLowerCase().startsWith("es") ? "es" : "en"}" style="margin:0;padding:0">
@@ -281,17 +334,31 @@ export function renderConfirmationEmail(d: {
               ${escapeHtml(t.next)}
             </p>
 
-            <!-- echo of their message -->
-            <div style="margin:24px 0 6px">${label(t.echoLabel)}</div>
+            <!-- scheduled slot (bookings only) -->
+            ${
+              isBooking && d.scheduledFor
+                ? `<div style="margin:22px 0 6px">${label(override.whenLabel)}</div>
+            <p style="margin:0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.text}">${escapeHtml(
+              d.scheduledFor
+            )}</p>`
+                : ""
+            }
+
+            <!-- echo of their message (only when they left one) -->
+            ${
+              d.message
+                ? `<div style="margin:24px 0 6px">${label(t.echoLabel)}</div>
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td style="background-color:${C.panel};border:1px solid ${C.borderSoft};border-left:2px solid ${C.accent};border-radius:10px;padding:18px 20px">
                   <div style="font-family:${SANS};font-size:15px;line-height:1.65;color:${C.text};white-space:pre-wrap">${escapeHtml(
-    d.message
-  )}</div>
+                    d.message
+                  )}</div>
                 </td>
               </tr>
-            </table>
+            </table>`
+                : ""
+            }
 
             <!-- sign-off -->
             <p style="margin:28px 0 0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.dim}">
@@ -352,7 +419,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const message = field(body.message, 5000);
   const language = field(body.language, 12) || "en";
 
-  if (!name || !email || !message) {
+  // Name + email are the only hard requirements. Message is optional — leads who
+  // booked a call or just want a reply shouldn't be forced to write a brief.
+  if (!name || !email) {
     return res.status(400).json({ error: "Missing required fields" });
   }
   if (!EMAIL_RE.test(email)) {
@@ -373,7 +442,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       to: TO,
       replyTo: email,
       subject: `New audit request — ${name}`,
-      text: `New audit request\n\nName: ${name}\nEmail: ${email}\nLanguage: ${language}\n\nIn their words:\n${message}\n\n— Sent from the contact form at aetherml.com · ${receivedAt}`,
+      text: `New audit request\n\nName: ${name}\nEmail: ${email}\nLanguage: ${language}\n\n${
+        message ? `In their words:\n${message}` : "No message — they left just their name and email."
+      }\n\n— Sent from the contact form at aetherml.com · ${receivedAt}`,
       html: renderLeadEmail({ name, email, message, language, receivedAt }),
     });
 
@@ -393,7 +464,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         to: email,
         replyTo: TO,
         subject: t.subject,
-        text: `${t.heading(name.split(/\s+/)[0] || name)}\n\n${t.lead}\n\n${t.nextLabel}: ${t.next}\n\n${t.echoLabel}:\n${message}\n\n${t.signoff}\n${t.team}`,
+        text: `${t.heading(name.split(/\s+/)[0] || name)}\n\n${t.lead}\n\n${t.nextLabel}: ${t.next}${
+          message ? `\n\n${t.echoLabel}:\n${message}` : ""
+        }\n\n${t.signoff}\n${t.team}`,
         html: renderConfirmationEmail({ name, message, language, receivedAt }),
       });
       if (confirmError) console.error("Confirmation email error:", confirmError);
