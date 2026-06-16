@@ -20,26 +20,15 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        // Split big, stable vendors into their own long-cached chunks so a
-        // content change doesn't bust the whole bundle, and the browser can
-        // fetch them in parallel with the app code on first load.
+        // Split third-party code into ONE leaf `vendor` chunk, separate from app
+        // code, so editing the app doesn't bust the (rarely-changing) vendor
+        // cache. Everything React-related stays together here on purpose:
+        // splitting React from a CommonJS consumer like react-i18next breaks the
+        // cross-chunk default-interop and throws "Cannot read properties of
+        // undefined (reading 'createContext')" at load. One vendor chunk keeps
+        // that interop intra-chunk and is a pure leaf (no circular ref to app).
         manualChunks(id) {
-          if (!id.includes("node_modules")) return;
-          if (
-            id.includes("/react/") ||
-            id.includes("/react-dom/") ||
-            id.includes("/react-router") ||
-            id.includes("/scheduler/")
-          )
-            return "react";
-          if (id.includes("framer-motion")) return "framer";
-          if (id.includes("@radix-ui")) return "radix";
-          if (
-            id.includes("i18next") ||
-            id.includes("react-i18next")
-          )
-            return "i18n";
-          if (id.includes("@tanstack")) return "query";
+          if (id.includes("node_modules")) return "vendor";
         },
       },
     },
