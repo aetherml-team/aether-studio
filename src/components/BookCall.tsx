@@ -1,7 +1,7 @@
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { m, useReducedMotion } from "framer-motion";
-import { ArrowLeft, CalendarClock, Check, Loader2, RotateCw } from "lucide-react";
+import { ArrowLeft, Check, Loader2, RotateCw } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics";
@@ -235,24 +235,19 @@ const BookCall = () => {
   const activeBucket = days.find((d) => d.key === activeDay) ?? days[0];
 
   return (
-    <div className="rounded-xl border border-border bg-background/40 px-5 py-7 sm:px-6">
-      {/* header */}
+    <div>
+      {/* header — kept compact so the card stays within the left column's height
+          (the page already explains the audit; no need to repeat it here). */}
       <div className="flex flex-col items-center text-center">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/25 bg-primary/10">
-          <CalendarClock className="h-5 w-5 text-primary" strokeWidth={1.6} aria-hidden />
-        </span>
-        <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-primary/80">
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary/80">
           {t("contact.bookEyebrow")}
         </p>
         <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight text-foreground">
           {t("contact.bookTitle")}
         </h3>
-        <p className="mt-3 max-w-sm font-body text-[14.5px] font-light leading-relaxed text-muted-foreground">
-          {t("contact.bookBody")}
-        </p>
       </div>
 
-      <div className="mt-7">
+      <div className="mt-6">
         {loadState === "loading" && (
           <div className="flex flex-col items-center py-8 text-center" role="status">
             <Loader2 className="h-5 w-5 animate-spin text-primary/70" aria-hidden />
@@ -330,7 +325,9 @@ const BookCall = () => {
               initial={reduced ? false : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0, 1] }}
-              className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3"
+              // Capped + scrollable so a full day of slots can't make the card
+              // tower over the left column; extra times scroll within.
+              className="mt-4 grid max-h-[11.5rem] grid-cols-2 gap-2 overflow-y-auto pr-1 sm:grid-cols-3 [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar]:w-1.5"
             >
               {activeBucket.times.map((iso) => (
                 <m.button
