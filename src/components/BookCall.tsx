@@ -327,7 +327,7 @@ const BookCall = () => {
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0, 1] }}
               // Capped + scrollable so a full day of slots can't make the card
               // tower over the left column; extra times scroll within.
-              className="mt-4 grid max-h-[11.5rem] grid-cols-2 gap-2 overflow-y-auto pr-1 sm:grid-cols-3 [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar]:w-1.5"
+              className="mt-4 grid max-h-[9rem] grid-cols-2 gap-2 overflow-y-auto pr-1 sm:grid-cols-3 [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar]:w-1.5"
             >
               {activeBucket.times.map((iso) => (
                 <m.button
