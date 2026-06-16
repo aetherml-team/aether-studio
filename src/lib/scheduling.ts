@@ -1,11 +1,14 @@
 /**
- * Scheduling config, kept separate from the Cal.com embed so callers can read it
- * synchronously without pulling the (heavy) embed bundle. BookCall is lazy-loaded;
- * this module is not.
+ * Scheduling config for the native Calendly booking flow (src/components/BookCall.tsx).
  *
- * VITE_CAL_LINK is the Cal.com booking link in "username/event-type" form
- * (e.g. "aether-studio/audit"). When unset, scheduling is disabled and the
- * contact section shows the message form only.
+ * The Calendly token and event type live server-side only (CALENDLY_TOKEN /
+ * CALENDLY_EVENT_TYPE, see api/_calendly.ts) — the browser never sees them and
+ * talks to /api/availability + /api/book instead. The client only needs to know
+ * whether to surface the "Book a call" path at all.
+ *
+ * Scheduling is on by default. Set VITE_SCHEDULING_ENABLED="false" to hide the
+ * booking tab and fall back to the contact form (e.g. before Calendly is wired
+ * up). Vite only reads env vars at startup — restart `npm run dev` after changing.
  */
-export const CAL_LINK = (import.meta.env.VITE_CAL_LINK as string | undefined)?.trim() || "";
-export const schedulingEnabled = CAL_LINK.length > 0;
+export const schedulingEnabled =
+  (import.meta.env.VITE_SCHEDULING_ENABLED as string | undefined)?.trim().toLowerCase() !== "false";

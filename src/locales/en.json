@@ -255,6 +255,22 @@
     "success": "Thank you. We'll reply within one business day.",
     "error": "Something went wrong and your message didn't send. Email us instead and we'll take it from there.",
     "emailLink": "Or email help@aetherml.com",
+    "book": {
+      "loading": "Finding open times…",
+      "loadError": "We couldn't load available times right now.",
+      "retry": "Try again",
+      "empty": "No open times in the next 7 days.",
+      "emptyCta": "Send us a message instead and we'll find a time that works.",
+      "tzNote": "Times shown in {{tz}}.",
+      "chosenLabel": "Your time",
+      "changeTime": "Change",
+      "confirm": "Confirm booking",
+      "booking": "Booking…",
+      "bookedTitle": "You're booked, {{name}}.",
+      "bookedBody": "A calendar invite is on its way to {{email}}. See you then.",
+      "slotTaken": "That time was just taken — please pick another.",
+      "failed": "We couldn't lock that in. Try again, or send a message instead."
+    },
     "validation": {
       "nameRequired": "Please enter your name.",
       "nameShort": "Please enter at least 2 characters.",

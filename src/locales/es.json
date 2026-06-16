@@ -255,6 +255,22 @@
     "success": "Gracias. Te respondemos en menos de un día hábil.",
     "error": "Algo falló y tu mensaje no se envió. Escríbenos por correo y lo resolvemos.",
     "emailLink": "O escríbenos a help@aetherml.com",
+    "book": {
+      "loading": "Buscando horarios disponibles…",
+      "loadError": "No pudimos cargar los horarios disponibles ahora mismo.",
+      "retry": "Intentar de nuevo",
+      "empty": "No hay horarios disponibles en los próximos 7 días.",
+      "emptyCta": "Envíanos un mensaje y encontramos un horario que te acomode.",
+      "tzNote": "Horarios en {{tz}}.",
+      "chosenLabel": "Tu horario",
+      "changeTime": "Cambiar",
+      "confirm": "Confirmar reserva",
+      "booking": "Reservando…",
+      "bookedTitle": "Estás agendado, {{name}}.",
+      "bookedBody": "Te enviamos una invitación de calendario a {{email}}. Nos vemos.",
+      "slotTaken": "Ese horario se acaba de ocupar — elige otro, por favor.",
+      "failed": "No pudimos confirmarlo. Inténtalo de nuevo o envíanos un mensaje."
+    },
     "validation": {
       "nameRequired": "Por favor ingresa tu nombre.",
       "nameShort": "Ingresa al menos 2 caracteres.",

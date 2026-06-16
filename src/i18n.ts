@@ -14,6 +14,8 @@ i18n
     },
     fallbackLng: "en",
     supportedLngs: ["en", "es"],
+    // Silence i18next's "powered by Locize" console.info banner in prod.
+    showSupportNotice: false,
     // Normalize regional codes so a browser set to e.g. "es-MX" or "es-419"
     // resolves cleanly to "es" everywhere — rendering, <html lang>, the language
     // sent to /api/lead, and analytics — instead of leaking the raw region code.

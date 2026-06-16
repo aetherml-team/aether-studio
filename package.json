@@ -13,7 +13,6 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@calcom/embed-react": "^1.5.3",
     "@fontsource-variable/bricolage-grotesque": "^5.2.10",
     "@fontsource-variable/hanken-grotesk": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
