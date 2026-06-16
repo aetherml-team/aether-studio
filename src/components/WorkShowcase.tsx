@@ -1,5 +1,5 @@
-import { useEffect, useState, type CSSProperties } from "react";
-import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-motion";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SectionCTA } from "@/components/SectionCTA";
@@ -59,7 +59,7 @@ function Slide({
     >
       {/* mockup */}
       <div className="group/mock [perspective:1400px]">
-        <motion.div
+        <m.div
           whileHover={reduced ? undefined : { rotateX: 3, rotateY: -4, scale: 1.015 }}
           transition={{ type: "spring", stiffness: 220, damping: 22 }}
           className="[transform-style:preserve-3d]"
@@ -71,7 +71,7 @@ function Slide({
             screenshot={visual.screenshot}
             alt={`${visual.name} — ${data.industry}`}
           />
-        </motion.div>
+        </m.div>
       </div>
 
       {/* narrative */}
@@ -141,7 +141,7 @@ const WorkShowcase = () => {
   const select = (i: number) => setState([i, i > active ? 1 : -1]);
 
   // Autoplay: advance every 12s. Re-arms when `active` changes (so manual nav
-  // resets the clock), pauses on hover/focus, and stays off for reduced motion.
+  // resets the clock), pauses on hover/focus, and stays off for reduced m.
   useEffect(() => {
     if (reduced || paused) return;
     const id = window.setTimeout(() => setState(([a]) => [(a + 1) % total, 1]), AUTOPLAY_MS);
@@ -153,9 +153,18 @@ const WorkShowcase = () => {
     else if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
   };
 
-  const onDragEnd = (_e: unknown, info: PanInfo) => {
-    if (info.offset.x < -SWIPE_THRESHOLD) go(1);
-    else if (info.offset.x > SWIPE_THRESHOLD) go(-1);
+  // Native pointer swipe — replaces framer's `drag` gesture so the carousel
+  // stays inside the lighter `domAnimation` LazyMotion feature set.
+  const swipeStartX = useRef<number | null>(null);
+  const onPointerDown = (e: React.PointerEvent) => {
+    swipeStartX.current = e.clientX;
+  };
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (swipeStartX.current === null) return;
+    const dx = e.clientX - swipeStartX.current;
+    swipeStartX.current = null;
+    if (dx < -SWIPE_THRESHOLD) go(1);
+    else if (dx > SWIPE_THRESHOLD) go(-1);
   };
 
   const visual = WORK[active];
@@ -177,7 +186,7 @@ const WorkShowcase = () => {
       onBlurCapture={() => setPaused(false)}
     >
       <div className="mx-auto max-w-7xl">
-        <motion.div
+        <m.div
           initial={reduced ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -190,7 +199,7 @@ const WorkShowcase = () => {
           <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
             {t("clients.sectionSub")}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* tabs + counter/arrows */}
         <div className="mt-10 flex flex-col gap-5 border-b border-border pb-5 md:mt-12 md:flex-row md:items-center md:justify-between">
@@ -255,9 +264,12 @@ const WorkShowcase = () => {
           aria-label={t("clients.sectionHeadline")}
           tabIndex={0}
           onKeyDown={onKeyDown}
+          onPointerDown={onPointerDown}
+          onPointerUp={onPointerUp}
+          style={{ touchAction: "pan-y" }}
         >
           <AnimatePresence mode="wait" custom={dir}>
-            <motion.div
+            <m.div
               key={active}
               custom={dir}
               variants={slideVariants}
@@ -265,10 +277,6 @@ const WorkShowcase = () => {
               animate="center"
               exit="exit"
               transition={{ duration: 0.4, ease: EASE }}
-              drag={reduced ? false : "x"}
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.12}
-              onDragEnd={reduced ? undefined : onDragEnd}
               className="cursor-grab active:cursor-grabbing"
             >
               <Slide
@@ -277,7 +285,7 @@ const WorkShowcase = () => {
                 metric={METRICS[active]}
                 whatDelivered={t("clients.whatDelivered")}
               />
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
 

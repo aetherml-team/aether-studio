@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import {
   Accordion,
@@ -26,7 +26,7 @@ const FAQSection = () => {
     >
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-16">
         {/* heading rail (left) */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -48,10 +48,10 @@ const FAQSection = () => {
           >
             {t("faq.askLink")}
           </a>
-        </motion.div>
+        </m.div>
 
         {/* disclosure list (right) — full-width rows, hairline rules, no card boxes */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -80,7 +80,7 @@ const FAQSection = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

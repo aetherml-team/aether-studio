@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { EASE, viewport } from "@/lib/motion";
 
 /* Breadth, not a logo-soup repeat of the hero graph. The point of this
@@ -48,7 +48,7 @@ const IntegrationsMarquee = () => {
       aria-labelledby="integrations-heading"
       className="seam-top relative overflow-hidden bg-background-deep/40 py-10 md:py-14"
     >
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={viewport}
@@ -67,7 +67,7 @@ const IntegrationsMarquee = () => {
         <p className="mx-auto mt-4 max-w-xl font-body text-[14.5px] font-light leading-relaxed text-muted-foreground">
           {t("integrations.subcopy")}
         </p>
-      </motion.div>
+      </m.div>
 
       <div
         className="group relative overflow-hidden"

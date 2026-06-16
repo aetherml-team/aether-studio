@@ -1,4 +1,4 @@
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { m, useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -60,7 +60,7 @@ const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <motion.nav
+    <m.nav
       role="navigation"
       aria-label="Primary"
       initial={{ opacity: 0, y: -12 }}
@@ -120,7 +120,7 @@ const Navbar = () => {
         <div className="hidden shrink-0 items-center gap-2 md:flex">
           <LanguageToggle />
           <ThemeToggle />
-          <motion.a
+          <m.a
             href="#contact-form"
             className="inline-flex items-center rounded-lg bg-primary px-5 py-2 font-body text-[13px] font-medium text-primary-foreground"
             whileHover={{ scale: 1.03, filter: "brightness(1.08)" }}
@@ -128,7 +128,7 @@ const Navbar = () => {
             transition={{ type: "spring", stiffness: 450, damping: 30 }}
           >
             {t("navbar.bookACall")}
-          </motion.a>
+          </m.a>
         </div>
 
         <button
@@ -144,7 +144,7 @@ const Navbar = () => {
       </div>
 
       {menuOpen && (
-        <motion.div
+        <m.div
           id="mobile-nav"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
@@ -176,9 +176,9 @@ const Navbar = () => {
           >
             {t("navbar.bookACall")}
           </a>
-        </motion.div>
+        </m.div>
       )}
-    </motion.nav>
+    </m.nav>
   );
 };
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Linkedin, Twitter } from "lucide-react";
@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-border px-6 py-16 md:px-10 md:py-20">
       <div className="gradient-strip mb-12 opacity-60" aria-hidden />
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={viewport}
@@ -44,7 +44,7 @@ const Footer = () => {
               {t("footer.tagline")}
             </p>
             <div className="mt-6 flex gap-4">
-              <motion.a
+              <m.a
                 href="https://www.linkedin.com/company/aetherml/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -54,8 +54,8 @@ const Footer = () => {
                 whileTap={{ scale: 0.96 }}
               >
                 <Linkedin className="h-4 w-4" />
-              </motion.a>
-              <motion.a
+              </m.a>
+              <m.a
                 href="https://x.com/AEtherML"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -65,12 +65,12 @@ const Footer = () => {
                 whileTap={{ scale: 0.96 }}
               >
                 <Twitter className="h-4 w-4" />
-              </motion.a>
+              </m.a>
             </div>
           </div>
 
           {navSections.map((section, si) => (
-            <motion.div
+            <m.div
               key={section.titleKey}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -92,11 +92,11 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={viewport}
@@ -120,8 +120,8 @@ const Footer = () => {
               {t("footer.terms")}
             </Link>
           </nav>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </footer>
   );
 };

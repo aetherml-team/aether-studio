@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence, m, useMotionValueEvent, useScroll } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { EASE } from "@/lib/motion";
@@ -18,7 +18,7 @@ const StickyMobileCTA = () => {
   return (
     <AnimatePresence>
       {show && (
-        <motion.a
+        <m.a
           href="#contact-form"
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -28,7 +28,7 @@ const StickyMobileCTA = () => {
         >
           <span>{t("stickyCta.label")}</span>
           <ArrowRight className="h-4 w-4" />
-        </motion.a>
+        </m.a>
       )}
     </AnimatePresence>
   );

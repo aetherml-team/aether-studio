@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { EASE, viewport } from "@/lib/motion";
 
 type SectionCTAProps = {
@@ -24,14 +24,14 @@ export function SectionCTA({
       : "inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground";
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewport}
       transition={{ duration: 0.55, ease: EASE }}
       className={`mt-12 md:mt-14 ${alignClass} ${className}`}
     >
-      <motion.a
+      <m.a
         href={href}
         className={styleClass}
         whileHover={{ scale: 1.02 }}
@@ -39,7 +39,7 @@ export function SectionCTA({
         transition={{ type: "spring", stiffness: 400, damping: 28 }}
       >
         {label}
-      </motion.a>
-    </motion.div>
+      </m.a>
+    </m.div>
   );
 }

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, type RefObject } from "react";
 import {
-  motion,
+  m,
   AnimatePresence,
   useReducedMotion,
   useAnimationFrame,
@@ -71,7 +71,7 @@ function Splash({ x, y, delay }: { x: number; y: number; delay: number }) {
   return (
     <g aria-hidden>
       {drops.map((d, i) => (
-        <motion.circle
+        <m.circle
           key={i}
           cx={x}
           cy={y}
@@ -82,7 +82,7 @@ function Splash({ x, y, delay }: { x: number; y: number; delay: number }) {
           transition={{ duration: 0.65, delay, times: [0, 0.4, 1], ease: "easeOut" }}
         />
       ))}
-      <motion.ellipse
+      <m.ellipse
         cx={x}
         cy={y}
         rx={7}
@@ -230,7 +230,7 @@ const AutomationGraph = ({
         const active = hover === i;
         const dim = hover !== null && !active;
         return (
-          <motion.path
+          <m.path
             key={`edge-${i}`}
             ref={edgeRefs.current[i]}
             d={d}
@@ -254,7 +254,7 @@ const AutomationGraph = ({
           fill="none"
           filter="url(#ag-soft)"
         />
-        <motion.path
+        <m.path
           ref={outRef}
           d={OUTPUT_PATH}
           stroke="url(#ag-edge-out)"
@@ -288,7 +288,7 @@ const AutomationGraph = ({
         <>
           {/* OUTER: the fall + three decaying bounces (translate only — no
               transformBox here, or the translate silently breaks) */}
-          <motion.g
+          <m.g
             initial={{ opacity: 0, y: -(CORE.y - 20) }}
             animate={{
               y: [-(CORE.y - 20), 0, -72, 0, -33, 0, -12, 0],
@@ -303,7 +303,7 @@ const AutomationGraph = ({
             aria-hidden
           >
             {/* INNER: squash on each ground contact (scale needs its own origin) */}
-            <motion.g
+            <m.g
               animate={{
                 scaleX: [0.9, 1.2, 0.97, 1.13, 0.99, 1.07, 1.0, 1.03],
                 scaleY: [1.16, 0.74, 1.05, 0.84, 1.02, 0.92, 1.0, 0.94],
@@ -319,15 +319,15 @@ const AutomationGraph = ({
               <ellipse cx={CORE.x} cy={CORE.y} rx={11} ry={15} fill="hsl(var(--primary) / 0.3)" filter="url(#ag-soft)" />
               <path d={TEARDROP} fill="hsl(var(--primary-bright))" />
               <ellipse cx={CORE.x - 2.4} cy={CORE.y - 2} rx={1.5} ry={2.3} fill="hsl(0 0% 100% / 0.55)" />
-            </motion.g>
-          </motion.g>
+            </m.g>
+          </m.g>
           <Splash x={CORE.x} y={CORE.y + 6} delay={0.78} />
           <Splash x={CORE.x} y={CORE.y + 6} delay={1.32} />
         </>
       )}
 
       {/* ── core (the second bounce becomes Æ) ── */}
-      <motion.g
+      <m.g
         initial={reduced ? false : { scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.55, delay: reduced ? 0 : 1.7, ease: [0.34, 1.56, 0.64, 1] }}
@@ -349,7 +349,7 @@ const AutomationGraph = ({
         >
           Æ
         </text>
-      </motion.g>
+      </m.g>
 
       {/* ── input nodes ── */}
       {INPUTS.map((label, i) => {
@@ -364,7 +364,7 @@ const AutomationGraph = ({
             style={{ cursor: "default", opacity: dim ? 0.45 : 1 }}
             className="transition-opacity duration-300"
           >
-            <motion.g
+            <m.g
               initial={reduced ? false : { opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: INTRO + 0.1 + i * 0.09, ease: EASE }}
@@ -397,13 +397,13 @@ const AutomationGraph = ({
               >
                 {label}
               </text>
-            </motion.g>
+            </m.g>
           </g>
         );
       })}
 
       {/* ── output node ── */}
-      <motion.g
+      <m.g
         initial={reduced ? false : { opacity: 0, scale: 0.85 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: reduced ? 0 : INTRO + 1.1, ease: EASE }}
@@ -429,7 +429,7 @@ const AutomationGraph = ({
           fill="none"
         />
         <AnimatePresence mode="wait">
-          <motion.text
+          <m.text
             key={outcomes[oi]}
             x={OUTPUT.x + 30}
             y={OUTPUT.y}
@@ -444,9 +444,9 @@ const AutomationGraph = ({
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {outcomes[oi]}
-          </motion.text>
+          </m.text>
         </AnimatePresence>
-      </motion.g>
+      </m.g>
     </svg>
   );
 };

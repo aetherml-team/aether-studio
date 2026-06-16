@@ -1,5 +1,5 @@
 import { useState, FormEvent, lazy, Suspense } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ShieldCheck, Zap, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -116,7 +116,7 @@ const ContactSection = () => {
       />
       <div className="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16">
         {/* left — value & credibility */}
-        <motion.div
+        <m.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -140,7 +140,7 @@ const ContactSection = () => {
             </p>
             <ol className="space-y-0">
               {steps.map((step, i) => (
-                <motion.li
+                <m.li
                   key={i}
                   initial={reduced ? false : { opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -152,7 +152,7 @@ const ContactSection = () => {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="font-body text-[15px] leading-relaxed text-foreground/85">{step}</span>
-                </motion.li>
+                </m.li>
               ))}
             </ol>
           </div>
@@ -169,10 +169,10 @@ const ContactSection = () => {
               );
             })}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* right — form */}
-        <motion.div
+        <m.div
           id="contact-form"
           initial={reduced ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,8 +184,16 @@ const ContactSection = () => {
             <div
               role="tablist"
               aria-label={t("contact.tabAria")}
-              className="mb-6 grid grid-cols-2 gap-1 rounded-xl border border-border bg-background/50 p-1"
+              className="relative mb-6 grid grid-cols-2 gap-1 rounded-xl border border-border bg-background/50 p-1"
             >
+              {/* Active-tab pill — a single CSS-transform element. Was a framer
+                  `layoutId` shared-layout animation; moved to CSS so the app
+                  needs only the lighter `domAnimation` LazyMotion feature set. */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute bottom-1 left-1 top-1 w-[calc((100%-0.75rem)/2)] rounded-lg bg-primary shadow-[0_10px_28px_-16px_hsl(var(--primary)/0.8)] transition-transform duration-300 ease-out motion-reduce:transition-none"
+                style={{ transform: tab === "message" ? "translateX(calc(100% + 0.25rem))" : "translateX(0)" }}
+              />
               {(["book", "message"] as const).map((key) => {
                 const active = tab === key;
                 return (
@@ -199,15 +207,6 @@ const ContactSection = () => {
                       active ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
-                    {active && (
-                      <motion.span
-                        layoutId="contact-tab-pill"
-                        className="absolute inset-0 rounded-lg bg-primary shadow-[0_10px_28px_-16px_hsl(var(--primary)/0.8)]"
-                        transition={
-                          reduced ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 34 }
-                        }
-                      />
-                    )}
                     <span className="relative z-10">
                       {t(key === "book" ? "contact.tabBook" : "contact.tabMessage")}
                     </span>
@@ -301,14 +300,14 @@ const ContactSection = () => {
             </div>
 
             {status === "sent" ? (
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="pt-2 text-center font-body text-sm text-success"
                 role="status"
               >
                 {t("contact.success")}
-              </motion.p>
+              </m.p>
             ) : (
               <div className="flex flex-col gap-3 pt-2">
                 {status === "error" && (
@@ -316,7 +315,7 @@ const ContactSection = () => {
                     {t("contact.error")}
                   </p>
                 )}
-                <motion.button
+                <m.button
                   type="submit"
                   disabled={status === "sending"}
                   className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-primary px-8 font-body text-[14px] font-medium text-primary-foreground shadow-[0_14px_36px_-18px_hsl(var(--primary)/0.7)] disabled:opacity-70"
@@ -325,7 +324,7 @@ const ContactSection = () => {
                   transition={{ type: "spring", stiffness: 400, damping: 28 }}
                 >
                   {status === "sending" ? t("contact.sending") : t("contact.submit")}
-                </motion.button>
+                </m.button>
                 <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between">
                   <span className="font-body text-[13px] text-muted-foreground">{t("contact.responseNote")}</span>
                   <a
@@ -339,7 +338,7 @@ const ContactSection = () => {
             )}
           </form>
           )}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

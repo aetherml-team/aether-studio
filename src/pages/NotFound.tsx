@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -51,7 +51,7 @@ const NotFound = () => {
           }}
           aria-hidden
         />
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
@@ -81,7 +81,7 @@ const NotFound = () => {
               <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </main>
 
       <Footer />

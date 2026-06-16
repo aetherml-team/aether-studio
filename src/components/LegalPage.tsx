@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -54,7 +54,7 @@ const LegalPage = ({ doc, path }: Props) => {
       </header>
 
       <main id="main" className="mx-auto max-w-3xl px-6 pb-16 pt-8 md:px-8 md:pb-24 md:pt-10">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
@@ -118,7 +118,7 @@ const LegalPage = ({ doc, path }: Props) => {
               {content.closing}
             </p>
           )}
-        </motion.div>
+        </m.div>
       </main>
 
       <Footer />

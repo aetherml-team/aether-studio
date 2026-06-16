@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { m, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import {
   Workflow,
@@ -40,7 +40,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="seam-top px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-7xl">
-        <motion.div
+        <m.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -53,11 +53,11 @@ const ServicesSection = () => {
           <p className="mt-4 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
             {t("services.description")}
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
           {/* selector */}
-          <motion.div
+          <m.div
             initial={reduced ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewport}
@@ -101,12 +101,12 @@ const ServicesSection = () => {
                 </button>
               );
             })}
-          </motion.div>
+          </m.div>
 
           {/* detail */}
           <div className="relative min-h-[300px]">
             <AnimatePresence mode="wait">
-              <motion.div
+              <m.div
                 key={sel}
                 initial={reduced ? false : { opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ const ServicesSection = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  motion,
+  m,
   AnimatePresence,
   useReducedMotion,
 } from "framer-motion";
@@ -113,7 +113,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
         {/* status — equalizer while running, a check once everything clears */}
         <AnimatePresence mode="wait" initial={false}>
           {finished ? (
-            <motion.span
+            <m.span
               key="done"
               initial={reduced ? false : { opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -122,16 +122,16 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
             >
               <Check className="h-3 w-3" strokeWidth={3} />
               {t("hero.panel.done")}
-            </motion.span>
+            </m.span>
           ) : (
-            <motion.span
+            <m.span
               key="live"
               exit={reduced ? undefined : { opacity: 0 }}
               className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-2.5 py-1"
             >
               <span className="flex h-3 items-end gap-[2px]" aria-hidden>
                 {[0, 1, 2].map((i) => (
-                  <motion.span
+                  <m.span
                     key={i}
                     className="w-[2px] rounded-full bg-primary"
                     animate={{ height: [4, 12, 4] }}
@@ -142,7 +142,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
               <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/70">
                 {t("hero.panel.live")}
               </span>
-            </motion.span>
+            </m.span>
           )}
         </AnimatePresence>
       </div>
@@ -191,7 +191,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
               <span className="flex shrink-0 items-center">
                 <AnimatePresence mode="wait" initial={false}>
                   {isDone ? (
-                    <motion.span
+                    <m.span
                       key="done"
                       initial={reduced ? false : { opacity: 0, scale: 0.7 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -200,9 +200,9 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
                     >
                       <Check className="h-3 w-3" strokeWidth={3} />
                       {task.tag}
-                    </motion.span>
+                    </m.span>
                   ) : isRunning ? (
-                    <motion.span
+                    <m.span
                       key="running"
                       initial={reduced ? false : { opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -211,7 +211,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
                     >
                       <Loader2 className="h-3 w-3 animate-spin text-primary" strokeWidth={2.5} />
                       {t("hero.panel.running")}
-                    </motion.span>
+                    </m.span>
                   ) : (
                     <span key="queued" className="h-3.5 w-3.5 rounded-full border border-border" aria-hidden />
                   )}
@@ -243,7 +243,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
 
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-1.5">
-            <motion.span
+            <m.span
               key={hours}
               initial={reduced ? false : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
@@ -251,7 +251,7 @@ const AutomationPanel = ({ className = "" }: { className?: string }) => {
               className="font-heading text-[26px] font-bold leading-none text-primary"
             >
               {hours}
-            </motion.span>
+            </m.span>
             <span className="font-heading text-[15px] font-semibold text-primary">
               {t("hero.panel.hoursUnit")}
             </span>

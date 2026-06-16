@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import {
-  motion,
+  m,
   useReducedMotion,
   useMotionValue,
   useSpring,
@@ -57,7 +57,7 @@ const HeroSection = () => {
       <div className="hero-grid relative z-10 mx-auto w-full max-w-7xl">
         {/* the statement, written then corrected */}
         <div className="hero-area-intro min-w-0">
-          <motion.h1
+          <m.h1
             {...fade(0.05, 10)}
             aria-label={`${t("hero.headline")} ${t("hero.headlineEmphasis")}`}
             className="font-heading text-[clamp(2.3rem,4.6vw,3.9rem)] font-bold leading-[1.06] tracking-[-0.025em] text-foreground"
@@ -72,39 +72,39 @@ const HeroSection = () => {
                 startDelay={420}
               />
             </span>
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             {...fade(0.28, 12)}
             className="mt-6 max-w-md font-body text-lg font-light leading-relaxed text-muted-foreground"
           >
             {t("hero.description")}
-          </motion.p>
+          </m.p>
         </div>
 
         {/* the work, running itself — shown before the CTAs on mobile so the
             proof lands before the ask */}
-        <motion.div
+        <m.div
           style={reduced ? undefined : { x: tx, y: ty }}
           className="hero-area-panel flex min-w-0 justify-center lg:min-h-[min(60vh,540px)] lg:items-center"
         >
-          <motion.div
+          <m.div
             initial={reduced ? false : { opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
             className="w-full max-w-[480px]"
           >
             <AutomationPanel className="mx-auto" />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* the ask */}
         <div className="hero-area-actions min-w-0">
-          <motion.div
+          <m.div
             {...fade(0.4, 12)}
             className="flex flex-wrap items-center gap-x-6 gap-y-4"
           >
-            <motion.a
+            <m.a
               href="#contact-form"
               className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2),0_14px_36px_-18px_hsl(var(--primary)/0.7)]"
               whileHover={reduced ? undefined : { scale: 1.02, filter: "brightness(1.06)" }}
@@ -112,7 +112,7 @@ const HeroSection = () => {
               transition={{ type: "spring", stiffness: 400, damping: 28 }}
             >
               {t("common.cta")}
-            </motion.a>
+            </m.a>
 
             <a
               href="#problem-solution"
@@ -123,14 +123,14 @@ const HeroSection = () => {
               </span>
               {t("hero.secondary")}
             </a>
-          </motion.div>
+          </m.div>
 
-          <motion.p
+          <m.p
             {...fade(0.5, 0)}
             className="mt-6 font-body text-[13px] text-foreground-muted"
           >
             {t("hero.offerNote")}
-          </motion.p>
+          </m.p>
         </div>
       </div>
     </section>

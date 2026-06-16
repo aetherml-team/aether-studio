@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { getCalApi } from "@calcom/embed-react";
 import { CalendarClock, ArrowRight } from "lucide-react";
 import { track } from "@/lib/analytics";
@@ -100,7 +100,7 @@ const BookCall = () => {
       <p className="mt-3 max-w-sm font-body text-[14.5px] font-light leading-relaxed text-muted-foreground">
         {t("contact.bookBody")}
       </p>
-      <motion.button
+      <m.button
         type="button"
         data-cal-namespace={CAL_NAMESPACE}
         data-cal-link={CAL_LINK}
@@ -112,7 +112,7 @@ const BookCall = () => {
       >
         {t("contact.bookCta")}
         <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-      </motion.button>
+      </m.button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import {
-  motion,
+  m,
   useReducedMotion,
   useScroll,
   useTransform,
@@ -55,7 +55,7 @@ function BeforeRow({
   const blur = useTransform(p, [start, end], ["blur(0px)", "blur(7px)"]);
 
   return (
-    <motion.div
+    <m.div
       style={{ x, y, opacity, scale, rotate, filter: blur }}
       className="absolute left-0 top-1/2 flex w-[268px] -translate-y-1/2 items-center gap-3 rounded-xl border border-border bg-card/95 px-4 py-2.5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.7)]"
     >
@@ -65,7 +65,7 @@ function BeforeRow({
         {tag}
       </span>
       <span className="font-mono text-[13px] font-bold text-destructive">?</span>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -82,37 +82,37 @@ function Core({ p, words }: { p: MotionValue<number>; words: string[] }) {
 
   return (
     <div className="relative flex flex-col items-center">
-      <motion.div
+      <m.div
         className="relative flex h-20 w-20 items-center justify-center rounded-full"
         style={{ scale }}
       >
-        <motion.span
+        <m.span
           className="absolute inset-0 rounded-full border border-primary/50"
           style={{ scale: ringScale, opacity: ringOpacity }}
           aria-hidden
         />
-        <motion.span
+        <m.span
           className="absolute inset-2 rounded-full bg-primary/20 blur-[10px]"
           style={{ opacity: glow }}
           aria-hidden
         />
         <span className="relative flex h-12 w-12 items-center justify-center rounded-full">
-          <motion.span
+          <m.span
             className="absolute inset-0 rounded-full bg-primary shadow-[0_0_20px_4px_hsl(var(--primary)/0.45)]"
             style={{ opacity: useTransform(done, (d) => 1 - d) }}
             aria-hidden
           />
-          <motion.span
+          <m.span
             className="absolute inset-0 rounded-full bg-success shadow-[0_0_20px_4px_hsl(var(--success)/0.45)]"
             style={{ opacity: done }}
             aria-hidden
           />
           <span className="relative z-10 font-heading text-lg font-semibold text-primary-foreground">Æ</span>
         </span>
-      </motion.div>
-      <motion.span className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground-dim">
+      </m.div>
+      <m.span className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground-dim">
         {statusText}
-      </motion.span>
+      </m.span>
     </div>
   );
 }
@@ -131,12 +131,12 @@ function Counter({ p, label, sub }: { p: MotionValue<number>; label: string; sub
     <div className="flex flex-col items-center text-center">
       <span className="relative inline-flex items-start">
         <span className="relative inline-block">
-          <motion.span className={`${numClass} text-foreground`} style={{ opacity: inkOpacity }}>
+          <m.span className={`${numClass} text-foreground`} style={{ opacity: inkOpacity }}>
             {text}
-          </motion.span>
-          <motion.span className={`${numClass} absolute inset-0 text-success`} style={{ opacity: doneOpacity }} aria-hidden>
+          </m.span>
+          <m.span className={`${numClass} absolute inset-0 text-success`} style={{ opacity: doneOpacity }} aria-hidden>
             {text}
-          </motion.span>
+          </m.span>
         </span>
         <span className="ml-1 mt-1.5 font-heading text-2xl font-bold text-primary md:text-3xl" aria-hidden>+</span>
       </span>
@@ -166,7 +166,7 @@ function ResolvedCard({
   const scale = useTransform(p, [0.58, 0.86], [0.94, 1]);
 
   return (
-    <motion.div
+    <m.div
       style={reduced ? undefined : { opacity, x, scale }}
       className="glow-border w-[272px] rounded-2xl border border-success/30 bg-card p-5 shadow-[0_28px_70px_-32px_hsl(var(--success)/0.55)]"
     >
@@ -185,7 +185,7 @@ function ResolvedCard({
           12<span className="ml-1 text-base font-medium text-foreground-muted">min</span>
         </span>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -209,7 +209,7 @@ const WorkDisappearsSection = () => {
 
   const Heading = (
     <div className="mx-auto max-w-7xl px-6 md:px-10">
-      <motion.div
+      <m.div
         initial={reduced ? false : { opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={viewport}
@@ -225,14 +225,14 @@ const WorkDisappearsSection = () => {
         <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
           {t("problemSolution.problemBody")}
         </p>
-      </motion.div>
+      </m.div>
     </div>
   );
 
   const Resolution = (
     <div className="mx-auto max-w-7xl px-6 md:px-10">
       <div className="grid gap-8 md:grid-cols-12 md:gap-12">
-        <motion.h3
+        <m.h3
           initial={reduced ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -240,8 +240,8 @@ const WorkDisappearsSection = () => {
           className="font-heading text-balance text-2xl font-bold tracking-tight text-foreground md:col-span-7 md:text-3xl"
         >
           {t("problemSolution.solutionHeadline")}
-        </motion.h3>
-        <motion.div
+        </m.h3>
+        <m.div
           initial={reduced ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -258,7 +258,7 @@ const WorkDisappearsSection = () => {
               </span>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );
@@ -312,18 +312,18 @@ const WorkDisappearsSection = () => {
               <div className="texture-grid pointer-events-none absolute inset-0 opacity-50" aria-hidden />
 
               {/* state labels */}
-              <motion.span
+              <m.span
                 style={{ opacity: beforeLabelOpacity }}
                 className="absolute left-6 top-5 font-mono text-[11px] uppercase tracking-[0.14em] text-destructive/80 md:left-10"
               >
                 {t("problemSolution.sceneBefore")}
-              </motion.span>
-              <motion.span
+              </m.span>
+              <m.span
                 style={{ opacity: afterLabelOpacity }}
                 className="absolute right-6 top-5 font-mono text-[11px] uppercase tracking-[0.14em] text-success/80 md:right-10"
               >
                 {t("problemSolution.sceneAfter")}
-              </motion.span>
+              </m.span>
 
               {/* three-zone composition, always populated during the scrub */}
               <div className="absolute inset-0 grid grid-cols-1 items-center gap-6 px-6 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:px-16">
@@ -365,13 +365,13 @@ const WorkDisappearsSection = () => {
               </div>
 
               {/* scrub hint */}
-              <motion.div
+              <m.div
                 style={{ opacity: hintOpacity }}
                 className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-foreground-muted"
               >
                 <span className="h-3 w-px animate-pulse bg-primary/60" aria-hidden />
                 {t("problemSolution.sceneScrub")}
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </div>

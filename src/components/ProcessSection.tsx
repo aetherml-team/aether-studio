@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Radar, Workflow, Activity } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
@@ -18,7 +18,7 @@ const ProcessSection = () => {
   return (
     <section id="process" className="seam-top bg-background-deep/40 px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-7xl">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -31,12 +31,12 @@ const ProcessSection = () => {
           <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-muted-foreground">
             {t("process.description")}
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="relative grid gap-12 md:grid-cols-3 md:gap-7">
           {/* connecting rail that fills as the row enters */}
           <div className="absolute left-1 right-1 top-[15px] hidden h-px bg-border md:block" aria-hidden>
-            <motion.div
+            <m.div
               className="h-full origin-left bg-gradient-to-r from-primary via-primary/70 to-primary/25"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -48,7 +48,7 @@ const ProcessSection = () => {
           {steps.map((step, i) => {
             const Glyph = GLYPHS[i] ?? Radar;
             return (
-              <motion.div
+              <m.div
                 key={step.title}
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ const ProcessSection = () => {
                     {deliverables[i]}
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

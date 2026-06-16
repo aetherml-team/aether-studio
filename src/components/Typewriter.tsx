@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 /* Writes the "wrong" line, strikes it through (a line drawn across the middle,
    like crossing out a mistake), clears it, then writes the corrected line.
@@ -118,7 +118,7 @@ const Typewriter = ({
       <span className="relative inline-block">
         {text || "​"}
         {phase === "strike" && (
-          <motion.span
+          <m.span
             aria-hidden
             className="absolute left-0 top-[52%] h-[2.5px] w-full rounded-full bg-current"
             initial={{ scaleX: 0, opacity: 0.9 }}

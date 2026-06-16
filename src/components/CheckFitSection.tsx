@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Check, Minus } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
@@ -39,7 +39,7 @@ const CheckFitSection = () => {
 
         <ul className="mt-6 space-y-0">
           {items.map((item, i) => (
-            <motion.li
+            <m.li
               key={item}
               initial={reduced ? false : { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ const CheckFitSection = () => {
               >
                 {item}
               </span>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
       </div>
@@ -70,7 +70,7 @@ const CheckFitSection = () => {
   return (
     <section id="check-fit" className="seam-top px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-7xl">
-        <motion.div
+        <m.div
           initial={reduced ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
@@ -83,7 +83,7 @@ const CheckFitSection = () => {
           <p className="mt-5 max-w-xl font-body text-[15px] font-light leading-relaxed text-muted-foreground">
             {t("checkFit.description")}
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-0">
           {/* center divider (desktop) */}
@@ -92,7 +92,7 @@ const CheckFitSection = () => {
           <Column label={t("checkFit.notFitLabel")} items={notFit} kind="not" delay={0.12} />
         </div>
 
-        <motion.p
+        <m.p
           initial={reduced ? false : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={viewport}
@@ -100,7 +100,7 @@ const CheckFitSection = () => {
           className="mt-12 text-center font-body text-sm text-muted-foreground"
         >
           {t("checkFit.soundLikeYou")}
-        </motion.p>
+        </m.p>
 
         <SectionCTA label={t("common.cta")} />
       </div>
