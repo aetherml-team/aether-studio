@@ -7,13 +7,15 @@ import {
   useTransform,
 } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, MessageCircle } from "lucide-react";
 import { EASE } from "@/lib/motion";
+import { track } from "@/lib/analytics";
+import { whatsappEnabled, whatsappUrl } from "@/lib/contact";
 import AutomationPanel from "@/components/AutomationPanel";
 import Typewriter from "@/components/Typewriter";
 
 const HeroSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const reduced = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -82,8 +84,8 @@ const HeroSection = () => {
           </m.p>
         </div>
 
-        {/* the work, running itself — shown before the CTAs on mobile so the
-            proof lands before the ask */}
+        {/* the work, running itself — on mobile this follows the CTAs as
+            supporting proof so the ask stays above the fold */}
         <m.div
           style={reduced ? undefined : { x: tx, y: ty }}
           className="hero-area-panel flex min-w-0 justify-center lg:min-h-[min(60vh,540px)] lg:items-center"
@@ -100,19 +102,34 @@ const HeroSection = () => {
 
         {/* the ask */}
         <div className="hero-area-actions min-w-0">
-          <m.div
-            {...fade(0.4, 12)}
-            className="flex flex-wrap items-center gap-x-6 gap-y-4"
-          >
-            <m.a
-              href="#contact-form"
-              className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2),0_14px_36px_-18px_hsl(var(--primary)/0.7)]"
-              whileHover={reduced ? undefined : { scale: 1.02, filter: "brightness(1.06)" }}
-              whileTap={reduced ? undefined : { scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 28 }}
-            >
-              {t("common.cta")}
-            </m.a>
+          <m.div {...fade(0.4, 12)} className="flex flex-col gap-5">
+            <div className="flex flex-wrap items-center gap-3">
+              <m.a
+                href="#contact-form"
+                className="inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.2),0_14px_36px_-18px_hsl(var(--primary)/0.7)]"
+                whileHover={reduced ? undefined : { scale: 1.02, filter: "brightness(1.06)" }}
+                whileTap={reduced ? undefined : { scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 28 }}
+              >
+                {t("common.cta")}
+              </m.a>
+
+              {whatsappEnabled && (
+                <m.a
+                  href={whatsappUrl(t("whatsapp.prefill"))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => track("WhatsApp Click", { location: "hero", language: i18n.language })}
+                  className="inline-flex h-12 items-center gap-2 rounded-lg border border-border bg-background/40 px-6 font-body text-[14px] font-medium text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  whileHover={reduced ? undefined : { scale: 1.02 }}
+                  whileTap={reduced ? undefined : { scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                >
+                  <MessageCircle className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                  {t("whatsapp.cta")}
+                </m.a>
+              )}
+            </div>
 
             <a
               href="#problem-solution"

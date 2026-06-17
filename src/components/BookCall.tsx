@@ -108,6 +108,22 @@ const BookCall = () => {
   const fmtTime = (iso: string) =>
     new Intl.DateTimeFormat(lang, { hour: "numeric", minute: "2-digit" }).format(new Date(iso));
 
+  // A human-friendly label for the visitor's timezone — city + offset, e.g.
+  // "Mexico City (GMT-6)" — instead of the raw IANA id "America/Mexico_City".
+  const friendlyTz = useMemo(() => {
+    const city = BROWSER_TZ.split("/").pop()?.replace(/_/g, " ") ?? BROWSER_TZ;
+    let offset = "";
+    try {
+      offset =
+        new Intl.DateTimeFormat(lang, { timeZone: BROWSER_TZ, timeZoneName: "short" })
+          .formatToParts(new Date())
+          .find((p) => p.type === "timeZoneName")?.value ?? "";
+    } catch {
+      offset = "";
+    }
+    return offset ? `${city} (${offset})` : city;
+  }, [lang]);
+
   const pickTime = (iso: string) => {
     setSelected(iso);
     setStep("details");
@@ -293,7 +309,7 @@ const BookCall = () => {
               </p>
             )}
             <p className="text-center font-body text-[12px] text-muted-foreground/80">
-              {t("contact.book.tzNote", { tz: BROWSER_TZ })}
+              {t("contact.book.tzNote", { tz: friendlyTz })}
             </p>
 
             {/* day selector */}

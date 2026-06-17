@@ -140,6 +140,9 @@
     scroll-behavior: smooth;
     /* Offset fixed navbar when jumping to #section anchors */
     scroll-padding-top: 5rem;
+    /* Never allow horizontal scroll / dead space from a stray wide element on
+       narrow viewports. `clip` (not `hidden`) keeps position: sticky working. */
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -152,6 +155,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -243,19 +247,20 @@
     }
   }
 
-  /* Hero layout. On mobile the order is intro → panel → actions, so the
-     "Your week" panel — the proof of what we do — lands BEFORE the CTAs
-     instead of after them. On desktop it splits into two columns with the
-     panel spanning the full height on the right, centered against the copy. */
+  /* Hero layout. On mobile the order is intro → actions → panel, so the
+     headline + subhead + primary CTAs all land in the first screen (above the
+     fold), and the "Your week" panel follows as supporting proof. On desktop it
+     splits into two columns with the panel spanning the full height on the
+     right, centered against the copy. */
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
       "intro"
-      "panel"
-      "actions";
+      "actions"
+      "panel";
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
   }
   .hero-area-intro {
     grid-area: intro;

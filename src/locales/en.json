@@ -2,6 +2,12 @@
   "common": {
     "cta": "Get my free audit"
   },
+  "whatsapp": {
+    "cta": "Message us on WhatsApp",
+    "ctaShort": "WhatsApp",
+    "or": "or leave your details",
+    "prefill": "Hi Æther 👋 I'd like the free 20-min audit."
+  },
   "seo": {
     "title": "Æther · You run the business. We run the rest.",
     "description": "You run the business. We run the rest. Æther builds and runs the technology your company depends on — AI, software, automation, and security. Based in Guadalajara, working with teams everywhere."
@@ -19,10 +25,10 @@
   },
   "hero": {
     "kicker": "Your in-house tech team · Guadalajara",
-    "headline": "The technical work,",
-    "headlineWrong": "piling up on you.",
-    "headlineEmphasis": "off your plate.",
-    "description": "We build and run the systems your business depends on — automation, AI, software, and security — so you get your hours back.",
+    "headline": "Focus on your business.",
+    "headlineWrong": "And on the tech.",
+    "headlineEmphasis": "We handle the rest.",
+    "description": "We're the tech team your company doesn't have to hire. We build and run your automation, AI, software, and security — so you get your hours back.",
     "availability": "Taking 3 new clients this month",
     "secondary": "See how it works",
     "proof": "Kraken's Bay Studio reclaimed 30+ hours a week — billing and scheduling, automated.",
@@ -75,7 +81,7 @@
   },
   "services": {
     "headline": "What we take off your plate.",
-    "description": "Every service comes with receipts: real results from real clients, not numbers from a pitch deck.",
+    "description": "You don't pick one service off a menu — you get the whole tech team. And everything we do comes with receipts: real results from real clients, not numbers from a pitch deck.",
     "receiptLabel": "The receipt",
     "items": [
       {

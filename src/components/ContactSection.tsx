@@ -1,11 +1,12 @@
 import { useState, FormEvent, lazy, Suspense } from "react";
 import { m, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ShieldCheck, Zap, Users } from "lucide-react";
+import { ShieldCheck, Zap, Users, MessageCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { EASE, viewport } from "@/lib/motion";
 import { track } from "@/lib/analytics";
 import { schedulingEnabled } from "@/lib/scheduling";
+import { whatsappEnabled, whatsappUrl } from "@/lib/contact";
 
 // Heavy Cal.com embed — only loaded when a visitor opens the "Book a call" tab.
 const BookCall = lazy(() => import("@/components/BookCall"));
@@ -121,6 +122,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
           transition={{ duration: 0.7, ease: EASE }}
+          className="min-w-0"
         >
           <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.18em] text-primary/80">
             {t("hero.availability")}
@@ -178,7 +180,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-          className="glow-border scroll-mt-24 rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm md:p-8"
+          className="glow-border min-w-0 scroll-mt-24 rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm md:p-8"
         >
           {schedulingEnabled && (
             <div
@@ -230,6 +232,28 @@ const ContactSection = () => {
               </button>
             </div>
           ) : (
+          <>
+          {whatsappEnabled && (
+            <div className="mb-5">
+              <a
+                href={whatsappUrl(t("whatsapp.prefill"))}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track("WhatsApp Click", { location: "contact", language: i18n.language })}
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-primary/40 bg-primary/5 px-6 font-body text-[14px] font-medium text-foreground transition-colors hover:border-primary/60 hover:bg-primary/10"
+              >
+                <MessageCircle className="h-4 w-4 text-primary" strokeWidth={1.75} aria-hidden />
+                {t("whatsapp.cta")}
+              </a>
+              <div className="my-5 flex items-center gap-3">
+                <span className="h-px flex-1 bg-border" aria-hidden />
+                <span className="font-body text-[11.5px] uppercase tracking-[0.14em] text-muted-foreground/70">
+                  {t("whatsapp.or")}
+                </span>
+                <span className="h-px flex-1 bg-border" aria-hidden />
+              </div>
+            </div>
+          )}
           <form onSubmit={onSubmit} noValidate className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
@@ -337,6 +361,7 @@ const ContactSection = () => {
               </div>
             )}
           </form>
+          </>
           )}
         </m.div>
       </div>

@@ -2,6 +2,12 @@
   "common": {
     "cta": "Quiero mi auditoría gratis"
   },
+  "whatsapp": {
+    "cta": "Escríbenos por WhatsApp",
+    "ctaShort": "WhatsApp",
+    "or": "o déjanos tus datos",
+    "prefill": "Hola Æther 👋 Me interesa la auditoría gratis de 20 min."
+  },
   "seo": {
     "title": "Æther · Tú llevas el negocio. Nosotros, lo demás.",
     "description": "Tú llevas el negocio; nosotros, lo demás. Æther construye y opera la tecnología de la que depende tu empresa — IA, software, automatización y seguridad. Desde Guadalajara, trabajando con equipos en todas partes."
@@ -19,10 +25,10 @@
   },
   "hero": {
     "kicker": "Tu equipo técnico interno · Guadalajara",
-    "headline": "El trabajo técnico,",
-    "headlineWrong": "acumulándose.",
-    "headlineEmphasis": "fuera de tu lista.",
-    "description": "Construimos y operamos los sistemas de los que depende tu negocio — automatización, IA, software y seguridad — para que recuperes tus horas.",
+    "headline": "Enfócate en tu negocio.",
+    "headlineWrong": "Y en la tecnología.",
+    "headlineEmphasis": "Nosotros nos encargamos.",
+    "description": "Somos el equipo técnico que tu empresa no tiene que contratar. Construimos y operamos tu automatización, IA, software y seguridad — para que recuperes tus horas.",
     "availability": "Tomamos 3 clientes nuevos este mes",
     "secondary": "Mira cómo funciona",
     "proof": "Kraken's Bay Studio recuperó 30+ horas a la semana — facturación y agenda, automatizadas.",
@@ -75,7 +81,7 @@
   },
   "services": {
     "headline": "Lo que te quitamos de encima.",
-    "description": "Cada servicio viene con recibos: resultados reales de clientes reales, no números de una presentación.",
+    "description": "No eliges un servicio de un menú: te damos el equipo técnico completo. Y cada cosa que hacemos viene con recibos — resultados reales de clientes reales, no números de una presentación.",
     "receiptLabel": "El recibo",
     "items": [
       {
