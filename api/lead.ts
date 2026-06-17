@@ -67,8 +67,8 @@ export function renderLeadEmail(d: {
   message: string;
   language: string;
   receivedAt: string;
-  // "booking" when the lead came in via the Cal.com calendar (see
-  // api/cal-webhook.ts); defaults to the contact-form copy.
+  // "booking" when the lead came in via the native Calendly flow (see
+  // api/book.ts); defaults to the contact-form copy.
   source?: "form" | "booking";
   // Human-readable slot, only present for bookings.
   scheduledFor?: string;

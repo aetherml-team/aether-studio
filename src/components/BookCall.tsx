@@ -7,16 +7,15 @@ import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics";
 
 /**
- * Native "Book a call" panel for the contact section. Replaces the old Cal.com
- * embed with a custom slot picker + details form that talk to our own serverless
- * proxies (api/availability.ts → Calendly available times, api/book.ts → Calendly
- * create-invitee). The Calendly token stays server-side; this component only ever
- * sees a list of ISO slot times and posts the chosen one with the booker's name,
- * email and an optional note.
+ * Native "Book a call" panel for the contact section: a custom slot picker +
+ * details form that talk to our own serverless proxies (api/availability.ts →
+ * Calendly available times, api/book.ts → Calendly create-invitee). The Calendly
+ * token stays server-side; this component only ever sees a list of ISO slot times
+ * and posts the chosen one with the booker's name, email and an optional note.
  *
  * Lazy-loaded by ContactSection. On a successful booking, api/book.ts fires the
  * same branded Resend confirmation the contact form sends; here we mirror the
- * "Audit Booked" analytics event the old embed reported.
+ * "Audit Booked" analytics event.
  */
 
 type LoadState = "loading" | "ready" | "error";

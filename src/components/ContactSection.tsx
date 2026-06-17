@@ -8,7 +8,7 @@ import { track } from "@/lib/analytics";
 import { schedulingEnabled } from "@/lib/scheduling";
 import { whatsappEnabled, whatsappUrl } from "@/lib/contact";
 
-// Heavy Cal.com embed — only loaded when a visitor opens the "Book a call" tab.
+// Native booking panel — lazy-loaded only when a visitor opens the "Book a call" tab.
 const BookCall = lazy(() => import("@/components/BookCall"));
 
 type Status = "idle" | "sending" | "sent" | "error";
