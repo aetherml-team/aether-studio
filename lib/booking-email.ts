@@ -280,18 +280,21 @@ function formatIcsUtc(date: Date): string {
   return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
 }
 
-/** Calendar invite (.ics) with Zoom URL in LOCATION + DESCRIPTION for Google/Outlook. */
+/** Calendar invite (.ics) with Zoom URL — formatted for Google Calendar video join. */
 export function buildBookingCalendarInvite(d: {
   uid: string;
   startMs: number;
   endMs: number;
   meetingUrl?: string;
   language: string;
+  organizerEmail?: string;
+  attendeeEmail?: string;
 }): string {
   const t = bookingEmailCopy(d.language);
   const description = d.meetingUrl
     ? `${t.eventDescription}\n\nJoin Zoom: ${d.meetingUrl}`
     : t.eventDescription;
+  const organizer = d.organizerEmail || "help@aetherml.com";
 
   const lines = [
     "BEGIN:VCALENDAR",
@@ -306,8 +309,12 @@ export function buildBookingCalendarInvite(d: {
     `DTEND:${formatIcsUtc(new Date(d.endMs))}`,
     `SUMMARY:${foldIcsText(t.eventTitle)}`,
     `DESCRIPTION:${foldIcsText(description)}`,
+    `ORGANIZER;CN=Aether Studio:mailto:${organizer}`,
+    d.attendeeEmail ? `ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE:mailto:${d.attendeeEmail}` : "",
     d.meetingUrl ? `LOCATION:${foldIcsText(d.meetingUrl)}` : "",
     d.meetingUrl ? `URL:${foldIcsText(d.meetingUrl)}` : "",
+    d.meetingUrl ? `X-GOOGLE-CONFERENCE:${foldIcsText(d.meetingUrl)}` : "",
+    d.meetingUrl ? `CONFERENCE;VALUE=URI;FEATURE=VIDEO,PHONE:${foldIcsText(d.meetingUrl)}` : "",
     "STATUS:CONFIRMED",
     "SEQUENCE:0",
     "END:VEVENT",
