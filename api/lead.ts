@@ -17,6 +17,8 @@ import { Resend } from "resend";
 // sending Resend an empty address, which fails the send with a 502.
 const TO = process.env.LEAD_TO || "help@aetherml.com";
 const FROM = process.env.LEAD_FROM || "Æther Studio <leads@aetherml.com>";
+const SITE_URL = "https://www.aetherml.com";
+const LOGO_URL = `${SITE_URL}/web-app-manifest-192x192.png`;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -60,6 +62,46 @@ function label(text: string): string {
   )}</span>`;
 }
 
+/** Primary CTA button — bulletproof table layout for email clients. */
+function ctaButton(href: string, text: string): string {
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:18px">
+  <tr>
+    <td style="border-radius:10px;background-color:${C.accent}">
+      <a href="${escapeHtml(href)}" style="display:inline-block;padding:14px 28px;font-family:${SANS};font-size:14px;font-weight:600;color:${C.onAccent};text-decoration:none">
+        ${escapeHtml(text)} &rarr;
+      </a>
+    </td>
+  </tr>
+</table>`;
+}
+
+/** Header row with logo + wordmark. */
+function wordmarkHeader(tagline?: string): string {
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td style="padding-right:14px;vertical-align:middle">
+      <img src="${LOGO_URL}" width="44" height="44" alt="Æther Studio" style="display:block;border:0;border-radius:10px">
+    </td>
+    <td style="vertical-align:middle">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="font-family:${HEADING};font-size:20px;font-weight:700;letter-spacing:0.02em;color:${C.text}">&AElig;ther</td>
+          <td style="padding-left:12px"><div style="width:34px;height:1px;background-color:${C.accent};opacity:0.55"></div></td>
+          <td style="padding-left:12px;font-family:${MONO};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${C.muted}">Studio</td>
+        </tr>
+      </table>
+      ${
+        tagline
+          ? `<div style="margin-top:9px;font-family:${SANS};font-size:13px;line-height:1.5;color:${C.dim}">${escapeHtml(
+              tagline
+            )}</div>`
+          : ""
+      }
+    </td>
+  </tr>
+</table>`;
+}
+
 /** Renders the lead-notification email as bulletproof, dark-themed HTML. */
 export function renderLeadEmail(d: {
   name: string;
@@ -72,6 +114,8 @@ export function renderLeadEmail(d: {
   source?: "form" | "booking";
   // Human-readable slot, only present for bookings.
   scheduledFor?: string;
+  // Zoom / video link from TidyCal (bookings only).
+  meetingUrl?: string;
 }): string {
   const firstName = d.name.split(/\s+/)[0] || d.name;
   const lang = d.language.toLowerCase().startsWith("es") ? "Español" : "English";
@@ -113,15 +157,7 @@ export function renderLeadEmail(d: {
 
         <!-- wordmark -->
         <tr>
-          <td style="padding:4px 4px 22px">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="font-family:${HEADING};font-size:20px;font-weight:700;letter-spacing:0.02em;color:${C.text}">&AElig;ther</td>
-                <td style="padding-left:12px"><div style="width:34px;height:1px;background-color:${C.accent};opacity:0.55"></div></td>
-                <td style="padding-left:12px;font-family:${MONO};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${C.muted}">Studio</td>
-              </tr>
-            </table>
-          </td>
+          <td style="padding:4px 4px 22px">${wordmarkHeader()}</td>
         </tr>
 
         <!-- card -->
@@ -150,6 +186,16 @@ export function renderLeadEmail(d: {
               )}
               ${row("Language", escapeHtml(lang))}
               ${isBooking && d.scheduledFor ? row("Scheduled for", escapeHtml(d.scheduledFor)) : ""}
+              ${
+                isBooking && d.meetingUrl
+                  ? row(
+                      "Video call",
+                      `<a href="${escapeHtml(d.meetingUrl)}" style="color:${C.accentBright};text-decoration:none;word-break:break-all">${escapeHtml(
+                        d.meetingUrl
+                      )}</a>`
+                    )
+                  : ""
+              }
             </table>
 
             <!-- message -->
@@ -243,23 +289,29 @@ const CONFIRM_COPY = {
 const BOOKING_CONFIRM_OVERRIDE = {
   en: {
     subject: "Your call is booked — Æther Studio",
-    preheader: "Your call is booked — the time and invite are in your calendar.",
+    preheader: "Your call is booked — here's your Zoom link and time.",
     eyebrow: "Call booked",
-    heading: (first: string) => `You're booked, ${first}.`,
-    lead: "Your call with Æther is locked in. The time and a calendar invite are on their way in a separate email — this note is just us saying we're looking forward to it.",
-    nextLabel: "What happens next",
-    next: "We'll come to the call having looked at where your hours are going, ready to walk through what we'd build to win them back.",
+    heading: () => "Your call is confirmed.",
+    lead: "We've locked in your time with Æther. Join the video call below at the scheduled time — we'll come ready to talk through where your hours are going.",
+    nextLabel: "Before the call",
+    next: "No prep needed. If you want to share context ahead of time, just reply to this email.",
     whenLabel: "Your slot",
+    joinLabel: "Video call",
+    joinButton: "Join on Zoom",
+    joinHint: "This link is unique to your booking. A calendar invite is on its way too.",
   },
   es: {
     subject: "Tu llamada está confirmada — Æther Studio",
-    preheader: "Tu llamada está confirmada — la hora y la invitación están en tu calendario.",
+    preheader: "Tu llamada está confirmada — aquí tienes el enlace de Zoom y la hora.",
     eyebrow: "Llamada confirmada",
-    heading: (first: string) => `Estás agendado, ${first}.`,
-    lead: "Tu llamada con Æther está confirmada. La hora y una invitación de calendario van en un correo aparte — este mensaje es solo para decirte que lo esperamos con ganas.",
-    nextLabel: "Qué sigue",
-    next: "Llegaremos a la llamada habiendo revisado a dónde se van tus horas, listos para repasar qué construiríamos para recuperarlas.",
+    heading: () => "Tu llamada está confirmada.",
+    lead: "Tu hora con Æther ya está reservada. Únete a la videollamada abajo a la hora programada — llegaremos listos para revisar a dónde se van tus horas.",
+    nextLabel: "Antes de la llamada",
+    next: "No necesitas preparar nada. Si quieres compartir contexto antes, responde a este correo.",
     whenLabel: "Tu horario",
+    joinLabel: "Videollamada",
+    joinButton: "Entrar a Zoom",
+    joinHint: "Este enlace es único para tu reserva. También te enviaremos una invitación de calendario.",
   },
 } as const;
 
@@ -271,6 +323,7 @@ export function renderConfirmationEmail(d: {
   receivedAt: string;
   source?: "form" | "booking";
   scheduledFor?: string;
+  meetingUrl?: string;
 }): string {
   const firstName = d.name.split(/\s+/)[0] || d.name;
   const isEs = d.language.toLowerCase().startsWith("es");
@@ -278,6 +331,38 @@ export function renderConfirmationEmail(d: {
   const base = isEs ? CONFIRM_COPY.es : CONFIRM_COPY.en;
   const override = isEs ? BOOKING_CONFIRM_OVERRIDE.es : BOOKING_CONFIRM_OVERRIDE.en;
   const t = isBooking ? { ...base, ...override } : base;
+  const headingText = isBooking ? override.heading() : t.heading(firstName);
+
+  const bookingDetails =
+    isBooking && (d.scheduledFor || d.meetingUrl)
+      ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0">
+  <tr>
+    <td style="background-color:${C.panel};border:1px solid ${C.borderSoft};border-radius:12px;padding:22px 24px">
+      ${
+        d.scheduledFor
+          ? `<div style="margin-bottom:${d.meetingUrl ? "16px" : "0"}">
+        <div style="margin-bottom:6px">${label(override.whenLabel)}</div>
+        <div style="font-family:${SANS};font-size:16px;line-height:1.5;font-weight:600;color:${C.text}">${escapeHtml(
+            d.scheduledFor
+          )}</div>
+      </div>`
+          : ""
+      }
+      ${
+        d.meetingUrl
+          ? `<div>
+        <div style="margin-bottom:6px">${label(override.joinLabel)}</div>
+        ${ctaButton(d.meetingUrl, override.joinButton)}
+        <p style="margin:12px 0 0;font-family:${SANS};font-size:13px;line-height:1.5;color:${C.muted}">${escapeHtml(
+            override.joinHint
+          )}</p>
+      </div>`
+          : ""
+      }
+    </td>
+  </tr>
+</table>`
+      : "";
 
   return `<!DOCTYPE html>
 <html lang="${d.language.toLowerCase().startsWith("es") ? "es" : "en"}" style="margin:0;padding:0">
@@ -299,18 +384,7 @@ export function renderConfirmationEmail(d: {
 
         <!-- wordmark -->
         <tr>
-          <td style="padding:4px 4px 22px">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="font-family:${HEADING};font-size:20px;font-weight:700;letter-spacing:0.02em;color:${C.text}">&AElig;ther</td>
-                <td style="padding-left:12px"><div style="width:34px;height:1px;background-color:${C.accent};opacity:0.55"></div></td>
-                <td style="padding-left:12px;font-family:${MONO};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${C.muted}">Studio</td>
-              </tr>
-            </table>
-            <div style="margin-top:11px;font-family:${SANS};font-size:13px;line-height:1.5;color:${C.dim}">${escapeHtml(
-    t.tagline
-  )}</div>
-          </td>
+          <td style="padding:4px 4px 22px">${wordmarkHeader(t.tagline)}</td>
         </tr>
 
         <!-- card -->
@@ -319,11 +393,13 @@ export function renderConfirmationEmail(d: {
 
             <div style="margin-bottom:14px">${label(t.eyebrow)}</div>
             <h1 style="margin:0 0 10px;font-family:${HEADING};font-size:25px;line-height:1.25;font-weight:700;color:${C.text}">
-              ${escapeHtml(t.heading(firstName))}
+              ${escapeHtml(headingText)}
             </h1>
             <p style="margin:0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.dim}">
               ${escapeHtml(t.lead)}
             </p>
+
+            ${bookingDetails}
 
             <!-- accent hairline -->
             <div style="height:1px;margin:26px 0 4px;background:linear-gradient(90deg,${C.accent},rgba(166,166,207,0));"></div>
@@ -333,16 +409,6 @@ export function renderConfirmationEmail(d: {
             <p style="margin:0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.text}">
               ${escapeHtml(t.next)}
             </p>
-
-            <!-- scheduled slot (bookings only) -->
-            ${
-              isBooking && d.scheduledFor
-                ? `<div style="margin:22px 0 6px">${label(override.whenLabel)}</div>
-            <p style="margin:0;font-family:${SANS};font-size:15px;line-height:1.6;color:${C.text}">${escapeHtml(
-              d.scheduledFor
-            )}</p>`
-                : ""
-            }
 
             <!-- echo of their message (only when they left one) -->
             ${
