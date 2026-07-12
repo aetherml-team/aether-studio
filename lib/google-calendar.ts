@@ -9,12 +9,56 @@
  *   GOOGLE_CALENDAR_ID — calendar to search (default: primary)
  */
 
+type CalendarAttendee = {
+  email?: string;
+  organizer?: boolean;
+  responseStatus?: string;
+};
+
 type CalendarEvent = {
   id?: string;
   description?: string;
   summary?: string;
   location?: string;
+  attendees?: CalendarAttendee[];
 };
+
+/** Comma-separated team inboxes invited to each booked call on Google Calendar. */
+export function bookingTeamAttendees(): string[] {
+  const raw =
+    process.env.BOOKING_TEAM_ATTENDEES?.trim() ||
+    process.env.BOOKING_CONFIRM_BCC?.trim() ||
+    "marco@aetherml.com,jorge@aetherml.com,luis@aetherml.com";
+  return raw
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter((e) => e.includes("@"));
+}
+
+function mergeAttendees(
+  existing: CalendarAttendee[] | undefined,
+  teamEmails: string[]
+): { email: string }[] {
+  const seen = new Set<string>();
+  const merged: { email: string }[] = [];
+
+  for (const a of existing ?? []) {
+    const email = a.email?.trim();
+    if (!email || a.organizer) continue;
+    const key = email.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    merged.push({ email });
+  }
+
+  for (const email of teamEmails) {
+    if (seen.has(email)) continue;
+    seen.add(email);
+    merged.push({ email });
+  }
+
+  return merged;
+}
 
 let accessTokenCache: { token: string; expiresAt: number } | null = null;
 
@@ -140,14 +184,24 @@ function buildConferenceData(meetingUrl: string) {
 async function patchEventLocation(
   token: string,
   calendarId: string,
-  eventId: string,
+  event: CalendarEvent,
   meetingUrl: string,
-  existingDescription?: string
+  teamEmails: string[]
 ): Promise<boolean> {
+  if (!event.id) return false;
+
   const zoomLine = `Join Zoom: ${meetingUrl}`;
-  const description = (existingDescription ?? "").includes(meetingUrl)
-    ? existingDescription
-    : [existingDescription?.trim(), zoomLine].filter(Boolean).join("\n\n");
+  const description = (event.description ?? "").includes(meetingUrl)
+    ? event.description
+    : [event.description?.trim(), zoomLine].filter(Boolean).join("\n\n");
+
+  const attendees = mergeAttendees(event.attendees, teamEmails);
+  const body: Record<string, unknown> = {
+    location: meetingUrl,
+    description,
+    conferenceData: buildConferenceData(meetingUrl),
+  };
+  if (attendees.length > 0) body.attendees = attendees;
 
   const params = new URLSearchParams({
     conferenceDataVersion: "1",
@@ -155,18 +209,14 @@ async function patchEventLocation(
   });
 
   const res = await fetch(
-    `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(eventId)}?${params}`,
+    `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(event.id)}?${params}`,
     {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        location: meetingUrl,
-        description,
-        conferenceData: buildConferenceData(meetingUrl),
-      }),
+      body: JSON.stringify(body),
     }
   );
 
@@ -178,13 +228,14 @@ async function patchEventLocation(
 }
 
 /**
- * Find the TidyCal event in the booking window and add the Zoom URL to
- * location + description. Retries briefly — TidyCal may sync async.
+ * Find the TidyCal event in the booking window, add the Zoom URL, and invite
+ * team attendees on Google Calendar. Retries briefly — TidyCal may sync async.
  */
 export async function attachZoomToTidyCalCalendarEvent(d: {
   startMs: number;
   endMs: number;
   meetingUrl: string;
+  teamEmails?: string[];
 }): Promise<boolean> {
   if (!googleCalendarConfigured()) return false;
 
@@ -192,6 +243,7 @@ export async function attachZoomToTidyCalCalendarEvent(d: {
   if (!token) return false;
 
   const calendarId = process.env.GOOGLE_CALENDAR_ID?.trim() || "primary";
+  const teamEmails = d.teamEmails ?? bookingTeamAttendees();
 
   for (let attempt = 0; attempt < 8; attempt++) {
     if (attempt > 0) await new Promise((r) => setTimeout(r, 3000));
@@ -200,9 +252,11 @@ export async function attachZoomToTidyCalCalendarEvent(d: {
     const tidycal = events.find(isTidyCalEvent);
     if (!tidycal?.id) continue;
 
-    const ok = await patchEventLocation(token, calendarId, tidycal.id, d.meetingUrl, tidycal.description);
+    const ok = await patchEventLocation(token, calendarId, tidycal, d.meetingUrl, teamEmails);
     if (ok) {
-      console.info("Patched TidyCal Google Calendar event with Zoom link");
+      console.info(
+        `Patched TidyCal Google Calendar event with Zoom link${teamEmails.length ? ` and ${teamEmails.length} team invite(s)` : ""}`
+      );
       return true;
     }
   }
