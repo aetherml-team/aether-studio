@@ -5,9 +5,9 @@ import {
   bookingEmailText,
   buildBookingCalendarInvite,
   renderBookingConfirmationEmail,
-} from "../lib/booking-email";
-import { attachZoomToTidyCalCalendarEvent } from "../lib/google-calendar";
-import { createZoomMeeting, zoomConfigured } from "../lib/zoom";
+} from "../lib/booking-email.js";
+import { attachZoomToTidyCalCalendarEvent } from "../lib/google-calendar.js";
+import { createZoomMeeting, zoomConfigured } from "../lib/zoom.js";
 
 // Email renderers + TidyCal helpers are inlined (not imported from a sibling
 // `api/*` file) on purpose. Vercel compiles each function to ESM but does NOT
@@ -17,6 +17,9 @@ import { createZoomMeeting, zoomConfigured } from "../lib/zoom";
 // Keeping the shared code duplicated here (as with `availability.ts`) is the
 // reliable pattern in this repo. renderLeadEmail / renderConfirmationEmail below
 // are kept identical to api/lead.ts.
+//
+// lib/* imports use `.js` extensions and are compiled by scripts/compile-lib.mjs
+// during `bun run build`; vercel.json includeFiles ships lib/*.js with this fn.
 const TIDYCAL_API_BASE = "https://tidycal.com/api";
 
 function tidycalConfig(): { token: string; bookingTypeId: string } | null {
