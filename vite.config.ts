@@ -15,7 +15,7 @@ import type { IncomingMessage, ServerResponse } from "http";
  *
  * It adapts a Node request/response to the small slice of the Vercel handler
  * contract our endpoints use: req.query, req.body (raw string — the handlers parse
- * it themselves), and res.status().json()/.send(). Server-side env (CALENDLY_TOKEN,
+ * it themselves), and res.status().json()/.send(). Server-side env (TIDYCAL_TOKEN,
  * RESEND_API_KEY, …) is loaded from .env into process.env below, mirroring Vercel.
  *
  * NOTE: this applies to `vite` (dev) only. `vite preview` serves the static build
@@ -89,7 +89,7 @@ function vercelApiDev(): Plugin {
 
 export default defineConfig(({ mode }) => {
   // Load .env (all keys, no VITE_ prefix filter) into process.env so the dev API
-  // plugin's handlers see CALENDLY_TOKEN / RESEND_API_KEY etc., as they would on
+  // plugin's handlers see TIDYCAL_TOKEN / RESEND_API_KEY etc., as they would on
   // Vercel. Only the server-side dev plugin reads these — they are NOT exposed to
   // the client bundle (that still only sees VITE_-prefixed import.meta.env vars).
   Object.assign(process.env, loadEnv(mode, process.cwd(), ""));
