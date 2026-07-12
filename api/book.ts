@@ -6,6 +6,7 @@ import {
   buildBookingCalendarInvite,
   renderBookingConfirmationEmail,
 } from "../lib/booking-email";
+import { attachZoomToTidyCalCalendarEvent } from "../lib/google-calendar";
 import { createZoomMeeting, zoomConfigured } from "../lib/zoom";
 
 // Email renderers + TidyCal helpers are inlined (not imported from a sibling
@@ -171,13 +172,24 @@ async function resolveVideoCallUrl(d: {
  *   TIDYCAL_TOKEN, TIDYCAL_BOOKING_TYPE_ID  — TidyCal personal access token + booking type ID
  *   RESEND_API_KEY                          — shared with api/lead.ts
  * Optional env (shared with api/lead.ts): LEAD_TO, LEAD_FROM
+ * Optional env: BOOKING_CONFIRM_BCC — comma-separated copy of the customer confirmation
+ *   (default: marco@aetherml.com,jorge@aetherml.com)
  * Optional env: TIDYCAL_BOOKING_QUESTION_ID — forwards message to a TidyCal form question
  * Optional env: BOOKING_DURATION_MINUTES      — default 15, used for ICS + Zoom fallback
  * Optional env: ZOOM_ACCOUNT_ID, ZOOM_CLIENT_ID, ZOOM_CLIENT_SECRET, ZOOM_HOST_EMAIL
+ * Optional env (patch TidyCal event on Google Calendar with Zoom link):
+ *   GOOGLE_CALENDAR_CLIENT_ID, GOOGLE_CALENDAR_CLIENT_SECRET,
+ *   GOOGLE_CALENDAR_REFRESH_TOKEN, GOOGLE_CALENDAR_ID (default: primary)
  */
 
 const TO = process.env.LEAD_TO || "help@aetherml.com";
 const FROM = process.env.LEAD_FROM || "Æther Studio <leads@aetherml.com>";
+const BOOKING_CONFIRM_BCC = (
+  process.env.BOOKING_CONFIRM_BCC ?? "marco@aetherml.com,jorge@aetherml.com"
+)
+  .split(",")
+  .map((e) => e.trim())
+  .filter(Boolean);
 const SITE_URL = "https://www.aetherml.com";
 const LOGO_URL = `${SITE_URL}/web-app-manifest-192x192.png`;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -497,6 +509,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   });
   if (!meetingUrl) {
     console.warn("No video call URL from TidyCal or Zoom — email and calendar invite will omit the link");
+  } else {
+    // Best-effort: add Zoom to the TidyCal-synced Google Calendar event the user sees.
+    await attachZoomToTidyCalCalendarEvent({ startMs, endMs: endsAtMs, meetingUrl });
   }
   if (process.env.RESEND_API_KEY) {
     await sendEmails({
@@ -593,12 +608,15 @@ async function sendEmails(d: {
     endMs: d.endsAtMs,
     meetingUrl: d.meetingUrl,
     language: d.language,
+    organizerEmail: TO,
+    attendeeEmail: d.email,
   });
 
   try {
     const { error } = await resend.emails.send({
       from: FROM,
       to: d.email,
+      ...(BOOKING_CONFIRM_BCC.length > 0 ? { bcc: BOOKING_CONFIRM_BCC } : {}),
       replyTo: TO,
       subject: bookingEmailSubject(d.language),
       text: bookingEmailText(emailInput),
