@@ -9,7 +9,7 @@ import { track } from "@/lib/analytics";
 /**
  * Native "Book a call" panel for the contact section: a custom slot picker +
  * details form that talk to our own serverless proxies (api/availability.ts →
- * Calendly available times, api/book.ts → Calendly create-invitee). The Calendly
+ * TidyCal available times, api/book.ts → TidyCal create-booking). The TidyCal
  * token stays server-side; this component only ever sees a list of ISO slot times
  * and posts the chosen one with the booker's name, email and an optional note.
  *
@@ -28,7 +28,7 @@ const BOOK_ENDPOINT = "/api/book";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_MIN = 2;
 
-// The visitor's own timezone — used to label slots and sent to Calendly so the
+// The visitor's own timezone — used to label slots and sent to TidyCal so the
 // invite lands in their local time. Falls back to the studio's zone if unknown.
 const BROWSER_TZ =
   (typeof Intl !== "undefined" && Intl.DateTimeFormat().resolvedOptions().timeZone) ||

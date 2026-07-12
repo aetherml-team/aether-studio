@@ -67,7 +67,7 @@ export function renderLeadEmail(d: {
   message: string;
   language: string;
   receivedAt: string;
-  // "booking" when the lead came in via the native Calendly flow (see
+  // "booking" when the lead came in via the native TidyCal flow (see
   // api/book.ts); defaults to the contact-form copy.
   source?: "form" | "booking";
   // Human-readable slot, only present for bookings.

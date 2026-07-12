@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
-// Email renderers + Calendly helpers are inlined (not imported from a sibling
+// Email renderers + TidyCal helpers are inlined (not imported from a sibling
 // `api/*` file) on purpose. Vercel compiles each function to ESM but does NOT
 // bundle cross-file `api/` imports: the deployed `book.js` kept a bare
 // `import "./lead"`, which Node's ESM loader can't resolve ("Cannot find module
@@ -9,37 +9,38 @@ import { Resend } from "resend";
 // Keeping the shared code duplicated here (as with `availability.ts`) is the
 // reliable pattern in this repo. renderLeadEmail / renderConfirmationEmail below
 // are kept identical to api/lead.ts.
-const CALENDLY_API_BASE = "https://api.calendly.com";
+const TIDYCAL_API_BASE = "https://tidycal.com/api";
 
-function calendlyConfig(): { token: string; eventType: string } | null {
-  const token = process.env.CALENDLY_TOKEN?.trim();
-  const eventType = process.env.CALENDLY_EVENT_TYPE?.trim();
-  if (!token || !eventType) return null;
-  return { token, eventType };
+function tidycalConfig(): { token: string; bookingTypeId: string } | null {
+  const token = process.env.TIDYCAL_TOKEN?.trim();
+  const bookingTypeId = process.env.TIDYCAL_BOOKING_TYPE_ID?.trim();
+  if (!token || !bookingTypeId) return null;
+  return { token, bookingTypeId };
 }
 
-type CalendlyResult<T> =
+type TidyCalResult<T> =
   | { ok: true; data: T }
   | { ok: false; status: number; message: string };
 
-async function calendlyFetch<T>(
+async function tidycalFetch<T>(
   path: string,
   token: string,
   init?: RequestInit
-): Promise<CalendlyResult<T>> {
-  const url = path.startsWith("http") ? path : `${CALENDLY_API_BASE}${path}`;
+): Promise<TidyCalResult<T>> {
+  const url = path.startsWith("http") ? path : `${TIDYCAL_API_BASE}${path}`;
   let res: Response;
   try {
     res = await fetch(url, {
       ...init,
       headers: {
         Authorization: `Bearer ${token}`,
+        Accept: "application/json",
         "Content-Type": "application/json",
         ...(init?.headers ?? {}),
       },
     });
   } catch (err) {
-    console.error("Calendly request failed:", err);
+    console.error("TidyCal request failed:", err);
     return { ok: false, status: 502, message: "Could not reach the scheduling service" };
   }
 
@@ -52,42 +53,45 @@ async function calendlyFetch<T>(
   }
 
   if (!res.ok) {
-    const message = calendlyMessage(json) || `Scheduling service error (${res.status})`;
-    console.error(`Calendly ${res.status} for ${url}:`, text.slice(0, 500));
+    const message = tidycalMessage(json) || `Scheduling service error (${res.status})`;
+    console.error(`TidyCal ${res.status} for ${url}:`, text.slice(0, 500));
     return { ok: false, status: res.status, message };
   }
 
   return { ok: true, data: (json as T) ?? ({} as T) };
 }
 
-/** Best human-readable message out of Calendly's { title, message, details[] }. */
-function calendlyMessage(json: unknown): string {
+/** Best human-readable message out of TidyCal's JSON error bodies. */
+function tidycalMessage(json: unknown): string {
   if (!json || typeof json !== "object") return "";
   const o = json as Record<string, unknown>;
-  if (Array.isArray(o.details) && o.details.length) {
-    const first = o.details[0] as Record<string, unknown>;
-    if (typeof first?.message === "string") return first.message;
-  }
   if (typeof o.message === "string") return o.message;
-  if (typeof o.title === "string") return o.title;
+  const errors = o.errors;
+  if (errors && typeof errors === "object") {
+    for (const value of Object.values(errors as Record<string, unknown>)) {
+      if (Array.isArray(value) && typeof value[0] === "string") return value[0];
+      if (typeof value === "string") return value;
+    }
+  }
   return "";
 }
 
 /**
  * Booking proxy for the native booking flow (src/components/BookCall.tsx).
- * Creates a Calendly invitee (POST https://api.calendly.com/invitees) for the
- * chosen slot — keeping CALENDLY_TOKEN server-side — then fires the same branded
- * Resend emails the contact form sends (api/lead.ts): a lead notification to us
- * and a confirmation to the booker. Calendly emails the calendar invite with the
+ * Creates a TidyCal booking (POST /booking-types/{id}/bookings) for the chosen
+ * slot — keeping TIDYCAL_TOKEN server-side — then fires the same branded Resend
+ * emails the contact form sends (api/lead.ts): a lead notification to us and a
+ * confirmation to the booker. TidyCal emails the calendar invite with the
  * meeting link itself, so we don't attach our own ICS.
  *
  * Request body: { name, email, message?, start (ISO), timezone, language, company }
  *   company is a honeypot (see api/lead.ts).
  *
  * Required env:
- *   CALENDLY_TOKEN, CALENDLY_EVENT_TYPE  — Calendly personal access token + event type URI
- *   RESEND_API_KEY                       — shared with api/lead.ts
+ *   TIDYCAL_TOKEN, TIDYCAL_BOOKING_TYPE_ID  — TidyCal personal access token + booking type ID
+ *   RESEND_API_KEY                          — shared with api/lead.ts
  * Optional env (shared with api/lead.ts): LEAD_TO, LEAD_FROM
+ * Optional env: TIDYCAL_BOOKING_QUESTION_ID — forwards message to a TidyCal form question
  */
 
 const TO = process.env.LEAD_TO || "help@aetherml.com";
@@ -467,17 +471,15 @@ function renderConfirmationEmail(d: {
 </html>`;
 }
 
-type EventTypeResource = { resource?: { locations?: Array<Record<string, unknown>> } };
-
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const config = calendlyConfig();
+  const config = tidycalConfig();
   if (!config) {
-    console.error("Calendly is not configured (CALENDLY_TOKEN / CALENDLY_EVENT_TYPE)");
+    console.error("TidyCal is not configured (TIDYCAL_TOKEN / TIDYCAL_BOOKING_TYPE_ID)");
     return res.status(500).json({ error: "Scheduling is not configured" });
   }
 
@@ -507,26 +509,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(409).json({ error: "That time is no longer available" });
   }
 
-  // The invitee POST needs a `location` matching the event type's configuration
-  // (Calendly requires it when the event type defines one — e.g. a Zoom call).
-  // Read it live so the booking stays correct if the event type changes; if the
-  // lookup fails we proceed without it and let Calendly's response be the truth.
-  let location: Record<string, unknown> | undefined;
-  const et = await calendlyFetch<EventTypeResource>(config.eventType, config.token);
-  if (et.ok) {
-    const first = et.data.resource?.locations?.[0];
-    if (first && typeof first === "object") location = first;
+  const questionId = process.env.TIDYCAL_BOOKING_QUESTION_ID?.trim();
+  const bookingBody: Record<string, unknown> = {
+    starts_at: start,
+    name,
+    email,
+    timezone,
+  };
+  if (message && questionId) {
+    const id = Number(questionId);
+    if (Number.isFinite(id) && id > 0) {
+      bookingBody.booking_questions = [{ booking_type_question_id: id, answer: message }];
+    }
   }
 
-  const booking = await calendlyFetch<unknown>("/invitees", config.token, {
-    method: "POST",
-    body: JSON.stringify({
-      event_type: config.eventType,
-      start_time: start,
-      invitee: { name, email, timezone },
-      ...(location ? { location } : {}),
-    }),
-  });
+  const booking = await tidycalFetch<unknown>(
+    `/booking-types/${encodeURIComponent(config.bookingTypeId)}/bookings`,
+    config.token,
+    {
+      method: "POST",
+      body: JSON.stringify(bookingBody),
+    }
+  );
 
   if (!booking.ok) {
     // A taken slot / validation failure (4xx) is the visitor's to recover from —
@@ -536,7 +540,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   // Booking confirmed — send the branded emails. Best-effort: the slot is already
-  // reserved in Calendly, so an email failure must never fail the request.
+  // reserved in TidyCal, so an email failure must never fail the request.
   const scheduledFor = formatSlot(startMs, timezone, language);
   if (process.env.RESEND_API_KEY) {
     await sendEmails({ name, email, message, language, timezone, scheduledFor });
