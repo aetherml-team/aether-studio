@@ -6,7 +6,7 @@ import {
   buildBookingCalendarInvite,
   renderBookingConfirmationEmail,
 } from "../lib/booking-email.js";
-import { attachZoomToTidyCalCalendarEvent } from "../lib/google-calendar.js";
+import { attachZoomToTidyCalCalendarEvent, bookingTeamAttendees } from "../lib/google-calendar.js";
 import { createZoomMeeting, zoomConfigured } from "../lib/zoom.js";
 
 // Email renderers + TidyCal helpers are inlined (not imported from a sibling
@@ -175,8 +175,9 @@ async function resolveVideoCallUrl(d: {
  *   TIDYCAL_TOKEN, TIDYCAL_BOOKING_TYPE_ID  — TidyCal personal access token + booking type ID
  *   RESEND_API_KEY                          — shared with api/lead.ts
  * Optional env (shared with api/lead.ts): LEAD_TO, LEAD_FROM
- * Optional env: BOOKING_CONFIRM_BCC — comma-separated copy of the customer confirmation
- *   (default: marco@aetherml.com,jorge@aetherml.com)
+ * Optional env: BOOKING_TEAM_ATTENDEES — comma-separated team on Google Calendar invites
+ *   and BCC on the customer confirmation (default: marco,jorge,luis @aetherml.com)
+ * Optional env: BOOKING_CONFIRM_BCC — legacy alias for BOOKING_TEAM_ATTENDEES
  * Optional env: TIDYCAL_BOOKING_QUESTION_ID — forwards message to a TidyCal form question
  * Optional env: BOOKING_DURATION_MINUTES      — default 15, used for ICS + Zoom fallback
  * Optional env: ZOOM_ACCOUNT_ID, ZOOM_CLIENT_ID, ZOOM_CLIENT_SECRET, ZOOM_HOST_EMAIL
@@ -187,12 +188,7 @@ async function resolveVideoCallUrl(d: {
 
 const TO = process.env.LEAD_TO || "help@aetherml.com";
 const FROM = process.env.LEAD_FROM || "Æther Studio <leads@aetherml.com>";
-const BOOKING_CONFIRM_BCC = (
-  process.env.BOOKING_CONFIRM_BCC ?? "marco@aetherml.com,jorge@aetherml.com"
-)
-  .split(",")
-  .map((e) => e.trim())
-  .filter(Boolean);
+const BOOKING_CONFIRM_BCC = bookingTeamAttendees();
 const SITE_URL = "https://www.aetherml.com";
 const LOGO_URL = `${SITE_URL}/web-app-manifest-192x192.png`;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
