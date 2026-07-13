@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 lib/*.js
+.lov.tailwind.config.js
+src/tailwind.config.lov.json
 *.local
 
 # Editor directories and files
