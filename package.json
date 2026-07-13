@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "google-calendar:token": "node scripts/google-calendar-token.mjs"
+    "google-calendar:token": "node scripts/google-calendar-token.mjs",
+    "vercel:sync-env": "node scripts/sync-vercel-env.mjs"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.10",
