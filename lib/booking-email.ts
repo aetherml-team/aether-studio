@@ -101,7 +101,7 @@ function wordmarkHeader(tagline: string): string {
   return `<table role="presentation" cellpadding="0" cellspacing="0" border="0">
   <tr>
     <td>
-      <img src="${LOGO_URL}" width="200" height="93" alt="Æther Studio" style="display:block;border:0;width:200px;height:auto;max-width:100%">
+      <img src="${LOGO_URL}" width="200" height="99" alt="Æther Studio" style="display:block;border:0;width:200px;height:auto;max-width:100%">
       <div style="margin-top:12px;font-family:${SANS};font-size:13px;line-height:1.5;color:${C.dim}">${escapeHtml(tagline)}</div>
     </td>
   </tr>
