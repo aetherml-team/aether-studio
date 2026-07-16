@@ -4,7 +4,7 @@
  */
 
 const SITE_URL = "https://www.aetherml.com";
-const LOGO_URL = `${SITE_URL}/web-app-manifest-192x192.png`;
+const LOGO_URL = `${SITE_URL}/aether-logo-email.png`;
 
 const C = {
   page: "#09090c",
@@ -100,18 +100,9 @@ function ctaButton(href: string, text: string): string {
 function wordmarkHeader(tagline: string): string {
   return `<table role="presentation" cellpadding="0" cellspacing="0" border="0">
   <tr>
-    <td style="padding-right:14px;vertical-align:middle">
-      <img src="${LOGO_URL}" width="44" height="44" alt="Æther Studio" style="display:block;border:0;border-radius:10px">
-    </td>
-    <td style="vertical-align:middle">
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td style="font-family:${HEADING};font-size:20px;font-weight:700;letter-spacing:0.02em;color:${C.text}">&AElig;ther</td>
-          <td style="padding-left:12px"><div style="width:34px;height:1px;background-color:${C.accent};opacity:0.55"></div></td>
-          <td style="padding-left:12px;font-family:${MONO};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${C.muted}">Studio</td>
-        </tr>
-      </table>
-      <div style="margin-top:9px;font-family:${SANS};font-size:13px;line-height:1.5;color:${C.dim}">${escapeHtml(tagline)}</div>
+    <td>
+      <img src="${LOGO_URL}" width="200" height="93" alt="Æther Studio" style="display:block;border:0;width:200px;height:auto;max-width:100%">
+      <div style="margin-top:12px;font-family:${SANS};font-size:13px;line-height:1.5;color:${C.dim}">${escapeHtml(tagline)}</div>
     </td>
   </tr>
 </table>`;
