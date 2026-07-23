@@ -26,13 +26,12 @@ interface WorkVisual {
 }
 
 const WORK: WorkVisual[] = [
-  { name: "Kraken's Bay Studio", url: "app.krakenbay.mx", variant: "booking", accentLight: "#7D621A", accentDark: "#E8C84A" },
   { name: "Tavros", url: "app.tavros.fit", variant: "billing", accentLight: "#5E6B2E", accentDark: "#C7E15A" },
   { name: "Inmovilia", url: "portal.inmovilia.mx", variant: "realestate", accentLight: "#3F5C7A", accentDark: "#7FB2E8" },
   { name: "Eternus", url: "eternusfilms.com", variant: "film", accentLight: "#6E4A6E", accentDark: "#D192D1" },
 ];
 
-const METRICS = ["30+", "3x", "2x", "50+"] as const;
+const METRICS = ["3x", "2x", "50+"] as const;
 
 const accentVars = (v: WorkVisual) =>
   ({ "--ca-light": v.accentLight, "--ca-dark": v.accentDark } as CSSProperties);
