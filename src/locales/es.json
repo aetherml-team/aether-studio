@@ -31,7 +31,6 @@
     "description": "Somos el equipo técnico que tu empresa no tiene que contratar. Construimos y operamos tu automatización, IA, software y seguridad — para que recuperes tus horas.",
     "availability": "Tomamos 3 clientes nuevos este mes",
     "secondary": "Mira cómo funciona",
-    "proof": "Kraken's Bay Studio recuperó 30+ horas a la semana — facturación y agenda, automatizadas.",
     "offerNote": "Auditoría gratis de 20 min — te quedas con los hallazgos, nos contrates o no.",
     "trust": "Gimnasios · Clínicas · Inmobiliarias · Estudios — Guadalajara y más allá",
     "outcomes": ["Conciliado", "Automatizado", "Integrado", "Respondido", "Agendado", "Publicado"],
@@ -87,7 +86,7 @@
       {
         "name": "Automatiza lo repetitivo",
         "description": "El trabajo repetitivo que se come tu semana — agendado, seguimientos, facturación y lo demás — corriendo solo mientras duermes.",
-        "proof": "Kraken's Bay Studio ahorra 30+ horas/semana solo en programación y facturación."
+        "proof": "Agendado y facturación que se comían la semana ahora corren solos durante la noche."
       },
       {
         "name": "Pon la IA a trabajar",
@@ -129,23 +128,11 @@
   "clients": {
     "headline": "En sus palabras.",
     "sectionHeadline": "Trabajo real, resultados reales.",
-    "sectionSub": "Cuatro negocios, cuatro stacks distintos, un mismo resultado: horas recuperadas y nada que se escape.",
+    "sectionSub": "Tres negocios, tres stacks distintos, un mismo resultado: horas recuperadas y nada que se escape.",
     "whatDelivered": "Lo que Æther entregó",
     "prev": "Cliente anterior",
     "next": "Cliente siguiente",
     "items": [
-      {
-        "tagline": "Academia BJJ · Guadalajara, MX",
-        "industry": "Academia de artes marciales",
-        "quote": "El efectivo circulando, la terminal, los tickets, las apps del banco. Necesitaba todo eso para saber mis gastos. No tengo ni idea de cómo lo hicieron de forma automática.",
-        "quotePerson": "Manuel, Dueño",
-        "servicesDelivered": [
-          "Automatización de horarios y clases",
-          "Renovaciones y facturación de membresías",
-          "Recordatorios de pago y seguimientos"
-        ],
-        "metricLabel": "horas ahorradas semanalmente"
-      },
       {
         "tagline": "Gym · Guadalajara, MX",
         "industry": "Gimnasio de alto rendimiento",
