@@ -29,9 +29,11 @@ const WORK: WorkVisual[] = [
   { name: "Tavros", url: "app.tavros.fit", variant: "billing", accentLight: "#5E6B2E", accentDark: "#C7E15A" },
   { name: "Inmovilia", url: "portal.inmovilia.mx", variant: "realestate", accentLight: "#3F5C7A", accentDark: "#7FB2E8" },
   { name: "Eternus", url: "eternusfilms.com", variant: "film", accentLight: "#6E4A6E", accentDark: "#D192D1" },
+  { name: "Sismo Café", url: "sismocafe.com", variant: "commerce", accentLight: "#9A8E80", accentDark: "#D9CCBC" },
+  { name: "Eloisa Montero", url: "eloisamontero.aetherml.com", variant: "commerce", accentLight: "#781536", accentDark: "#D696A9" },
 ];
 
-const METRICS = ["3x", "2x", "50+"] as const;
+const METRICS = ["3x", "2x", "50+", "LIVE", "1:1"] as const;
 
 const accentVars = (v: WorkVisual) =>
   ({ "--ca-light": v.accentLight, "--ca-dark": v.accentDark } as CSSProperties);
