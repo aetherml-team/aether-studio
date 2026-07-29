@@ -128,7 +128,7 @@
   "clients": {
     "headline": "In their words.",
     "sectionHeadline": "Selected work, real results.",
-    "sectionSub": "Three businesses, three different stacks, one outcome: hours back and nothing slipping through the cracks.",
+    "sectionSub": "Five businesses, five different challenges, one outcome: technology that moves the brand forward.",
     "whatDelivered": "What Æther delivered",
     "prev": "Previous client",
     "next": "Next client",
@@ -168,6 +168,30 @@
           "Client comms & delivery workflow"
         ],
         "metricLabel": "weddings coordinated"
+      },
+      {
+        "tagline": "Specialty Coffee · Guadalajara, MX",
+        "industry": "Specialty coffee brand",
+        "quote": "Æther turned the character of Sismo into a digital experience that feels as considered as the coffee itself — clear, distinctive, and easy to explore.",
+        "quotePerson": "Sismo Café team",
+        "servicesDelivered": [
+          "Launch campaign microsite",
+          "New-location countdown experience",
+          "Responsive brand storytelling"
+        ],
+        "metricLabel": "branded launch experience"
+      },
+      {
+        "tagline": "Fine Jewelry · Guadalajara, MX",
+        "industry": "Bespoke diamond jewelry",
+        "quote": "They translated fifteen years of craftsmanship into an online maison that feels personal, luxurious, and built around the moment our clients are choosing.",
+        "quotePerson": "Eloisa Montero team",
+        "servicesDelivered": [
+          "Luxury e-commerce experience",
+          "Guided ring-design journey",
+          "Appointment and concierge conversion flows"
+        ],
+        "metricLabel": "guided ring-design experience"
       }
     ]
   },

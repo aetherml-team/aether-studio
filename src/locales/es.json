@@ -128,7 +128,7 @@
   "clients": {
     "headline": "En sus palabras.",
     "sectionHeadline": "Trabajo real, resultados reales.",
-    "sectionSub": "Tres negocios, tres stacks distintos, un mismo resultado: horas recuperadas y nada que se escape.",
+    "sectionSub": "Cinco negocios, cinco retos distintos, un mismo resultado: tecnología que impulsa la marca.",
     "whatDelivered": "Lo que Æther entregó",
     "prev": "Cliente anterior",
     "next": "Cliente siguiente",
@@ -168,6 +168,30 @@
           "Flujo de comunicación y entrega al cliente"
         ],
         "metricLabel": "bodas coordinadas"
+      },
+      {
+        "tagline": "Café de Especialidad · Guadalajara, MX",
+        "industry": "Marca de café de especialidad",
+        "quote": "Æther convirtió el carácter de Sismo en una experiencia digital tan cuidada como el café: clara, distintiva y fácil de explorar.",
+        "quotePerson": "Equipo de Sismo Café",
+        "servicesDelivered": [
+          "Micrositio para campaña de lanzamiento",
+          "Cuenta regresiva para nueva sucursal",
+          "Narrativa de marca responsiva"
+        ],
+        "metricLabel": "experiencia digital de lanzamiento"
+      },
+      {
+        "tagline": "Joyería Fina · Guadalajara, MX",
+        "industry": "Joyería de autor con diamantes",
+        "quote": "Tradujeron quince años de oficio en una maison digital que se siente personal, lujosa y construida alrededor del momento que están eligiendo nuestros clientes.",
+        "quotePerson": "Equipo de Eloisa Montero",
+        "servicesDelivered": [
+          "Experiencia de e-commerce de lujo",
+          "Recorrido guiado para diseñar el anillo",
+          "Flujos de conversión para citas y concierge"
+        ],
+        "metricLabel": "experiencia guiada de diseño"
       }
     ]
   },

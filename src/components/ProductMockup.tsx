@@ -8,7 +8,7 @@ import type { CSSProperties } from "react";
    believable UI for that client's industry, tinted with their accent.
    ───────────────────────────────────────────────────────────── */
 
-export type MockVariant = "booking" | "billing" | "realestate" | "film";
+export type MockVariant = "booking" | "billing" | "realestate" | "film" | "commerce";
 
 interface Props {
   variant: MockVariant;
@@ -176,6 +176,40 @@ function FilmScreen({ accent }: { accent: string }) {
   );
 }
 
+function CommerceScreen() {
+  return (
+    <div className="flex h-full flex-col p-3 text-[8px]">
+      <div className="mb-3 flex items-center justify-between">
+        <Bar w="24%" o={0.38} />
+        <div className="flex gap-2">
+          {[0, 1, 2].map((i) => <Bar key={i} w={`${28 - i * 4}px`} />)}
+        </div>
+      </div>
+      <div
+        className="mb-3 flex flex-1 items-end rounded-lg p-3"
+        style={{ background: "linear-gradient(135deg, color-mix(in srgb, var(--ac) 42%, #20242e), #111319)" }}
+      >
+        <div className="space-y-1.5">
+          <div className="h-2.5 w-28 rounded bg-white/75" />
+          <div className="h-1.5 w-20 rounded bg-white/35" />
+          <div className="mt-2 h-4 w-14 rounded-full" style={{ background: "var(--ac)" }} />
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-2">
+        {[0, 1, 2].map((i) => (
+          <div key={i} className="rounded-lg border border-border/60 bg-card/60 p-1.5">
+            <div
+              className="mb-1.5 h-7 rounded"
+              style={{ background: `color-mix(in srgb, var(--ac) ${18 + i * 7}%, hsl(var(--muted)))` }}
+            />
+            <Bar w={`${72 - i * 8}%`} o={0.3} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const ProductMockup = ({ variant, accent, label, screenshot, alt, className = "" }: Props) => {
   return (
     <div
@@ -204,8 +238,10 @@ const ProductMockup = ({ variant, accent, label, screenshot, alt, className = ""
           <BillingScreen />
         ) : variant === "realestate" ? (
           <RealEstateScreen accent={accent} />
-        ) : (
+        ) : variant === "film" ? (
           <FilmScreen accent={accent} />
+        ) : (
+          <CommerceScreen />
         )}
       </div>
     </div>
