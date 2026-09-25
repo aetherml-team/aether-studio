@@ -5,6 +5,16 @@
       "includeFiles": "lib/*.js"
     }
   },
+  "headers": [
+    {
+      "source": "/",
+      "headers": [{ "key": "Vary", "value": "Accept" }]
+    },
+    {
+      "source": "/(about|contact|privacy|terms)",
+      "headers": [{ "key": "Vary", "value": "Accept" }]
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api/).*)",

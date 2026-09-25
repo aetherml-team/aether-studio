@@ -212,9 +212,9 @@ const BookCall = () => {
 
   // Shared field styling, matching the contact form (ContactSection.tsx).
   const fieldClass =
-    "h-12 rounded-xl border-border bg-background/60 font-body transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/60";
+    "h-12 rounded-md border-border bg-background/60 font-body transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/60";
   const textareaClass =
-    "min-h-[96px] w-full resize-y rounded-xl border border-border bg-background/60 px-4 py-3 font-body text-sm text-foreground transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60";
+    "min-h-[96px] w-full resize-y rounded-md border border-border bg-background/60 px-4 py-3 font-body text-sm text-foreground transition-shadow duration-300 focus:outline-none focus:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/60";
   const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-foreground-dim";
   const errorRing = "border-destructive/70 focus-visible:ring-destructive/30 focus:ring-destructive/30";
   const errorTextClass = "mt-1.5 font-body text-[12.5px] text-destructive";
@@ -223,7 +223,7 @@ const BookCall = () => {
   if (bookState === "booked") {
     const { name, email, start } = bookedRef.current;
     return (
-      <div className="flex flex-col items-center rounded-xl border border-border bg-background/40 px-6 py-10 text-center">
+      <div className="flex flex-col items-center border border-border bg-background/40 px-6 py-10 text-center">
         <m.span
           initial={reduced ? false : { scale: 0.6, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -462,7 +462,7 @@ const BookCall = () => {
               <m.button
                 type="submit"
                 disabled={bookState === "booking"}
-                className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-primary px-8 font-body text-[14px] font-medium text-primary-foreground shadow-[0_14px_36px_-18px_hsl(var(--primary)/0.7)] disabled:opacity-70"
+                className="inline-flex h-12 w-full items-center justify-center rounded-md bg-primary px-8 font-body text-[14px] font-medium text-primary-foreground disabled:opacity-70"
                 whileHover={reduced || bookState === "booking" ? undefined : { scale: 1.01, filter: "brightness(1.06)" }}
                 whileTap={reduced || bookState === "booking" ? undefined : { scale: 0.99 }}
                 transition={{ type: "spring", stiffness: 400, damping: 28 }}

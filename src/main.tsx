@@ -9,6 +9,11 @@ import "./i18n.ts";
 
 createRoot(document.getElementById("root")!).render(<App />);
 
+// The static canonical in index.html exists for clients that never run JS. With
+// JS, react-helmet-async owns the canonical per route, so drop the static one
+// rather than leave the home URL asserted on /about, /privacy and the rest.
+document.getElementById("static-canonical")?.remove();
+
 // Hand the boot loader (index.html) off to the real app the moment React has
 // painted — we no longer wait on document.fonts.ready. Holding the overlay for
 // fonts added up to ~1.2s of dead time to LCP on throttled mobile; instead we

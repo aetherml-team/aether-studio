@@ -1,5 +1,6 @@
 # https://www.aetherml.com
 Sitemap: https://www.aetherml.com/sitemap.xml
+# Agent instructions: https://www.aetherml.com/llms.txt
 
 User-agent: Googlebot
 Allow: /

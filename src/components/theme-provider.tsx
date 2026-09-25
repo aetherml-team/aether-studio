@@ -28,7 +28,7 @@ function ThemeColorMeta() {
     if (!el || !resolvedTheme) return;
     el.setAttribute(
       "content",
-      resolvedTheme === "dark" ? "#08080A" : "#f6f5f3",
+      resolvedTheme === "dark" ? "#09090C" : "#FAFAF9",
     );
   }, [resolvedTheme]);
 

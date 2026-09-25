@@ -6,267 +6,98 @@
     "cta": "Escríbenos por WhatsApp",
     "ctaShort": "WhatsApp",
     "or": "o déjanos tus datos",
-    "prefill": "Hola Æther 👋 Me interesa la auditoría gratis de 20 min."
+    "prefill": "Hola, Æther. Quiero la auditoría gratis de 20 minutos.",
+    "hello": "Hola, Æther."
   },
   "seo": {
     "title": "Æther · Tú llevas el negocio. Nosotros, lo demás.",
-    "description": "Tú llevas el negocio; nosotros, lo demás. Æther construye y opera la tecnología de la que depende tu empresa — IA, software, automatización y seguridad. Desde Guadalajara, trabajando con equipos en todas partes."
+    "description": "Construimos el sistema con el que opera tu negocio. Se llama Nexus, se adapta a tu forma de trabajar y nosotros lo mantenemos. Guadalajara."
   },
   "navbar": {
     "tagline": "Adiós al trabajo manual",
-    "problem": "El problema",
-    "services": "Qué hacemos",
-    "results": "Resultados",
+    "services": "Qué recibes",
+    "results": "En producción",
     "howWeWork": "Cómo funciona",
-    "theFit": "Para quién",
     "faq": "Preguntas",
     "skipToContent": "Ir al contenido",
-    "bookACall": "Quiero mi auditoría gratis"
-  },
-  "hero": {
-    "kicker": "Tu equipo técnico interno · Guadalajara",
-    "headline": "Enfócate en tu negocio.",
-    "headlineWrong": "Y en la tecnología.",
-    "headlineEmphasis": "Nosotros nos encargamos.",
-    "description": "Somos el equipo técnico que tu empresa no tiene que contratar. Construimos y operamos tu automatización, IA, software y seguridad — para que recuperes tus horas.",
-    "availability": "Tomamos 3 clientes nuevos este mes",
-    "secondary": "Mira cómo funciona",
-    "offerNote": "Auditoría gratis de 20 min — te quedas con los hallazgos, nos contrates o no.",
-    "trust": "Gimnasios · Clínicas · Inmobiliarias · Estudios — Guadalajara y más allá",
-    "outcomes": ["Conciliado", "Automatizado", "Integrado", "Respondido", "Agendado", "Publicado"],
-    "panel": {
-      "title": "Tu semana",
-      "subtitle": "Hoy",
-      "live": "En vivo",
-      "done": "Todo al día",
-      "running": "Resolviendo",
-      "hoursUnit": "h",
-      "tasks": [
-        { "label": "Pago cuadrado con su factura", "tag": "Cuadrado" },
-        { "label": "Respuesta a prospecto redactada por IA", "tag": "Redactado" },
-        { "label": "Nueva reserva sincronizada en tus herramientas", "tag": "Sincronizado" },
-        { "label": "Landing page publicada y en vivo", "tag": "Publicado" },
-        { "label": "Accesos y respaldos revisados", "tag": "Asegurado" },
-        { "label": "Recordatorio de pago vencido enviado", "tag": "Recordado" }
-      ],
-      "metricLabel": "tareas resueltas hoy, sin tocar nada a mano",
-      "savedLabel": "ahorradas esta semana"
-    }
-  },
-  "problemSolution": {
-    "problemLabel": "El problema",
-    "problemHeadline": "A dónde se van las horas",
-    "problemBody": "Persiguiendo pagos en tres apps. Recapturando datos en sistemas que deberían comunicarse. Conciliando a medianoche en una hoja de cálculo. Cada hora de trabajo manual es una hora que no inviertes en crecer.",
-    "solutionLabel": "La solución",
-    "solutionHeadline": "Días de trabajo manual, reducidos a minutos.",
-    "solutionBody": "Conectamos las herramientas que ya usas y te quitamos el trabajo repetitivo de encima, para que corra sin ti. Tavros pasó de tres días cuadrando pagos a doce minutos. Y cuando el cuello de botella no es lo repetitivo — un documento que la IA debería leer, un sitio que no gana clientes, seguridad que sigues posponiendo — también lo construimos.",
-    "sceneBefore": "A mano",
-    "sceneAfter": "Con Æther",
-    "sceneMatched": "Resuelto automáticamente",
-    "sceneAfterMetric": "Ahora toma",
-    "sceneTimeLabel": "horas ahorradas al año",
-    "sceneTimeSub": "≈ 9 meses de un empleado de tiempo completo",
-    "sceneScrub": "Desliza para ejecutar",
-    "sceneProcessing": ["Acumulándose", "Ordenando", "Resolviendo", "Listo"],
-    "sceneTasks": [
-      { "label": "Pago por cuadrar", "tag": "Cobros" },
-      { "label": "Seguimiento por enviar", "tag": "Clientes" },
-      { "label": "Documento por leer", "tag": "Papeleo" },
-      { "label": "Herramientas sin sincronizar", "tag": "Herramientas" },
-      { "label": "Datos por recapturar", "tag": "Admin" }
-    ],
-    "sceneResolvedSub": "Cada tarea, sin tocar a mano",
-    "tags": ["Funciona mientras duermes", "En todas tus herramientas", "Nada se escapa"]
-  },
-  "services": {
-    "headline": "Lo que te quitamos de encima.",
-    "description": "No eliges un servicio de un menú: te damos el equipo técnico completo. Y cada cosa que hacemos viene con recibos — resultados reales de clientes reales, no números de una presentación.",
-    "receiptLabel": "El recibo",
-    "items": [
-      {
-        "name": "Automatiza lo repetitivo",
-        "description": "El trabajo repetitivo que se come tu semana — agendado, seguimientos, facturación y lo demás — corriendo solo mientras duermes.",
-        "proof": "Agendado y facturación que se comían la semana ahora corren solos durante la noche."
-      },
-      {
-        "name": "Pon la IA a trabajar",
-        "description": "IA donde de verdad vale la pena: leer documentos, redactar respuestas, enrutar solicitudes y responder preguntas desde tus propios archivos — para que tu equipo se salte lo repetitivo.",
-        "proof": "Leer documentos que antes tomaba una tarde ahora se resuelve solo en minutos."
-      },
-      {
-        "name": "Haz que tus herramientas se hablen",
-        "description": "Tus herramientas deberían trabajar juntas. Conectamos tus reservas con tu calendario, los pagos con tu contabilidad y las ventas con la entrega — para que nada se escape.",
-        "proof": "El traspaso de ventas a construcción en Inmovilia pasó de días a instantáneo."
-      },
-      {
-        "name": "Pagos cuadrados por ti",
-        "description": "Deja de cuadrar pagos a mano. Cada pago en tu terminal, tu banco y cada app — cuadrado y verificado automáticamente.",
-        "proof": "Tavros redujo sus ciclos de facturación 3x, sin más retrasos en renovaciones."
-      },
-      {
-        "name": "Una presencia que gana clientes",
-        "description": "Landing pages, portales de clientes y portafolios hechos para ganar trabajo. Si tu presencia online no refleja la calidad de lo que haces, también lo arreglamos.",
-        "proof": "Eternus pasó de una página genérica a un portafolio que cierra clientes."
-      },
-      {
-        "name": "Blinda tu negocio",
-        "description": "Auditamos dónde estás expuesto — accesos, respaldos, pagos, tus datos — y cerramos las brechas antes de que te cuesten. Seguridad que aguanta cuando un cliente o socio pregunta.",
-        "proof": "Una auditoría encontró accesos y respaldos expuestos — cerrados antes de que costaran un peso."
-      },
-      {
-        "name": "Capacita a tu equipo",
-        "description": "Entrenamos a tu gente para que de verdad opere lo que construimos — herramientas de IA, nuevos flujos, los sistemas detrás del negocio — para que los resultados se queden mucho después de que nos vamos.",
-        "proof": "Tras la capacitación, el equipo opera sus flujos de IA sin depender de nosotros."
-      },
-      {
-        "name": "Elimina los cuellos de botella",
-        "description": "Encontramos dónde se atora el trabajo, rediseñamos cómo fluye y recortamos el tiempo y el costo desperdiciado — de forma medible.",
-        "proof": "La mayoría de clientes recupera el costo del proyecto en los primeros 60 días."
-      }
-    ]
-  },
-  "clients": {
-    "headline": "En sus palabras.",
-    "sectionHeadline": "Trabajo real, resultados reales.",
-    "sectionSub": "Cinco negocios, cinco retos distintos, un mismo resultado: tecnología que impulsa la marca.",
-    "whatDelivered": "Lo que Æther entregó",
-    "prev": "Cliente anterior",
-    "next": "Cliente siguiente",
-    "items": [
-      {
-        "tagline": "Gym · Guadalajara, MX",
-        "industry": "Gimnasio de alto rendimiento",
-        "quote": "Me ayudaron a reducir lo que me tomaba semanas en conciliación cada mes. Ahora me enfoco en lo que me importa: traer más clientes a mi negocio.",
-        "quotePerson": "Hari, Dueño",
-        "servicesDelivered": [
-          "Automatización de facturación de membresías",
-          "Integraciones de control de acceso",
-          "Sincronización de nómina y horarios de entrenadores"
-        ],
-        "metricLabel": "ciclos de facturación más rápidos"
-      },
-      {
-        "tagline": "Inmobiliaria · Guadalajara, MX",
-        "industry": "Construcción e inmobiliaria",
-        "quote": "¡Ni siquiera tenía página web! Los contacté y en un par de horas ya podía enviarle el link a mis inversionistas. Me salvaron.",
-        "quotePerson": "Mario, Fundador",
-        "servicesDelivered": [
-          "Captación de leads y enrutamiento CRM",
-          "Programación de visitas y recordatorios",
-          "Flujos de traspaso ventas ↔ construcción"
-        ],
-        "metricLabel": "respuesta a leads más rápida"
-      },
-      {
-        "tagline": "Cine de Bodas · Guadalajara, MX",
-        "industry": "Cineasta de bodas",
-        "quote": "Me ayudaron a tener un portafolio real para mi trabajo. Mi landing page anterior no reflejaba lo que hago. ¡Ahora coinciden!",
-        "quotePerson": "Dimitri, Cineasta",
-        "servicesDelivered": [
-          "Pipeline de consulta a contrato",
-          "Depósitos y facturación por hitos",
-          "Flujo de comunicación y entrega al cliente"
-        ],
-        "metricLabel": "bodas coordinadas"
-      },
-      {
-        "tagline": "Café de Especialidad · Guadalajara, MX",
-        "industry": "Marca de café de especialidad",
-        "quote": "Æther convirtió el carácter de Sismo en una experiencia digital tan cuidada como el café: clara, distintiva y fácil de explorar.",
-        "quotePerson": "Equipo de Sismo Café",
-        "servicesDelivered": [
-          "Micrositio para campaña de lanzamiento",
-          "Cuenta regresiva para nueva sucursal",
-          "Narrativa de marca responsiva"
-        ],
-        "metricLabel": "experiencia digital de lanzamiento"
-      },
-      {
-        "tagline": "Joyería Fina · Guadalajara, MX",
-        "industry": "Joyería de autor con diamantes",
-        "quote": "Tradujeron quince años de oficio en una maison digital que se siente personal, lujosa y construida alrededor del momento que están eligiendo nuestros clientes.",
-        "quotePerson": "Equipo de Eloisa Montero",
-        "servicesDelivered": [
-          "Experiencia de e-commerce de lujo",
-          "Recorrido guiado para diseñar el anillo",
-          "Flujos de conversión para citas y concierge"
-        ],
-        "metricLabel": "experiencia guiada de diseño"
-      }
-    ]
+    "bookACall": "Quiero mi auditoría gratis",
+    "investment": "Inversión"
   },
   "process": {
-    "headline": "De la auditoría al sistema en marcha.",
-    "description": "Primeros resultados en uno o dos meses, no un despliegue de seis meses. Cada proyecto corre los mismos tres pasos.",
+    "headline": "Cómo trabajamos.",
+    "description": "Cada etapa termina con un resultado por escrito.",
     "deliverables": [
-      "Recibes: una auditoría cuantificada",
-      "Recibes: un plan de construcción y cotización fija",
-      "Recibes: un sistema en producción, monitoreado"
+      "Recibes: hallazgos y plan",
+      "Recibes: tu app conectada",
+      "Recibes: el proceso en marcha",
+      "Recibes: soporte y mejoras"
     ],
     "steps": [
       {
-        "title": "Descubrir",
-        "description": "Auditamos tus flujos de trabajo de principio a fin. Cada paso manual, cada cuello de botella, cada peso que se escapa, mapeado y cuantificado."
+        "title": "Definimos",
+        "description": "Encontramos el problema y escribimos el plan."
       },
       {
-        "title": "Diseñar",
-        "description": "Diseñamos la solución correcta — automatización, IA, software o web — adaptada a tu stack y a cómo funciona realmente tu negocio."
+        "title": "Conectamos",
+        "description": "Hacemos tu app y la conectamos con lo que ya usas."
       },
       {
-        "title": "Desplegar",
-        "description": "Lanzamos, monitoreamos e iteramos. Tus sistemas funcionan 24/7 mientras nosotros nos encargamos del mantenimiento, la optimización y lo que falle a las 3 AM."
+        "title": "Automatizamos",
+        "description": "Quitamos los pasos repetidos. Tu equipo lo prueba."
+      },
+      {
+        "title": "Lo cuidamos",
+        "description": "Revisamos cada día. Mejoramos cada mes."
       }
     ]
   },
   "checkFit": {
     "headline": "Con quién trabajamos.",
-    "description": "Trabajamos a fondo con pocos clientes a la vez — por eso somos honestos sobre si encajamos, en ambos sentidos.",
-    "soundLikeYou": "Si la columna de la izquierda eres tú, deberíamos hablar.",
+    "description": "Tomamos pocos clientes a la vez. Así podemos garantizar la fecha.",
+    "soundLikeYou": "Si la columna de la izquierda eres tú, agenda la auditoría.",
     "fitLabel": "Encajamos cuando",
     "notFitLabel": "Probablemente no cuando",
     "audiences": [
-      "Estás escalando más rápido de lo que tus sistemas, equipo o herramientas aguantan",
-      "Tienes un negocio real (gimnasio, clínica, inmobiliaria) enterrado en trabajo manual",
-      "Tu sitio, tus datos o tu seguridad no reflejan la calidad de lo que haces",
-      "Tu tiempo vale más que otra hora de administración — u otro arreglo pospuesto"
+      "Tienes equipo, clientes y cobros cada mes",
+      "Un proceso vive en Excel, chats o la cabeza de alguien",
+      "La persona que decide participa en el proyecto"
     ],
     "notAudiences": [
-      "Buscas la cotización más barata, no el mejor sistema",
-      "Quieres una herramienta para operar tú, no un socio que la opere",
-      "No estás listo para cambiar cómo se hace el trabajo",
-      "Necesitas un favor puntual, no una relación a largo plazo"
+      "Buscas la cotización más barata",
+      "Solo quieres una app bonita",
+      "Esperas que garanticemos ventas"
     ]
   },
   "contact": {
-    "headline": "Cuéntanos a dónde se van las horas.",
-    "description": "Agenda la auditoría gratis de 20 minutos: mapeamos a dónde se van las horas de tu semana y cuánto te cuesta. Te quedas con el mapa, nos contrates o no. Sin discurso de venta.",
+    "headline": "Agenda una auditoría de 20 minutos.",
+    "description": "Revisamos un proceso manual. Te enviamos los hallazgos por escrito.",
     "nameLabel": "Nombre",
     "emailLabel": "Correo",
     "namePlaceholder": "Tu nombre",
     "emailPlaceholder": "tu@empresa.com",
     "messageLabel": "¿Qué te está frenando?",
     "messageOptional": "(opcional)",
-    "messagePlaceholder": "Opcional — unas líneas sobre qué es manual o a dónde se va tu semana. O déjalo en blanco y lo vemos en la llamada.",
+    "messagePlaceholder": "Opcional. Unas líneas sobre qué haces a mano o a dónde se va tu semana. Si lo dejas en blanco, lo vemos en la llamada.",
     "tabBook": "Agenda una llamada",
     "tabMessage": "Envía un mensaje",
     "tabAria": "Elige cómo contactarnos",
     "preferWrite": "¿Prefieres escribir? Envía un mensaje →",
     "bookEyebrow": "Auditoría gratis · 20 minutos",
     "bookTitle": "Elige un horario que te acomode",
-    "bookBody": "Elige un espacio y te enviamos la invitación al calendario. Veinte minutos enfocados en a dónde se van tus horas — sin discurso de venta.",
+    "bookBody": "Elige un espacio y te llega la invitación al calendario. Hablamos de tu negocio.",
     "bookCta": "Ver horarios disponibles",
     "submit": "Quiero mi auditoría gratis",
     "sending": "Enviando…",
     "responseNote": "Respondemos en menos de un día hábil.",
     "nextLabel": "Qué sigue",
     "steps": [
-      "Elige un horario, o envía una nota — unos 30 segundos.",
-      "Auditoría gratis de 20 minutos: mapeamos a dónde se van tus horas y tu dinero.",
-      "Te quedas con los hallazgos y recibes una cotización fija. Sin discurso de venta si no vale la pena."
+      "Eliges un horario.",
+      "Nos cuentas qué haces a mano.",
+      "Te enviamos los hallazgos."
     ],
     "assurances": [
       "NDA desde el día uno",
-      "Listo en 1–2 meses",
+      "Precio fijo por escrito",
       "Te quedas con los hallazgos"
     ],
     "success": "Gracias. Te respondemos en menos de un día hábil.",
@@ -285,7 +116,7 @@
       "booking": "Reservando…",
       "bookedTitle": "Estás agendado, {{name}}.",
       "bookedBody": "Te enviamos una invitación de calendario a {{email}}. Nos vemos.",
-      "slotTaken": "Ese horario se acaba de ocupar — elige otro, por favor.",
+      "slotTaken": "Ese horario se acaba de ocupar. Elige otro, por favor.",
       "failed": "No pudimos confirmarlo. Inténtalo de nuevo o envíanos un mensaje."
     },
     "validation": {
@@ -294,59 +125,54 @@
       "emailRequired": "Por favor ingresa tu correo.",
       "emailInvalid": "Por favor ingresa un correo válido.",
       "messageRequired": "Cuéntanos qué te está frenando.",
-      "messageShort": "Un poco más de detalle ayuda — al menos 10 caracteres."
+      "messageShort": "Cuéntanos un poco más, al menos 10 caracteres."
     }
   },
   "stickyCta": {
     "label": "Quiero mi auditoría gratis"
   },
-  "integrations": {
-    "kicker": "Más de 100 herramientas, conectadas",
-    "headline": "Conectamos las herramientas que ya pagas.",
-    "subcopy": "De Stripe a tu banco, de tu calendario a tu CRM, de tus ventas a tu contabilidad — comunicándose solas, para que nada se te escape.",
-    "more": "+100 más"
-  },
   "faq": {
-    "headline": "Preguntas, respondidas.",
-    "subhead": "Lo que los founders nos preguntan antes de agendar la auditoría.",
+    "headline": "Preguntas frecuentes.",
+    "subhead": "Alcance, precio, adopción y salida.",
     "askLink": "¿Te queda una duda? Pregúntanos →",
     "items": [
       {
-        "q": "¿Solo hacen automatización?",
-        "a": "No — somos un estudio completo: IA y agentes, automatización, integraciones, software y landing pages a la medida, seguridad, y capacitación para que tu equipo lo opere. La automatización suele ser donde empezamos, porque se paga sola más rápido."
+        "q": "¿Qué es Nexus?",
+        "a": "Es el sistema hecho para operar tu negocio. Puede incluir una app interna, una tienda o un portal. Cada Nexus es distinto."
       },
       {
-        "q": "¿Qué tan rápido entregan?",
-        "a": "Primeros resultados en producción uno o dos meses después del arranque. La mayoría de los proyectos muestran horas ahorradas medibles dentro de los primeros 60 días, no los despliegues de 6 meses de una agencia tradicional."
+        "q": "¿Cuándo termina la primera fase?",
+        "a": "Antes de empezar firmamos qué incluye, quién lo usa y cuándo queda. Cualquier cambio posterior se cotiza aparte."
+      },
+      {
+        "q": "¿Y si mi equipo no lo usa?",
+        "a": "Lo diseñamos con tu equipo y lo probamos con casos reales. Una persona de tu negocio debe ser responsable del proyecto."
+      },
+      {
+        "q": "¿Y si lo hacemos con IA?",
+        "a": "Hazlo. Elige un proceso y ponlo a correr con IA. Nosotros hacemos lo mismo. Después comparamos qué funciona, qué usa tu equipo y quién lo mantiene."
+      },
+      {
+        "q": "¿Cómo sé que va a funcionar?",
+        "a": "Firmamos criterios de aceptación. Si incumplimos uno que depende de nosotros, seguimos trabajando sin cobrar más por la implementación."
       },
       {
         "q": "¿Cuánto cuesta?",
-        "a": "Cada proyecto se adapta a tu necesidad — desde una sola landing page hasta un sistema de automatización completo. Compartimos una cotización fija después de la auditoría gratuita, sin juegos de horas, y la mayoría de clientes recupera la inversión en los primeros 60 días."
+        "a": "Pagas la construcción una vez y la operación cada mes. El precio queda por escrito después de la auditoría."
       },
       {
-        "q": "¿Funciona con nuestras herramientas actuales?",
-        "a": "Casi seguro que sí. Conectamos Stripe, HubSpot, Notion, Airtable, QuickBooks, Slack, Google Workspace, n8n, Zapier, Make y más de 100 otras. Si tu stack tiene API o webhook, lo podemos automatizar, conectar o construir encima."
-      },
-      {
-        "q": "¿Qué pasa si algo falla?",
-        "a": "Monitoreamos cada flujo que entregamos. Si algo se cae a las 3 AM, la alerta nos llega a nosotros, no a ti. Mantenimiento e iteraciones pequeñas incluidas los primeros 90 días; después, un retainer mensual fijo."
-      },
-      {
-        "q": "¿Reemplazan a nuestro equipo?",
-        "a": "No. Reemplazamos el trabajo que nadie en tu equipo debería estar haciendo. Tu gente se enfoca en clientes, crecimiento y decisiones, lo que el software no puede hacer."
-      },
-      {
-        "q": "¿Nuestros datos están seguros?",
-        "a": "Sí. Trabajamos dentro de tus cuentas (o desplegamos en tu infraestructura), nunca almacenamos credenciales en texto plano y firmamos NDA desde el día uno. También trabajamos bajo tus requisitos de seguridad y cumplimiento."
+        "q": "¿Y si me quiero ir?",
+        "a": "Recibes tus clientes, cobros, facturas e historial en Excel y reportes. El sistema y el código se quedan con Æther. Esto queda por escrito antes de empezar."
       }
     ]
   },
   "footer": {
-    "tagline": "Construimos y operamos la tecnología de la que depende tu negocio — IA, automatización, software y seguridad. Con base en Guadalajara, trabajando con equipos en todas partes.",
+    "tagline": "Tu negocio en una sola pantalla, con tu marca. Tú llevas el negocio. Nosotros, lo demás. Guadalajara.",
     "company": "Empresa",
+    "about": "Sobre nosotros",
     "connect": "Conectar",
-    "services": "Servicios",
-    "clients": "Clientes",
+    "services": "Qué recibes",
+    "clients": "En producción",
     "contact": "Contacto",
     "linkedin": "LinkedIn",
     "twitter": "Twitter / X",
@@ -364,5 +190,312 @@
     "description": "El enlace está roto o la página se movió. Te regresamos a algo útil.",
     "homeCta": "Volver al inicio",
     "contactCta": "Quiero mi auditoría gratis"
+  },
+  "hero": {
+    "kicker": "Guadalajara · Para dueños de negocio",
+    "headline": "Un sistema que trabaja",
+    "headlineEmphasis": "como tú.",
+    "description": "Nexus es la app de tu negocio, hecha a tu manera. Nosotros la mantenemos.",
+    "secondary": "Mira si te pasa",
+    "screenshotAlt": "Pantalla de inicio de Nexus: ventas, cobros y pendientes de hoy",
+    "annotations": [
+      "Quién debe",
+      "Cobrado hoy",
+      "Pagos cuadrados",
+      "Decisiones para hoy"
+    ],
+    "availability": "Tomamos 3 clientes nuevos al mes",
+    "screenshotLabel": "Nexus · app para dueño y equipo"
+  },
+  "pain": {
+    "headline": "¿Tu negocio vive en Excel, chats y libretas?",
+    "description": "Si una te pasa, ya sabemos por dónde empezar.",
+    "signals": [
+      {
+        "q": "Las cuentas no cuadran.",
+        "who": "Dueño de tostaduría y cafés"
+      },
+      {
+        "q": "Quiero ver los números de hoy. No bajar reportes.",
+        "who": "Dueño de tostaduría y cafés"
+      },
+      {
+        "q": "Pagaron por fuera. Nadie vio el correo.",
+        "who": "Encargado de gimnasio"
+      },
+      {
+        "q": "Los clientes cambian de plan todo el tiempo.",
+        "who": "Encargado de gimnasio"
+      },
+      {
+        "q": "¿Dónde pongo este otro pago?",
+        "who": "Dueño de estudio de bodas"
+      },
+      {
+        "q": "Quiero las tres sucursales en un solo lugar.",
+        "who": "Dueño de panaderías"
+      }
+    ],
+    "closer": "En la auditoría revisamos cuál de estos problemas conviene atender primero."
+  },
+  "stack": {
+    "headline": "¿Qué es Nexus?",
+    "description": "Es el sistema con el que tu equipo trabaja cada día. Lo hacemos a tu medida y lo mantenemos.",
+    "boardLabel": "Primera fase · 6 semanas",
+    "items": [
+      {
+        "name": "Auditoría operativa",
+        "description": "Vemos qué falla y qué conviene resolver primero."
+      },
+      {
+        "name": "Plan por escrito",
+        "description": "Acordamos qué haremos, cuándo queda y cómo sabremos que funciona."
+      },
+      {
+        "name": "Tu app, con tu marca",
+        "description": "Tu equipo abre una sola app. Lleva tu nombre y tus colores."
+      },
+      {
+        "name": "Todo conectado",
+        "description": "Banco, caja, agenda y WhatsApp trabajan juntos. Nadie captura dos veces."
+      },
+      {
+        "name": "Lo repetitivo, en automático",
+        "description": "El pago encuentra su factura. La renovación avisa antes de vencer."
+      },
+      {
+        "name": "El resumen del lunes",
+        "description": "Ves qué vendiste, qué cobraste, quién debe y qué toca decidir."
+      },
+      {
+        "name": "Tu equipo, capacitado",
+        "description": "Enseñamos a cada persona con casos reales de tu negocio."
+      },
+      {
+        "name": "Nosotros lo mantenemos",
+        "description": "Respaldamos, revisamos y mejoramos. Tus datos siguen siendo tuyos."
+      }
+    ],
+    "bonusLabel": "Va incluido",
+    "bonuses": [
+      {
+        "name": "30 días a tu lado",
+        "description": "Después del arranque nos quedamos con tu equipo hasta que sea costumbre."
+      },
+      {
+        "name": "Manual por puesto",
+        "description": "Cómo se hace cada cosa, por escrito, para que no dependa de una sola persona."
+      },
+      {
+        "name": "Revisión a los 60 días",
+        "description": "Volvemos a medir lo que medimos en la auditoría y te enseñamos la diferencia."
+      },
+      {
+        "name": "Tus datos, cuando los pidas",
+        "description": "Tus clientes, tus cobros y tu historial en Excel y en reportes, el día que los necesites."
+      }
+    ]
+  },
+  "systems": {
+    "headline": "Mira lo que ya construimos.",
+    "description": "Cada negocio recibe algo distinto: una app interna, una tienda o ambas. Elige uno para verlo.",
+    "proofLabel": "Función en producción",
+    "facts": [
+      {
+        "value": "Tavros",
+        "label": "178 planes prepagados en marcha"
+      },
+      {
+        "value": "Eternus",
+        "label": "cada boda, de prospecto a entrega"
+      },
+      {
+        "value": "Sismo Café",
+        "label": "ventas, taller y movimientos juntos"
+      },
+      {
+        "value": "Eloísa",
+        "label": "tienda y anillo a la medida"
+      },
+      {
+        "value": "Wedding Method",
+        "label": "cada prospecto tiene una etapa"
+      },
+      {
+        "value": "Æther",
+        "label": "nuestros cobros y mensualidades"
+      }
+    ],
+    "items": [
+      {
+        "name": "Tavros Fuerza y Acondicionamiento",
+        "vertical": "App para dueño y equipo · gimnasio",
+        "spotlight": "178 planes prepagados viven en un solo sistema.",
+        "summary": "Los socios pagan por transferencia, en efectivo o con tarjeta, y cambian de paquete a cada rato. Cada pago cae en su lugar y el recordatorio sale por WhatsApp, porque nadie ve el correo.",
+        "modules": [
+          "Membresías",
+          "Cobros",
+          "Banco",
+          "Reportes"
+        ],
+        "frames": [
+          "Ves qué necesita atención.",
+          "Sabes quién debe y qué plan tiene.",
+          "Cruzas el depósito con el pago."
+        ],
+        "cta": "Tengo un gimnasio"
+      },
+      {
+        "name": "Eternus",
+        "vertical": "App para dueño y equipo · estudio de bodas",
+        "spotlight": "Cada boda, de prospecto a entrega.",
+        "summary": "El dueño ve fechas, cobros, equipo y entregas en un solo lugar.",
+        "modules": [
+          "Prospectos",
+          "Proyectos",
+          "Contratos",
+          "Finanzas"
+        ],
+        "frames": [
+          "Ves qué está en riesgo hoy.",
+          "Todas las bodas, por fecha y etapa.",
+          "Abres una boda: cobros, equipo y entregas."
+        ],
+        "cta": "Filmo o fotografío bodas"
+      },
+      {
+        "name": "Sismo Café",
+        "vertical": "App para dueño y equipo · cafés",
+        "spotlight": "Lo vendido llega al taller.",
+        "summary": "Las ventas llegan desde Poster. El taller prepara. La bitácora guarda cada movimiento.",
+        "modules": [
+          "Ventas",
+          "Taller",
+          "Sucursales",
+          "Bitácora"
+        ],
+        "frames": [
+          "Ves lo vendido por día.",
+          "El taller sabe qué preparar.",
+          "Cada movimiento queda guardado."
+        ],
+        "cta": "En mi café es un caos"
+      },
+      {
+        "name": "Eloisa Montero Diamantes",
+        "vertical": "Tienda para clientes · joyería",
+        "spotlight": "De explorar una pieza a diseñar el anillo.",
+        "summary": "La clienta explora la tienda, arma su anillo y agenda una cita.",
+        "modules": [
+          "Tienda",
+          "Catálogo",
+          "Diseña tu anillo",
+          "Citas"
+        ],
+        "frames": [
+          "Primero encuentra la pieza.",
+          "Después arma su anillo."
+        ],
+        "cta": "Vendo joyería a la medida"
+      },
+      {
+        "name": "The Wedding Method",
+        "vertical": "App para dueño y equipo · mentoría y curso",
+        "spotlight": "Cada prospecto tiene una etapa.",
+        "summary": "La mentoría lleva cada consulta a llamada. The Wedding Game vende el curso por separado.",
+        "modules": [
+          "Mentoría",
+          "Prospectos",
+          "Llamadas",
+          "Alumnos",
+          "Curso"
+        ],
+        "frames": [
+          "Cada consulta tiene una etapa.",
+          "Cuando entra, ya aparece como alumno."
+        ],
+        "cta": "Vendo mentoría o cursos"
+      },
+      {
+        "name": "Æther",
+        "vertical": "App para dueño y equipo · Æther",
+        "spotlight": "Usamos nuestro sistema antes de venderlo.",
+        "summary": "Aquí cobramos, registramos gastos y vemos qué mensualidad sigue.",
+        "modules": [
+          "Cobros",
+          "Gastos",
+          "Mensualidades"
+        ],
+        "frames": [
+          "Vemos lo que entra y lo que sale.",
+          "Sabemos qué mensualidad sigue."
+        ],
+        "cta": "Quiero lo mismo para mi negocio"
+      },
+      {
+        "name": "Grupo de panaderías",
+        "vertical": "Tres casas · Guadalajara",
+        "spotlight": "Tres sucursales. Un solo lugar para verlas.",
+        "summary": "El dueño lo pidió así: que las tres sucursales vivan en el mismo sistema y que la factura salga con la tasa de cada casa. Tarjeta y transferencia se facturan tal cual; el efectivo se revisa antes de timbrar.",
+        "modules": [
+          "Ventas por casa",
+          "Prefacturas",
+          "Factura",
+          "Cierre semanal"
+        ],
+        "frames": [],
+        "cta": "Facturar bien me quita el sueño"
+      }
+    ],
+    "footnote": "No publicamos cifras de ahorro porque todavía no las medimos con nadie. Te enseñamos lo que ya construimos y alguien usa todos los días.",
+    "visitStore": "Ver la tienda",
+    "visitCourse": "Ver el curso",
+    "visitSite": "Ver su sitio",
+    "othersHeadline": "También construimos otros procesos.",
+    "othersBody": "Cobros, agenda, inventario, pedidos, contratos y tiendas en línea. La auditoría sirve para definir el primero.",
+    "othersCta": "Mi negocio es otro",
+    "upcomingLabel": "Nuevo cliente · en arranque",
+    "upcomingBadge": "Arrancando"
+  },
+  "investment": {
+    "headline": "Empieza con control. Crece sin perderlo.",
+    "description": "En la auditoría vemos dónde estás. Después te decimos qué haríamos, cuándo queda y cuánto cuesta.",
+    "packages": [
+      {
+        "name": "ÆTHER Esencial",
+        "scope": "Para sacar de tu cabeza lo que hoy depende de ti.",
+        "cta": "Quiero empezar",
+        "bullets": [
+          "Una tarea clave, en orden",
+          "Tu equipo sabe cómo se hace",
+          "Nosotros lo mantenemos"
+        ]
+      },
+      {
+        "name": "ÆTHER Control",
+        "scope": "Para que el negocio avance sin preguntarte cada paso.",
+        "cta": "Quiero tener el control",
+        "bullets": [
+          "Cada persona sabe qué sigue",
+          "Lo pendiente tiene dueño",
+          "Tú ves qué necesita atención"
+        ]
+      },
+      {
+        "name": "ÆTHER Scale",
+        "scope": "Para sumar áreas o sucursales sin volver al caos.",
+        "cta": "Quiero crecer con orden",
+        "bullets": [
+          "Todos trabajan con la misma información",
+          "Cada equipo ve lo que necesita",
+          "Nuevos flujos se suman por etapas"
+        ]
+      }
+    ],
+    "guaranteeLabel": "Garantía",
+    "guaranteeTitle": "Si nos atrasamos, terminamos sin cobrar más.",
+    "guaranteeBody": "Primero escribimos qué significa terminado. Si algo que depende de nosotros no queda en la fecha, seguimos sin cobrar más. No cubre cambios, datos tardíos ni fallas de terceros.",
+    "feasibility": "Si una conexión es incierta, primero la probamos en una etapa corta con respuesta de sí o no.",
+    "notCheapest": "No competimos por precio. Construimos, operamos y mantenemos el sistema contigo."
   }
 }

@@ -12,7 +12,7 @@ i18n
       en: { translation: en },
       es: { translation: es },
     },
-    fallbackLng: "en",
+    fallbackLng: "es",
     supportedLngs: ["en", "es"],
     // Silence i18next's "powered by Locize" console.info banner in prod.
     showSupportNotice: false,

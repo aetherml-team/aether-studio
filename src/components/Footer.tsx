@@ -11,9 +11,10 @@ const Footer = () => {
     {
       titleKey: "footer.company",
       links: [
-        { textKey: "footer.services", href: "#services" },
-        { textKey: "footer.clients", href: "#clients" },
-        { textKey: "footer.contact", href: "#contact" },
+        { textKey: "footer.about", href: "/about" },
+        { textKey: "footer.services", href: "#offer" },
+        { textKey: "footer.clients", href: "#systems" },
+        { textKey: "footer.contact", href: "/contact" },
       ],
     },
     {
@@ -27,19 +28,18 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-border px-6 py-16 md:px-10 md:py-20">
-      <div className="gradient-strip mb-12 opacity-60" aria-hidden />
+      <div className="mb-12 h-px w-full bg-border" aria-hidden />
       <m.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={viewport}
-        transition={{ duration: 0.65, ease: EASE }}
+        transition={{ duration: 0.45, ease: EASE }}
         className="mx-auto max-w-7xl"
       >
         <div className="grid gap-12 md:grid-cols-4 md:gap-8">
           <div className="md:col-span-2">
-            <p className="font-heading text-base font-semibold tracking-tight text-foreground">
-              Æther
-            </p>
+            <img src="/logo.png" alt="Æther Studio" width={688} height={342} className="h-24 w-auto dark:hidden" />
+            <img src="/aether-logo-email.png" alt="" width={688} height={342} className="hidden h-24 w-auto dark:block" />
             <p className="mt-3 max-w-sm font-body text-sm font-light leading-relaxed text-muted-foreground">
               {t("footer.tagline")}
             </p>
@@ -81,16 +81,27 @@ const Footer = () => {
                 {t(section.titleKey)}
               </p>
               <ul className="mt-4 space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.textKey}>
-                    <a
-                      href={link.href}
-                      className="nav-link font-body text-sm text-foreground/60 transition-colors hover:text-foreground"
-                    >
-                      {t(link.textKey)}
-                    </a>
-                  </li>
-                ))}
+                {section.links.map((link) => {
+                  const className =
+                    "nav-link font-body text-sm text-foreground/60 transition-colors hover:text-foreground";
+                  return (
+                    <li key={link.textKey}>
+                      {link.href.includes("#") ? (
+                        <a href={link.href} className={className}>
+                          {t(link.textKey)}
+                        </a>
+                      ) : link.href.startsWith("/") ? (
+                        <Link to={link.href} className={className}>
+                          {t(link.textKey)}
+                        </Link>
+                      ) : (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+                          {t(link.textKey)}
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </m.div>
           ))}

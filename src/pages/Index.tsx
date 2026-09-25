@@ -3,13 +3,10 @@ import { useTranslation } from "react-i18next";
 import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
 import HeroSection from "@/components/HeroSection";
-import IntegrationsMarquee from "@/components/IntegrationsMarquee";
-import WorkDisappearsSection from "@/components/WorkDisappearsSection";
-import ServicesSection from "@/components/ServicesSection";
-import WorkShowcase from "@/components/WorkShowcase";
-import ProcessSection from "@/components/ProcessSection";
-import CheckFitSection from "@/components/CheckFitSection";
-import FAQSection from "@/components/FAQSection";
+import PainSection from "@/components/PainSection";
+import OfferSection from "@/components/OfferSection";
+import LiveSystemsSection from "@/components/LiveSystemsSection";
+import InvestmentSection from "@/components/InvestmentSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -34,13 +31,10 @@ const Index = () => {
       <Navbar />
       <main id="main">
         <HeroSection />
-        <IntegrationsMarquee />
-        <WorkDisappearsSection />
-        <ServicesSection />
-        <WorkShowcase />
-        <ProcessSection />
-        <CheckFitSection />
-        <FAQSection />
+        <PainSection />
+        <OfferSection />
+        <LiveSystemsSection />
+        <InvestmentSection />
         <ContactSection />
       </main>
       <Footer />

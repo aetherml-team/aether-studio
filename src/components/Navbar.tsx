@@ -16,10 +16,9 @@ const Navbar = () => {
   // Nav leads with what Æther does (the capabilities), then proof, process,
   // fit, and the questions people ask before booking.
   const links = [
-    { href: "#services", label: t("navbar.services") },
-    { href: "#clients", label: t("navbar.results") },
-    { href: "#process", label: t("navbar.howWeWork") },
-    { href: "#check-fit", label: t("navbar.theFit") },
+    { href: "#offer", label: t("navbar.services") },
+    { href: "#systems", label: t("navbar.results") },
+    { href: "#investment", label: t("navbar.investment") },
     { href: "#faq", label: t("navbar.faq") },
   ];
 
@@ -28,7 +27,7 @@ const Navbar = () => {
   // Scroll-spy — highlight the link for whichever section sits across the
   // viewport's midline, so the nav always shows where you are.
   useEffect(() => {
-    const ids = ["services", "clients", "process", "check-fit", "faq"];
+    const ids = ["offer", "systems", "investment", "faq"];
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -65,7 +64,7 @@ const Navbar = () => {
       aria-label="Primary"
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, ease: EASE }}
+      transition={{ duration: 0.45, ease: EASE }}
       className="fixed left-0 right-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-500"
       style={{
         backgroundColor: scrolled ? "hsl(var(--background) / 0.88)" : "transparent",
@@ -82,22 +81,14 @@ const Navbar = () => {
         {t("navbar.skipToContent")}
       </a>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2.5 md:px-10">
         <a
           href="#hero"
-          className="group flex shrink-0 items-center gap-2.5"
+          className="group flex shrink-0 items-center"
           aria-label={`Æther — ${t("navbar.tagline")}, home`}
         >
-          <span className="font-heading text-base font-semibold tracking-tight text-foreground transition-opacity duration-200 group-hover:opacity-80">
-            Æther
-          </span>
-          <span aria-hidden className="hidden h-3.5 w-px bg-border sm:block" />
-          <span
-            aria-hidden
-            className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-foreground-muted sm:block"
-          >
-            {t("navbar.tagline")}
-          </span>
+          <img src="/logo.png" alt="Æther Studio" width={688} height={342} className="h-[72px] w-[145px] object-contain transition-opacity duration-200 group-hover:opacity-75 dark:hidden" />
+          <img src="/aether-logo-email.png" alt="" width={688} height={342} className="hidden h-[72px] w-[145px] object-contain transition-opacity duration-200 group-hover:opacity-75 dark:block" />
         </a>
 
         <div className="hidden flex-wrap items-center justify-end gap-x-5 gap-y-2 font-body text-[12px] font-normal text-muted-foreground md:flex md:text-[13px]">
@@ -120,21 +111,18 @@ const Navbar = () => {
         <div className="hidden shrink-0 items-center gap-2 md:flex">
           <LanguageToggle />
           <ThemeToggle />
-          <m.a
+          <a
             href="#contact-form"
-            className="inline-flex items-center rounded-lg bg-primary px-5 py-2 font-body text-[13px] font-medium text-primary-foreground"
-            whileHover={{ scale: 1.03, filter: "brightness(1.08)" }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 450, damping: 30 }}
+            className="press inline-flex items-center rounded-md bg-primary px-5 py-2 font-body text-[13px] font-medium text-primary-foreground"
           >
             {t("navbar.bookACall")}
-          </m.a>
+          </a>
         </div>
 
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/80 bg-background/40 text-foreground backdrop-blur-sm md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/80 bg-background/40 text-foreground backdrop-blur-sm md:hidden"
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -171,7 +159,7 @@ const Navbar = () => {
           </div>
           <a
             href="#contact-form"
-            className="mt-0 inline-flex w-full items-center justify-center rounded-lg bg-primary px-5 py-3 text-[13px] font-medium text-primary-foreground"
+            className="mt-0 inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-3 text-[13px] font-medium text-primary-foreground"
             onClick={() => setMenuOpen(false)}
           >
             {t("navbar.bookACall")}

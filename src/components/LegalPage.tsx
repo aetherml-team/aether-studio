@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -15,9 +15,11 @@ type Props = {
   doc: Record<"en" | "es", LegalDoc>;
   /** Route path beginning with "/", for the canonical URL. */
   path: string;
+  /** Optional block rendered below the copy (e.g. the contact form). */
+  children?: ReactNode;
 };
 
-const LegalPage = ({ doc, path }: Props) => {
+const LegalPage = ({ doc, path, children }: Props) => {
   const { i18n, t } = useTranslation();
   const lang = i18n.language.startsWith("es") ? "es" : "en";
   const content = doc[lang];
@@ -53,9 +55,10 @@ const LegalPage = ({ doc, path }: Props) => {
         </div>
       </header>
 
-      <main id="main" className="mx-auto max-w-3xl px-6 pb-16 pt-8 md:px-8 md:pb-24 md:pt-10">
+      <main id="main" className="pb-16 pt-8 md:pb-24 md:pt-10">
         <m.div
-          initial={{ opacity: 0, y: 16 }}
+          className="mx-auto max-w-3xl px-6 md:px-8"
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
         >
@@ -77,7 +80,7 @@ const LegalPage = ({ doc, path }: Props) => {
             ))}
           </div>
 
-          <div className="gradient-strip my-12 opacity-60" aria-hidden />
+          <div className="my-12 h-px w-full bg-border" aria-hidden />
 
           <div className="space-y-10">
             {content.sections.map((section) => (
@@ -119,6 +122,10 @@ const LegalPage = ({ doc, path }: Props) => {
             </p>
           )}
         </m.div>
+
+        {/* Full-bleed slot, outside the reading column: /contact drops the real
+            booking panel here and it needs the page's whole width. */}
+        {children}
       </main>
 
       <Footer />

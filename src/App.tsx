@@ -12,6 +12,8 @@ import Index from "./pages/Index.tsx";
 // The home route is the LCP path, so it stays in the main bundle. The legal
 // pages and 404 are split out — almost no visitor hits them, so there is no
 // reason to ship their markup (and their content) to everyone on first load.
+const About = lazy(() => import("./pages/About.tsx"));
+const Contact = lazy(() => import("./pages/Contact.tsx"));
 const Privacy = lazy(() => import("./pages/Privacy.tsx"));
 const Terms = lazy(() => import("./pages/Terms.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
@@ -37,6 +39,8 @@ const App = () => (
                 <Suspense fallback={null}>
                   <Routes>
                     <Route path="/" element={<Index />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

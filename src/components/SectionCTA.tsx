@@ -12,7 +12,7 @@ type SectionCTAProps = {
 export function SectionCTA({
   label,
   href = "#contact",
-  align = "center",
+  align = "start",
   variant = "primary",
   className = "",
 }: SectionCTAProps) {
@@ -20,26 +20,20 @@ export function SectionCTA({
 
   const styleClass =
     variant === "outline"
-      ? "inline-flex h-12 items-center rounded-lg border border-primary/40 px-7 font-body text-[14px] font-medium text-primary hover:bg-primary/10"
-      : "inline-flex h-12 items-center rounded-lg bg-primary px-7 font-body text-[14px] font-medium text-primary-foreground";
+      ? "press btn-ghost inline-flex h-[50px] items-center rounded-md px-7 font-body text-[14.5px] font-medium text-foreground"
+      : "press btn-peri inline-flex h-[50px] items-center rounded-md px-7 font-body text-[14.5px] font-medium text-primary-foreground";
 
   return (
     <m.div
-      initial={{ opacity: 0, y: 14 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewport}
-      transition={{ duration: 0.55, ease: EASE }}
+      transition={{ duration: 0.45, ease: EASE }}
       className={`mt-12 md:mt-14 ${alignClass} ${className}`}
     >
-      <m.a
-        href={href}
-        className={styleClass}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        transition={{ type: "spring", stiffness: 400, damping: 28 }}
-      >
+      <a href={href} className={styleClass}>
         {label}
-      </m.a>
+      </a>
     </m.div>
   );
 }

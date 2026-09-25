@@ -1,7 +1,13 @@
 import { useState, FormEvent, lazy, Suspense } from "react";
 import { m, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ShieldCheck, Zap, Users, MessageCircle } from "lucide-react";
+import { MessageCircle, Plus } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { EASE, viewport } from "@/lib/motion";
 import { track } from "@/lib/analytics";
@@ -23,8 +29,6 @@ const CONTACT_EMAIL = "help@aetherml.com";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_MIN = 2;
 
-const ASSURANCE_ICONS = [ShieldCheck, Zap, Users];
-
 const ContactSection = () => {
   const { t, i18n } = useTranslation();
   const reduced = useReducedMotion();
@@ -33,9 +37,6 @@ const ContactSection = () => {
   // Book a call is the primary path when scheduling is configured; the message
   // form is the low-pressure fallback for leads not ready to commit to a slot.
   const [tab, setTab] = useState<Tab>(schedulingEnabled ? "book" : "message");
-
-  const steps = t("contact.steps", { returnObjects: true }) as string[];
-  const assurances = t("contact.assurances", { returnObjects: true }) as string[];
 
   function validate(values: { name: string; email: string }): FieldErrors {
     const next: FieldErrors = {};
@@ -97,103 +98,86 @@ const ContactSection = () => {
   }
 
   const fieldClass =
-    "h-12 rounded-xl border-border bg-background/60 font-body transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/60";
+    "h-12 rounded-md border-border bg-background/60 font-body transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-muted-foreground/60";
   const textareaClass =
-    "min-h-[140px] w-full resize-y rounded-xl border border-border bg-background/60 px-4 py-3 font-body text-sm text-foreground transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60";
+    "min-h-[140px] w-full resize-y rounded-md border border-border bg-background/60 px-4 py-3 font-body text-sm text-foreground transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60";
   const labelClass = "mb-1.5 block font-body text-[13px] font-medium text-foreground-dim";
   // Applied on top of the base field classes when a field is invalid.
   const errorRing = "border-destructive/70 focus-visible:ring-destructive/30 focus:ring-destructive/30";
   const errorTextClass = "mt-1.5 font-body text-[12.5px] text-destructive";
+  const allFaqItems = t("faq.items", { returnObjects: true }) as { q: string; a: string }[];
+  const faqItems = [allFaqItems[2], allFaqItems[3], allFaqItems[5], allFaqItems[6]];
 
   return (
-    <section id="contact" className="seam-top relative overflow-hidden px-6 py-12 md:px-10 md:py-16">
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 0%, hsl(var(--primary) / 0.07), transparent 65%)",
-        }}
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16">
+    <section id="contact" className="contact-field relative py-20 md:py-24 lg:py-28">
+      <div className="shell">
+      <p className="tnum mb-8 font-mono text-[11px] tracking-[0.14em] text-primary">05</p>
+
+      {/* the questions people ask before they book */}
+      <div id="faq" className="mb-16 scroll-mt-24 md:mb-20">
+        <h2 className="display-2 max-w-[16ch] font-heading font-semibold text-foreground">{t("faq.headline")}</h2>
+        <Accordion type="single" collapsible className="mt-8 grid lg:grid-cols-2 lg:gap-x-12">
+          {faqItems.map((item, i) => (
+            <AccordionItem key={i} value={`faq-${i}`} className="group border-b border-border">
+              <AccordionTrigger className="gap-8 py-5 text-left font-heading text-[clamp(1.05rem,1.25vw,1.35rem)] font-medium tracking-[-0.02em] text-foreground/85 transition-colors hover:text-foreground hover:no-underline data-[state=open]:text-foreground [&>svg]:hidden">
+                {item.q}
+                <span
+                  className="shrink-0 text-foreground-dim transition-[transform,color] duration-300 group-hover:text-foreground group-data-[state=open]:rotate-45 group-data-[state=open]:text-primary"
+                  aria-hidden
+                >
+                  <Plus className="h-4 w-4" strokeWidth={1.75} />
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="max-w-[58ch] pb-6 font-body text-[14.5px] leading-[1.65] text-foreground/70">
+                {item.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+
+      <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-20">
         {/* left — value & credibility */}
         <m.div
-          initial={reduced ? false : { opacity: 0, y: 20 }}
+          initial={reduced ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
-          transition={{ duration: 0.7, ease: EASE }}
+          transition={{ duration: 0.45, ease: EASE }}
           className="min-w-0"
         >
-          <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.18em] text-primary/80">
+          <h2 className="display-2 max-w-[16ch] font-heading font-semibold text-foreground">
+            {t("contact.headline")}
+          </h2>
+          <p className="lead mt-6 max-w-[48ch] font-body text-foreground/65">
+            {t("contact.description")}
+          </p>
+          <p className="mark-rule mt-8 font-mono text-[11px] uppercase tracking-[0.12em] text-primary">
             {t("hero.availability")}
           </p>
 
-          <h2 className="font-heading text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            {t("contact.headline")}
-          </h2>
-          <p className="mt-5 max-w-md font-body text-[15px] font-light leading-relaxed text-muted-foreground">
-            {t("contact.description")}
-          </p>
-
-          {/* what happens next */}
-          <div className="mt-10">
-            <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground-dim">
-              {t("contact.nextLabel")}
-            </p>
-            <ol className="space-y-0">
-              {steps.map((step, i) => (
-                <m.li
-                  key={i}
-                  initial={reduced ? false : { opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={viewport}
-                  transition={{ duration: 0.5, delay: 0.1 + i * 0.1, ease: EASE }}
-                  className="flex items-start gap-4 border-t border-border/70 py-4"
-                >
-                  <span className="mt-0.5 font-mono text-sm font-semibold text-primary">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-body text-[15px] leading-relaxed text-foreground/85">{step}</span>
-                </m.li>
-              ))}
-            </ol>
-          </div>
-
-          {/* assurances — single wrapping row */}
-          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2.5">
-            {assurances.map((a, i) => {
-              const Icon = ASSURANCE_ICONS[i] ?? ShieldCheck;
-              return (
-                <div key={i} className="flex items-center gap-2">
-                  <Icon className="h-4 w-4 shrink-0 text-primary/80" strokeWidth={1.6} aria-hidden />
-                  <span className="font-body text-[13px] text-muted-foreground">{a}</span>
-                </div>
-              );
-            })}
-          </div>
         </m.div>
 
         {/* right — form */}
         <m.div
           id="contact-form"
-          initial={reduced ? false : { opacity: 0, y: 24 }}
+          initial={reduced ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-          className="glow-border min-w-0 scroll-mt-24 rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm md:p-8"
+          transition={{ duration: 0.45, delay: 0.1, ease: EASE }}
+          className="min-w-0 scroll-mt-24 border border-border bg-card p-6 md:p-9"
         >
           {schedulingEnabled && (
             <div
               role="tablist"
               aria-label={t("contact.tabAria")}
-              className="relative mb-6 grid grid-cols-2 gap-1 rounded-xl border border-border bg-background/50 p-1"
+              className="relative mb-6 grid grid-cols-2 gap-1 rounded-md border border-border bg-background p-1"
             >
               {/* Active-tab pill — a single CSS-transform element. Was a framer
                   `layoutId` shared-layout animation; moved to CSS so the app
                   needs only the lighter `domAnimation` LazyMotion feature set. */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute bottom-1 left-1 top-1 w-[calc((100%-0.75rem)/2)] rounded-lg bg-primary shadow-[0_10px_28px_-16px_hsl(var(--primary)/0.8)] transition-transform duration-300 ease-out motion-reduce:transition-none"
+                className="pointer-events-none absolute bottom-1 left-1 top-1 w-[calc((100%-0.75rem)/2)] rounded-[3px] bg-primary transition-transform duration-300 ease-out motion-reduce:transition-none"
                 style={{ transform: tab === "message" ? "translateX(calc(100% + 0.25rem))" : "translateX(0)" }}
               />
               {(["book", "message"] as const).map((key) => {
@@ -342,7 +326,7 @@ const ContactSection = () => {
                 <m.button
                   type="submit"
                   disabled={status === "sending"}
-                  className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-primary px-8 font-body text-[14px] font-medium text-primary-foreground shadow-[0_14px_36px_-18px_hsl(var(--primary)/0.7)] disabled:opacity-70"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-md bg-primary px-8 font-body text-[14px] font-medium text-primary-foreground disabled:opacity-70"
                   whileHover={reduced ? undefined : { scale: 1.01, filter: "brightness(1.06)" }}
                   whileTap={reduced ? undefined : { scale: 0.99 }}
                   transition={{ type: "spring", stiffness: 400, damping: 28 }}
@@ -364,6 +348,7 @@ const ContactSection = () => {
           </>
           )}
         </m.div>
+      </div>
       </div>
     </section>
   );
