@@ -39,7 +39,7 @@ const OfferSection = () => {
             <span className="h-4 w-px bg-border" aria-hidden />
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-primary">{t("stack.boardLabel")}</span>
           </div>
-          <p className="font-body text-[14px] text-foreground/60">{t("process.description")}</p>
+          <p className="font-body text-[16px] text-foreground/65">{t("process.description")}</p>
         </div>
 
         <ol className="grid md:grid-cols-2 xl:grid-cols-4">

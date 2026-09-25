@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Localizes the homepage title + meta for the visitor's detected language.
-          The static English social/meta set stays in index.html so non-JS
+          The static Spanish social/meta set stays in index.html so non-JS
           crawlers and link unfurlers always see a complete default. */}
       <Helmet>
         <title>{t("seo.title")}</title>

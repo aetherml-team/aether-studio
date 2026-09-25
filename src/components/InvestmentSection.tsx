@@ -36,13 +36,13 @@ const InvestmentSection = () => {
               <h3 className="font-heading text-[clamp(1.5rem,1.9vw,2.1rem)] font-semibold tracking-[-0.024em]">
                 {p.name}
               </h3>
-              <p className={`mt-2 font-body text-[14.5px] leading-[1.6] ${featured ? "text-primary-foreground/75" : "text-foreground/70"}`}>
+              <p className={`mt-2 font-body text-[16px] leading-[1.6] ${featured ? "text-primary-foreground/80" : "text-foreground/70"}`}>
                 {p.scope}
               </p>
 
               <ul className={`mt-6 divide-y border-y ${featured ? "divide-primary-foreground/20 border-primary-foreground/20" : "divide-border border-border"}`}>
                 {p.bullets.map((bullet) => (
-                  <li key={bullet} className={`py-3 font-body text-[13.5px] leading-snug ${featured ? "text-primary-foreground/85" : "text-foreground/70"}`}>
+                  <li key={bullet} className={`py-3 font-body text-[15.5px] leading-snug ${featured ? "text-primary-foreground/90" : "text-foreground/70"}`}>
                     {bullet}
                   </li>
                 ))}
@@ -51,7 +51,7 @@ const InvestmentSection = () => {
               <div className="mt-auto pt-6">
                 <a
                   href="#contact-form"
-                  className={`press inline-flex h-11 w-full items-center justify-center rounded-md border px-5 font-body text-[13.5px] font-medium ${
+                  className={`press inline-flex h-12 w-full items-center justify-center rounded-md border px-5 font-body text-[15px] font-medium ${
                     featured
                       ? "border-primary-foreground/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90"
                       : "btn-ghost text-foreground"
@@ -80,10 +80,10 @@ const InvestmentSection = () => {
           <p className="font-heading text-[clamp(1.35rem,2vw,2rem)] font-semibold leading-snug tracking-[-0.022em] text-foreground">
             {t("investment.guaranteeTitle")}
           </p>
-          <p className="mt-3 max-w-[68ch] font-body text-[15px] leading-[1.65] text-foreground/65">
+          <p className="mt-3 max-w-[68ch] font-body text-[16px] leading-[1.65] text-foreground/65">
             {t("investment.guaranteeBody")}
           </p>
-          <p className="mt-3 max-w-[68ch] font-body text-[13.5px] leading-relaxed text-foreground/50">
+          <p className="mt-3 max-w-[68ch] font-body text-[15px] leading-relaxed text-foreground/55">
             {t("investment.feasibility")}
           </p>
         </div>

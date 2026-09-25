@@ -10,8 +10,8 @@
     "hello": "Hi, Æther."
   },
   "seo": {
-    "title": "Æther · You run the business. We run the rest.",
-    "description": "We build the system your business runs on. It is called Nexus, it fits the way you work, and we keep it running. Guadalajara."
+    "title": "Æther · A system that works the way you do.",
+    "description": "Nexus is your business app, built around the way you work. We keep it running. Guadalajara."
   },
   "navbar": {
     "tagline": "Busywork, gone",
@@ -224,7 +224,7 @@
         "who": "Gym manager"
       },
       {
-        "q": "Customers change plans all the time.",
+        "q": "When someone changes plans, we have to update it in several places.",
         "who": "Gym manager"
       },
       {

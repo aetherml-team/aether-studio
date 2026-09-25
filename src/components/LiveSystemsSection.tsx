@@ -30,28 +30,25 @@ function Shots({ srcs, labels, alt }: { srcs: string[]; labels: string[]; alt: s
   useEffect(() => setCurrent(0), [key]);
 
   return (
-    <div className="bg-[#09090C]">
-      <div className="relative" style={{ aspectRatio: "1512 / 787" }}>
+    <div className="mx-auto max-w-[1200px] bg-[#09090C]">
+      <div className="relative overflow-hidden" style={{ aspectRatio: "1512 / 787" }}>
         {srcs.map((src, i) => (
           <img
             key={src}
             src={src}
             alt={i === current ? `${alt}. ${labels[i] ?? ""}` : ""}
             loading={i === 0 ? "eager" : "lazy"}
-            width={1512}
-            height={787}
-            className="absolute inset-0 block h-full w-full object-cover object-top"
+            className="absolute inset-0 block h-full w-full object-contain object-center"
             style={{
               opacity: i === current ? 1 : 0,
-              filter: i === current ? "blur(0px)" : "blur(6px)",
-              transition: "opacity 420ms var(--ease-out), filter 420ms var(--ease-out)",
+              transition: "opacity 320ms var(--ease-out)",
             }}
           />
         ))}
       </div>
 
       <div className="flex min-h-16 items-center justify-between gap-5 border-t border-white/10 px-4 py-3 text-white sm:px-5">
-        <p className="flex min-w-0 items-baseline gap-3 font-body text-[13px] leading-snug text-white/85 sm:text-[14px]" aria-live="polite">
+        <p className="flex min-w-0 items-baseline gap-3 font-body text-[15px] leading-snug text-white/85 sm:text-[16px]" aria-live="polite">
           <span className="shrink-0 font-mono text-[10px] tracking-[0.16em] text-white/45">
             {String(current + 1).padStart(2, "0")}
           </span>
@@ -156,7 +153,7 @@ const LiveSystemsSection = () => {
                   >
                     {item.name}
                   </span>
-                  <span className="mt-1 block max-w-[22ch] font-body text-[12px] leading-snug text-foreground/55">
+                  <span className="mt-1 block max-w-[22ch] font-body text-[14px] leading-snug text-foreground/60">
                     {s.upcoming ? t("systems.upcomingBadge") : proof?.label}
                   </span>
                 </span>
@@ -166,13 +163,13 @@ const LiveSystemsSection = () => {
         </div>
 
         <div id="sys-panel" role="tabpanel" aria-labelledby={`sys-tab-${sys.slug}`} className="mt-8 min-w-0">
-          <div className="glow-border overflow-hidden rounded-lg border border-border bg-[#09090C]">
+          <div className="glow-border mx-auto max-w-[1240px] overflow-hidden rounded-lg border border-border bg-[#09090C] p-2 shadow-[0_24px_70px_-42px_hsl(var(--foreground)/0.55)] sm:p-3">
             <Shots srcs={shots} labels={c.frames} alt={`${c.name} — ${c.vertical}`} />
           </div>
 
           <div className="mt-6 border-b border-border pb-7">
             <div>
-              <div className="flex flex-col gap-2 border-b border-border pb-4 font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.12em] sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+              <div className="flex flex-col gap-2 border-b border-border pb-4 font-mono text-[11.5px] uppercase leading-relaxed tracking-[0.12em] sm:flex-row sm:items-center sm:justify-between sm:gap-6">
                 <p className="text-primary">{c.vertical}</p>
                 <p className="text-foreground-dim">{c.modules.join("  ·  ")}</p>
               </div>

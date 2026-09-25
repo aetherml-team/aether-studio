@@ -10,8 +10,8 @@
     "hello": "Hola, Æther."
   },
   "seo": {
-    "title": "Æther · Tú llevas el negocio. Nosotros, lo demás.",
-    "description": "Construimos el sistema con el que opera tu negocio. Se llama Nexus, se adapta a tu forma de trabajar y nosotros lo mantenemos. Guadalajara."
+    "title": "Æther · Un sistema que trabaja como tú.",
+    "description": "Nexus es la app de tu negocio, hecha a tu manera. Nosotros la mantenemos. Guadalajara."
   },
   "navbar": {
     "tagline": "Adiós al trabajo manual",
@@ -224,7 +224,7 @@
         "who": "Encargado de gimnasio"
       },
       {
-        "q": "Los clientes cambian de plan todo el tiempo.",
+        "q": "Cuando alguien cambia de plan, hay que corregirlo en varios lugares.",
         "who": "Encargado de gimnasio"
       },
       {

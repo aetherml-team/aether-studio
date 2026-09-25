@@ -1,7 +1,7 @@
 {
   "name": "Æther",
   "short_name": "Æther",
-  "description": "Æther — Automations That Save You Time. Custom automations, integrations, and digital presence for teams drowning in manual work.",
+  "description": "Nexus es la app de tu negocio, hecha a tu manera. Nosotros la mantenemos.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -16,9 +16,9 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#08080A",
-  "background_color": "#08080A",
+  "theme_color": "#FAFAF9",
+  "background_color": "#FAFAF9",
   "display": "standalone",
   "start_url": "/",
-  "lang": "en"
+  "lang": "es"
 }

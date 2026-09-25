@@ -29,7 +29,7 @@ const PainSection = () => {
           </m.li>
         ))}
       </ul>
-      <p className="mt-6 max-w-[58ch] font-body text-[15px] leading-relaxed text-foreground/65">{t("pain.closer")}</p>
+      <p className="mt-6 max-w-[58ch] font-body text-[17px] leading-relaxed text-foreground/65">{t("pain.closer")}</p>
     </Section>
   );
 };
