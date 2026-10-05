@@ -16,7 +16,7 @@ const Navbar = () => {
   // Nav leads with what Æther does (the capabilities), then proof, process,
   // fit, and the questions people ask before booking.
   const links = [
-    { href: "#offer", label: t("navbar.services") },
+    { href: "#nexus", label: t("navbar.services") },
     { href: "#systems", label: t("navbar.results") },
     { href: "#investment", label: t("navbar.investment") },
     { href: "#faq", label: t("navbar.faq") },

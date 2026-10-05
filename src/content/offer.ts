@@ -2,10 +2,12 @@
  * Offer facts that are not copy: prices and the live systems we can show.
  * Copy for each lives in the locales under `investment.*` and `systems.items`.
  *
- * Prices: null = not published yet. The Investment section renders
- * "precio fijo después de la auditoría" for a null price. Fill these in
- * MXN before IVA; the only datapoint on record (Sismo Café) is one proposal and
- * must not be generalised, so nothing is prefilled here.
+ * Prices: null = not published yet. The Investment section always says the
+ * price is fixed after the audit, and adds "Desde $X + IVA" once
+ * fase1.implementation is set. Fill these in MXN before IVA; the only
+ * datapoint on record (Sismo Café) is one proposal and must not be
+ * generalised, so nothing is prefilled here.
+ * TODO(price): set fase1.implementation to show the "from" line.
  */
 export type Price = number | null;
 
@@ -23,7 +25,6 @@ export function mxn(n: number): string {
 }
 
 /**
- * Screenshots: public/work/<slug>-1.png … -<shots>.png, blurred, cycled in the card.
  * Logos: public/work/logos/<slug>.png, the client's own brand mark from their site.
  * `logoDark`: the mark is light-on-transparent and needs a dark chip.
  * `site` is the client's public website. `store` is a storefront we built.
@@ -31,7 +32,6 @@ export function mxn(n: number): string {
  */
 export const SYSTEMS: ReadonlyArray<{
   slug: string;
-  shots: number;
   site?: string;
   store?: string;
   /** The client's public Instagram, the profile a local owner checks first. */
@@ -40,19 +40,26 @@ export const SYSTEMS: ReadonlyArray<{
   /** Signed but not yet live: no name, logo, site or screenshots on the page. */
   upcoming?: boolean;
 }> = [
-  { slug: "tavros", shots: 3, site: "https://www.tavrosfuerza.com/", instagram: "https://instagram.com/tavrosfuerza" },
-  { slug: "eternus", shots: 3, site: "https://eternusnow.com/", logoDark: true },
-  { slug: "sismocafe", shots: 3, site: "https://sismocafe.com/", instagram: "https://instagram.com/sismocafe" },
-  { slug: "eloisa", shots: 2, site: "https://eloisamontero.com.mx/", store: "https://eloisamontero.aetherml.com" },
+  { slug: "tavros", site: "https://www.tavrosfuerza.com/", instagram: "https://instagram.com/tavrosfuerza" },
+  { slug: "eternus", site: "https://eternusnow.com/", logoDark: true },
+  { slug: "sismocafe", site: "https://sismocafe.com/", instagram: "https://instagram.com/sismocafe" },
+  { slug: "eloisa", site: "https://eloisamontero.com.mx/", store: "https://eloisamontero.aetherml.com" },
   {
     slug: "weddingmethod",
-    shots: 2,
     site: "https://thewedding-method.com/",
     store: "https://theweddingame.com/",
     logoDark: true,
   },
-  { slug: "aether", shots: 2, site: "https://www.aetherml.com" },
-  { slug: "panaderia", shots: 1, upcoming: true },
+  { slug: "panaderia", upcoming: true },
 ];
 
 export const HERO_SHOT = "/work/tavros-2.png";
+
+/**
+ * One product screen per vertical, in the order of `nexus.items`: gym billing,
+ * studio finances, café/roastery, jewellery store. Capture from the Nexus demo
+ * tenants on mock data only: no real customer names, emails or amounts.
+ * null renders a marked placeholder slot.
+ * TODO(screenshots): /work/demo-gym.png, demo-studio.png, demo-cafe.png, demo-jewellery.png
+ */
+export const DEMO_SHOTS: ReadonlyArray<string | null> = [null, null, null, null];

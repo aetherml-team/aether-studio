@@ -12,7 +12,7 @@ const Footer = () => {
       titleKey: "footer.company",
       links: [
         { textKey: "footer.about", href: "/about" },
-        { textKey: "footer.services", href: "#offer" },
+        { textKey: "footer.services", href: "#nexus" },
         { textKey: "footer.clients", href: "#systems" },
         { textKey: "footer.contact", href: "/contact" },
       ],

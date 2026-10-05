@@ -4,9 +4,11 @@ import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
 import HeroSection from "@/components/HeroSection";
 import PainSection from "@/components/PainSection";
+import NexusSection from "@/components/NexusSection";
 import OfferSection from "@/components/OfferSection";
 import LiveSystemsSection from "@/components/LiveSystemsSection";
 import InvestmentSection from "@/components/InvestmentSection";
+import FitSection from "@/components/FitSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -32,9 +34,11 @@ const Index = () => {
       <main id="main">
         <HeroSection />
         <PainSection />
-        <OfferSection />
+        <NexusSection />
         <LiveSystemsSection />
+        <OfferSection />
         <InvestmentSection />
+        <FitSection />
         <ContactSection />
       </main>
       <Footer />

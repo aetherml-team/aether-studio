@@ -10,8 +10,8 @@
     "hello": "Hola, Æther."
   },
   "seo": {
-    "title": "Æther · Un sistema que trabaja como tú.",
-    "description": "Nexus es la app de tu negocio, hecha a tu manera. Nosotros la mantenemos. Guadalajara."
+    "title": "Æther · Deja de perseguir pagos y de cuadrar Excel a mano.",
+    "description": "Nexus recuerda pagos por WhatsApp, cuadra depósitos y avisa cada renovación. Guadalajara."
   },
   "navbar": {
     "tagline": "Adiós al trabajo manual",
@@ -60,13 +60,14 @@
     "audiences": [
       "Tienes equipo, clientes y cobros cada mes",
       "Un proceso vive en Excel, chats o la cabeza de alguien",
-      "La persona que decide participa en el proyecto"
+      "La persona que decide participa en el proyecto",
+      "Inviertes en tu operación y quieres que dure años"
     ],
     "notAudiences": [
-      "Buscas la cotización más barata",
       "Solo quieres una app bonita",
       "Esperas que garanticemos ventas"
-    ]
+    ],
+    "about": "Æther es un estudio boutique de software en Guadalajara. Hacemos Nexus y lo mantenemos."
   },
   "contact": {
     "headline": "Agenda una auditoría de 20 minutos.",
@@ -193,9 +194,9 @@
   },
   "hero": {
     "kicker": "Guadalajara · Para dueños de negocio",
-    "headline": "Un sistema que trabaja",
-    "headlineEmphasis": "como tú.",
-    "description": "Nexus es la app de tu negocio, hecha a tu manera. Nosotros la mantenemos.",
+    "headline": "Deja de perseguir pagos",
+    "headlineEmphasis": "y de cuadrar Excel a mano.",
+    "description": "Nexus recuerda pagos por WhatsApp, cuadra depósitos y avisa cada renovación.",
     "secondary": "Mira si te pasa",
     "screenshotAlt": "Pantalla de inicio de Nexus: ventas, cobros y pendientes de hoy",
     "annotations": [
@@ -238,9 +239,32 @@
     ],
     "closer": "En la auditoría revisamos cuál de estos problemas conviene atender primero."
   },
+  "nexus": {
+    "headline": "Qué hace Nexus en tu negocio.",
+    "description": "Una sola app con tu marca. Tu equipo la usa cada día y nosotros la mantenemos.",
+    "shotPending": "Captura pendiente · datos de prueba",
+    "items": [
+      {
+        "label": "Gimnasio · cobranza",
+        "line": "Ves quién debe, qué plan tiene y qué depósito ya cuadró."
+      },
+      {
+        "label": "Estudio · finanzas",
+        "line": "Cada proyecto con sus anticipos, sus pagos y lo que falta por cobrar."
+      },
+      {
+        "label": "Café y tostaduría",
+        "line": "Las ventas del día llegan desde la caja y el taller sabe qué preparar."
+      },
+      {
+        "label": "Joyería",
+        "line": "Tu clienta arma su anillo en tu tienda y agenda su cita."
+      }
+    ]
+  },
   "stack": {
-    "headline": "¿Qué es Nexus?",
-    "description": "Es el sistema con el que tu equipo trabaja cada día. Lo hacemos a tu medida y lo mantenemos.",
+    "headline": "Cómo empezar.",
+    "description": "Empiezas con una auditoría gratis de 20 minutos.",
     "boardLabel": "Primera fase · 6 semanas",
     "items": [
       {
@@ -297,157 +321,65 @@
     ]
   },
   "systems": {
-    "headline": "Mira lo que ya construimos.",
-    "description": "Cada negocio recibe algo distinto: una app interna, una tienda o ambas. Elige uno para verlo.",
+    "headline": "Negocios que ya trabajan con Nexus.",
+    "description": "Cada dueño llegó con un problema. Construimos a partir de ahí.",
     "proofLabel": "Función en producción",
-    "facts": [
-      {
-        "value": "Tavros",
-        "label": "178 planes prepagados en marcha"
-      },
-      {
-        "value": "Eternus",
-        "label": "cada boda, de prospecto a entrega"
-      },
-      {
-        "value": "Sismo Café",
-        "label": "ventas, taller y movimientos juntos"
-      },
-      {
-        "value": "Eloísa",
-        "label": "tienda y anillo a la medida"
-      },
-      {
-        "value": "Wedding Method",
-        "label": "cada prospecto tiene una etapa"
-      },
-      {
-        "value": "Æther",
-        "label": "nuestros cobros y mensualidades"
-      }
-    ],
     "items": [
       {
         "name": "Tavros Fuerza y Acondicionamiento",
-        "vertical": "App para dueño y equipo · gimnasio",
-        "spotlight": "178 planes prepagados viven en un solo sistema.",
-        "summary": "Los socios pagan por transferencia, en efectivo o con tarjeta, y cambian de paquete a cada rato. Cada pago cae en su lugar y el recordatorio sale por WhatsApp, porque nadie ve el correo.",
-        "modules": [
-          "Membresías",
-          "Cobros",
-          "Banco",
-          "Reportes"
-        ],
-        "frames": [
-          "Ves qué necesita atención.",
-          "Sabes quién debe y qué plan tiene.",
-          "Cruzas el depósito con el pago."
-        ],
-        "cta": "Tengo un gimnasio"
+        "type": "Gimnasio",
+        "problem": "Los socios pagan por transferencia, efectivo o tarjeta y cambian de plan a cada rato.",
+        "built": "Una app donde cada pago cae en su plan y el recordatorio sale por WhatsApp.",
+        "metric": "178 planes prepagados en un solo sistema",
+        "quote": "",
+        "quoteBy": ""
       },
       {
         "name": "Eternus",
-        "vertical": "App para dueño y equipo · estudio de bodas",
-        "spotlight": "Cada boda, de prospecto a entrega.",
-        "summary": "El dueño ve fechas, cobros, equipo y entregas en un solo lugar.",
-        "modules": [
-          "Prospectos",
-          "Proyectos",
-          "Contratos",
-          "Finanzas"
-        ],
-        "frames": [
-          "Ves qué está en riesgo hoy.",
-          "Todas las bodas, por fecha y etapa.",
-          "Abres una boda: cobros, equipo y entregas."
-        ],
-        "cta": "Filmo o fotografío bodas"
+        "type": "Estudio de video de bodas",
+        "problem": "Fechas, cobros, equipo y entregas vivían en lugares distintos.",
+        "built": "Una app donde el dueño sigue cada boda, de prospecto a entrega.",
+        "metric": "",
+        "quote": "",
+        "quoteBy": ""
       },
       {
         "name": "Sismo Café",
-        "vertical": "App para dueño y equipo · cafés",
-        "spotlight": "Lo vendido llega al taller.",
-        "summary": "Las ventas llegan desde Poster. El taller prepara. La bitácora guarda cada movimiento.",
-        "modules": [
-          "Ventas",
-          "Taller",
-          "Sucursales",
-          "Bitácora"
-        ],
-        "frames": [
-          "Ves lo vendido por día.",
-          "El taller sabe qué preparar.",
-          "Cada movimiento queda guardado."
-        ],
-        "cta": "En mi café es un caos"
+        "type": "Café y tostaduría",
+        "problem": "Las cuentas no cuadraban y ver el día exigía bajar reportes.",
+        "built": "Las ventas llegan desde la caja. El taller sabe qué preparar.",
+        "metric": "",
+        "quote": "",
+        "quoteBy": ""
       },
       {
         "name": "Eloisa Montero Diamantes",
-        "vertical": "Tienda para clientes · joyería",
-        "spotlight": "De explorar una pieza a diseñar el anillo.",
-        "summary": "La clienta explora la tienda, arma su anillo y agenda una cita.",
-        "modules": [
-          "Tienda",
-          "Catálogo",
-          "Diseña tu anillo",
-          "Citas"
-        ],
-        "frames": [
-          "Primero encuentra la pieza.",
-          "Después arma su anillo."
-        ],
-        "cta": "Vendo joyería a la medida"
+        "type": "Joyería a la medida",
+        "problem": "La joyería quería vender en línea piezas que se hacen a la medida.",
+        "built": "Una tienda donde la clienta explora, arma su anillo y agenda su cita.",
+        "metric": "",
+        "quote": "",
+        "quoteBy": ""
       },
       {
         "name": "The Wedding Method",
-        "vertical": "App para dueño y equipo · mentoría y curso",
-        "spotlight": "Cada prospecto tiene una etapa.",
-        "summary": "La mentoría lleva cada consulta a llamada. The Wedding Game vende el curso por separado.",
-        "modules": [
-          "Mentoría",
-          "Prospectos",
-          "Llamadas",
-          "Alumnos",
-          "Curso"
-        ],
-        "frames": [
-          "Cada consulta tiene una etapa.",
-          "Cuando entra, ya aparece como alumno."
-        ],
-        "cta": "Vendo mentoría o cursos"
-      },
-      {
-        "name": "Æther",
-        "vertical": "App para dueño y equipo · Æther",
-        "spotlight": "Usamos nuestro sistema antes de venderlo.",
-        "summary": "Aquí cobramos, registramos gastos y vemos qué mensualidad sigue.",
-        "modules": [
-          "Cobros",
-          "Gastos",
-          "Mensualidades"
-        ],
-        "frames": [
-          "Vemos lo que entra y lo que sale.",
-          "Sabemos qué mensualidad sigue."
-        ],
-        "cta": "Quiero lo mismo para mi negocio"
+        "type": "Mentoría y curso",
+        "problem": "Las consultas de mentoría llegaban sin un siguiente paso claro.",
+        "built": "Una app que lleva cada consulta a una llamada y una tienda aparte para el curso.",
+        "metric": "",
+        "quote": "",
+        "quoteBy": ""
       },
       {
         "name": "Grupo de panaderías",
-        "vertical": "Tres casas · Guadalajara",
-        "spotlight": "Tres sucursales. Un solo lugar para verlas.",
-        "summary": "El dueño lo pidió así: que las tres sucursales vivan en el mismo sistema y que la factura salga con la tasa de cada casa. Tarjeta y transferencia se facturan tal cual; el efectivo se revisa antes de timbrar.",
-        "modules": [
-          "Ventas por casa",
-          "Prefacturas",
-          "Factura",
-          "Cierre semanal"
-        ],
-        "frames": [],
-        "cta": "Facturar bien me quita el sueño"
+        "type": "Tres sucursales · Guadalajara",
+        "problem": "El dueño quiere las tres sucursales en un solo sistema y cada factura con la tasa de su casa.",
+        "built": "",
+        "metric": "",
+        "quote": "",
+        "quoteBy": ""
       }
     ],
-    "footnote": "No publicamos cifras de ahorro porque todavía no las medimos con nadie. Te enseñamos lo que ya construimos y alguien usa todos los días.",
     "visitStore": "Ver la tienda",
     "visitCourse": "Ver el curso",
     "visitSite": "Ver su sitio",
@@ -455,7 +387,9 @@
     "othersBody": "Cobros, agenda, inventario, pedidos, contratos y tiendas en línea. La auditoría sirve para definir el primero.",
     "othersCta": "Mi negocio es otro",
     "upcomingLabel": "Nuevo cliente · en arranque",
-    "upcomingBadge": "Arrancando"
+    "problemLabel": "El problema",
+    "builtLabel": "Lo que construimos",
+    "resultLabel": "Resultado"
   },
   "investment": {
     "headline": "Empieza con control. Crece sin perderlo.",
@@ -464,7 +398,6 @@
       {
         "name": "ÆTHER Esencial",
         "scope": "Para sacar de tu cabeza lo que hoy depende de ti.",
-        "cta": "Quiero empezar",
         "bullets": [
           "Una tarea clave, en orden",
           "Tu equipo sabe cómo se hace",
@@ -474,7 +407,6 @@
       {
         "name": "ÆTHER Control",
         "scope": "Para que el negocio avance sin preguntarte cada paso.",
-        "cta": "Quiero tener el control",
         "bullets": [
           "Cada persona sabe qué sigue",
           "Lo pendiente tiene dueño",
@@ -484,7 +416,6 @@
       {
         "name": "ÆTHER Scale",
         "scope": "Para sumar áreas o sucursales sin volver al caos.",
-        "cta": "Quiero crecer con orden",
         "bullets": [
           "Todos trabajan con la misma información",
           "Cada equipo ve lo que necesita",
@@ -496,6 +427,8 @@
     "guaranteeTitle": "Si nos atrasamos, terminamos sin cobrar más.",
     "guaranteeBody": "Primero escribimos qué significa terminado. Si algo que depende de nosotros no queda en la fecha, seguimos sin cobrar más. No cubre cambios, datos tardíos ni fallas de terceros.",
     "feasibility": "Si una conexión es incierta, primero la probamos en una etapa corta con respuesta de sí o no.",
-    "notCheapest": "No competimos por precio. Construimos, operamos y mantenemos el sistema contigo."
+    "notCheapest": "No competimos por precio. Construimos, operamos y mantenemos el sistema contigo.",
+    "priceFixed": "El precio queda fijo por escrito después de la auditoría.",
+    "priceFrom": "Desde {{price}} + IVA."
   }
 }

@@ -2,7 +2,6 @@ import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ArrowDown } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
-import { SectionCTA } from "@/components/SectionCTA";
 import { Section } from "@/components/Sheet";
 
 interface Item {
@@ -81,8 +80,6 @@ const OfferSection = () => {
           </m.div>
         ))}
       </div>
-
-      <SectionCTA label={t("common.cta")} />
     </Section>
   );
 };

@@ -3,12 +3,12 @@ import { useTranslation } from "react-i18next";
 import { ShieldCheck } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
 import { Section } from "@/components/Sheet";
+import { PRICING, mxn } from "@/content/offer";
 
 interface Pkg {
   name: string;
   scope: string;
   bullets: string[];
-  cta: string;
 }
 
 const InvestmentSection = () => {
@@ -48,21 +48,18 @@ const InvestmentSection = () => {
                 ))}
               </ul>
 
-              <div className="mt-auto pt-6">
-                <a
-                  href="#contact-form"
-                  className={`press inline-flex h-12 w-full items-center justify-center rounded-md border px-5 font-body text-[15px] font-medium ${
-                    featured
-                      ? "border-primary-foreground/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                      : "btn-ghost text-foreground"
-                  }`}
-                >
-                  {p.cta}
-                </a>
-              </div>
             </m.div>
           );
         })}
+      </div>
+
+      <div className="mt-8 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+        {PRICING.fase1.implementation !== null && (
+          <p className="font-heading text-[clamp(1.35rem,2vw,2rem)] font-semibold tracking-[-0.022em] text-foreground">
+            {t("investment.priceFrom", { price: mxn(PRICING.fase1.implementation) })}
+          </p>
+        )}
+        <p className="font-body text-[16px] text-foreground/70">{t("investment.priceFixed")}</p>
       </div>
 
       <m.div
