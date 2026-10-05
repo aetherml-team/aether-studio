@@ -10,8 +10,8 @@
     "hello": "Hi, Æther."
   },
   "seo": {
-    "title": "Æther · Stop chasing payments and reconciling Excel by hand.",
-    "description": "Nexus sends payment reminders on WhatsApp, matches deposits and flags every renewal. Guadalajara."
+    "title": "Æther · Get your business out of Excel, WhatsApp and notebooks.",
+    "description": "Nexus brings payments, expenses, sales and operations into your own app. Guadalajara."
   },
   "navbar": {
     "tagline": "Busywork, gone",
@@ -194,9 +194,9 @@
   },
   "hero": {
     "kicker": "Guadalajara · For business owners",
-    "headline": "Stop chasing payments",
-    "headlineEmphasis": "and reconciling Excel by hand.",
-    "description": "Nexus sends payment reminders on WhatsApp, matches deposits and flags every renewal.",
+    "headline": "Get your business out",
+    "headlineEmphasis": "of Excel, WhatsApp and notebooks.",
+    "description": "Nexus brings payments, expenses, sales and operations into your own app.",
     "secondary": "See if this is you",
     "screenshotAlt": "Nexus home screen: today's sales, collections and pending items",
     "annotations": [

@@ -10,8 +10,8 @@
     "hello": "Hola, Æther."
   },
   "seo": {
-    "title": "Æther · Deja de perseguir pagos y de cuadrar Excel a mano.",
-    "description": "Nexus recuerda pagos por WhatsApp, cuadra depósitos y avisa cada renovación. Guadalajara."
+    "title": "Æther · Saca tu negocio de Excel, WhatsApp y libretas.",
+    "description": "Nexus junta cobros, gastos, ventas y operación en tu propia app. Guadalajara."
   },
   "navbar": {
     "tagline": "Adiós al trabajo manual",
@@ -194,9 +194,9 @@
   },
   "hero": {
     "kicker": "Guadalajara · Para dueños de negocio",
-    "headline": "Deja de perseguir pagos",
-    "headlineEmphasis": "y de cuadrar Excel a mano.",
-    "description": "Nexus recuerda pagos por WhatsApp, cuadra depósitos y avisa cada renovación.",
+    "headline": "Saca tu negocio",
+    "headlineEmphasis": "de Excel, WhatsApp y libretas.",
+    "description": "Nexus junta cobros, gastos, ventas y operación en tu propia app.",
     "secondary": "Mira si te pasa",
     "screenshotAlt": "Pantalla de inicio de Nexus: ventas, cobros y pendientes de hoy",
     "annotations": [
