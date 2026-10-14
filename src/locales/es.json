@@ -330,7 +330,7 @@
         "type": "Gimnasio",
         "problem": "Los socios pagan por transferencia, efectivo o tarjeta y cambian de plan a cada rato.",
         "built": "Una app donde cada pago cae en su plan y el recordatorio sale por WhatsApp.",
-        "metric": "178 planes prepagados en un solo sistema",
+        "metric": "178 socios activos en un solo sistema",
         "quote": "",
         "quoteBy": ""
       },
@@ -338,8 +338,8 @@
         "name": "Eternus",
         "type": "Estudio de video de bodas",
         "problem": "Fechas, cobros, equipo y entregas vivían en lugares distintos.",
-        "built": "Una app donde el dueño sigue cada boda, de prospecto a entrega.",
-        "metric": "",
+        "built": "Una app donde el dueño sigue cada boda, de prospecto a entrega. Las cotizaciones salen de sus paquetes.",
+        "metric": "39 bodas en un solo sistema",
         "quote": "",
         "quoteBy": ""
       },
@@ -347,7 +347,7 @@
         "name": "Sismo Café",
         "type": "Café y tostaduría",
         "problem": "Las cuentas no cuadraban y ver el día exigía bajar reportes.",
-        "built": "Las ventas llegan desde la caja. El taller sabe qué preparar.",
+        "built": "Ventas por sucursal desde la caja, inventario con alertas y merma por tostado.",
         "metric": "",
         "quote": "",
         "quoteBy": ""
@@ -365,7 +365,7 @@
         "name": "The Wedding Method",
         "type": "Mentoría y curso",
         "problem": "Las consultas de mentoría llegaban sin un siguiente paso claro.",
-        "built": "Una app que lleva cada consulta a una llamada y una tienda aparte para el curso.",
+        "built": "Un embudo que califica cada consulta y la lleva a una llamada. El curso vive en una tienda aparte.",
         "metric": "",
         "quote": "",
         "quoteBy": ""

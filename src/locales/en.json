@@ -330,7 +330,7 @@
         "type": "Gym",
         "problem": "Members pay by transfer, cash or card and switch plans all the time.",
         "built": "One app where every payment lands on its plan and the reminder goes out on WhatsApp.",
-        "metric": "178 prepaid plans in one system",
+        "metric": "178 active members in one system",
         "quote": "",
         "quoteBy": ""
       },
@@ -338,8 +338,8 @@
         "name": "Eternus",
         "type": "Wedding film studio",
         "problem": "Dates, payments, crew and deliveries lived in different places.",
-        "built": "An app where the owner follows each wedding from lead to delivery.",
-        "metric": "",
+        "built": "An app where the owner follows each wedding from lead to delivery. Quotes come from the studio's packages.",
+        "metric": "39 weddings in one system",
         "quote": "",
         "quoteBy": ""
       },
@@ -347,7 +347,7 @@
         "name": "Sismo Café",
         "type": "Café and roastery",
         "problem": "The numbers didn't add up, and seeing the day meant pulling reports.",
-        "built": "Sales come in from the till. The workshop knows what to prepare.",
+        "built": "Sales per branch from the till, stock with low-stock alerts and loss per roast.",
         "metric": "",
         "quote": "",
         "quoteBy": ""
@@ -365,7 +365,7 @@
         "name": "The Wedding Method",
         "type": "Mentoring and course",
         "problem": "Mentoring enquiries arrived with no clear next step.",
-        "built": "An app that takes each enquiry to a call, plus a separate store for the course.",
+        "built": "A pipeline that scores each enquiry and moves it to a call. The course has its own store.",
         "metric": "",
         "quote": "",
         "quoteBy": ""

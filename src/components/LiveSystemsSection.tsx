@@ -20,7 +20,8 @@ interface CaseCopy {
 }
 
 /* Client cases: who, the problem, what we built, and the result once a
-   client gives us a measured number or a quote. Nothing here is invented. */
+   client gives us a measured number or a quote. Nothing here is invented.
+   Tavros and Eternus counts read from their live apps on 2026-10-13. */
 const LiveSystemsSection = () => {
   const { t } = useTranslation();
   const copy = t("systems.items", { returnObjects: true }) as CaseCopy[];
