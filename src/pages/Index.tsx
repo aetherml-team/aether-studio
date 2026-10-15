@@ -7,6 +7,7 @@ import PainSection from "@/components/PainSection";
 import NexusSection from "@/components/NexusSection";
 import OfferSection from "@/components/OfferSection";
 import LiveSystemsSection from "@/components/LiveSystemsSection";
+import CostSection from "@/components/CostSection";
 import InvestmentSection from "@/components/InvestmentSection";
 import FitSection from "@/components/FitSection";
 import ContactSection from "@/components/ContactSection";
@@ -36,6 +37,7 @@ const Index = () => {
         <PainSection />
         <NexusSection />
         <LiveSystemsSection />
+        <CostSection />
         <OfferSection />
         <InvestmentSection />
         <FitSection />

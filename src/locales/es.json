@@ -260,7 +260,18 @@
         "label": "Joyería",
         "line": "Tu clienta arma su anillo en tu tienda y agenda su cita."
       }
-    ]
+    ],
+    "pip": {
+      "label": "Pip · en prueba con Tavros",
+      "headline": "Pregúntale a tu negocio.",
+      "line": "Escribe la pregunta como se la harías a tu contador. Pip responde con tus datos y te dice de dónde sale cada cifra.",
+      "questions": [
+        "¿Quién me debe?",
+        "¿Cómo vamos de utilidad este mes?",
+        "¿Quiénes vencen esta semana?",
+        "¿Cuánto hay en cada cuenta?"
+      ]
+    }
   },
   "stack": {
     "headline": "Cómo empezar.",
@@ -390,6 +401,10 @@
     "problemLabel": "El problema",
     "builtLabel": "Lo que construimos",
     "resultLabel": "Resultado"
+  },
+  "cost": {
+    "headline": "Lo que no sabes de tu negocio ya te está costando.",
+    "description": "Cada hora que pasas cuadrando Excel es una hora sin vender. En 20 minutos te decimos dónde se te va."
   },
   "investment": {
     "headline": "Empieza con control. Crece sin perderlo.",

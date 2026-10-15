@@ -5,7 +5,6 @@ import { SYSTEMS } from "@/content/offer";
 import { EASE, viewport } from "@/lib/motion";
 import { Logo } from "@/components/Logo";
 import { Section } from "@/components/Sheet";
-import { SectionCTA } from "@/components/SectionCTA";
 
 interface CaseCopy {
   name: string;
@@ -103,8 +102,6 @@ const LiveSystemsSection = () => {
           );
         })}
       </ul>
-
-      <SectionCTA label={t("common.cta")} className="mt-8" />
     </Section>
   );
 };

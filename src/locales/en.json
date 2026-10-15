@@ -260,7 +260,18 @@
         "label": "Jewellery",
         "line": "Your customer builds her ring in your store and books her appointment."
       }
-    ]
+    ],
+    "pip": {
+      "label": "Pip · in testing with Tavros",
+      "headline": "Ask your business.",
+      "line": "Type the question the way you would ask your accountant. Pip answers from your data and shows where each number comes from.",
+      "questions": [
+        "Who owes me?",
+        "How is profit looking this month?",
+        "Whose plan ends this week?",
+        "How much is in each account?"
+      ]
+    }
   },
   "stack": {
     "headline": "How to start.",
@@ -390,6 +401,10 @@
     "problemLabel": "The problem",
     "builtLabel": "What we built",
     "resultLabel": "Result"
+  },
+  "cost": {
+    "headline": "What you don't know about your business is already costing you.",
+    "description": "Every hour you spend fixing spreadsheets is an hour you don't sell. In 20 minutes we show you where it goes."
   },
   "investment": {
     "headline": "Start with control. Grow without losing it.",
