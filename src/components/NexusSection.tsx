@@ -9,8 +9,8 @@ interface Item {
   line: string;
 }
 
-/* What Nexus does, one vertical per screen. Screens come from the demo
-   tenants on mock data; until a capture exists the slot says so. */
+/* What Nexus does, one vertical per screen. Screens come from the live
+   apps with customer data covered; until a capture exists the slot says so. */
 const NexusSection = () => {
   const { t } = useTranslation();
   const items = t("nexus.items", { returnObjects: true }) as Item[];

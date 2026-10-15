@@ -57,9 +57,13 @@ export const HERO_SHOT = "/work/tavros-2.png";
 
 /**
  * One product screen per vertical, in the order of `nexus.items`: gym billing,
- * studio finances, café/roastery, jewellery store. Capture from the Nexus demo
- * tenants on mock data only: no real customer names, emails or amounts.
+ * studio finances, café/roastery, jewellery store. Live screens captured
+ * 2026-10-14 with every customer name and amount covered by a solid bar.
  * null renders a marked placeholder slot.
- * TODO(screenshots): /work/demo-gym.png, demo-studio.png, demo-cafe.png, demo-jewellery.png
  */
-export const DEMO_SHOTS: ReadonlyArray<string | null> = [null, null, null, null];
+export const DEMO_SHOTS: ReadonlyArray<string | null> = [
+  "/work/demo-gym.jpg",
+  "/work/demo-studio.jpg",
+  "/work/demo-cafe.jpg",
+  "/work/demo-jewellery.jpg",
+];
