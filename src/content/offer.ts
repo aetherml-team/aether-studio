@@ -61,12 +61,11 @@ export const HERO_SHOT = "/work/tavros-2.png";
  * studio finances, café/roastery, jewellery store, mentoring leads. Live screens
  * captured 2026-10-14 with every customer name and amount covered by a solid bar.
  * null renders a marked placeholder slot.
- * TODO(screenshots): /work/demo-mentoring.jpg, the Wedding Method leads analytics.
  */
 export const DEMO_SHOTS: ReadonlyArray<string | null> = [
   "/work/demo-gym.jpg",
   "/work/demo-studio.jpg",
   "/work/demo-cafe.jpg",
   "/work/demo-jewellery.jpg",
-  null,
+  "/work/demo-mentoring.jpg",
 ];
