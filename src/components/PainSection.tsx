@@ -29,7 +29,16 @@ const PainSection = () => {
           </m.li>
         ))}
       </ul>
-      <p className="mt-6 max-w-[58ch] font-body text-[17px] leading-relaxed text-foreground/65">{t("pain.closer")}</p>
+      <m.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewport}
+        transition={{ duration: 0.5, ease: EASE }}
+        className="mt-14 grid gap-6 md:mt-16 lg:grid-cols-12 lg:items-end lg:gap-12"
+      >
+        <p className="display-2 font-heading font-semibold text-foreground lg:col-span-8 [text-wrap:balance]">{t("pain.cost")}</p>
+        <p className="max-w-[46ch] font-body text-[17px] leading-relaxed text-foreground/65 lg:col-span-4">{t("pain.closer")}</p>
+      </m.div>
     </Section>
   );
 };

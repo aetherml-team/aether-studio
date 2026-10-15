@@ -237,40 +237,71 @@
         "who": "Dueño de panaderías"
       }
     ],
-    "closer": "En la auditoría revisamos cuál de estos problemas conviene atender primero."
+    "closer": "Cada hora cuadrando Excel es una hora sin vender. En la auditoría vemos cuál de estos problemas conviene atender primero.",
+    "cost": "Lo que no sabes de tu negocio ya te está costando."
   },
   "nexus": {
     "headline": "Qué hace Nexus en tu negocio.",
     "description": "Una sola app con tu marca. Tu equipo la usa cada día y nosotros la mantenemos.",
-    "shotPending": "Captura pendiente · datos de prueba",
+    "shotPending": "Captura pendiente",
     "items": [
       {
-        "label": "Gimnasio · cobranza",
-        "line": "Ves quién debe, qué plan tiene y qué depósito ya cuadró."
+        "label": "Gimnasio · tablero",
+        "line": "Socios activos, ingresos y flujo de caja en una sola pantalla."
       },
       {
-        "label": "Estudio · finanzas",
-        "line": "Cada proyecto con sus anticipos, sus pagos y lo que falta por cobrar."
+        "label": "Estudio de bodas · producción",
+        "line": "Cada boda con su fecha, su etapa y lo que falta por entregar."
       },
       {
-        "label": "Café y tostaduría",
-        "line": "Las ventas del día llegan desde la caja y el taller sabe qué preparar."
+        "label": "Café y tostaduría · ventas",
+        "line": "Las ventas de cada sucursal llegan desde la caja, sin bajar reportes."
       },
       {
-        "label": "Joyería",
+        "label": "Joyería · tienda en línea",
         "line": "Tu clienta arma su anillo en tu tienda y agenda su cita."
+      },
+      {
+        "label": "Mentoría · prospectos",
+        "line": "Sabes de dónde llega cada consulta y cuántas cierras."
       }
+    ]
+  },
+  "pip": {
+    "note": "Pip · en prueba con Tavros",
+    "headline": "Pregúntale a tu negocio. Pídele que lo haga.",
+    "description": "Pip vive dentro de tu app. Lee tus cobros, gastos y cuentas, y registra lo que le pidas. Nada cambia hasta que lo apruebas.",
+    "askLabel": "Pregúntale",
+    "ask": [
+      "¿Quién me debe?",
+      "¿Cómo vamos de utilidad este mes?",
+      "¿Quiénes vencen esta semana?",
+      "¿Cuánto hay en cada cuenta?"
     ],
-    "pip": {
-      "label": "Pip · en prueba con Tavros",
-      "headline": "Pregúntale a tu negocio.",
-      "line": "Escribe la pregunta como se la harías a tu contador. Pip responde con tus datos y te dice de dónde sale cada cifra.",
-      "questions": [
-        "¿Quién me debe?",
-        "¿Cómo vamos de utilidad este mes?",
-        "¿Quiénes vencen esta semana?",
-        "¿Cuánto hay en cada cuenta?"
-      ]
+    "doLabel": "Pídele",
+    "do": [
+      "Vende un plan y registra el pago.",
+      "Asigna un depósito a su nota.",
+      "Manda la nota por WhatsApp y correo.",
+      "Registra un gasto o exporta un reporte."
+    ],
+    "chat": {
+      "q1": "¿Quién me debe esta semana?",
+      "a1": "3 socios tienen notas vencidas:",
+      "source": "Notas de pago · sincronizado hace 2 min",
+      "q2": "Tomás pagó sus $1,450 en efectivo.",
+      "title": "Registrar pago en efectivo",
+      "needed": "Necesita tu aprobación",
+      "customer": "Cliente",
+      "amount": "Monto",
+      "method": "Método",
+      "cash": "Efectivo",
+      "balance": "Saldo que queda",
+      "note": "Al aprobar, el cambio queda registrado.",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "placeholder": "Pregúntale a Pip…",
+      "demo": "Ejemplo con datos de prueba"
     }
   },
   "stack": {
@@ -359,7 +390,7 @@
         "type": "Café y tostaduría",
         "problem": "Las cuentas no cuadraban y ver el día exigía bajar reportes.",
         "built": "Ventas por sucursal desde la caja, inventario con alertas y merma por tostado.",
-        "metric": "",
+        "metric": "2 sucursales y un taller en una sola app",
         "quote": "",
         "quoteBy": ""
       },
@@ -368,7 +399,7 @@
         "type": "Joyería a la medida",
         "problem": "La joyería quería vender en línea piezas que se hacen a la medida.",
         "built": "Una tienda donde la clienta explora, arma su anillo y agenda su cita.",
-        "metric": "",
+        "metric": "96 piezas en su tienda en línea",
         "quote": "",
         "quoteBy": ""
       },
@@ -377,7 +408,16 @@
         "type": "Mentoría y curso",
         "problem": "Las consultas de mentoría llegaban sin un siguiente paso claro.",
         "built": "Un embudo que califica cada consulta y la lleva a una llamada. El curso vive en una tienda aparte.",
-        "metric": "",
+        "metric": "29 consultas en un solo embudo, 5 ya cerradas",
+        "quote": "",
+        "quoteBy": ""
+      },
+      {
+        "name": "Æther",
+        "type": "Nuestro propio estudio",
+        "problem": "Cobrar a varios clientes y llevar los gastos del estudio sin perder nada.",
+        "built": "Usamos Nexus antes de venderlo. Aquí cobramos, registramos gastos y pagamos proveedores.",
+        "metric": "Nuestra cobranza y nuestros gastos corren en Nexus",
         "quote": "",
         "quoteBy": ""
       },
@@ -401,10 +441,6 @@
     "problemLabel": "El problema",
     "builtLabel": "Lo que construimos",
     "resultLabel": "Resultado"
-  },
-  "cost": {
-    "headline": "Lo que no sabes de tu negocio ya te está costando.",
-    "description": "Cada hora que pasas cuadrando Excel es una hora sin vender. En 20 minutos te decimos dónde se te va."
   },
   "investment": {
     "headline": "Empieza con control. Crece sin perderlo.",

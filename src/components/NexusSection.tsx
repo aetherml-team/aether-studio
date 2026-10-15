@@ -10,7 +10,8 @@ interface Item {
 }
 
 /* What Nexus does, one vertical per screen. Screens come from the live
-   apps with customer data covered; until a capture exists the slot says so. */
+   apps with customer data covered; until a capture exists the slot says so.
+   An odd last screen spans the row with its caption beside it. */
 const NexusSection = () => {
   const { t } = useTranslation();
   const items = t("nexus.items", { returnObjects: true }) as Item[];
@@ -20,14 +21,15 @@ const NexusSection = () => {
       <ul className="grid gap-x-8 gap-y-12 md:grid-cols-2">
         {items.map((item, i) => {
           const src = DEMO_SHOTS[i];
+          const wide = items.length % 2 === 1 && i === items.length - 1;
           return (
             <m.li
               key={item.label}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
-              transition={{ duration: 0.45, delay: Math.min(i, 3) * 0.05, ease: EASE }}
-              className="min-w-0"
+              transition={{ duration: 0.45, delay: Math.min(i % 2, 1) * 0.05, ease: EASE }}
+              className={`min-w-0 ${wide ? "md:col-span-2 md:grid md:grid-cols-2 md:items-center md:gap-x-8" : ""}`}
             >
               <div
                 className="glow-border overflow-hidden rounded-lg border border-border bg-card"
@@ -41,40 +43,16 @@ const NexusSection = () => {
                   </div>
                 )}
               </div>
-              <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-primary">{item.label}</p>
-              <p className="mt-2 max-w-[42ch] font-heading text-[clamp(1.15rem,1.35vw,1.45rem)] font-medium leading-[1.25] tracking-[-0.02em] text-foreground">
-                {item.line}
-              </p>
+              <div className={wide ? "md:pl-2" : ""}>
+                <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-primary md:mt-5">{item.label}</p>
+                <p className="mt-2 max-w-[42ch] font-heading text-[clamp(1.15rem,1.35vw,1.45rem)] font-medium leading-[1.25] tracking-[-0.02em] text-foreground">
+                  {item.line}
+                </p>
+              </div>
             </m.li>
           );
         })}
       </ul>
-
-      <m.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={viewport}
-        transition={{ duration: 0.45, ease: EASE }}
-        className="glow-border mt-16 grid gap-8 rounded-lg border border-border bg-card p-6 md:p-10 lg:grid-cols-12 lg:gap-12"
-      >
-        <div className="lg:col-span-5">
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-primary">{t("nexus.pip.label")}</p>
-          <p className="mt-3 font-heading text-[clamp(1.6rem,2.4vw,2.4rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground">
-            {t("nexus.pip.headline")}
-          </p>
-          <p className="mt-4 max-w-[46ch] font-body text-[16px] leading-[1.55] text-foreground/70">{t("nexus.pip.line")}</p>
-        </div>
-        <ul className="flex flex-col items-end gap-3 self-center lg:col-span-7">
-          {(t("nexus.pip.questions", { returnObjects: true }) as string[]).map((q) => (
-            <li
-              key={q}
-              className="max-w-[90%] rounded-2xl rounded-br-sm border border-border bg-background px-5 py-3 font-body text-[16px] text-foreground"
-            >
-              {q}
-            </li>
-          ))}
-        </ul>
-      </m.div>
     </Section>
   );
 };

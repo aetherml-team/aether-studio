@@ -50,6 +50,7 @@ export const SYSTEMS: ReadonlyArray<{
     store: "https://theweddingame.com/",
     logoDark: true,
   },
+  { slug: "aether", site: "https://www.aetherml.com" },
   { slug: "panaderia", upcoming: true },
 ];
 
@@ -57,13 +58,15 @@ export const HERO_SHOT = "/work/tavros-2.png";
 
 /**
  * One product screen per vertical, in the order of `nexus.items`: gym billing,
- * studio finances, café/roastery, jewellery store. Live screens captured
- * 2026-10-14 with every customer name and amount covered by a solid bar.
+ * studio finances, café/roastery, jewellery store, mentoring leads. Live screens
+ * captured 2026-10-14 with every customer name and amount covered by a solid bar.
  * null renders a marked placeholder slot.
+ * TODO(screenshots): /work/demo-mentoring.jpg, the Wedding Method leads analytics.
  */
 export const DEMO_SHOTS: ReadonlyArray<string | null> = [
   "/work/demo-gym.jpg",
   "/work/demo-studio.jpg",
   "/work/demo-cafe.jpg",
   "/work/demo-jewellery.jpg",
+  null,
 ];

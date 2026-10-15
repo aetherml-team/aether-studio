@@ -237,40 +237,71 @@
         "who": "Bakery group owner"
       }
     ],
-    "closer": "During the audit, we decide which of these problems should be addressed first."
+    "closer": "Every hour spent fixing spreadsheets is an hour you don't sell. In the audit we pick which of these problems to tackle first.",
+    "cost": "What you don't know about your business is already costing you."
   },
   "nexus": {
     "headline": "What Nexus does in your business.",
     "description": "One app under your brand. Your team uses it every day and we keep it running.",
-    "shotPending": "Screenshot pending · mock data",
+    "shotPending": "Screenshot pending",
     "items": [
       {
-        "label": "Gym · billing",
-        "line": "See who owes, which plan they have and which deposit matched."
+        "label": "Gym · dashboard",
+        "line": "Active members, income and cash flow on one screen."
       },
       {
-        "label": "Studio · finances",
-        "line": "Every project with its deposits, its payments and what is still due."
+        "label": "Wedding studio · production",
+        "line": "Every wedding with its date, its stage and what is left to deliver."
       },
       {
-        "label": "Café and roastery",
-        "line": "Today's sales come in from the till and the workshop knows what to prepare."
+        "label": "Café and roastery · sales",
+        "line": "Each branch's sales arrive from the till, with no reports to pull."
       },
       {
-        "label": "Jewellery",
+        "label": "Jewellery · online store",
         "line": "Your customer builds her ring in your store and books her appointment."
+      },
+      {
+        "label": "Mentoring · leads",
+        "line": "You see where each enquiry comes from and how many you close."
       }
+    ]
+  },
+  "pip": {
+    "note": "Pip · in testing with Tavros",
+    "headline": "Ask your business. Then ask it to do the work.",
+    "description": "Pip lives inside your app. It reads your payments, expenses and accounts, and records what you ask. Nothing changes until you approve it.",
+    "askLabel": "Ask",
+    "ask": [
+      "Who owes me?",
+      "How is profit looking this month?",
+      "Whose plan ends this week?",
+      "How much is in each account?"
     ],
-    "pip": {
-      "label": "Pip · in testing with Tavros",
-      "headline": "Ask your business.",
-      "line": "Type the question the way you would ask your accountant. Pip answers from your data and shows where each number comes from.",
-      "questions": [
-        "Who owes me?",
-        "How is profit looking this month?",
-        "Whose plan ends this week?",
-        "How much is in each account?"
-      ]
+    "doLabel": "Ask it to",
+    "do": [
+      "Sell a plan and record the payment.",
+      "Match a deposit to its note.",
+      "Send the note by WhatsApp and email.",
+      "Log an expense or export a report."
+    ],
+    "chat": {
+      "q1": "Who owes me this week?",
+      "a1": "3 members have overdue notes:",
+      "source": "Payment notes · synced 2 min ago",
+      "q2": "Tomás paid his $1,450 in cash.",
+      "title": "Record cash payment",
+      "needed": "Needs your approval",
+      "customer": "Customer",
+      "amount": "Amount",
+      "method": "Method",
+      "cash": "Cash",
+      "balance": "Balance left",
+      "note": "Once you approve, the change is recorded.",
+      "approve": "Approve",
+      "reject": "Reject",
+      "placeholder": "Ask Pip…",
+      "demo": "Example with test data"
     }
   },
   "stack": {
@@ -359,7 +390,7 @@
         "type": "Café and roastery",
         "problem": "The numbers didn't add up, and seeing the day meant pulling reports.",
         "built": "Sales per branch from the till, stock with low-stock alerts and loss per roast.",
-        "metric": "",
+        "metric": "2 branches and a roastery in one app",
         "quote": "",
         "quoteBy": ""
       },
@@ -368,7 +399,7 @@
         "type": "Made-to-order jewellery",
         "problem": "The jeweller wanted to sell made-to-order pieces online.",
         "built": "A storefront where customers browse, build their ring and book an appointment.",
-        "metric": "",
+        "metric": "96 pieces in her online store",
         "quote": "",
         "quoteBy": ""
       },
@@ -377,7 +408,16 @@
         "type": "Mentoring and course",
         "problem": "Mentoring enquiries arrived with no clear next step.",
         "built": "A pipeline that scores each enquiry and moves it to a call. The course has its own store.",
-        "metric": "",
+        "metric": "29 enquiries in one pipeline, 5 already closed",
+        "quote": "",
+        "quoteBy": ""
+      },
+      {
+        "name": "Æther",
+        "type": "Our own studio",
+        "problem": "Billing several clients and tracking the studio's expenses without losing anything.",
+        "built": "We used Nexus before selling it. We bill, log expenses and pay suppliers here.",
+        "metric": "Our own billing and expenses run on Nexus",
         "quote": "",
         "quoteBy": ""
       },
@@ -401,10 +441,6 @@
     "problemLabel": "The problem",
     "builtLabel": "What we built",
     "resultLabel": "Result"
-  },
-  "cost": {
-    "headline": "What you don't know about your business is already costing you.",
-    "description": "Every hour you spend fixing spreadsheets is an hour you don't sell. In 20 minutes we show you where it goes."
   },
   "investment": {
     "headline": "Start with control. Grow without losing it.",

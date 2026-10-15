@@ -5,6 +5,7 @@ import { SYSTEMS } from "@/content/offer";
 import { EASE, viewport } from "@/lib/motion";
 import { Logo } from "@/components/Logo";
 import { Section } from "@/components/Sheet";
+import { SectionCTA } from "@/components/SectionCTA";
 
 interface CaseCopy {
   name: string;
@@ -20,7 +21,8 @@ interface CaseCopy {
 
 /* Client cases: who, the problem, what we built, and the result once a
    client gives us a measured number or a quote. Nothing here is invented.
-   Tavros and Eternus counts read from their live apps on 2026-10-13. */
+   Counts read from the live apps (Tavros and Eternus 2026-10-13; Sismo,
+   The Wedding Method and the Eloisa store 2026-10-14). */
 const LiveSystemsSection = () => {
   const { t } = useTranslation();
   const copy = t("systems.items", { returnObjects: true }) as CaseCopy[];
@@ -102,6 +104,8 @@ const LiveSystemsSection = () => {
           );
         })}
       </ul>
+
+      <SectionCTA label={t("common.cta")} className="mt-8" />
     </Section>
   );
 };
