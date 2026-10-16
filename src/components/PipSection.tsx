@@ -4,7 +4,7 @@ import { EASE, viewport } from "@/lib/motion";
 import { Section } from "@/components/Sheet";
 
 /* Pip, the assistant inside the app. Screens are the app's own chat parts
-   (answer, chart, table, approval card) rendered on test data, one image per
+   (answer, chart, table, approval card) in the Æther skin on test data, one image per
    language and theme in public/work/pip/<shot>-<theme>-<lang>.jpg. The first
    three read, the last three wait on "Aprobar". */
 const SHOTS = ["money", "owes", "plans", "pay", "deposit", "send"] as const;
