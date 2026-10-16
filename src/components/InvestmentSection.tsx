@@ -9,6 +9,8 @@ interface Pkg {
   name: string;
   scope: string;
   bullets: string[];
+  /** Planned, not built yet: shown with a "Próximamente" tag. */
+  soon?: string[];
 }
 
 const InvestmentSection = () => {
@@ -44,6 +46,14 @@ const InvestmentSection = () => {
                 {p.bullets.map((bullet) => (
                   <li key={bullet} className={`py-3 font-body text-[15.5px] leading-snug ${featured ? "text-primary-foreground/90" : "text-foreground/70"}`}>
                     {bullet}
+                  </li>
+                ))}
+                {p.soon?.map((line) => (
+                  <li key={line} className={`flex items-baseline justify-between gap-3 py-3 font-body text-[15.5px] leading-snug ${featured ? "text-primary-foreground/90" : "text-foreground/70"}`}>
+                    {line}
+                    <span className="shrink-0 rounded-full border border-current px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.1em] opacity-70">
+                      {t("investment.soon")}
+                    </span>
                   </li>
                 ))}
               </ul>

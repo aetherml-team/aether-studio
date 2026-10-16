@@ -272,37 +272,16 @@
     "headline": "Pregúntale a tu negocio. Pídele que lo haga.",
     "description": "Pip vive dentro de tu app. Lee tus cobros, gastos y cuentas, y registra lo que le pidas. Nada cambia hasta que lo apruebas.",
     "askLabel": "Pregúntale",
-    "ask": [
-      "¿Quién me debe?",
-      "¿Cómo vamos de utilidad este mes?",
-      "¿Quiénes vencen esta semana?",
-      "¿Cuánto hay en cada cuenta?"
-    ],
     "doLabel": "Pídele",
-    "do": [
-      "Vende un plan y registra el pago.",
-      "Asigna un depósito a su nota.",
-      "Manda la nota por WhatsApp y correo.",
-      "Registra un gasto o exporta un reporte."
-    ],
-    "chat": {
-      "q1": "¿Quién me debe esta semana?",
-      "a1": "3 socios tienen notas vencidas:",
-      "source": "Notas de pago · sincronizado hace 2 min",
-      "q2": "Tomás pagó sus $1,450 en efectivo.",
-      "title": "Registrar pago en efectivo",
-      "needed": "Necesita tu aprobación",
-      "customer": "Cliente",
-      "amount": "Monto",
-      "method": "Método",
-      "cash": "Efectivo",
-      "balance": "Saldo que queda",
-      "note": "Al aprobar, el cambio queda registrado.",
-      "approve": "Aprobar",
-      "reject": "Rechazar",
-      "placeholder": "Pregúntale a Pip…",
-      "demo": "Ejemplo con datos de prueba"
-    }
+    "demo": "Pantallas reales de Pip con datos de prueba",
+    "shots": [
+      "Lo que entró este mes contra los seis anteriores.",
+      "Quién te debe, cuánto y cuándo vence.",
+      "Qué plan te deja más.",
+      "Registra un pago en efectivo.",
+      "Asigna un depósito a sus notas.",
+      "Manda la nota por WhatsApp."
+    ]
   },
   "stack": {
     "headline": "Cómo empezar.",
@@ -448,29 +427,32 @@
     "packages": [
       {
         "name": "ÆTHER Esencial",
-        "scope": "Para sacar de tu cabeza lo que hoy depende de ti.",
+        "scope": "Nexus armado sobre tu operación: una app con tu marca y tus números.",
         "bullets": [
-          "Una tarea clave, en orden",
-          "Tu equipo sabe cómo se hace",
+          "Cobros, gastos y reportes en un solo lugar",
+          "Tu equipo sabe qué sigue",
           "Nosotros lo mantenemos"
         ]
       },
       {
         "name": "ÆTHER Control",
-        "scope": "Para que el negocio avance sin preguntarte cada paso.",
+        "scope": "Nexus con Pip: le preguntas a tu negocio y te contesta con tus números.",
         "bullets": [
-          "Cada persona sabe qué sigue",
-          "Lo pendiente tiene dueño",
-          "Tú ves qué necesita atención"
+          "Todo lo de Esencial",
+          "Respuestas con tablas y gráficas",
+          "Registra pagos, gastos y notas cuando lo apruebas"
         ]
       },
       {
         "name": "ÆTHER Scale",
-        "scope": "Para sumar áreas o sucursales sin volver al caos.",
+        "scope": "Pip trabaja aunque no le escribas.",
         "bullets": [
-          "Todos trabajan con la misma información",
-          "Cada equipo ve lo que necesita",
-          "Nuevos flujos se suman por etapas"
+          "Todo lo de Control"
+        ],
+        "soon": [
+          "Concilia tus depósitos solo",
+          "Te avisa cuando algo no cuadra",
+          "Te escribe por WhatsApp, Telegram o Slack, el que elijas"
         ]
       }
     ],
@@ -480,6 +462,7 @@
     "feasibility": "Si una conexión es incierta, primero la probamos en una etapa corta con respuesta de sí o no.",
     "notCheapest": "No competimos por precio. Construimos, operamos y mantenemos el sistema contigo.",
     "priceFixed": "El precio queda fijo por escrito después de la auditoría.",
-    "priceFrom": "Desde {{price}} + IVA."
+    "priceFrom": "Desde {{price}} + IVA.",
+    "soon": "Próximamente"
   }
 }

@@ -272,37 +272,16 @@
     "headline": "Ask your business. Then ask it to do the work.",
     "description": "Pip lives inside your app. It reads your payments, expenses and accounts, and records what you ask. Nothing changes until you approve it.",
     "askLabel": "Ask",
-    "ask": [
-      "Who owes me?",
-      "How is profit looking this month?",
-      "Whose plan ends this week?",
-      "How much is in each account?"
-    ],
     "doLabel": "Ask it to",
-    "do": [
-      "Sell a plan and record the payment.",
-      "Match a deposit to its note.",
-      "Send the note by WhatsApp and email.",
-      "Log an expense or export a report."
-    ],
-    "chat": {
-      "q1": "Who owes me this week?",
-      "a1": "3 members have overdue notes:",
-      "source": "Payment notes · synced 2 min ago",
-      "q2": "Tomás paid his $1,450 in cash.",
-      "title": "Record cash payment",
-      "needed": "Needs your approval",
-      "customer": "Customer",
-      "amount": "Amount",
-      "method": "Method",
-      "cash": "Cash",
-      "balance": "Balance left",
-      "note": "Once you approve, the change is recorded.",
-      "approve": "Approve",
-      "reject": "Reject",
-      "placeholder": "Ask Pip…",
-      "demo": "Example with test data"
-    }
+    "demo": "Real Pip screens with test data",
+    "shots": [
+      "This month's income against the last six.",
+      "Who owes you, how much and when it's due.",
+      "Which plan brings in the most.",
+      "Record a cash payment.",
+      "Match a deposit to its invoices.",
+      "Send the invoice on WhatsApp."
+    ]
   },
   "stack": {
     "headline": "How to start.",
@@ -448,29 +427,32 @@
     "packages": [
       {
         "name": "ÆTHER Essential",
-        "scope": "For getting what depends on you today out of your head.",
+        "scope": "Nexus built around how you work: one app with your brand and your numbers.",
         "bullets": [
-          "One critical job, in order",
-          "Your team knows how it is done",
+          "Payments, expenses and reports in one place",
+          "Your team knows what is next",
           "We keep it running"
         ]
       },
       {
         "name": "ÆTHER Control",
-        "scope": "So the business can move without asking you at every step.",
+        "scope": "Nexus with Pip: ask your business and it answers with your numbers.",
         "bullets": [
-          "Everyone knows what is next",
-          "Every pending item has an owner",
-          "You see what needs attention"
+          "Everything in Essential",
+          "Answers with tables and charts",
+          "Records payments, expenses and invoices once you approve"
         ]
       },
       {
         "name": "ÆTHER Scale",
-        "scope": "For adding teams or branches without bringing back the chaos.",
+        "scope": "Pip works even when you don't write to it.",
         "bullets": [
-          "Everyone works from the same information",
-          "Each team sees what it needs",
-          "New workflows are added in stages"
+          "Everything in Control"
+        ],
+        "soon": [
+          "Matches your deposits on its own",
+          "Tells you when something doesn't add up",
+          "Writes to you on WhatsApp, Telegram or Slack, your pick"
         ]
       }
     ],
@@ -480,6 +462,7 @@
     "feasibility": "If a connection is uncertain, we test it first in a short stage with a yes-or-no answer.",
     "notCheapest": "We do not compete on price. We build, run and maintain the system with you.",
     "priceFixed": "We fix the price in writing after the audit.",
-    "priceFrom": "From {{price}} + VAT."
+    "priceFrom": "From {{price}} + VAT.",
+    "soon": "Coming soon"
   }
 }
