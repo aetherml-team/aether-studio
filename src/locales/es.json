@@ -268,7 +268,7 @@
     ]
   },
   "pip": {
-    "note": "Pip · en prueba con Tavros",
+    "note": "Pip",
     "headline": "Pregúntale a tu negocio. Pídele que lo haga.",
     "description": "Pip vive dentro de tu app. Lee tus cobros, gastos y cuentas, y registra lo que le pidas. Nada cambia hasta que lo apruebas.",
     "askLabel": "Pregúntale",

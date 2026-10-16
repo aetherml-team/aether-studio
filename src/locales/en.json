@@ -268,7 +268,7 @@
     ]
   },
   "pip": {
-    "note": "Pip · in testing with Tavros",
+    "note": "Pip",
     "headline": "Ask your business. Then ask it to do the work.",
     "description": "Pip lives inside your app. It reads your payments, expenses and accounts, and records what you ask. Nothing changes until you approve it.",
     "askLabel": "Ask",
