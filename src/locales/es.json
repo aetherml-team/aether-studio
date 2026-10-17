@@ -427,32 +427,33 @@
     "packages": [
       {
         "name": "Tu negocio en orden",
-        "scope": "Nexus armado sobre tu operación: una app con tu marca y tus números.",
+        "scope": "Dejas de perseguir pagos y de cuadrar Excel a fin de mes.",
         "bullets": [
-          "Cobros, gastos y reportes en un solo lugar",
-          "Tu equipo sabe qué sigue",
-          "Nosotros lo mantenemos"
+          "Sabes quién te debe sin preguntarle a nadie",
+          "Tu equipo avanza sin esperar a que contestes",
+          "Si algo falla, lo arreglamos nosotros"
         ]
       },
       {
         "name": "Tu negocio te contesta",
-        "scope": "Nexus con Pip: le preguntas a tu negocio y te contesta con tus números.",
+        "scope": "Cualquier duda sobre tu negocio, resuelta desde el celular.",
         "bullets": [
           "Todo lo del plan anterior",
-          "Respuestas con tablas y gráficas",
-          "Registra pagos, gastos y notas cuando lo apruebas"
+          "Sabes cuánto ganaste sin abrir un reporte",
+          "Registras un cobro con un mensaje",
+          "Nada cambia sin tu visto bueno"
         ]
       },
       {
         "name": "Tu negocio te avisa",
-        "scope": "Pip trabaja aunque no le escribas.",
+        "scope": "Te enteras de un problema antes de que te cueste.",
         "bullets": [
           "Todo lo del plan anterior"
         ],
         "soon": [
-          "Concilia tus depósitos solo",
-          "Te avisa cuando algo no cuadra",
-          "Te escribe por WhatsApp, Telegram o Slack, el que elijas"
+          "Tus depósitos cuadran sin que los revises",
+          "Ves un error antes del cierre de mes",
+          "El aviso te llega por WhatsApp, Telegram o Slack"
         ]
       }
     ],

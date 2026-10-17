@@ -427,32 +427,33 @@
     "packages": [
       {
         "name": "Your business in order",
-        "scope": "Nexus built around how you work: one app with your brand and your numbers.",
+        "scope": "Stop chasing payments and fixing spreadsheets at month end.",
         "bullets": [
-          "Payments, expenses and reports in one place",
-          "Your team knows what is next",
-          "We keep it running"
+          "Know who owes you without asking anyone",
+          "Your team moves without waiting on you",
+          "If something breaks, we fix it"
         ]
       },
       {
         "name": "Your business answers you",
-        "scope": "Nexus with Pip: ask your business and it answers with your numbers.",
+        "scope": "Any question about your business, answered from your phone.",
         "bullets": [
           "Everything in the plan before",
-          "Answers with tables and charts",
-          "Records payments, expenses and invoices once you approve"
+          "Know what you made without opening a report",
+          "Record a payment with one message",
+          "Nothing changes without your OK"
         ]
       },
       {
         "name": "Your business tells you first",
-        "scope": "Pip works even when you don't write to it.",
+        "scope": "Hear about a problem before it costs you.",
         "bullets": [
           "Everything in the plan before"
         ],
         "soon": [
-          "Matches your deposits on its own",
-          "Tells you when something doesn't add up",
-          "Writes to you on WhatsApp, Telegram or Slack, your pick"
+          "Your deposits reconcile without you checking",
+          "Catch a mistake before month end",
+          "The alert reaches you on WhatsApp, Telegram or Slack"
         ]
       }
     ],
