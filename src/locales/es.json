@@ -426,7 +426,7 @@
     "description": "En la auditoría vemos dónde estás. Después te decimos qué haríamos, cuándo queda y cuánto cuesta.",
     "packages": [
       {
-        "name": "ÆTHER Esencial",
+        "name": "Tu negocio en orden",
         "scope": "Nexus armado sobre tu operación: una app con tu marca y tus números.",
         "bullets": [
           "Cobros, gastos y reportes en un solo lugar",
@@ -435,19 +435,19 @@
         ]
       },
       {
-        "name": "ÆTHER Control",
+        "name": "Tu negocio te contesta",
         "scope": "Nexus con Pip: le preguntas a tu negocio y te contesta con tus números.",
         "bullets": [
-          "Todo lo de Esencial",
+          "Todo lo del plan anterior",
           "Respuestas con tablas y gráficas",
           "Registra pagos, gastos y notas cuando lo apruebas"
         ]
       },
       {
-        "name": "ÆTHER Scale",
+        "name": "Tu negocio te avisa",
         "scope": "Pip trabaja aunque no le escribas.",
         "bullets": [
-          "Todo lo de Control"
+          "Todo lo del plan anterior"
         ],
         "soon": [
           "Concilia tus depósitos solo",

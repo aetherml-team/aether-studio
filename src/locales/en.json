@@ -426,7 +426,7 @@
     "description": "During the audit, we see where you are. Then we tell you what we would build, when it would be ready and what it costs.",
     "packages": [
       {
-        "name": "ÆTHER Essential",
+        "name": "Your business in order",
         "scope": "Nexus built around how you work: one app with your brand and your numbers.",
         "bullets": [
           "Payments, expenses and reports in one place",
@@ -435,19 +435,19 @@
         ]
       },
       {
-        "name": "ÆTHER Control",
+        "name": "Your business answers you",
         "scope": "Nexus with Pip: ask your business and it answers with your numbers.",
         "bullets": [
-          "Everything in Essential",
+          "Everything in the plan before",
           "Answers with tables and charts",
           "Records payments, expenses and invoices once you approve"
         ]
       },
       {
-        "name": "ÆTHER Scale",
+        "name": "Your business tells you first",
         "scope": "Pip works even when you don't write to it.",
         "bullets": [
-          "Everything in Control"
+          "Everything in the plan before"
         ],
         "soon": [
           "Matches your deposits on its own",
