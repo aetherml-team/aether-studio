@@ -9,7 +9,7 @@
 
 import type { LegalDoc } from "@/content/legal";
 
-const CONTACT = "help@aetherml.com";
+const CONTACT = "hola@aetherml.com";
 
 export const aboutDoc: Record<"en" | "es", LegalDoc> = {
   en: {
@@ -118,7 +118,7 @@ export const contactDoc: Record<"en" | "es", LegalDoc> = {
   en: {
     title: "Contact Æther",
     metaDescription:
-      "Book a free 20-minute audit, message us on WhatsApp, or write to help@aetherml.com. Æther replies within one business day, in English or Spanish.",
+      "Book a free 20-minute audit, message us on WhatsApp, or write to hola@aetherml.com. Æther replies within one business day, in English or Spanish.",
     updated: "Guadalajara · We reply within one business day",
     intro: [
       `Three ways to reach us: book a free 20-minute audit below, message us on WhatsApp, or write to ${CONTACT}. English or Spanish, either way.`,
@@ -151,7 +151,7 @@ export const contactDoc: Record<"en" | "es", LegalDoc> = {
   es: {
     title: "Contacto",
     metaDescription:
-      "Agenda una auditoría gratuita de 20 minutos, escríbenos por WhatsApp o a help@aetherml.com. Respondemos en un día hábil, en español o inglés.",
+      "Agenda una auditoría gratuita de 20 minutos, escríbenos por WhatsApp o a hola@aetherml.com. Respondemos en un día hábil, en español o inglés.",
     updated: "Guadalajara · Respondemos en un día hábil",
     intro: [
       `Tres formas de encontrarnos: agenda abajo la auditoría gratuita de 20 minutos, escríbenos por WhatsApp o manda un correo a ${CONTACT}. En español o en inglés.`,

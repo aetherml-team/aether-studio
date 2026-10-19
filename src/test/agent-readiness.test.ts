@@ -83,7 +83,7 @@ describe("machine-readable files", () => {
     const llms = read("public/llms.txt");
     expect(llms).toMatch(/^# Æther/);
     expect(llms).toContain("## When to use Æther");
-    expect(llms).toContain("help@aetherml.com");
+    expect(llms).toContain("hola@aetherml.com");
   });
 
   it("lists every public page in the sitemap", () => {

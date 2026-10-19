@@ -24,7 +24,7 @@ type Tab = "book" | "message";
 
 /** Serverless endpoint that forwards the lead to Resend (see api/lead.ts). */
 const LEAD_ENDPOINT = "/api/lead";
-const CONTACT_EMAIL = "help@aetherml.com";
+const CONTACT_EMAIL = "hola@aetherml.com";
 /** Pragmatic email check — one @, a dot in the domain, no spaces. */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_MIN = 2;

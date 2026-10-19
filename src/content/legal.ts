@@ -38,7 +38,7 @@ const LEGAL_NAME = "Luis Roberto Hernández Robles";
 const DOMICILE = "Senderos de Monteverde, Guadalajara, Jalisco, México";
 const VENUE_EN = "Guadalajara, Jalisco, Mexico";
 const VENUE_ES = "Guadalajara, Jalisco, México";
-const CONTACT = "help@aetherml.com";
+const CONTACT = "hola@aetherml.com";
 
 /* ------------------------------------------------------------------ */
 /* PRIVACY NOTICE / AVISO DE PRIVACIDAD                                */

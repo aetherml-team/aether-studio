@@ -18,7 +18,7 @@ const NexusSection = () => {
 
   return (
     <Section id="nexus" title={t("nexus.headline")} lead={t("nexus.description")} deep>
-      <ul className="grid gap-x-8 gap-y-12 md:grid-cols-2">
+      <ul className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 md:gap-x-8 md:gap-y-12">
         {items.map((item, i) => {
           const src = DEMO_SHOTS[i];
           const wide = items.length % 2 === 1 && i === items.length - 1;
@@ -29,7 +29,7 @@ const NexusSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
               transition={{ duration: 0.45, delay: Math.min(i % 2, 1) * 0.05, ease: EASE }}
-              className={`min-w-0 ${wide ? "md:col-span-2 md:grid md:grid-cols-2 md:items-center md:gap-x-8" : ""}`}
+              className={`w-[85%] min-w-0 shrink-0 snap-start md:w-auto ${wide ? "md:col-span-2 md:grid md:grid-cols-2 md:items-center md:gap-x-8" : ""}`}
             >
               <div
                 className="glow-border overflow-hidden rounded-lg border border-border bg-card"

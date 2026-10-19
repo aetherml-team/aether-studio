@@ -12,7 +12,7 @@
  * WhatsApp CTAs simply don't render — no broken link ever ships. Vite reads env
  * vars at startup; restart `npm run dev` after changing it.
  */
-export const CONTACT_EMAIL = "help@aetherml.com";
+export const CONTACT_EMAIL = "hola@aetherml.com";
 
 const RAW_WHATSAPP = (import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined) ?? "";
 /** Digits only — wa.me wants a bare international number, no +, spaces or dashes. */

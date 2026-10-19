@@ -1,7 +1,7 @@
 import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Linkedin, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Twitter } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
 
 const Footer = () => {
@@ -22,6 +22,7 @@ const Footer = () => {
       links: [
         { textKey: "footer.linkedin", href: "https://www.linkedin.com/company/aetherml/" },
         { textKey: "footer.twitter", href: "https://x.com/AEtherML" },
+        { textKey: "footer.instagram", href: "https://www.instagram.com/aetherml_studio/" },
       ],
     },
   ];
@@ -65,6 +66,17 @@ const Footer = () => {
                 whileTap={{ scale: 0.96 }}
               >
                 <Twitter className="h-4 w-4" />
+              </m.a>
+              <m.a
+                href="https://www.instagram.com/aetherml_studio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="Instagram"
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <Instagram className="h-4 w-4" />
               </m.a>
             </div>
           </div>

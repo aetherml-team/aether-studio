@@ -23,52 +23,6 @@
     "bookACall": "Quiero mi auditoría gratis",
     "investment": "Inversión"
   },
-  "process": {
-    "headline": "Cómo trabajamos.",
-    "description": "Cada etapa termina con un resultado por escrito.",
-    "deliverables": [
-      "Recibes: hallazgos y plan",
-      "Recibes: tu app conectada",
-      "Recibes: el proceso en marcha",
-      "Recibes: soporte y mejoras"
-    ],
-    "steps": [
-      {
-        "title": "Definimos",
-        "description": "Encontramos el problema y escribimos el plan."
-      },
-      {
-        "title": "Conectamos",
-        "description": "Hacemos tu app y la conectamos con lo que ya usas."
-      },
-      {
-        "title": "Automatizamos",
-        "description": "Quitamos los pasos repetidos. Tu equipo lo prueba."
-      },
-      {
-        "title": "Lo cuidamos",
-        "description": "Revisamos cada día. Mejoramos cada mes."
-      }
-    ]
-  },
-  "checkFit": {
-    "headline": "Con quién trabajamos.",
-    "description": "Tomamos pocos clientes a la vez. Así podemos garantizar la fecha.",
-    "soundLikeYou": "Si la columna de la izquierda eres tú, agenda la auditoría.",
-    "fitLabel": "Encajamos cuando",
-    "notFitLabel": "Probablemente no cuando",
-    "audiences": [
-      "Tienes equipo, clientes y cobros cada mes",
-      "Un proceso vive en Excel, chats o la cabeza de alguien",
-      "La persona que decide participa en el proyecto",
-      "Inviertes en tu operación y quieres que dure años"
-    ],
-    "notAudiences": [
-      "Solo quieres una app bonita",
-      "Esperas que garanticemos ventas"
-    ],
-    "about": "Æther es un estudio boutique de software en Guadalajara. Hacemos Nexus y lo mantenemos."
-  },
   "contact": {
     "headline": "Agenda una auditoría de 20 minutos.",
     "description": "Revisamos un proceso manual. Te enviamos los hallazgos por escrito.",
@@ -103,7 +57,7 @@
     ],
     "success": "Gracias. Te respondemos en menos de un día hábil.",
     "error": "Algo falló y tu mensaje no se envió. Escríbenos por correo y lo resolvemos.",
-    "emailLink": "O escríbenos a help@aetherml.com",
+    "emailLink": "O escríbenos a hola@aetherml.com",
     "book": {
       "loading": "Buscando horarios disponibles…",
       "loadError": "No pudimos cargar los horarios disponibles ahora mismo.",
@@ -177,6 +131,7 @@
     "contact": "Contacto",
     "linkedin": "LinkedIn",
     "twitter": "Twitter / X",
+    "instagram": "Instagram",
     "legal": "Legal",
     "privacy": "Aviso de Privacidad",
     "terms": "Términos y Condiciones",
@@ -279,64 +234,6 @@
       "Registra un pago en efectivo.",
       "Asigna un depósito a sus notas.",
       "Manda la nota por WhatsApp."
-    ]
-  },
-  "stack": {
-    "headline": "Cómo empezar.",
-    "description": "Empiezas con una auditoría gratis de 20 minutos.",
-    "boardLabel": "Primera fase · 6 semanas",
-    "items": [
-      {
-        "name": "Auditoría operativa",
-        "description": "Vemos qué falla y qué conviene resolver primero."
-      },
-      {
-        "name": "Plan por escrito",
-        "description": "Acordamos qué haremos, cuándo queda y cómo sabremos que funciona."
-      },
-      {
-        "name": "Tu app, con tu marca",
-        "description": "Tu equipo abre una sola app. Lleva tu nombre y tus colores."
-      },
-      {
-        "name": "Todo conectado",
-        "description": "Banco, caja, agenda y WhatsApp trabajan juntos. Nadie captura dos veces."
-      },
-      {
-        "name": "Lo repetitivo, en automático",
-        "description": "El pago encuentra su factura. La renovación avisa antes de vencer."
-      },
-      {
-        "name": "El resumen del lunes",
-        "description": "Ves qué vendiste, qué cobraste, quién debe y qué toca decidir."
-      },
-      {
-        "name": "Tu equipo, capacitado",
-        "description": "Enseñamos a cada persona con casos reales de tu negocio."
-      },
-      {
-        "name": "Nosotros lo mantenemos",
-        "description": "Respaldamos, revisamos y mejoramos. Tus datos siguen siendo tuyos."
-      }
-    ],
-    "bonusLabel": "Va incluido",
-    "bonuses": [
-      {
-        "name": "30 días a tu lado",
-        "description": "Después del arranque nos quedamos con tu equipo hasta que sea costumbre."
-      },
-      {
-        "name": "Manual por puesto",
-        "description": "Cómo se hace cada cosa, por escrito, para que no dependa de una sola persona."
-      },
-      {
-        "name": "Revisión a los 60 días",
-        "description": "Volvemos a medir lo que medimos en la auditoría y te enseñamos la diferencia."
-      },
-      {
-        "name": "Tus datos, cuando los pidas",
-        "description": "Tus clientes, tus cobros y tu historial en Excel y en reportes, el día que los necesites."
-      }
     ]
   },
   "systems": {
@@ -458,10 +355,10 @@
     "guaranteeLabel": "Garantía",
     "guaranteeTitle": "Si nos atrasamos, terminamos sin cobrar más.",
     "guaranteeBody": "Primero escribimos qué significa terminado. Si algo que depende de nosotros no queda en la fecha, seguimos sin cobrar más. No cubre cambios, datos tardíos ni fallas de terceros.",
-    "feasibility": "Si una conexión es incierta, primero la probamos en una etapa corta con respuesta de sí o no.",
     "notCheapest": "No competimos por precio. Construimos, operamos y mantenemos el sistema contigo.",
     "priceFixed": "El precio queda fijo por escrito después de la auditoría.",
     "priceFrom": "Desde {{price}} + IVA.",
-    "soon": "Próximamente"
+    "soon": "Próximamente",
+    "included": "Primera fase en 6 semanas · 30 días a tu lado · Tus datos, cuando los pidas"
   }
 }

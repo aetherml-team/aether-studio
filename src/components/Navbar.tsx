@@ -13,8 +13,8 @@ const Navbar = () => {
   const [activeId, setActiveId] = useState("");
   const { scrollY } = useScroll();
 
-  // Nav leads with what Æther does (the capabilities), then proof, process,
-  // fit, and the questions people ask before booking.
+  // Nav leads with what Æther does (the capabilities), then proof, plans
+  // and the questions people ask before booking.
   const links = [
     { href: "#nexus", label: t("navbar.services") },
     { href: "#systems", label: t("navbar.results") },
@@ -27,7 +27,7 @@ const Navbar = () => {
   // Scroll-spy — highlight the link for whichever section sits across the
   // viewport's midline, so the nav always shows where you are.
   useEffect(() => {
-    const ids = ["offer", "systems", "investment", "faq"];
+    const ids = ["nexus", "systems", "investment", "faq"];
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);

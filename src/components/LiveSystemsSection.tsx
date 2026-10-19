@@ -31,7 +31,7 @@ const LiveSystemsSection = () => {
 
   return (
     <Section id="systems" title={t("systems.headline")} lead={t("systems.description")}>
-      <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
         {SYSTEMS.map((sys, i) => {
           const c = copy[i];
           if (sys.upcoming || !c) return null;
@@ -43,7 +43,7 @@ const LiveSystemsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
               transition={{ duration: 0.45, delay: (i % 3) * 0.05, ease: EASE }}
-              className="glow-border flex flex-col rounded-xl border border-border bg-card p-6 md:p-7"
+              className="glow-border flex w-[85%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-6 md:w-auto md:p-7"
             >
               <div className="flex items-center gap-3">
                 <Logo slug={sys.slug} name={c.name} dark={sys.logoDark} />

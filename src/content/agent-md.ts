@@ -12,7 +12,7 @@ const SITE = "https://www.aetherml.com";
 const FOOTER = `
 ---
 
-Contact: help@aetherml.com · WhatsApp and booking at ${SITE}/contact
+Contact: hola@aetherml.com · WhatsApp and booking at ${SITE}/contact
 More for agents: ${SITE}/llms.txt · Sitemap: ${SITE}/sitemap.xml
 `;
 
@@ -59,7 +59,7 @@ or a promise of more sales.
 ## How to start
 
 A free 20-minute audit. We review one manual process and send you the findings
-in writing. Book at ${SITE}/contact or write to help@aetherml.com.
+in writing. Book at ${SITE}/contact or write to hola@aetherml.com.
 
 ## Price
 
@@ -113,7 +113,7 @@ English or Spanish.
 
 ## Ways to reach us
 
-- Email: help@aetherml.com
+- Email: hola@aetherml.com
 - WhatsApp: the button at ${SITE} opens a chat with us.
 - Book a free 20-minute audit: ${SITE}/#contact
 
@@ -131,7 +131,7 @@ who on your side would own the project.
 
 ## For press, legal or data requests
 
-Same address: help@aetherml.com. Data requests under Mexico's LFPDPPP (ARCO
+Same address: hola@aetherml.com. Data requests under Mexico's LFPDPPP (ARCO
 rights) are handled as described in the Privacy Notice at ${SITE}/privacy.
 ${FOOTER}`;
 
@@ -149,7 +149,7 @@ We collect only the data needed to reply to you and deliver the work: name and
 contact details, what you tell us about your workflows, billing details if a
 project proceeds, and basic technical data your browser sends. To exercise your
 ARCO rights (access, rectification, cancellation, opposition), or to limit the
-use of your data, write to help@aetherml.com.
+use of your data, write to hola@aetherml.com.
 ${FOOTER}`;
 
 const terms = `# Terms of Service — Æther
@@ -161,7 +161,7 @@ touch. Nothing on it is, by itself, an offer to enter a binding contract. Work
 is governed by the written proposal and acceptance criteria signed before it
 starts. Governing law and venue: Guadalajara, Jalisco, Mexico.
 
-Questions about the Terms: help@aetherml.com.
+Questions about the Terms: hola@aetherml.com.
 ${FOOTER}`;
 
 /** Path (no trailing slash, "/" for home) → Markdown body. */
@@ -186,5 +186,5 @@ Where to go instead:
 - About: ${SITE}/about · Contact: ${SITE}/contact
 - Privacy Notice: ${SITE}/privacy · Terms: ${SITE}/terms
 
-Questions a page cannot answer: help@aetherml.com.
+Questions a page cannot answer: hola@aetherml.com.
 `;

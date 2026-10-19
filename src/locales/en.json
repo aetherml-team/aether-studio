@@ -23,52 +23,6 @@
     "bookACall": "Get my free audit",
     "investment": "Investment"
   },
-  "process": {
-    "headline": "How we work.",
-    "description": "Every stage ends with a written result.",
-    "deliverables": [
-      "You get: findings and plan",
-      "You get: your connected app",
-      "You get: the process running",
-      "You get: support and improvements"
-    ],
-    "steps": [
-      {
-        "title": "We define",
-        "description": "We find the problem and write down the plan."
-      },
-      {
-        "title": "We connect",
-        "description": "We make your app and connect it to what you already use."
-      },
-      {
-        "title": "We automate",
-        "description": "We remove repeat work. Your team tests it."
-      },
-      {
-        "title": "We run it",
-        "description": "We check it every day. We improve it every month."
-      }
-    ]
-  },
-  "checkFit": {
-    "headline": "Who we work with.",
-    "description": "We take few clients at a time. That's how we can guarantee the date.",
-    "soundLikeYou": "If the left column is you, book the audit.",
-    "fitLabel": "A fit when",
-    "notFitLabel": "Probably not when",
-    "audiences": [
-      "You have a team, customers and monthly collections",
-      "A process lives in a spreadsheet, chat or someone's head",
-      "The person who decides is part of the project",
-      "You invest in your operation and want it to last for years"
-    ],
-    "notAudiences": [
-      "You only want a pretty app",
-      "You expect us to guarantee sales"
-    ],
-    "about": "Æther is a boutique software studio in Guadalajara. We build Nexus and keep it running."
-  },
   "contact": {
     "headline": "Book a 20-minute audit.",
     "description": "We review one manual process. You get the findings in writing.",
@@ -103,7 +57,7 @@
     ],
     "success": "Thank you. We'll reply within one business day.",
     "error": "Something went wrong and your message didn't send. Email us instead and we'll take it from there.",
-    "emailLink": "Or email help@aetherml.com",
+    "emailLink": "Or email hola@aetherml.com",
     "book": {
       "loading": "Finding open times…",
       "loadError": "We couldn't load available times right now.",
@@ -177,6 +131,7 @@
     "contact": "Contact",
     "linkedin": "LinkedIn",
     "twitter": "Twitter / X",
+    "instagram": "Instagram",
     "legal": "Legal",
     "privacy": "Privacy Notice",
     "terms": "Terms of Service",
@@ -279,64 +234,6 @@
       "Record a cash payment.",
       "Match a deposit to its invoices.",
       "Send the invoice on WhatsApp."
-    ]
-  },
-  "stack": {
-    "headline": "How to start.",
-    "description": "You start with a free 20-minute audit.",
-    "boardLabel": "First phase · 6 weeks",
-    "items": [
-      {
-        "name": "Operations audit",
-        "description": "We find what is broken and what to fix first."
-      },
-      {
-        "name": "Written plan",
-        "description": "We agree what we will do, when it is done and how we will test it."
-      },
-      {
-        "name": "Your app, under your brand",
-        "description": "Your team opens one app. It carries your name and colours."
-      },
-      {
-        "name": "Everything connected",
-        "description": "Bank, till, calendar and WhatsApp work together. Nobody types twice."
-      },
-      {
-        "name": "The repetitive work, automated",
-        "description": "A payment finds its invoice. A renewal warns you before it ends."
-      },
-      {
-        "name": "The Monday summary",
-        "description": "See what sold, what got paid, who owes you and what needs a decision."
-      },
-      {
-        "name": "Your team, trained",
-        "description": "We teach each person with real cases from your business."
-      },
-      {
-        "name": "We keep it running",
-        "description": "We back it up, check it and improve it. Your data stays yours."
-      }
-    ],
-    "bonusLabel": "Included",
-    "bonuses": [
-      {
-        "name": "30 days at your side",
-        "description": "After launch we stay with your team until it's habit."
-      },
-      {
-        "name": "Manual per role",
-        "description": "How each thing gets done, in writing, so it doesn't depend on one person."
-      },
-      {
-        "name": "60-day review",
-        "description": "We measure again what we measured in the audit and show you the difference."
-      },
-      {
-        "name": "Your data, whenever you ask",
-        "description": "Your customers, your payments and your history in Excel and in reports, the day you need them."
-      }
     ]
   },
   "systems": {
@@ -458,10 +355,10 @@
     "guaranteeLabel": "Guarantee",
     "guaranteeTitle": "If we run late, we finish at no extra charge.",
     "guaranteeBody": "First, we write down what done means. If something in our control misses the date, we keep working at no extra charge. This does not cover changes, late data or third-party outages.",
-    "feasibility": "If a connection is uncertain, we test it first in a short stage with a yes-or-no answer.",
     "notCheapest": "We do not compete on price. We build, run and maintain the system with you.",
     "priceFixed": "We fix the price in writing after the audit.",
     "priceFrom": "From {{price}} + VAT.",
-    "soon": "Coming soon"
+    "soon": "Coming soon",
+    "included": "First phase in 6 weeks · 30 days at your side · Your data, whenever you ask"
   }
 }

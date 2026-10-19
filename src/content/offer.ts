@@ -50,7 +50,7 @@ export const SYSTEMS: ReadonlyArray<{
     store: "https://theweddingame.com/",
     logoDark: true,
   },
-  { slug: "aether", site: "https://www.aetherml.com" },
+  { slug: "aether", site: "https://www.aetherml.com", instagram: "https://www.instagram.com/aetherml_studio/" },
   { slug: "panaderia", upcoming: true },
 ];
 
