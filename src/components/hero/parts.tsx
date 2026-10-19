@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { MessageCircle } from "lucide-react";
 import { track } from "@/lib/analytics";
 import { whatsappEnabled, whatsappUrl } from "@/lib/contact";
-import { HERO_SCENE, HERO_SHOT } from "@/content/offer";
 
 /* Shared pieces for the hero variants. Composition is what differs between
    them; the copy, the actions and the material are the same everywhere. */
@@ -34,32 +33,30 @@ export function Actions({ className = "" }: { className?: string }) {
   );
 }
 
-/** Real screens set into a generated device scene: Nexus on the laptop, Pip on the
-    phone. The scene's screens are blank; the boxes below are measured on its 1536x1024
-    pixels, so a new scene needs new numbers. Private customer data is blurred in
-    HERO_SHOT; the Pip screen runs on test data. Both screens stay dark in either
-    page theme so they read as one product. */
-export function AppScreen({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
+/** The Nexus home with two Pip cards laid over it: the answer with its chart and the
+    approval card. All three are the real app rendered on test data, one image per
+    theme and language. The Nexus screen runs past the column on large screens; the
+    hero section clips it. */
+export function AppScreen() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language.startsWith("en") ? "en" : "es";
-  const pip = (shot: string) => `/work/pip/${shot}-dark-${lang}.jpg`;
+  const themed = (path: (theme: string) => string, alt = "") => (
+    <>
+      <img src={path("light")} alt={alt} loading="eager" className="block w-full dark:hidden" />
+      <img src={path("dark")} alt={alt} loading="eager" className="hidden w-full dark:block" />
+    </>
+  );
+  const card = "absolute overflow-hidden rounded-xl border border-border shadow-[0_24px_60px_-20px_rgba(20,20,60,0.45)]";
   return (
-    <div className={`relative overflow-hidden rounded-2xl ${className}`} style={style}>
-      <img src={HERO_SCENE} alt="" loading="eager" className="block w-full" width={1536} height={1024} />
-      <img
-        src={HERO_SHOT}
-        alt={t("hero.screenshotAlt")}
-        loading="eager"
-        className="absolute object-cover object-left-top"
-        style={{ left: "19.86%", top: "21%", width: "56.12%", height: "46%" }}
-      />
-      <div
-        className="absolute overflow-hidden bg-[#0b0a10]"
-        style={{ left: "78.52%", top: "36.43%", width: "12.11%", height: "41.41%", borderRadius: "11.8% / 5.2%" }}
-      >
-        {["money", "pay"].map((shot) => (
-          <img key={shot} src={pip(shot)} alt="" className="block w-full" />
-        ))}
+    <div className="relative pb-[34%]">
+      <div className="overflow-hidden rounded-xl border border-border shadow-[0_30px_80px_-30px_rgba(20,20,60,0.35)] lg:w-[125%]">
+        {themed((theme) => `/work/hero/nexus-home-${theme}-${lang}.jpg`, t("hero.screenshotAlt"))}
+      </div>
+      <div className={`${card} bottom-0 left-0 w-[46%] lg:-left-[6%] lg:w-[44%]`}>
+        {themed((theme) => `/work/pip/money-${theme}-${lang}.jpg`)}
+      </div>
+      <div className={`${card} bottom-[6%] left-[50%] w-[44%] lg:left-[44%] lg:w-[40%]`}>
+        {themed((theme) => `/work/pip/pay-${theme}-${lang}.jpg`)}
       </div>
     </div>
   );

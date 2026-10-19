@@ -54,9 +54,6 @@ export const SYSTEMS: ReadonlyArray<{
   { slug: "panaderia", upcoming: true },
 ];
 
-export const HERO_SHOT = "/work/aether-1.png";
-export const HERO_SCENE = "/work/hero-scene.webp";
-
 /**
  * One product screen per vertical, in the order of `nexus.items`: gym billing,
  * studio finances, café/roastery, jewellery store, mentoring leads. Live screens
