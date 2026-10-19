@@ -54,7 +54,7 @@ export const SYSTEMS: ReadonlyArray<{
   { slug: "panaderia", upcoming: true },
 ];
 
-export const HERO_SHOT = "/work/tavros-2.png";
+export const HERO_SHOT = "/work/aether-1.png";
 export const HERO_SCENE = "/work/hero-scene.webp";
 
 /**
