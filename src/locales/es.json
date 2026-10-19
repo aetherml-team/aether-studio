@@ -194,8 +194,8 @@
   },
   "hero": {
     "kicker": "Guadalajara · Para dueños de negocio",
-    "headline": "Saca tu negocio",
-    "headlineEmphasis": "de Excel, WhatsApp y libretas.",
+    "headline": "Un sistema que",
+    "headlineEmphasis": "trabaja como tú.",
     "description": "Nexus junta cobros, gastos, ventas y operación en tu propia app.",
     "secondary": "Mira si te pasa",
     "screenshotAlt": "Pantalla de inicio de Nexus: ventas, cobros y pendientes de hoy",
@@ -210,7 +210,7 @@
   },
   "pain": {
     "headline": "¿Tu negocio vive en Excel, chats y libretas?",
-    "description": "Si una te pasa, ya sabemos por dónde empezar.",
+    "description": "Lo que no sabes de tu negocio ya te está costando. Si una de estas te pasa, en la auditoría vemos por dónde empezar.",
     "signals": [
       {
         "q": "Las cuentas no cuadran.",
@@ -236,9 +236,7 @@
         "q": "Quiero las tres sucursales en un solo lugar.",
         "who": "Dueño de panaderías"
       }
-    ],
-    "closer": "Cada hora cuadrando Excel es una hora sin vender. En la auditoría vemos cuál de estos problemas conviene atender primero.",
-    "cost": "Lo que no sabes de tu negocio ya te está costando."
+    ]
   },
   "nexus": {
     "headline": "Qué hace Nexus en tu negocio.",

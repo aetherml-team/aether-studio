@@ -194,8 +194,8 @@
   },
   "hero": {
     "kicker": "Guadalajara · For business owners",
-    "headline": "Get your business out",
-    "headlineEmphasis": "of Excel, WhatsApp and notebooks.",
+    "headline": "A system that",
+    "headlineEmphasis": "works the way you do.",
     "description": "Nexus brings payments, expenses, sales and operations into your own app.",
     "secondary": "See if this is you",
     "screenshotAlt": "Nexus home screen: today's sales, collections and pending items",
@@ -210,7 +210,7 @@
   },
   "pain": {
     "headline": "Does your business live in spreadsheets, chats and notebooks?",
-    "description": "If one sounds familiar, we know where to start.",
+    "description": "What you don't know about your business is already costing you. If one of these sounds familiar, the audit shows where to start.",
     "signals": [
       {
         "q": "The numbers do not add up.",
@@ -236,9 +236,7 @@
         "q": "I want all three branches in one place.",
         "who": "Bakery group owner"
       }
-    ],
-    "closer": "Every hour spent fixing spreadsheets is an hour you don't sell. In the audit we pick which of these problems to tackle first.",
-    "cost": "What you don't know about your business is already costing you."
+    ]
   },
   "nexus": {
     "headline": "What Nexus does in your business.",

@@ -19,8 +19,8 @@ interface CaseCopy {
   quoteBy: string;
 }
 
-/* Client cases: who, the problem, what we built, and the result once a
-   client gives us a measured number or a quote. Nothing here is invented.
+/* Client cases as cards: the client's number leads, then the problem and what
+   we built. A metric that starts with a count shows the count large. Nothing here is invented.
    Counts read from the live apps (Tavros and Eternus 2026-10-13; Sismo,
    The Wedding Method and the Eloisa store 2026-10-14). */
 const LiveSystemsSection = () => {
@@ -31,81 +31,84 @@ const LiveSystemsSection = () => {
 
   return (
     <Section id="systems" title={t("systems.headline")} lead={t("systems.description")}>
-      <ul className="border-t border-border">
+      <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {SYSTEMS.map((sys, i) => {
           const c = copy[i];
           if (sys.upcoming || !c) return null;
+          const [, num, rest] = c.metric.match(/^(\d+)\s+(.+)$/) ?? [];
           return (
             <m.li
               key={sys.slug}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
-              transition={{ duration: 0.45, ease: EASE }}
-              className="grid gap-6 border-b border-border py-8 lg:grid-cols-12 lg:gap-10"
+              transition={{ duration: 0.45, delay: (i % 3) * 0.05, ease: EASE }}
+              className="glow-border flex flex-col rounded-xl border border-border bg-card p-6 md:p-7"
             >
-              <div className="lg:col-span-3">
-                <div className="flex items-center gap-3">
-                  <Logo slug={sys.slug} name={c.name} dark={sys.logoDark} />
-                  <div className="min-w-0">
-                    <h3 className="font-heading text-[16px] font-semibold leading-tight tracking-[-0.015em] text-foreground">{c.name}</h3>
-                    <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.12em] text-primary">{c.type}</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
-                  {sys.store && (
-                    <a href={sys.store} target="_blank" rel="noopener noreferrer" className={link}>
-                      {t(sys.slug === "weddingmethod" ? "systems.visitCourse" : "systems.visitStore")}
-                      <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
-                    </a>
-                  )}
-                  {sys.site && (
-                    <a href={sys.site} target="_blank" rel="noopener noreferrer" className={link}>
-                      {t("systems.visitSite")}
-                      <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
-                    </a>
-                  )}
-                  {sys.instagram && (
-                    <a href={sys.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram, ${c.name}`} className={link}>
-                      <Instagram className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
-                      Instagram
-                    </a>
-                  )}
+              <div className="flex items-center gap-3">
+                <Logo slug={sys.slug} name={c.name} dark={sys.logoDark} />
+                <div className="min-w-0">
+                  <h3 className="font-heading text-[16px] font-semibold leading-tight tracking-[-0.015em] text-foreground">{c.name}</h3>
+                  <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.12em] text-primary">{c.type}</p>
                 </div>
               </div>
 
-              <div className="lg:col-span-3">
-                <p className={label}>{t("systems.problemLabel")}</p>
-                <p className="mt-2 font-body text-[16px] leading-[1.55] text-foreground/75">{c.problem}</p>
-              </div>
-
-              <div className="lg:col-span-3">
-                <p className={label}>{t("systems.builtLabel")}</p>
-                <p className="mt-2 font-body text-[16px] leading-[1.55] text-foreground/75">{c.built}</p>
-              </div>
-
-              {(c.metric || c.quote) && (
-                <div className="lg:col-span-3">
-                  <p className={label}>{t("systems.resultLabel")}</p>
-                  {c.metric && (
-                    <p className="mt-2 font-heading text-[clamp(1.2rem,1.5vw,1.6rem)] font-semibold leading-[1.2] tracking-[-0.025em] text-foreground">
-                      {c.metric}
-                    </p>
-                  )}
-                  {c.quote && (
-                    <blockquote className="mt-3 font-body text-[15.5px] leading-[1.55] text-foreground/75">
-                      “{c.quote}”
-                      {c.quoteBy && <footer className="mt-1 text-[13px] text-foreground-dim">{c.quoteBy}</footer>}
-                    </blockquote>
-                  )}
-                </div>
+              {num ? (
+                <p className="mt-8 font-heading text-foreground">
+                  <span className="tnum block text-[clamp(3rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.05em]">{num}</span>
+                  <span className="mt-3 block text-[18px] font-medium leading-[1.3] tracking-[-0.02em]">{rest}</span>
+                </p>
+              ) : (
+                c.metric && (
+                  <p className="mt-8 font-heading text-[clamp(1.4rem,2vw,1.75rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
+                    {c.metric}
+                  </p>
+                )
               )}
+              {c.quote && (
+                <blockquote className="mt-4 font-body text-[15.5px] leading-[1.55] text-foreground/75">
+                  “{c.quote}”
+                  {c.quoteBy && <footer className="mt-1 text-[13px] text-foreground-dim">{c.quoteBy}</footer>}
+                </blockquote>
+              )}
+
+              <dl className="mt-8 space-y-4 border-t border-border pt-6">
+                <div>
+                  <dt className={label}>{t("systems.problemLabel")}</dt>
+                  <dd className="mt-1.5 font-body text-[15px] leading-[1.5] text-foreground/70">{c.problem}</dd>
+                </div>
+                <div>
+                  <dt className={label}>{t("systems.builtLabel")}</dt>
+                  <dd className="mt-1.5 font-body text-[15px] leading-[1.5] text-foreground/70">{c.built}</dd>
+                </div>
+              </dl>
+
+              <div className="mt-auto flex flex-wrap gap-x-5 gap-y-2 pt-6">
+                {sys.store && (
+                  <a href={sys.store} target="_blank" rel="noopener noreferrer" className={link}>
+                    {t(sys.slug === "weddingmethod" ? "systems.visitCourse" : "systems.visitStore")}
+                    <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
+                  </a>
+                )}
+                {sys.site && (
+                  <a href={sys.site} target="_blank" rel="noopener noreferrer" className={link}>
+                    {t("systems.visitSite")}
+                    <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
+                  </a>
+                )}
+                {sys.instagram && (
+                  <a href={sys.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram, ${c.name}`} className={link}>
+                    <Instagram className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
+                    Instagram
+                  </a>
+                )}
+              </div>
             </m.li>
           );
         })}
       </ul>
 
-      <SectionCTA label={t("common.cta")} className="mt-8" />
+      <SectionCTA label={t("common.cta")} className="mt-10" />
     </Section>
   );
 };
