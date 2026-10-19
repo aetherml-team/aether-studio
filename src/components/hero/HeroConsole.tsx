@@ -46,7 +46,7 @@ export default function HeroConsole() {
           </div>
 
           <div className="rise min-w-0 lg:col-span-7" style={{ animationDelay: "140ms", animationDuration: "900ms" }}>
-            <AppScreen className="glow-border border border-border" />
+            <AppScreen />
             <p className="mt-5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-foreground-dim lg:ml-1">
               {t("hero.screenshotLabel")}
             </p>

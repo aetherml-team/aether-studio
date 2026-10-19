@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { MessageCircle } from "lucide-react";
 import { track } from "@/lib/analytics";
 import { whatsappEnabled, whatsappUrl } from "@/lib/contact";
-import { HERO_SHOT } from "@/content/offer";
+import { HERO_SCENE, HERO_SHOT } from "@/content/offer";
 
 /* Shared pieces for the hero variants. Composition is what differs between
    them; the copy, the actions and the material are the same everywhere. */
@@ -34,19 +34,35 @@ export function Actions({ className = "" }: { className?: string }) {
   );
 }
 
-/** A real Nexus screen. Private customer data is blurred in the source asset. */
+/** Real screens set into a generated device scene: Nexus on the laptop, Pip on the
+    phone. The scene's screens are blank; the boxes below are measured on its 1536x1024
+    pixels, so a new scene needs new numbers. Private customer data is blurred in
+    HERO_SHOT; the Pip screen runs on test data. */
 export function AppScreen({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language.startsWith("en") ? "en" : "es";
+  const pip = (shot: string, theme: string) => `/work/pip/${shot}-${theme}-${lang}.jpg`;
   return (
-    <div className={`overflow-hidden rounded-lg ${className}`} style={style}>
+    <div className={`relative overflow-hidden rounded-2xl ${className}`} style={style}>
+      <img src={HERO_SCENE} alt="" loading="eager" className="block w-full" width={1536} height={1024} />
       <img
         src={HERO_SHOT}
         alt={t("hero.screenshotAlt")}
         loading="eager"
-        className="block w-full"
-        width={1512}
-        height={787}
+        className="absolute object-cover object-left-top"
+        style={{ left: "19.86%", top: "21%", width: "56.12%", height: "46%" }}
       />
+      <div
+        className="absolute overflow-hidden bg-[#f6f5fb] dark:bg-[#0b0a10]"
+        style={{ left: "78.52%", top: "36.72%", width: "11.85%", height: "40.82%", borderRadius: "11% / 4.8%" }}
+      >
+        {["money", "pay"].map((shot) => (
+          <div key={shot}>
+            <img src={pip(shot, "light")} alt="" className="block w-full dark:hidden" />
+            <img src={pip(shot, "dark")} alt="" className="hidden w-full dark:block" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

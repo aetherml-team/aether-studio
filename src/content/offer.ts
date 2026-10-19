@@ -55,6 +55,7 @@ export const SYSTEMS: ReadonlyArray<{
 ];
 
 export const HERO_SHOT = "/work/tavros-2.png";
+export const HERO_SCENE = "/work/hero-scene.webp";
 
 /**
  * One product screen per vertical, in the order of `nexus.items`: gym billing,
