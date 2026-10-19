@@ -33,30 +33,28 @@ export function Actions({ className = "" }: { className?: string }) {
   );
 }
 
-/** The Nexus home with two Pip cards laid over it: the answer with its chart and the
-    approval card. All three are the real app rendered on test data, one image per
-    theme and language. The Nexus screen runs past the column on large screens; the
-    hero section clips it. */
+/** The Nexus home cropped under its figures row, with two Pip cards hung below it: the
+    answer with its chart and the approval card. All three are the real app rendered on
+    test data, one image per theme and language. The crop (1920x830 of 1920x1200) stops
+    before the lists so no half-covered rows peek out. */
 export function AppScreen() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language.startsWith("en") ? "en" : "es";
-  const themed = (path: (theme: string) => string, alt = "") => (
+  const themed = (path: (theme: string) => string, alt = "", cls = "") => (
     <>
-      <img src={path("light")} alt={alt} loading="eager" className="block w-full dark:hidden" />
-      <img src={path("dark")} alt={alt} loading="eager" className="hidden w-full dark:block" />
+      <img src={path("light")} alt={alt} loading="eager" className={`block w-full dark:hidden ${cls}`} />
+      <img src={path("dark")} alt={alt} loading="eager" className={`hidden w-full dark:block ${cls}`} />
     </>
   );
-  const card = "absolute overflow-hidden rounded-xl border border-border shadow-[0_24px_60px_-20px_rgba(20,20,60,0.45)]";
+  const card = "overflow-hidden rounded-xl border border-border shadow-[0_24px_60px_-20px_rgba(20,20,60,0.45)]";
   return (
-    <div className="relative pb-[34%]">
-      <div className="overflow-hidden rounded-xl border border-border shadow-[0_30px_80px_-30px_rgba(20,20,60,0.35)] lg:w-[125%]">
-        {themed((theme) => `/work/hero/nexus-home-${theme}-${lang}.jpg`, t("hero.screenshotAlt"))}
+    <div>
+      <div className="overflow-hidden rounded-xl border border-border shadow-[0_30px_80px_-30px_rgba(20,20,60,0.35)]" style={{ aspectRatio: "1920 / 830" }}>
+        {themed((theme) => `/work/hero/nexus-home-${theme}-${lang}.jpg`, t("hero.screenshotAlt"), "h-full object-cover object-top")}
       </div>
-      <div className={`${card} bottom-0 left-0 w-[46%] lg:-left-[6%] lg:w-[44%]`}>
-        {themed((theme) => `/work/pip/money-${theme}-${lang}.jpg`)}
-      </div>
-      <div className={`${card} bottom-[6%] left-[50%] w-[44%] lg:left-[44%] lg:w-[40%]`}>
-        {themed((theme) => `/work/pip/pay-${theme}-${lang}.jpg`)}
+      <div className="relative -mt-3 ml-[4%]">
+        <div className={`${card} relative w-[48%]`}>{themed((theme) => `/work/pip/money-${theme}-${lang}.jpg`)}</div>
+        <div className={`${card} absolute left-[44%] top-[16%] w-[46%]`}>{themed((theme) => `/work/pip/pay-${theme}-${lang}.jpg`)}</div>
       </div>
     </div>
   );
