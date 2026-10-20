@@ -88,7 +88,7 @@
   },
   "faq": {
     "headline": "Frequently asked questions.",
-    "subhead": "Scope, price, adoption and exit.",
+    "subhead": "Pip, scope, price, adoption and exit.",
     "askLink": "Still have a question? Ask us →",
     "items": [
       {
@@ -113,11 +113,19 @@
       },
       {
         "q": "How much does it cost?",
-        "a": "You pay once for the build and monthly for operations. The price is fixed in writing after the audit."
+        "a": "You pay once for the build and monthly for operations. The price is fixed in writing before work begins."
       },
       {
         "q": "What if I want to leave?",
         "a": "You receive your customers, payments, invoices and history in Excel and reports. The system and code stay with Æther. This is agreed in writing before work begins."
+      },
+      {
+        "q": "What can I ask Pip?",
+        "a": "Who owes you and how much, what came in and what you made, your balances and which plans are about to end. It also builds the report as a PDF."
+      },
+      {
+        "q": "Can Pip change anything without me?",
+        "a": "No. When you ask it to record a payment, match a deposit or send a note, Pip shows you the change and waits for you to tap Approve. If you reject it, nothing changes."
       }
     ]
   },
@@ -166,7 +174,7 @@
   },
   "pain": {
     "headline": "Does your business live in spreadsheets, chats and notebooks?",
-    "description": "What you don't know about your business is already costing you. If one of these sounds familiar, the audit shows where to start.",
+    "description": "What you don't know about your business is already costing you. If one of these sounds familiar, we already know where to start.",
     "signals": [
       {
         "q": "The numbers do not add up.",
@@ -246,7 +254,13 @@
         "name": "Tavros Fuerza y Acondicionamiento",
         "type": "Gym",
         "problem": "Members pay by transfer, cash or card and switch plans all the time.",
-        "built": "One app where every payment lands on its plan and the reminder goes out on WhatsApp.",
+        "built": [
+          "Signs up, renews, freezes or changes each member's plan",
+          "Charges at the front desk and sends the reminder by email and WhatsApp",
+          "Each bank transfer lands on its note, with suggested matches",
+          "Expenses, recurring costs and fixed assets",
+          "P&L, balance sheet, cash flow and collections"
+        ],
         "metric": "178 active members in one system",
         "quote": "",
         "quoteBy": ""
@@ -255,7 +269,13 @@
         "name": "Eternus",
         "type": "Wedding film studio",
         "problem": "Dates, payments, crew and deliveries lived in different places.",
-        "built": "An app where the owner follows each wedding from lead to delivery. Quotes come from the studio's packages.",
+        "built": [
+          "Every lead on a board until it becomes a wedding",
+          "One file per wedding: deliverables, contracts and payments",
+          "Quotes, contracts and receipts as PDFs from their templates",
+          "Each editor sees their tasks and delivery dates",
+          "Finances per wedding: payments, expenses and vendors"
+        ],
         "metric": "39 weddings in one system",
         "quote": "",
         "quoteBy": ""
@@ -264,7 +284,12 @@
         "name": "Sismo Café",
         "type": "Café and roastery",
         "problem": "The numbers didn't add up, and seeing the day meant pulling reports.",
-        "built": "Sales per branch from the till, stock with low-stock alerts and loss per roast.",
+        "built": [
+          "Sales by café, menu and team, straight from the till",
+          "Daily cash count with shortfalls and surpluses",
+          "Roasts, packing, dispatches and waste at the workshop",
+          "Each branch orders from the workshop, receives and counts its stock"
+        ],
         "metric": "2 branches and a roastery in one app",
         "quote": "",
         "quoteBy": ""
@@ -273,7 +298,12 @@
         "name": "Eloisa Montero Diamantes",
         "type": "Made-to-order jewellery",
         "problem": "The jeweller wanted to sell made-to-order pieces online.",
-        "built": "A storefront where customers browse, build their ring and book an appointment.",
+        "built": [
+          "A configurator to build the ring piece by piece",
+          "Appointments booked from the store",
+          "A public page with each piece's GIA certificate",
+          "Customers, invoices, expenses and vendors in Nexus"
+        ],
         "metric": "96 pieces in her online store",
         "quote": "",
         "quoteBy": ""
@@ -282,7 +312,13 @@
         "name": "The Wedding Method",
         "type": "Mentoring and course",
         "problem": "Mentoring enquiries arrived with no clear next step.",
-        "built": "A pipeline that scores each enquiry and moves it to a call. The course has its own store.",
+        "built": [
+          "A lead pipeline that alerts you when a new one comes in",
+          "Each student tied to their program",
+          "Sales in pesos or dollars",
+          "A calendar of calls",
+          "A daily ad log: spend, DMs, calls booked and return"
+        ],
         "metric": "29 enquiries in one pipeline, 5 already closed",
         "quote": "",
         "quoteBy": ""
@@ -291,7 +327,12 @@
         "name": "Æther",
         "type": "Our own studio",
         "problem": "Billing several clients and tracking the studio's expenses without losing anything.",
-        "built": "We used Nexus before selling it. We bill, log expenses and pay suppliers here.",
+        "built": [
+          "Branded quotes, contracts and receipts",
+          "Invoices with payment reminders",
+          "Recurring charges and expenses",
+          "Expenses and vendors"
+        ],
         "metric": "Our own billing and expenses run on Nexus",
         "quote": "",
         "quoteBy": ""
@@ -300,7 +341,7 @@
         "name": "Bakery group",
         "type": "Three branches · Guadalajara",
         "problem": "The owner wants all three branches in one system and each invoice at its branch's tax rate.",
-        "built": "",
+        "built": [],
         "metric": "",
         "quote": "",
         "quoteBy": ""
@@ -310,7 +351,7 @@
     "visitCourse": "Visit the course",
     "visitSite": "Visit their site",
     "othersHeadline": "We also build other business processes.",
-    "othersBody": "Payments, scheduling, inventory, orders, contracts and online stores. The audit defines which one comes first.",
+    "othersBody": "Payments, scheduling, inventory, orders, contracts and online stores. We start with the one that costs you most.",
     "othersCta": "My business is different",
     "upcomingLabel": "New client · kicking off",
     "problemLabel": "The problem",
@@ -318,8 +359,8 @@
     "resultLabel": "Result"
   },
   "investment": {
-    "headline": "Start with control. Grow without losing it.",
-    "description": "During the audit, we see where you are. Then we tell you what we would build, when it would be ready and what it costs.",
+    "headline": "Choose how much your system does for you.",
+    "description": "Every plan starts with your business in order. Move up when you need to.",
     "packages": [
       {
         "name": "Your business in order",
@@ -359,7 +400,6 @@
     "notCheapest": "We do not compete on price. We build, run and maintain the system with you.",
     "priceFixed": "We fix the price in writing after the audit.",
     "priceFrom": "From {{price}} + VAT.",
-    "soon": "Coming soon",
-    "included": "First phase in 6 weeks · 30 days at your side · Your data, whenever you ask"
+    "soon": "Coming soon"
   }
 }

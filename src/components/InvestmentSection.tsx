@@ -71,7 +71,6 @@ const InvestmentSection = () => {
         )}
         <p className="font-body text-[16px] text-foreground/70">{t("investment.priceFixed")}</p>
       </div>
-      <p className="mt-3 font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-primary">{t("investment.included")}</p>
 
       <m.div
         initial={{ opacity: 0, y: 10 }}

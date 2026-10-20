@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ArrowUpRight, Instagram } from "lucide-react";
+import { ArrowUpRight, Check, Instagram } from "lucide-react";
 import { SYSTEMS } from "@/content/offer";
 import { EASE, viewport } from "@/lib/motion";
 import { Logo } from "@/components/Logo";
@@ -11,7 +11,8 @@ interface CaseCopy {
   name: string;
   type: string;
   problem: string;
-  built: string;
+  /** What the system does day to day, most important first. */
+  built: string[];
   /** TODO(metric): one measured number per client. Empty hides the slot. */
   metric: string;
   /** TODO(quote): one approved owner quote plus who said it. Empty hides the slot. */
@@ -79,7 +80,16 @@ const LiveSystemsSection = () => {
                 </div>
                 <div>
                   <dt className={label}>{t("systems.builtLabel")}</dt>
-                  <dd className="mt-1.5 font-body text-[15px] leading-[1.5] text-foreground/70">{c.built}</dd>
+                  <dd className="mt-2">
+                    <ul className="space-y-2">
+                      {c.built.map((b) => (
+                        <li key={b} className="flex gap-2.5 font-body text-[15px] leading-[1.45] text-foreground/70">
+                          <Check className="mt-[3px] h-4 w-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
                 </div>
               </dl>
 

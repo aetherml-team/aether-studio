@@ -88,7 +88,7 @@
   },
   "faq": {
     "headline": "Preguntas frecuentes.",
-    "subhead": "Alcance, precio, adopción y salida.",
+    "subhead": "Pip, alcance, precio, adopción y salida.",
     "askLink": "¿Te queda una duda? Pregúntanos →",
     "items": [
       {
@@ -113,11 +113,19 @@
       },
       {
         "q": "¿Cuánto cuesta?",
-        "a": "Pagas la construcción una vez y la operación cada mes. El precio queda por escrito después de la auditoría."
+        "a": "Pagas la construcción una vez y la operación cada mes. El precio queda por escrito antes de empezar."
       },
       {
         "q": "¿Y si me quiero ir?",
         "a": "Recibes tus clientes, cobros, facturas e historial en Excel y reportes. El sistema y el código se quedan con Æther. Esto queda por escrito antes de empezar."
+      },
+      {
+        "q": "¿Qué le puedo preguntar a Pip?",
+        "a": "Quién te debe y cuánto, cuánto entró y cuánto ganaste, tus saldos y qué planes están por vencer. También te arma el reporte en PDF."
+      },
+      {
+        "q": "¿Pip puede cambiar algo sin mí?",
+        "a": "No. Cuando le pides registrar un pago, asignar un depósito o mandar una nota, Pip te muestra el cambio y espera a que toques Aprobar. Si lo rechazas, nada cambia."
       }
     ]
   },
@@ -166,7 +174,7 @@
   },
   "pain": {
     "headline": "¿Tu negocio vive en Excel, chats y libretas?",
-    "description": "Lo que no sabes de tu negocio ya te está costando. Si una de estas te pasa, en la auditoría vemos por dónde empezar.",
+    "description": "Lo que no sabes de tu negocio ya te está costando. Si te pasa una de estas, ya sabemos por dónde empezar.",
     "signals": [
       {
         "q": "Las cuentas no cuadran.",
@@ -246,7 +254,13 @@
         "name": "Tavros Fuerza y Acondicionamiento",
         "type": "Gimnasio",
         "problem": "Los socios pagan por transferencia, efectivo o tarjeta y cambian de plan a cada rato.",
-        "built": "Una app donde cada pago cae en su plan y el recordatorio sale por WhatsApp.",
+        "built": [
+          "Inscribe, renueva, congela o cambia el plan de cada socio",
+          "Cobra en mostrador y manda el recordatorio por correo y WhatsApp",
+          "Cada transferencia cae en su nota, con sugerencias",
+          "Gastos, recurrentes y activos fijos",
+          "Estado de resultados, balance, flujo y cobranza"
+        ],
         "metric": "178 socios activos en un solo sistema",
         "quote": "",
         "quoteBy": ""
@@ -255,7 +269,13 @@
         "name": "Eternus",
         "type": "Estudio de video de bodas",
         "problem": "Fechas, cobros, equipo y entregas vivían en lugares distintos.",
-        "built": "Una app donde el dueño sigue cada boda, de prospecto a entrega. Las cotizaciones salen de sus paquetes.",
+        "built": [
+          "Cada prospecto en un tablero hasta que se vuelve boda",
+          "Un expediente por boda: entregables, contratos y pagos",
+          "Cotizaciones, contratos y recibos en PDF desde sus plantillas",
+          "Cada editor ve sus pendientes y fechas de entrega",
+          "Finanzas por boda: cobros, gastos y proveedores"
+        ],
         "metric": "39 bodas en un solo sistema",
         "quote": "",
         "quoteBy": ""
@@ -264,7 +284,12 @@
         "name": "Sismo Café",
         "type": "Café y tostaduría",
         "problem": "Las cuentas no cuadraban y ver el día exigía bajar reportes.",
-        "built": "Ventas por sucursal desde la caja, inventario con alertas y merma por tostado.",
+        "built": [
+          "Ventas por café, menú y equipo, directo de la caja",
+          "Corte de caja diario con faltantes y sobrantes",
+          "Tostados, empaque, envíos y merma del taller",
+          "Cada sucursal pide al taller, recibe y cuenta su inventario"
+        ],
         "metric": "2 sucursales y un taller en una sola app",
         "quote": "",
         "quoteBy": ""
@@ -273,7 +298,12 @@
         "name": "Eloisa Montero Diamantes",
         "type": "Joyería a la medida",
         "problem": "La joyería quería vender en línea piezas que se hacen a la medida.",
-        "built": "Una tienda donde la clienta explora, arma su anillo y agenda su cita.",
+        "built": [
+          "Un configurador para armar el anillo pieza por pieza",
+          "Citas agendadas desde la tienda",
+          "Página pública con el certificado GIA de cada pieza",
+          "Clientes, cobros, gastos y proveedores en Nexus"
+        ],
         "metric": "96 piezas en su tienda en línea",
         "quote": "",
         "quoteBy": ""
@@ -282,7 +312,13 @@
         "name": "The Wedding Method",
         "type": "Mentoría y curso",
         "problem": "Las consultas de mentoría llegaban sin un siguiente paso claro.",
-        "built": "Un embudo que califica cada consulta y la lleva a una llamada. El curso vive en una tienda aparte.",
+        "built": [
+          "Embudo de prospectos que avisa cuando entra uno nuevo",
+          "Cada alumno ligado a su programa",
+          "Ventas en pesos o dólares",
+          "Agenda de llamadas",
+          "Bitácora diaria de anuncios: gasto, mensajes, llamadas y retorno"
+        ],
         "metric": "29 consultas en un solo embudo, 5 ya cerradas",
         "quote": "",
         "quoteBy": ""
@@ -291,7 +327,12 @@
         "name": "Æther",
         "type": "Nuestro propio estudio",
         "problem": "Cobrar a varios clientes y llevar los gastos del estudio sin perder nada.",
-        "built": "Usamos Nexus antes de venderlo. Aquí cobramos, registramos gastos y pagamos proveedores.",
+        "built": [
+          "Cotizaciones, contratos y recibos con nuestra marca",
+          "Cobros con recordatorio de pago",
+          "Cargos y gastos recurrentes",
+          "Gastos y proveedores"
+        ],
         "metric": "Nuestra cobranza y nuestros gastos corren en Nexus",
         "quote": "",
         "quoteBy": ""
@@ -300,7 +341,7 @@
         "name": "Grupo de panaderías",
         "type": "Tres sucursales · Guadalajara",
         "problem": "El dueño quiere las tres sucursales en un solo sistema y cada factura con la tasa de su casa.",
-        "built": "",
+        "built": [],
         "metric": "",
         "quote": "",
         "quoteBy": ""
@@ -310,7 +351,7 @@
     "visitCourse": "Ver el curso",
     "visitSite": "Ver su sitio",
     "othersHeadline": "También construimos otros procesos.",
-    "othersBody": "Cobros, agenda, inventario, pedidos, contratos y tiendas en línea. La auditoría sirve para definir el primero.",
+    "othersBody": "Cobros, agenda, inventario, pedidos, contratos y tiendas en línea. Empezamos por el que más te cuesta.",
     "othersCta": "Mi negocio es otro",
     "upcomingLabel": "Nuevo cliente · en arranque",
     "problemLabel": "El problema",
@@ -318,8 +359,8 @@
     "resultLabel": "Resultado"
   },
   "investment": {
-    "headline": "Empieza con control. Crece sin perderlo.",
-    "description": "En la auditoría vemos dónde estás. Después te decimos qué haríamos, cuándo queda y cuánto cuesta.",
+    "headline": "Elige cuánto hace tu sistema por ti.",
+    "description": "Todos los planes empiezan con tu negocio en orden. Subes de plan cuando lo necesites.",
     "packages": [
       {
         "name": "Tu negocio en orden",
@@ -359,7 +400,6 @@
     "notCheapest": "No competimos por precio. Construimos, operamos y mantenemos el sistema contigo.",
     "priceFixed": "El precio queda fijo por escrito después de la auditoría.",
     "priceFrom": "Desde {{price}} + IVA.",
-    "soon": "Próximamente",
-    "included": "Primera fase en 6 semanas · 30 días a tu lado · Tus datos, cuando los pidas"
+    "soon": "Próximamente"
   }
 }

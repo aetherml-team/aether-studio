@@ -106,7 +106,7 @@ const ContactSection = () => {
   const errorRing = "border-destructive/70 focus-visible:ring-destructive/30 focus:ring-destructive/30";
   const errorTextClass = "mt-1.5 font-body text-[12.5px] text-destructive";
   const allFaqItems = t("faq.items", { returnObjects: true }) as { q: string; a: string }[];
-  const faqItems = [allFaqItems[2], allFaqItems[3], allFaqItems[5], allFaqItems[6]];
+  const faqItems = [allFaqItems[7], allFaqItems[8], allFaqItems[2], allFaqItems[3], allFaqItems[5], allFaqItems[6]];
 
   return (
     <section id="contact" className="contact-field relative py-20 md:py-24 lg:py-28">
