@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ShieldCheck } from "lucide-react";
+import { Check, Clock, Plus, ShieldCheck } from "lucide-react";
 import { EASE, viewport } from "@/lib/motion";
 import { Section } from "@/components/Sheet";
 import { PRICING, mxn } from "@/content/offer";
@@ -22,42 +22,66 @@ const InvestmentSection = () => {
       <div className="grid gap-5 lg:grid-cols-3">
         {pkgs.map((p, i) => {
           const featured = i === 1;
+          const line = "flex gap-2.5 font-body text-[15px] leading-[1.45]";
           return (
             <m.div
               key={p.name}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
-              transition={{ duration: 0.45, delay: Math.min(i, 4) * 0.03, ease: EASE }}
-              className={`group flex flex-col overflow-hidden border p-7 md:p-8 ${
-                featured
-                  ? "border-primary bg-primary text-primary-foreground shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.65)]"
-                  : "border-border bg-card text-foreground"
+              transition={{ duration: 0.45, delay: Math.min(i, 4) * 0.05, ease: EASE }}
+              className={`glow-border relative flex flex-col rounded-xl border bg-card p-7 text-foreground md:p-8 ${
+                featured ? "border-primary/70 shadow-[0_24px_70px_-30px_hsl(var(--primary)/0.6)]" : "border-border"
               }`}
             >
-              <h3 className="font-heading text-[clamp(1.5rem,1.9vw,2.1rem)] font-semibold tracking-[-0.024em]">
+              <div className="flex h-6 items-center justify-between gap-3">
+                <span className="tnum font-mono text-[11px] tracking-[0.14em] text-foreground-dim">0{i + 1}</span>
+                {featured && (
+                  <span className="rounded-full bg-primary px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-primary-foreground">
+                    {t("investment.recommended")}
+                  </span>
+                )}
+              </div>
+              <h3 className="mt-5 font-heading text-[clamp(1.5rem,1.9vw,2.1rem)] font-semibold leading-[1.1] tracking-[-0.024em]">
                 {p.name}
               </h3>
-              <p className={`mt-2 font-body text-[16px] leading-[1.6] ${featured ? "text-primary-foreground/80" : "text-foreground/70"}`}>
-                {p.scope}
-              </p>
+              <p className="mt-3 font-body text-[16px] leading-[1.55] text-foreground/70">{p.scope}</p>
 
-              <ul className={`mt-6 divide-y border-y ${featured ? "divide-primary-foreground/20 border-primary-foreground/20" : "divide-border border-border"}`}>
-                {p.bullets.map((bullet) => (
-                  <li key={bullet} className={`py-3 font-body text-[15.5px] leading-snug ${featured ? "text-primary-foreground/90" : "text-foreground/70"}`}>
-                    {bullet}
-                  </li>
-                ))}
-                {p.soon?.map((line) => (
-                  <li key={line} className={`flex items-baseline justify-between gap-3 py-3 font-body text-[15.5px] leading-snug ${featured ? "text-primary-foreground/90" : "text-foreground/70"}`}>
-                    {line}
-                    <span className="shrink-0 rounded-full border border-current px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.1em] opacity-70">
-                      {t("investment.soon")}
-                    </span>
-                  </li>
-                ))}
+              <ul className="mt-7 space-y-3 border-t border-border pt-6">
+                {p.bullets.map((bullet, j) => {
+                  const Icon = i > 0 && j === 0 ? Plus : Check;
+                  return (
+                    <li key={bullet} className={`${line} ${i > 0 && j === 0 ? "text-foreground-dim" : "text-foreground/80"}`}>
+                      <Icon className="mt-[3px] h-4 w-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+                      {bullet}
+                    </li>
+                  );
+                })}
               </ul>
+              {p.soon && (
+                <>
+                  <p className="mt-6 font-mono text-[10.5px] uppercase tracking-[0.14em] text-foreground-dim">{t("investment.soon")}</p>
+                  <ul className="mt-3 space-y-3">
+                    {p.soon.map((s) => (
+                      <li key={s} className={`${line} text-foreground-dim`}>
+                        <Clock className="mt-[3px] h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
 
+              <div className="mt-auto pt-8">
+              <a
+                href="#contact-form"
+                className={`press flex h-[48px] items-center justify-center rounded-md px-6 font-body text-[14.5px] font-medium ${
+                  featured ? "btn-peri text-primary-foreground" : "btn-ghost text-foreground"
+                }`}
+              >
+                {t("common.cta")}
+              </a>
+              </div>
             </m.div>
           );
         })}

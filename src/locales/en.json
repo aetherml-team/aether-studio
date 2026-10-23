@@ -399,6 +399,7 @@
     "notCheapest": "We do not compete on price. We build, run and maintain the system with you.",
     "priceFixed": "We fix the price in writing after the audit.",
     "priceFrom": "From {{price}} + VAT.",
-    "soon": "Coming soon"
+    "soon": "Coming soon",
+    "recommended": "Recommended"
   }
 }

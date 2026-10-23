@@ -399,6 +399,7 @@
     "notCheapest": "No competimos por precio. Construimos, operamos y mantenemos el sistema contigo.",
     "priceFixed": "El precio queda fijo por escrito después de la auditoría.",
     "priceFrom": "Desde {{price}} + IVA.",
-    "soon": "Próximamente"
+    "soon": "Próximamente",
+    "recommended": "Recomendado"
   }
 }
