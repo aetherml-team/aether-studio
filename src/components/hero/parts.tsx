@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { m, useReducedMotion } from "framer-motion";
-import { useTheme } from "next-themes";
+import { m } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { EASE } from "@/lib/motion";
+import { PipClip } from "@/components/PipClip";
 import { track } from "@/lib/analytics";
 import { whatsappEnabled, whatsappUrl } from "@/lib/contact";
 
@@ -37,18 +37,14 @@ export function Actions({ className = "" }: { className?: string }) {
 }
 
 /** The Nexus home cropped under its figures row, with two Pip cards hung below it: the
-    answer with its chart, and a short loop of Pip recording a cash payment (asked,
-    approval card, Aprobar, Hecho). All of it is the real app on test data, one file per
-    theme and language. Reduced motion gets the loop's first frame. The crop (1920x830 of 1920x1200) stops
+    answer with its chart and Pip recording a cash payment (asked, approval card,
+    Aprobar, Hecho), both short loops of the real app on test data. The crop (1920x830 of 1920x1200) stops
     before the lists so no half-covered rows peek out.
     Motion: the three layers fade up once, one after another, then hold still so the
     screenshots stay sharp. */
 export function AppScreen() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language.startsWith("en") ? "en" : "es";
-  const { resolvedTheme } = useTheme();
-  const reduced = useReducedMotion();
-  const clip = `/work/hero/pip-approve-${resolvedTheme === "dark" ? "dark" : "light"}-${lang}`;
   const themed = (path: (theme: string) => string, alt = "", cls = "") => (
     <>
       <img src={path("light")} alt={alt} loading="eager" className={`block w-full dark:hidden ${cls}`} />
@@ -70,17 +66,13 @@ export function AppScreen() {
       >
         {themed((theme) => `/work/hero/nexus-home-${theme}-${lang}.jpg`, t("hero.screenshotAlt"), "h-full object-cover object-top")}
       </m.div>
-      {/* pb holds room for the loop, which is taller than the card beside it. */}
-      <div className="relative -mt-3 ml-[4%] pb-[13%]">
-        <m.div {...land(0.35)} className={`${card} relative w-[48%]`}>
-          {themed((theme) => `/work/pip/money-${theme}-${lang}.jpg`)}
+      {/* Margins in % follow the width, so the overlap holds at every size. */}
+      <div className="-mt-3 ml-[4%] flex items-start">
+        <m.div {...land(0.35)} className={`${card} w-[48%] shrink-0`}>
+          <PipClip shot="money" lang={lang} eager />
         </m.div>
-        <m.div {...land(0.6)} className={`${card} absolute left-[44%] top-[16%] w-[46%] bg-card`} style={{ aspectRatio: "1238 / 1656" }}>
-          {resolvedTheme && reduced ? (
-            <img src={`${clip}.jpg`} alt="" className="block w-full" />
-          ) : resolvedTheme ? (
-            <video key={clip} src={`${clip}.mp4`} poster={`${clip}.jpg`} autoPlay muted loop playsInline aria-hidden className="block w-full" />
-          ) : null}
+        <m.div {...land(0.6)} className={`${card} relative -ml-[4%] mt-[14%] w-[46%] shrink-0`}>
+          <PipClip shot="pay" lang={lang} eager />
         </m.div>
       </div>
     </div>

@@ -2,11 +2,11 @@ import { m } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { EASE, viewport } from "@/lib/motion";
 import { Section } from "@/components/Sheet";
+import { PipClip } from "@/components/PipClip";
 
-/* Pip, the assistant inside the app. Screens are the app's own chat parts
-   (answer, chart, table, approval card) in the Æther skin on test data, one image per
-   language and theme in public/work/pip/<shot>-<theme>-<lang>.jpg. The first
-   three read, the last three wait on "Aprobar". */
+/* Pip, the assistant inside the app. Each shot is a short loop of the real chat in
+   the Æther skin on test data (public/work/pip/<shot>-<theme>-<lang>.mp4, final frame
+   as .jpg). The first three read, the last three wait on "Aprobar". */
 const SHOTS = ["money", "owes", "plans", "pay", "deposit", "send"] as const;
 
 const PipSection = () => {
@@ -27,7 +27,6 @@ const PipSection = () => {
             <ul className="-mx-4 mt-5 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:items-start md:gap-6 md:overflow-visible md:px-0 md:pb-0">
               {shots.map((shot, i) => {
                 const caption = captions[g * 3 + i];
-                const src = (theme: string) => `/work/pip/${shot}-${theme}-${lang}.jpg`;
                 return (
                   <m.li
                     key={shot}
@@ -39,8 +38,7 @@ const PipSection = () => {
                   >
                     <figure>
                       <div className="glow-border overflow-hidden rounded-xl border border-border">
-                        <img src={src("light")} alt={caption} loading="lazy" className="block w-full dark:hidden" />
-                        <img src={src("dark")} alt={caption} loading="lazy" className="hidden w-full dark:block" />
+                        <PipClip shot={shot} lang={lang} alt={caption} />
                       </div>
                       <figcaption className="mt-4 font-heading text-[17px] font-medium leading-[1.3] tracking-[-0.015em] text-foreground">
                         {caption}
