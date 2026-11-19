@@ -1,5 +1,5 @@
 import { next } from "@vercel/functions";
-import { MARKDOWN_PAGES, NOT_FOUND_MARKDOWN } from "./src/content/agent-md";
+import { MARKDOWN_PAGES, NOT_FOUND_MARKDOWN, UNLISTED_PAGES } from "./src/content/agent-md";
 
 /**
  * Vercel Routing Middleware. It runs before the CDN cache and before the static
@@ -24,7 +24,7 @@ export type Resolution =
 /** Pure routing decision, so it can be tested without a Vercel runtime. */
 export function resolveRequest(pathname: string, accept: string | null): Resolution {
   const path = pathname.replace(/\/+$/, "") || "/";
-  const page = MARKDOWN_PAGES[path];
+  const page = MARKDOWN_PAGES[path] ?? UNLISTED_PAGES[path];
   if ((accept ?? "").includes("text/markdown")) {
     return page
       ? { kind: "markdown", status: 200, body: page }

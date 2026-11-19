@@ -1,7 +1,9 @@
-import { m } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ArrowUpRight, Check, Instagram } from "lucide-react";
-import { SYSTEMS } from "@/content/offer";
+import { CASE_MEDIA, SYSTEMS } from "@/content/offer";
+import { done, release, requestPlay } from "@/lib/oneAtATime";
 import { EASE, viewport } from "@/lib/motion";
 import { Logo } from "@/components/Logo";
 import { Section } from "@/components/Sheet";
@@ -18,6 +20,66 @@ interface CaseCopy {
   /** TODO(quote): one approved owner quote plus who said it. Empty hides the slot. */
   quote: string;
   quoteBy: string;
+  /** Alt text for the client's Nexus screen. */
+  screen: string;
+}
+
+/* The loop's after state holds from 2.7s; it starts fading back to its first frame at 4.4s. */
+const SETTLE_AT = 4.2;
+
+/* A client's loop plays once when the card comes on screen, then gives way to the real
+   Nexus screen, which stays. The loop is 4:3 on dark ground, letterboxed in the screen's
+   frame. Cards on screen together take turns. Reduced motion, or a loop that fails to
+   load: the screen alone. */
+function CaseMedia({ slug, shot, alt }: { slug: string; shot: string; alt: string }) {
+  const reduced = useReducedMotion();
+  const ref = useRef<HTMLVideoElement>(null);
+  const inView = useInView(ref, { amount: 0.5, once: true });
+  const [settled, setSettled] = useState(false);
+
+  useEffect(() => {
+    if (inView && !settled && ref.current) requestPlay(ref.current);
+  }, [inView, settled]);
+
+  useEffect(() => {
+    const v = ref.current;
+    return () => {
+      if (v) release(v);
+    };
+  }, []);
+
+  return (
+    <div className="relative mb-6 overflow-hidden rounded-lg border border-border bg-[#09090C]" style={{ aspectRatio: "1512 / 787" }}>
+      <img
+        src={shot}
+        alt={alt}
+        loading="lazy"
+        className={`block h-full w-full object-cover object-top transition-opacity duration-500 ${reduced || settled ? "" : "opacity-0"}`}
+      />
+      {!reduced && (
+        <video
+          ref={ref}
+          src={`/work/loops/${slug}.mp4`}
+          poster={`/work/loops/${slug}.jpg`}
+          muted
+          playsInline
+          preload="none"
+          aria-hidden
+          onTimeUpdate={(e) => {
+            if (e.currentTarget.currentTime < SETTLE_AT) return;
+            e.currentTarget.pause();
+            done(e.currentTarget);
+            setSettled(true);
+          }}
+          onError={(e) => {
+            done(e.currentTarget);
+            setSettled(true);
+          }}
+          className={`pointer-events-none absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${settled ? "opacity-0" : ""}`}
+        />
+      )}
+    </div>
+  );
 }
 
 /* Client cases as cards: the client's number leads, then the problem and what
@@ -46,6 +108,8 @@ const LiveSystemsSection = () => {
               transition={{ duration: 0.45, delay: (i % 3) * 0.05, ease: EASE }}
               className="glow-border flex w-[85%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-6 md:w-auto md:p-7"
             >
+              {CASE_MEDIA[sys.slug] && <CaseMedia slug={sys.slug} shot={CASE_MEDIA[sys.slug].shot} alt={c.screen} />}
+
               <div className="flex items-center gap-3">
                 <Logo slug={sys.slug} name={c.name} dark={sys.logoDark} />
                 <div className="min-w-0">
@@ -67,10 +131,16 @@ const LiveSystemsSection = () => {
                 )
               )}
               {c.quote && (
-                <blockquote className="mt-4 font-body text-[15.5px] leading-[1.55] text-foreground/75">
+                <m.blockquote
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={viewport}
+                  transition={{ duration: 0.45, delay: 0.15, ease: EASE }}
+                  className="mt-4 font-body text-[15.5px] leading-[1.55] text-foreground/75"
+                >
                   “{c.quote}”
                   {c.quoteBy && <footer className="mt-1 text-[13px] text-foreground-dim">{c.quoteBy}</footer>}
-                </blockquote>
+                </m.blockquote>
               )}
 
               <dl className="mt-8 space-y-4 border-t border-border pt-6">

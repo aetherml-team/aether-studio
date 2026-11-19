@@ -3,6 +3,9 @@
   "functions": {
     "api/book.ts": {
       "includeFiles": "lib/*.js"
+    },
+    "api/lead.ts": {
+      "includeFiles": "lib/*.js"
     }
   },
   "headers": [

@@ -9,8 +9,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
+import { LeadExtras } from "@/components/LeadExtras";
 import { EASE, viewport } from "@/lib/motion";
 import { track } from "@/lib/analytics";
+import { attribution, isTestVisit } from "@/lib/attribution";
+import { fbp, newEventId, pixelLead } from "@/lib/pixel";
 import { schedulingEnabled } from "@/lib/scheduling";
 import { whatsappEnabled, whatsappUrl } from "@/lib/contact";
 
@@ -29,7 +32,14 @@ const CONTACT_EMAIL = "hola@aetherml.com";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_MIN = 2;
 
-const ContactSection = () => {
+type Props = {
+  /** Called after a message is sent or a call is booked; the ad landing page goes to /thanks. */
+  onSent?: (kind: "message" | "booked") => void;
+  /** The form above the FAQ, for the ad landing page. */
+  formFirst?: boolean;
+};
+
+const ContactSection = ({ onSent, formFirst = false }: Props = {}) => {
   const { t, i18n } = useTranslation();
   const reduced = useReducedMotion();
   const [status, setStatus] = useState<Status>("idle");
@@ -67,9 +77,15 @@ const ContactSection = () => {
       name: String(data.get("name") ?? ""),
       email: String(data.get("email") ?? ""),
       message: String(data.get("message") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      need: String(data.get("need") ?? ""),
       // Honeypot: real users never fill this hidden field.
       company: String(data.get("company") ?? ""),
       language: i18n.language,
+      attribution: attribution(),
+      test: isTestVisit(),
+      eventId: newEventId(),
+      fbp: fbp(),
     };
 
     const fieldErrors = validate(payload);
@@ -91,7 +107,9 @@ const ContactSection = () => {
       if (!res.ok) throw new Error(`Lead endpoint responded ${res.status}`);
       setStatus("sent");
       track("Lead Submitted", { language: i18n.language });
+      pixelLead("message", payload.eventId);
       form.reset();
+      onSent?.("message");
     } catch {
       setStatus("error");
     }
@@ -108,13 +126,9 @@ const ContactSection = () => {
   const allFaqItems = t("faq.items", { returnObjects: true }) as { q: string; a: string }[];
   const faqItems = [allFaqItems[7], allFaqItems[8], allFaqItems[2], allFaqItems[3], allFaqItems[5], allFaqItems[6]];
 
-  return (
-    <section id="contact" className="contact-field relative py-20 md:py-24 lg:py-28">
-      <div className="shell">
-      <p className="tnum mb-8 font-mono text-[11px] tracking-[0.14em] text-primary">05</p>
-
-      {/* the questions people ask before they book */}
-      <div id="faq" className="mb-16 scroll-mt-24 md:mb-20">
+  // The questions people ask before they book.
+  const faq = (
+      <div id="faq" className={formFirst ? "scroll-mt-24" : "mb-16 scroll-mt-24 md:mb-20"}>
         <h2 className="display-2 max-w-[16ch] font-heading font-semibold text-foreground">{t("faq.headline")}</h2>
         <Accordion type="single" collapsible className="mt-8 grid lg:grid-cols-2 lg:gap-x-12">
           {faqItems.map((item, i) => (
@@ -135,6 +149,14 @@ const ContactSection = () => {
           ))}
         </Accordion>
       </div>
+  );
+
+  return (
+    <section id="contact" className="contact-field relative py-20 md:py-24 lg:py-28">
+      <div className="shell">
+      <p className="tnum mb-8 font-mono text-[11px] tracking-[0.14em] text-primary">05</p>
+
+      {!formFirst && faq}
 
       <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-20">
         {/* left — value & credibility */}
@@ -205,7 +227,7 @@ const ContactSection = () => {
           {tab === "book" && schedulingEnabled ? (
             <div>
               <Suspense fallback={<div className="min-h-[280px]" aria-hidden />}>
-                <BookCall />
+                <BookCall onBooked={onSent ? () => onSent("booked") : undefined} />
               </Suspense>
               <button
                 type="button"
@@ -287,6 +309,8 @@ const ContactSection = () => {
               </div>
             </div>
 
+            <LeadExtras idPrefix="contact" labelClass={labelClass} fieldClass={fieldClass} />
+
             <div>
               <label htmlFor="contact-message" className={labelClass}>
                 {t("contact.messageLabel")}{" "}
@@ -349,6 +373,7 @@ const ContactSection = () => {
           )}
         </m.div>
       </div>
+      {formFirst && <div className="mt-16 md:mt-20">{faq}</div>}
       </div>
     </section>
   );

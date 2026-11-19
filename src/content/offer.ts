@@ -55,15 +55,16 @@ export const SYSTEMS: ReadonlyArray<{
 ];
 
 /**
- * One product screen per vertical, in the order of `nexus.items`: gym billing,
- * studio finances, café/roastery, jewellery store, mentoring leads. Live screens
- * captured 2026-10-14 with every customer name and amount covered by a solid bar.
- * null renders a marked placeholder slot.
+ * What each client card shows: a 4:3 loop of that client's hero object, exported from
+ * its Claude Motion film (public/work/loops/<slug>.mp4, wordless, on the reels' dark
+ * ground, no sound), which plays once and settles on the client's real Nexus screen.
+ * Screens captured 2026-10-14 with every customer name and amount covered.
  */
-export const DEMO_SHOTS: ReadonlyArray<string | null> = [
-  "/work/demo-gym.jpg",
-  "/work/demo-studio.jpg",
-  "/work/demo-cafe.jpg",
-  "/work/demo-jewellery.jpg",
-  "/work/demo-mentoring.jpg",
-];
+export const CASE_MEDIA: Readonly<Record<string, { shot: string }>> = {
+  tavros: { shot: "/work/demo-gym.jpg" },
+  eternus: { shot: "/work/demo-studio.jpg" },
+  sismocafe: { shot: "/work/demo-cafe.jpg" },
+  eloisa: { shot: "/work/demo-jewellery.jpg" },
+  weddingmethod: { shot: "/work/demo-mentoring.jpg" },
+  aether: { shot: "/work/aether-1.png" },
+};

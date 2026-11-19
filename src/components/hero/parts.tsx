@@ -38,7 +38,7 @@ export function Actions({ className = "" }: { className?: string }) {
 
 /** The Nexus home cropped under its figures row, with two Pip cards hung below it: the
     answer with its chart and Pip recording a cash payment (asked, approval card,
-    Aprobar, Hecho), both short loops of the real app on test data. The crop (1920x830 of 1920x1200) stops
+    Aprobar, Hecho), both short clips of the real app on test data that play once and hold. The crop (1920x830 of 1920x1200) stops
     before the lists so no half-covered rows peek out.
     Motion: the three layers fade up once, one after another, then hold still so the
     screenshots stay sharp. */

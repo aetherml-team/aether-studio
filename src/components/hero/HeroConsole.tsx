@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { ArrowDown } from "lucide-react";
 import { Actions, AppScreen, Headline } from "./parts";
+import { Tagline } from "./Tagline";
 
 /* A — CONSOLE
    Copy on the left half, the product on the right: the Nexus home with Pip's
@@ -17,8 +18,12 @@ export default function HeroConsole() {
           <div className="min-w-0 lg:col-span-6">
             <Headline className="rise display-1" />
 
+            <div className="rise mt-7" style={{ animationDelay: "30ms" }}>
+              <Tagline />
+            </div>
+
             <p
-              className="rise lead mt-8 max-w-[38ch] font-body text-foreground/70"
+              className="rise lead mt-7 max-w-[38ch] font-body text-foreground/70"
               style={{ animationDelay: "60ms" }}
             >
               {t("hero.description")}

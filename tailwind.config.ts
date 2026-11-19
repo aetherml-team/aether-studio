@@ -24,6 +24,7 @@ export default {
         "border-subtle": "hsl(var(--border-subtle))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        turn: "hsl(var(--turn))",
         background: {
           DEFAULT: "hsl(var(--background))",
           deep: "hsl(var(--background-deep))",

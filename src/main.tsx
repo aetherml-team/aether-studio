@@ -6,6 +6,11 @@ import "@fontsource/jetbrains-mono/500.css";
 import App from "./App.tsx";
 import "./index.css";
 import "./i18n.ts";
+import { captureAttribution } from "./lib/attribution";
+import { initPixel } from "./lib/pixel";
+
+captureAttribution();
+initPixel();
 
 createRoot(document.getElementById("root")!).render(<App />);
 

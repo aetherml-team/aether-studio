@@ -12,7 +12,13 @@ import { fileURLToPath } from "url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-const entryPoints = ["lib/booking-email.ts", "lib/google-calendar.ts", "lib/zoom.ts"].map((f) =>
+const entryPoints = [
+  "lib/booking-email.ts",
+  "lib/crm-lead.ts",
+  "lib/google-calendar.ts",
+  "lib/meta-capi.ts",
+  "lib/zoom.ts",
+].map((f) =>
   path.join(root, f)
 );
 

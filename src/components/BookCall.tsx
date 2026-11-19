@@ -3,8 +3,11 @@ import { useTranslation } from "react-i18next";
 import { m, useReducedMotion } from "framer-motion";
 import { ArrowLeft, Check, Loader2, RotateCw } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { LeadExtras } from "@/components/LeadExtras";
 import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics";
+import { attribution, isTestVisit } from "@/lib/attribution";
+import { fbp, newEventId, pixelLead } from "@/lib/pixel";
 
 /**
  * Native "Book a call" panel for the contact section: a custom slot picker +
@@ -38,7 +41,7 @@ const BROWSER_TZ =
 const dayKeyOf = (d: Date) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 const firstNameOf = (s: string) => s.trim().split(/\s+/)[0] || s.trim();
 
-const BookCall = () => {
+const BookCall = ({ onBooked }: { onBooked?: () => void } = {}) => {
   const { t, i18n } = useTranslation();
   const reduced = useReducedMotion();
   const lang = i18n.language;
@@ -159,6 +162,9 @@ const BookCall = () => {
     const email = String(data.get("email") ?? "");
     const message = String(data.get("message") ?? "");
     const company = String(data.get("company") ?? ""); // honeypot
+    const phone = String(data.get("phone") ?? "");
+    const need = String(data.get("need") ?? "");
+    const eventId = newEventId();
 
     const fieldErrors = validate(name, email);
     if (Object.keys(fieldErrors).length) {
@@ -178,10 +184,16 @@ const BookCall = () => {
           name,
           email,
           message,
+          phone,
+          need,
           company,
           start: selected,
           timezone: BROWSER_TZ,
           language: lang,
+          attribution: attribution(),
+          test: isTestVisit(),
+          eventId,
+          fbp: fbp(),
         }),
       });
 
@@ -204,7 +216,9 @@ const BookCall = () => {
       if (!trackedRef.current) {
         trackedRef.current = true;
         track("Audit Booked", { language: lang });
+        pixelLead("booked", eventId);
       }
+      onBooked?.();
     } catch {
       setBookState("error");
     }
@@ -430,6 +444,8 @@ const BookCall = () => {
                   )}
                 </div>
               </div>
+
+              <LeadExtras idPrefix="book" labelClass={labelClass} fieldClass={fieldClass} />
 
               <div>
                 <label htmlFor="book-message" className={labelClass}>

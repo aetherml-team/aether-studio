@@ -169,7 +169,10 @@
       "Decisions for today"
     ],
     "availability": "We take on 3 new clients a month",
-    "screenshotLabel": "Nexus · owner and team app"
+    "screenshotLabel": "Nexus · owner and team app",
+    "taglineLead": "You run the business. We run",
+    "taglineRest": "the rest.",
+    "taglineThings": "Your spreadsheet, receipts, contracts and chats"
   },
   "pain": {
     "headline": "Does your business live in spreadsheets, chats and notebooks?",
@@ -201,30 +204,25 @@
       }
     ]
   },
-  "nexus": {
-    "headline": "What Nexus does in your business.",
-    "description": "One app under your brand. Your team uses it every day and we keep it running.",
-    "shotPending": "Screenshot pending",
-    "items": [
+  "turn": {
+    "before": "Today, you",
+    "after": "With Æther, you have",
+    "lines": [
       {
-        "label": "Gym · dashboard",
-        "line": "Active members, income and cash flow on one screen."
+        "before": "You log every payment by hand.",
+        "after": "Your deposits, matched to their notes."
       },
       {
-        "label": "Wedding studio · production",
-        "line": "Every wedding with its date, its stage and what is left to deliver."
+        "before": "You count the till at night.",
+        "after": "Your cash count, every morning."
       },
       {
-        "label": "Café and roastery · sales",
-        "line": "Each branch's sales arrive from the till, with no reports to pull."
+        "before": "You search Excel for who owes you.",
+        "after": "Your list of who owes you."
       },
       {
-        "label": "Jewellery · online store",
-        "line": "Your customer builds her ring in your store and books her appointment."
-      },
-      {
-        "label": "Mentoring · leads",
-        "line": "You see where each enquiry comes from and how many you close."
+        "before": "You pull reports to see the day.",
+        "after": "Your sales from each branch, every 15 minutes."
       }
     ]
   },
@@ -262,7 +260,8 @@
         ],
         "metric": "178 active members in one system",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Gym · dashboard. Active members, income and cash flow on one screen."
       },
       {
         "name": "Eternus",
@@ -277,7 +276,8 @@
         ],
         "metric": "39 weddings in one system",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Wedding studio · production. Every wedding with its date, its stage and what is left to deliver."
       },
       {
         "name": "Sismo Café",
@@ -291,7 +291,8 @@
         ],
         "metric": "2 branches and a roastery in one app",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Café and roastery · sales. Each branch's sales arrive from the till, with no reports to pull."
       },
       {
         "name": "Eloisa Montero Diamantes",
@@ -305,7 +306,8 @@
         ],
         "metric": "96 pieces in her online store",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Jewellery · online store. Your customer builds her ring in your store and books her appointment."
       },
       {
         "name": "The Wedding Method",
@@ -320,7 +322,8 @@
         ],
         "metric": "29 enquiries in one pipeline, 5 already closed",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Mentoring · leads. You see where each enquiry comes from and how many you close."
       },
       {
         "name": "Æther",
@@ -334,7 +337,8 @@
         ],
         "metric": "Our own billing and expenses run on Nexus",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Æther's Nexus home: bill a client, record an expense and the month so far."
       },
       {
         "name": "Bakery group",
