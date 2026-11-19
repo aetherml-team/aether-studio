@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
 import HeroSection from "@/components/HeroSection";
 import PainSection from "@/components/PainSection";
-import NexusSection from "@/components/NexusSection";
+import TurnSection from "@/components/TurnSection";
 import LiveSystemsSection from "@/components/LiveSystemsSection";
 import PipSection from "@/components/PipSection";
 import InvestmentSection from "@/components/InvestmentSection";
@@ -33,7 +33,7 @@ const Index = () => {
       <main id="main">
         <HeroSection />
         <PainSection />
-        <NexusSection />
+        <TurnSection />
         <PipSection />
         <LiveSystemsSection />
         <InvestmentSection />

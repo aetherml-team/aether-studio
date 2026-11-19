@@ -6,6 +6,8 @@ import {
   buildBookingCalendarInvite,
   renderBookingConfirmationEmail,
 } from "../lib/booking-email.js";
+import { callSlot, fileCrmLead, needLabel, parseAttribution, parsePhone, splitName } from "../lib/crm-lead.js";
+import { parseEventId, parseFbp, requestFacts, sendCapiEvent } from "../lib/meta-capi.js";
 import { attachZoomToTidyCalCalendarEvent, bookingTeamAttendees } from "../lib/google-calendar.js";
 import { createZoomMeeting, zoomConfigured } from "../lib/zoom.js";
 
@@ -451,6 +453,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const start = field(body.start, 40);
   const language = field(body.language, 12) || "en";
   const timezone = field(body.timezone, 60) || "America/Mexico_City";
+  const attribution = parseAttribution(body.attribution);
+  const test = body.test === true;
+  const phone = parsePhone(body.phone);
+  const need = needLabel(body.need);
 
   if (!name || !email || !start) {
     return res.status(400).json({ error: "Missing required fields" });
@@ -493,6 +499,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(status).json({ error: booking.message });
   }
 
+  // The slot is reserved: file the lead beside the emails, never instead of them.
+  const names = splitName(name);
+  const crm = Promise.allSettled([
+    fileCrmLead({
+      name,
+      email,
+      message,
+      phone,
+      need,
+      attribution,
+      kind: "booked",
+      test,
+      call: callSlot(startMs),
+    }),
+    sendCapiEvent({
+      name: "Schedule",
+      eventId: parseEventId(body.eventId),
+      email,
+      phone,
+      firstName: names.first,
+      lastName: names.last,
+      fbc: attribution.fbc,
+      fbp: parseFbp(body.fbp),
+      ...requestFacts(req.headers),
+      test,
+    }),
+  ]);
+
   // Booking confirmed — send the branded emails. Best-effort: the slot is already
   // reserved in TidyCal, so an email failure must never fail the request.
   const scheduledFor = formatSlot(startMs, timezone, language);
@@ -524,11 +558,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       startMs,
       endsAtMs,
       bookingId: created.id,
+      adLines: [
+        phone ? `WhatsApp: ${phone}` : "",
+        need ? `Wants: ${need}` : "",
+        attribution.campaign ? `Ad: ${attribution.campaign}` : "",
+        attribution.ad ? `Ad id: ${attribution.ad}` : "",
+      ].filter(Boolean),
     });
   } else {
     console.error("RESEND_API_KEY is not set — booking succeeded but no email sent");
   }
 
+  await crm;
   return res.status(200).json({ ok: true, scheduledFor });
 }
 
@@ -556,6 +597,7 @@ async function sendEmails(d: {
   startMs: number;
   endsAtMs: number;
   bookingId?: number;
+  adLines: string[];
 }): Promise<void> {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const receivedAt = new Intl.DateTimeFormat("en-US", {
@@ -572,6 +614,8 @@ async function sendEmails(d: {
       replyTo: d.email,
       subject: `New call booked — ${d.name}`,
       text: `New call booked\n\nName: ${d.name}\nEmail: ${d.email}\nLanguage: ${d.language}${
+        d.adLines.length ? `\n${d.adLines.join("\n")}` : ""
+      }${
         d.scheduledFor ? `\nScheduled for: ${d.scheduledFor}` : ""
       }${d.meetingUrl ? `\nVideo call: ${d.meetingUrl}` : ""}\n\n${
         d.message ? `Notes:\n${d.message}` : "No notes — booked straight from the calendar."

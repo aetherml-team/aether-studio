@@ -12,6 +12,8 @@
  * WhatsApp CTAs simply don't render — no broken link ever ships. Vite reads env
  * vars at startup; restart `npm run dev` after changing it.
  */
+import { attribution } from "@/lib/attribution";
+
 export const CONTACT_EMAIL = "hola@aetherml.com";
 
 const RAW_WHATSAPP = (import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined) ?? "";
@@ -20,8 +22,11 @@ export const whatsappNumber = RAW_WHATSAPP.replace(/\D/g, "");
 /** Guard against a half-filled env value rendering a dead button. */
 export const whatsappEnabled = whatsappNumber.length >= 10;
 
-/** Build a wa.me deep link, optionally pre-filling the first message. */
+/** Build a wa.me deep link, optionally pre-filling the first message. A visit from an ad adds
+ *  "Ref: <campaign id>" so whoever answers can file the lead under its campaign. */
 export function whatsappUrl(message?: string): string {
   const base = `https://wa.me/${whatsappNumber}`;
-  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+  const campaign = attribution().campaign;
+  const text = message && campaign ? `${message}\n\nRef: ${campaign}` : message;
+  return text ? `${base}?text=${encodeURIComponent(text)}` : base;
 }

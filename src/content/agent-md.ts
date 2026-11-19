@@ -173,6 +173,18 @@ export const MARKDOWN_PAGES: Record<string, string> = {
   "/terms": terms,
 };
 
+/** Pages people reach from an ad or a form, kept out of the sitemap and the index. */
+export const UNLISTED_PAGES: Record<string, string> = {
+  "/start": contact,
+  "/thanks": `# Thanks
+
+Your request reached Æther. We reply within one business day, in English or Spanish.
+
+- Home: ${SITE}/
+- Contact: ${SITE}/contact
+${FOOTER}`,
+};
+
 export const NOT_FOUND_MARKDOWN = `# 404 — Page not found
 
 This path does not exist on ${SITE}. Nothing was moved; the URL is simply not

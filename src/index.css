@@ -29,6 +29,8 @@
     --primary-dim:      240 42% 30%;
     --primary-deep:     240 42% 30%;
     --orbit:            252 65% 49%;
+    /* The turn: muted before, this after. Orbit violet on light, periwinkle on dark. */
+    --turn:             252 65% 49%;
 
     --secondary:        60 9% 98%;
     --secondary-foreground: 216 33% 12%;
@@ -97,6 +99,7 @@
     --primary-dim:      240 30% 73%;
     --primary-deep:     240 42% 30%;
     --orbit:            252 65% 49%;
+    --turn:             240 100% 88%;
 
     --secondary:        240 12% 7%;
     --secondary-foreground: 40 8% 88%;

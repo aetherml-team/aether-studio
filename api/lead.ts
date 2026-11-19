@@ -1,5 +1,14 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
+import {
+  type Attribution,
+  fileCrmLead,
+  needLabel,
+  parseAttribution,
+  parsePhone,
+  splitName,
+} from "../lib/crm-lead.js";
+import { parseEventId, parseFbp, requestFacts, sendCapiEvent } from "../lib/meta-capi.js";
 
 /**
  * Lead capture endpoint. Receives { name, email, message, language } from the
@@ -24,6 +33,16 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function field(value: unknown, max: number): string {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+
+/** The ad that brought the lead, for the team email; empty when none did. */
+function adLines(a: Attribution): string {
+  const lines = [
+    a.campaign ? `Ad: ${a.campaign}` : "",
+    a.ad ? `Ad id: ${a.ad}` : "",
+    a.link ? `Source link: ${a.link}` : "",
+  ].filter(Boolean);
+  return lines.length ? `\n${lines.join("\n")}` : "";
 }
 
 function escapeHtml(s: string): string {
@@ -484,6 +503,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const email = field(body.email, 200);
   const message = field(body.message, 5000);
   const language = field(body.language, 12) || "en";
+  const attribution = parseAttribution(body.attribution);
+  const test = body.test === true;
+  const phone = parsePhone(body.phone);
+  const need = needLabel(body.need);
 
   // Name + email are the only hard requirements. Message is optional — leads who
   // booked a call or just want a reply shouldn't be forced to write a brief.
@@ -501,6 +524,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }).format(new Date());
 
   const resend = new Resend(process.env.RESEND_API_KEY);
+  // Filed beside the emails, never instead of them: the team email keeps the lead if Zoho fails.
+  const names = splitName(name);
+  const crm = Promise.allSettled([
+    fileCrmLead({ name, email, message, phone, need, attribution, kind: "form", test }),
+    sendCapiEvent({
+      name: "Lead",
+      eventId: parseEventId(body.eventId),
+      email,
+      phone,
+      firstName: names.first,
+      lastName: names.last,
+      fbc: attribution.fbc,
+      fbp: parseFbp(body.fbp),
+      ...requestFacts(req.headers),
+      test,
+    }),
+  ]);
 
   try {
     const { error } = await resend.emails.send({
@@ -508,7 +548,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       to: TO,
       replyTo: email,
       subject: `New audit request — ${name}`,
-      text: `New audit request\n\nName: ${name}\nEmail: ${email}\nLanguage: ${language}\n\n${
+      text: `New audit request\n\nName: ${name}\nEmail: ${email}\nLanguage: ${language}${phone ? `\nWhatsApp: ${phone}` : ""}${need ? `\nWants: ${need}` : ""}${adLines(attribution)}\n\n${
         message ? `In their words:\n${message}` : "No message — they left just their name and email."
       }\n\n— Sent from the contact form at aetherml.com · ${receivedAt}`,
       html: renderLeadEmail({ name, email, message, language, receivedAt }),
@@ -516,6 +556,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (error) {
       console.error("Resend error:", error);
+      await crm;
       return res
         .status(502)
         .json({ error: "Failed to send message", detail: error.name ?? error.message });
@@ -540,9 +581,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.error("Confirmation email threw:", confirmErr);
     }
 
+    await crm;
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error("Lead handler error:", err);
+    await crm;
     return res.status(500).json({ error: "Failed to send message" });
   }
 }

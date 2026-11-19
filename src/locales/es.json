@@ -83,6 +83,11 @@
       "messageShort": "Cuéntanos un poco más, al menos 10 caracteres."
     }
   },
+  "cookieNotice": {
+    "text": "Usamos cookies para medir las visitas.",
+    "link": "Aviso de privacidad",
+    "ok": "Entendido"
+  },
   "stickyCta": {
     "label": "Quiero mi auditoría gratis"
   },
@@ -169,7 +174,10 @@
       "Decisiones para hoy"
     ],
     "availability": "Tomamos 3 clientes nuevos al mes",
-    "screenshotLabel": "Nexus · app para dueño y equipo"
+    "screenshotLabel": "Nexus · app para dueño y equipo",
+    "taglineLead": "Tú diriges el negocio. Nosotros,",
+    "taglineRest": "todo lo demás.",
+    "taglineThings": "Tu Excel, tus recibos, tus contratos y tus chats"
   },
   "pain": {
     "headline": "¿Tu negocio vive en Excel, chats y libretas?",
@@ -201,30 +209,25 @@
       }
     ]
   },
-  "nexus": {
-    "headline": "Qué hace Nexus en tu negocio.",
-    "description": "Una sola app con tu marca. Tu equipo la usa cada día y nosotros la mantenemos.",
-    "shotPending": "Captura pendiente",
-    "items": [
+  "turn": {
+    "before": "Hoy, tú",
+    "after": "Con Æther, tú tienes",
+    "lines": [
       {
-        "label": "Gimnasio · tablero",
-        "line": "Socios activos, ingresos y flujo de caja en una sola pantalla."
+        "before": "Registras cada pago a mano.",
+        "after": "Tus depósitos, cruzados con sus notas."
       },
       {
-        "label": "Estudio de bodas · producción",
-        "line": "Cada boda con su fecha, su etapa y lo que falta por entregar."
+        "before": "Cuadras la caja de noche.",
+        "after": "Tu corte de caja, cada mañana."
       },
       {
-        "label": "Café y tostaduría · ventas",
-        "line": "Las ventas de cada sucursal llegan desde la caja, sin bajar reportes."
+        "before": "Buscas en el Excel quién te debe.",
+        "after": "Tu lista de quién te debe."
       },
       {
-        "label": "Joyería · tienda en línea",
-        "line": "Tu clienta arma su anillo en tu tienda y agenda su cita."
-      },
-      {
-        "label": "Mentoría · prospectos",
-        "line": "Sabes de dónde llega cada consulta y cuántas cierras."
+        "before": "Bajas reportes para ver el día.",
+        "after": "Tus ventas de cada sucursal, cada 15 minutos."
       }
     ]
   },
@@ -262,7 +265,8 @@
         ],
         "metric": "178 socios activos en un solo sistema",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Gimnasio · tablero. Socios activos, ingresos y flujo de caja en una sola pantalla."
       },
       {
         "name": "Eternus",
@@ -277,7 +281,8 @@
         ],
         "metric": "39 bodas en un solo sistema",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Estudio de bodas · producción. Cada boda con su fecha, su etapa y lo que falta por entregar."
       },
       {
         "name": "Sismo Café",
@@ -291,7 +296,8 @@
         ],
         "metric": "2 sucursales y un taller en una sola app",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Café y tostaduría · ventas. Las ventas de cada sucursal llegan desde la caja, sin bajar reportes."
       },
       {
         "name": "Eloisa Montero Diamantes",
@@ -305,7 +311,8 @@
         ],
         "metric": "96 piezas en su tienda en línea",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Joyería · tienda en línea. Tu clienta arma su anillo en tu tienda y agenda su cita."
       },
       {
         "name": "The Wedding Method",
@@ -320,7 +327,8 @@
         ],
         "metric": "29 consultas en un solo embudo, 5 ya cerradas",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Mentoría · prospectos. Sabes de dónde llega cada consulta y cuántas cierras."
       },
       {
         "name": "Æther",
@@ -334,7 +342,8 @@
         ],
         "metric": "Nuestra cobranza y nuestros gastos corren en Nexus",
         "quote": "",
-        "quoteBy": ""
+        "quoteBy": "",
+        "screen": "Inicio de Nexus en Æther: cobrar a un cliente, registrar un gasto y el mes en curso."
       },
       {
         "name": "Grupo de panaderías",

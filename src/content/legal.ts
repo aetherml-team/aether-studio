@@ -49,7 +49,7 @@ export const privacyDoc: Record<"en" | "es", LegalDoc> = {
     title: "Privacy Notice",
     metaDescription:
       "How Æther collects, uses, and protects your personal data, and how to exercise your ARCO rights under Mexico's data protection law (LFPDPPP).",
-    updated: "Last updated: June 12, 2026",
+    updated: "Last updated: November 19, 2026",
     intro: [
       `This Privacy Notice (Aviso de Privacidad) describes how personal data is collected and used through this website and the services offered under the brand “Æther.” It is issued in accordance with the Mexican Federal Law on the Protection of Personal Data Held by Private Parties (Ley Federal de Protección de Datos Personales en Posesión de los Particulares, “LFPDPPP”) and its regulations.`,
     ],
@@ -117,7 +117,12 @@ export const privacyDoc: Record<"en" | "es", LegalDoc> = {
       {
         heading: "8. Cookies and similar technologies",
         paragraphs: [
-          `This site may use cookies or local storage to remember preferences (such as language and theme) and to gather anonymous usage statistics. You can disable cookies in your browser settings, though some features may stop working as intended.`,
+          `This site uses cookies and local storage to remember your language and theme and to measure visits. You can block or delete cookies in your browser settings. We use these services:`,
+        ],
+        bullets: [
+          `Plausible: counts visits without cookies and without identifying you.`,
+          `Metricool: counts visits and where they come from. It may set cookies in your browser.`,
+          `Meta Pixel: tells Meta which pages you visit and when you send a message or book a call, so we can measure our ads. It sets the _fbp cookie.`,
         ],
       },
       {
@@ -139,7 +144,7 @@ export const privacyDoc: Record<"en" | "es", LegalDoc> = {
     title: "Aviso de Privacidad",
     metaDescription:
       "Cómo Æther recaba, usa y protege tus datos personales, y cómo ejercer tus derechos ARCO conforme a la Ley Federal de Protección de Datos Personales (LFPDPPP).",
-    updated: "Última actualización: 12 de junio de 2026",
+    updated: "Última actualización: 19 de noviembre de 2026",
     intro: [
       `Este Aviso de Privacidad describe cómo se recaban y utilizan los datos personales a través de este sitio web y de los servicios ofrecidos bajo la marca “Æther”. Se emite conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (“LFPDPPP”) y su normatividad.`,
     ],
@@ -207,7 +212,12 @@ export const privacyDoc: Record<"en" | "es", LegalDoc> = {
       {
         heading: "8. Cookies y tecnologías similares",
         paragraphs: [
-          `Este sitio puede usar cookies o almacenamiento local para recordar preferencias (como idioma y tema) y recopilar estadísticas anónimas de uso. Puedes desactivar las cookies en la configuración de tu navegador, aunque algunas funciones podrían dejar de operar correctamente.`,
+          `Este sitio usa cookies y almacenamiento local para recordar tu idioma y tema y para medir visitas. Puedes bloquear o borrar las cookies desde la configuración de tu navegador. Usamos estos servicios:`,
+        ],
+        bullets: [
+          `Plausible: cuenta visitas sin cookies y sin identificarte.`,
+          `Metricool: cuenta visitas y de dónde llegan. Puede guardar cookies en tu navegador.`,
+          `Meta Pixel: avisa a Meta qué páginas visitas y cuándo envías un mensaje o agendas una llamada, para medir nuestros anuncios. Guarda la cookie _fbp.`,
         ],
       },
       {
