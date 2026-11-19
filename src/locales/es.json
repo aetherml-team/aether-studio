@@ -83,6 +83,11 @@
       "messageShort": "Cuéntanos un poco más, al menos 10 caracteres."
     }
   },
+  "cookieNotice": {
+    "text": "Usamos cookies para medir las visitas.",
+    "link": "Aviso de privacidad",
+    "ok": "Entendido"
+  },
   "stickyCta": {
     "label": "Quiero mi auditoría gratis"
   },

@@ -83,6 +83,11 @@
       "messageShort": "Tell us a little more, at least 10 characters."
     }
   },
+  "cookieNotice": {
+    "text": "We use cookies to measure visits.",
+    "link": "Privacy notice",
+    "ok": "OK"
+  },
   "stickyCta": {
     "label": "Get my free audit"
   },

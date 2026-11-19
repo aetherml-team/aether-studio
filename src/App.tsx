@@ -10,6 +10,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import CookieNotice from "@/components/CookieNotice";
 
 // The home route is the LCP path, so it stays in the main bundle. The legal
 // pages and 404 are split out — almost no visitor hits them, so there is no
@@ -55,6 +56,7 @@ const App = () => (
               <Sonner />
               <BrowserRouter>
                 <PixelPageViews />
+                <CookieNotice />
                 <Suspense fallback={null}>
                   <Routes>
                     <Route path="/" element={<Index />} />
